@@ -6,14 +6,13 @@ export default function CollegesHero() {
     <section className="relative w-full bg-[#0d1b3e] text-white overflow-hidden pb-20 pt-12">
       {/* Background Image & Overlay */}
       <div 
-        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-60"
+        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-90"
         style={{
-          backgroundImage: "url('/supreme-court.png')", // Fallback image for now
+          backgroundImage: "url('/college/college_page_banner.png')",
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0d1b3e] via-[#0d1b3e]/90 to-[#0d1b3e]/30"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0d1b3e] via-transparent to-[#0d1b3e]"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0d1b3e]/80 via-[#0d1b3e]/30 to-transparent pointer-events-none"></div>
       </div>
 
       <div className="max-w-[1280px] mx-auto px-4 relative z-10 flex flex-col justify-center h-full pt-8">
@@ -28,19 +27,16 @@ export default function CollegesHero() {
           </div>
 
           <h1 
-            className="text-[44px] md:text-[52px] lg:text-[56px] font-bold leading-tight mb-6 tracking-wide drop-shadow-md"
+            className="text-white text-[32px] md:text-[44px] font-black uppercase tracking-wider mb-4 leading-tight"
             style={{ fontFamily: "var(--font-merriweather), serif" }}
           >
             Law Colleges
           </h1>
-          <p className="text-[14px] md:text-[15px] text-[#e5e9f0] leading-relaxed font-medium mb-8 max-w-sm">
+          <p className="text-[#c9a84c] text-[15px] md:text-[18px] font-medium leading-relaxed mb-8 max-w-sm">
             Find leading law colleges in India, including NLU&apos;s, private and government institutions offering quality legal education.
           </p>
         </div>
       </div>
-      
-      {/* Decorative Gold Slant */}
-      <div className="absolute top-0 right-[35%] w-[4px] h-[150%] bg-[#c9a84c] transform rotate-[25deg] origin-top opacity-80 hidden lg:block shadow-[0_0_20px_rgba(201,168,76,0.3)] z-10"></div>
     </section>
   );
 }

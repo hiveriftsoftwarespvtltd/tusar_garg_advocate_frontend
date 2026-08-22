@@ -48,7 +48,7 @@ export default function FeaturedArticles() {
         <div className="lg:w-3/5 rounded-xl overflow-hidden relative group cursor-pointer shadow-sm h-[450px]">
           <div 
             className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-            style={{ backgroundImage: "url('https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=1200&auto=format&fit=crop')" }}
+            style={{ backgroundImage: "url('/articel/featured_articles_section.png')" }}
           ></div>
           <div className="absolute inset-0 bg-gradient-to-t from-[#0d1b3e] via-[#0d1b3e]/80 to-transparent"></div>
           

@@ -23,12 +23,12 @@ export default function JudgmentsHero() {
           </div>
 
           <h1 
-            className="text-[44px] md:text-[52px] lg:text-[56px] font-bold leading-tight mb-6 tracking-wide drop-shadow-md"
+            className="text-white text-[32px] md:text-[44px] font-black uppercase tracking-wider mb-4 leading-tight"
             style={{ fontFamily: "var(--font-merriweather), serif" }}
           >
             Judgments
           </h1>
-          <p className="text-[15px] md:text-[17px] text-white/90 leading-relaxed font-medium mb-8 max-w-lg">
+          <p className="text-[#c9a84c] text-[15px] md:text-[18px] font-medium leading-relaxed mb-8 max-w-lg">
             Search, explore and access judgments, orders and case laws from the Supreme Court of India, High Courts, District Courts and Tribunals across India.
           </p>
         </div>

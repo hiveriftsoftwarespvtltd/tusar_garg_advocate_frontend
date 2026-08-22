@@ -14,13 +14,13 @@ export default function LawsHero() {
       <div className="max-w-[1280px] mx-auto px-4 relative z-10 flex flex-col md:flex-row items-center">
         <div className="w-full md:w-[60%] lg:w-[50%]">
           <h1 
-            className="text-[48px] md:text-[56px] lg:text-[64px] font-bold leading-tight mb-4 tracking-wide drop-shadow-md"
+            className="text-white text-[32px] md:text-[44px] font-black uppercase tracking-wider mb-4 leading-tight"
             style={{ fontFamily: "var(--font-merriweather), serif" }}
           >
             Indian Laws
           </h1>
           <div className="w-16 h-[3px] bg-[#c9a84c] mb-6"></div>
-          <p className="text-[15px] md:text-[17px] text-white/90 leading-relaxed font-medium mb-8 max-w-lg">
+          <p className="text-[#c9a84c] text-[15px] md:text-[18px] font-medium leading-relaxed mb-8 max-w-lg">
             Your comprehensive gateway to Acts, Rules, Regulations, Notifications and related legal materials across all branches of law in India.
           </p>
         </div>

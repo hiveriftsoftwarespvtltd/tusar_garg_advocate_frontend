@@ -10,21 +10,26 @@ export default function ContactHero() {
 
   return (
     <section className="relative bg-[#0d1b3e] pt-20 pb-32 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0d1b3e] via-[#0d1b3e] to-transparent z-10 w-2/3"></div>
-      <div className="absolute top-0 right-0 bottom-0 w-1/2 opacity-40 mix-blend-luminosity">
-        <div className="w-full h-full bg-[url('https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center"></div>
+      {/* Background Image & Overlay */}
+      <div 
+        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-90"
+        style={{
+          backgroundImage: "url('/contact/contact_page_banner.png')",
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0d1b3e]/80 via-[#0d1b3e]/30 to-transparent pointer-events-none"></div>
       </div>
       
       <div className="max-w-[1280px] mx-auto px-4 relative z-20">
         <div className="max-w-2xl">
           <h1 
-            className="text-[48px] md:text-[56px] lg:text-[72px] font-bold text-white leading-none mb-6 tracking-wide drop-shadow-md uppercase"
+            className="text-white text-[32px] md:text-[44px] font-black uppercase tracking-wider mb-4 leading-tight"
             style={{ fontFamily: "var(--font-merriweather), serif" }}
           >
             CONTACT US
           </h1>
           
-          <p className="text-[15px] md:text-[17px] text-white/90 leading-relaxed mb-10 max-w-lg font-medium">
+          <p className="text-[#c9a84c] text-[15px] md:text-[18px] font-medium leading-relaxed mb-10 max-w-lg">
             We are here to assist you with professional inquiries, information and permitted communication.<br />
             Please use the appropriate channels below.
           </p>

@@ -24,16 +24,16 @@ export default function TribunalsHero() {
           </div>
 
           <h1 
-            className="text-[44px] md:text-[52px] lg:text-[56px] font-bold leading-tight mb-4 tracking-wide drop-shadow-md"
+            className="text-white text-[32px] md:text-[44px] font-black uppercase tracking-wider mb-4 leading-tight"
             style={{ fontFamily: "var(--font-merriweather), serif" }}
           >
             Tribunals & Forums
           </h1>
-          <div className="flex gap-1 mb-6">
+          <div className="flex gap-1 mb-4">
             <div className="w-10 h-[3px] bg-[#c9a84c]"></div>
             <div className="w-4 h-[3px] bg-[#c9a84c]"></div>
           </div>
-          <p className="text-[15px] md:text-[16px] text-[#e5e9f0] leading-relaxed font-medium mb-8 max-w-lg">
+          <p className="text-[#c9a84c] text-[15px] md:text-[18px] font-medium leading-relaxed mb-8 max-w-lg">
             Explore Tribunals, Appellate Authorities and Specialized Forums across India.
           </p>
         </div>

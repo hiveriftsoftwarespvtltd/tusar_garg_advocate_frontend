@@ -50,24 +50,24 @@ export default function ExamStages() {
         </div>
       </div>
 
-      <div className="bg-white border border-[#e8ebf2] rounded-xl shadow-sm p-4 md:p-6 overflow-x-auto hide-scrollbar">
-        <div className="flex items-stretch min-w-max md:min-w-0">
+      <div className="bg-white border border-[#e8ebf2] rounded-xl shadow-sm p-4 md:p-6 lg:p-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6 md:gap-8 xl:gap-4">
           {stages.map((stage, idx) => (
-            <div key={idx} className="flex flex-1 relative px-4 md:px-6 first:pl-2 last:pr-2">
-              {/* Divider Line */}
+            <div key={idx} className="flex relative">
+              {/* Divider Line (only visible on xl screens where items form a single row) */}
               {idx !== stages.length - 1 && (
-                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[1px] h-[70%] border-r border-dashed border-[#cbd5e1] hidden md:block"></div>
+                <div className="absolute -right-2 2xl:-right-4 top-1/2 -translate-y-1/2 w-[1px] h-[70%] border-r border-dashed border-[#cbd5e1] hidden xl:block"></div>
               )}
               
               <div className="flex items-center gap-4">
-                <div className="w-[52px] h-[52px] rounded-full bg-[#0d1b3e] flex items-center justify-center text-white flex-shrink-0">
+                <div className="w-[52px] h-[52px] rounded-full bg-[#0d1b3e] flex items-center justify-center text-white flex-shrink-0 shadow-sm">
                   {stage.icon}
                 </div>
                 <div className="flex flex-col">
                   <h3 className="text-[13px] font-bold text-[#0d1b3e] mb-1" style={{ fontFamily: "var(--font-merriweather), serif" }}>
                     {stage.title}
                   </h3>
-                  <p className="text-[11px] text-[#6b7280] leading-tight max-w-[140px]">
+                  <p className="text-[11px] text-[#6b7280] leading-tight">
                     {stage.desc}
                   </p>
                 </div>
