@@ -8,7 +8,7 @@ export default function LatestArticles() {
       desc: "A detailed look at how Indian courts are shaping the contours of data privacy.",
       date: "18 May 2025",
       time: "7 min read",
-      image: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=600&auto=format&fit=crop"
+      image: "/articel/legal_analysis_feartured_articel.png"
     },
     {
       category: "CASE NOTE",
@@ -16,7 +16,7 @@ export default function LatestArticles() {
       desc: "An important judgment on delay in filing writ petitions and the doctrine of laches.",
       date: "17 May 2025",
       time: "6 min read",
-      image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=600&auto=format&fit=crop"
+      image: "/articel/case_note_feartured_articel.png"
     },
     {
       category: "PRACTICE GUIDE",
@@ -24,15 +24,15 @@ export default function LatestArticles() {
       desc: "Essential checklist and preparation tips for advocates appearing in civil matters.",
       date: "16 May 2025",
       time: "5 min read",
-      image: "https://images.unsplash.com/photo-1589391886645-d51941baf7fb?q=80&w=600&auto=format&fit=crop"
+      image: "/articel/pratice_guide_feartured_articel.png"
     },
     {
-      category: "OPINION",
+      category: "EXPLAINER",
       title: "Judicial Independence: Myth, Reality and Reform",
       desc: "Exploring the challenges to judicial independence and the way forward.",
       date: "15 May 2025",
       time: "6 min read",
-      image: "https://images.unsplash.com/photo-1505664159871-9ca1920f01a4?q=80&w=600&auto=format&fit=crop"
+      image: "/articel/explainer_feartured_articel.png"
     }
   ];
 

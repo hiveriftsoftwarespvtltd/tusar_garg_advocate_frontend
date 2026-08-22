@@ -7,28 +7,28 @@ export default function FeaturedArticles() {
       title: "Bail Jurisprudence in India: Balancing Liberty and Societal Interests",
       date: "18 May 2025",
       time: "6 min read",
-      image: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=600&auto=format&fit=crop"
+      image: "/articel/case_note_feartured_articel.png"
     },
     {
       category: "PRACTICE GUIDE",
       title: "How to Draft an Effective Writ Petition: A Practical Guide for Advocates",
       date: "17 May 2025",
       time: "7 min read",
-      image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=600&auto=format&fit=crop"
+      image: "/articel/pratice_guide_feartured_articel.png"
     },
     {
       category: "LEGAL ANALYSIS",
       title: "Arbitration and Conciliation (Amendment) Act, 2021: Key Changes & Impact",
       date: "16 May 2025",
       time: "9 min read",
-      image: "https://images.unsplash.com/photo-1589391886645-d51941baf7fb?q=80&w=600&auto=format&fit=crop"
+      image: "/articel/legal_analysis_feartured_articel.png"
     },
     {
       category: "EXPLAINER",
       title: "Understanding Section 319 CrPC: Power to Proceed Against Other Persons",
       date: "15 May 2025",
       time: "5 min read",
-      image: "https://images.unsplash.com/photo-1505664159871-9ca1920f01a4?q=80&w=600&auto=format&fit=crop"
+      image: "/articel/explainer_feartured_articel.png"
     }
   ];
 
