@@ -65,7 +65,7 @@ export default function FeaturedOpenings() {
       {/* Header */}
       <div className="flex items-center gap-3 mb-6">
         <Briefcase size={22} className="text-[#c9a84c]" />
-        <h2 className="text-[15px] font-bold text-[#0d1b3e] uppercase tracking-[0.05em]" style={{ fontFamily: "var(--font-merriweather), serif" }}>
+        <h2 className="text-[15px] font-bold text-[#0d1b3e] uppercase tracking-[0.05em]" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
           FEATURED OPENINGS
         </h2>
       </div>
@@ -77,7 +77,7 @@ export default function FeaturedOpenings() {
             {/* Left: Icon & Title */}
             <div className="flex items-center gap-4 flex-[2] min-w-0">
               <div className="w-[42px] h-[42px] rounded-lg bg-[#0d1b3e] flex items-center justify-center flex-shrink-0 text-[#c9a84c] shadow-sm">
-                <span className="font-bold text-[18px] text-white" style={{ fontFamily: "var(--font-merriweather), serif" }}>
+                <span className="font-bold text-[18px] text-white" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
                   {job.title.charAt(0)}
                 </span>
               </div>

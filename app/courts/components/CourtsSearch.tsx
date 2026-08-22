@@ -7,7 +7,7 @@ export default function CourtsSearch() {
     <section id="search" className="py-6 bg-white">
       <div className="max-w-[1280px] mx-4 xl:mx-auto bg-[#0d1b3e] rounded-xl py-10 px-6 lg:px-12 shadow-md">
         
-        <h2 className="text-center text-[#c9a84c] text-[18px] font-bold uppercase tracking-wider mb-6" style={{ fontFamily: "var(--font-merriweather), serif" }}>
+        <h2 className="text-center text-[#c9a84c] text-[18px] font-bold uppercase tracking-wider mb-6" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
           SEARCH COURTS ACROSS INDIA
         </h2>
 

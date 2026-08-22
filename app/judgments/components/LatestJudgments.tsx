@@ -49,7 +49,7 @@ export default function LatestJudgments() {
         {/* Header with Tabs */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-8">
           <div className="flex flex-col">
-            <h2 className="text-[14px] md:text-[16px] font-bold text-[#0d1b3e] uppercase tracking-[0.1em] mb-2" style={{ fontFamily: "var(--font-merriweather), serif" }}>
+            <h2 className="text-[14px] md:text-[16px] font-bold text-[#0d1b3e] uppercase tracking-[0.1em] mb-2" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
               LATEST & IMPORTANT JUDGMENTS
             </h2>
             <div className="w-12 h-[3px] bg-[#c9a84c]"></div>
@@ -86,7 +86,7 @@ export default function LatestJudgments() {
               
               {/* Content (Has padding) */}
               <div className="flex-1 min-w-0 p-4 md:p-6 flex flex-col justify-center">
-                <h3 className="text-[15px] font-bold text-[#0d1b3e] leading-snug mb-1 group-hover:text-[#c9a84c] transition-colors" style={{ fontFamily: "var(--font-merriweather), serif" }}>
+                <h3 className="text-[15px] font-bold text-[#0d1b3e] leading-snug mb-1 group-hover:text-[#c9a84c] transition-colors" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
                   {judgment.title}
                 </h3>
                 <p className="text-[13px] text-[#374151] mb-3">

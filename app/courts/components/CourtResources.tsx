@@ -33,7 +33,7 @@ export default function CourtResources() {
       <div className="max-w-[1280px] mx-auto px-4">
 
         <div className="flex flex-col items-center mb-10">
-          <h2 className="text-[20px] font-bold text-[#0d1b3e] uppercase tracking-[0.1em]" style={{ fontFamily: "var(--font-merriweather), serif" }}>
+          <h2 className="text-[20px] font-bold text-[#0d1b3e] uppercase tracking-[0.1em]" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
             COURT RESOURCES
           </h2>
           <div className="w-12 h-[3px] bg-[#c9a84c] mt-2" />

@@ -15,7 +15,7 @@ export default function ExploreByCourt() {
         
         {/* Heading */}
         <div className="flex flex-col items-start mb-8">
-          <h2 className="text-[14px] md:text-[16px] font-bold text-[#0d1b3e] uppercase tracking-[0.1em] mb-2" style={{ fontFamily: "var(--font-merriweather), serif" }}>
+          <h2 className="text-[14px] md:text-[16px] font-bold text-[#0d1b3e] uppercase tracking-[0.1em] mb-2" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
             EXPLORE JUDGMENTS BY COURT
           </h2>
           <div className="w-12 h-[3px] bg-[#c9a84c]"></div>
@@ -34,7 +34,7 @@ export default function ExploreByCourt() {
                 {court.name}
               </h3>
               
-              <p className="text-[18px] md:text-[22px] font-black text-[#0d1b3e] mb-1" style={{ fontFamily: "var(--font-merriweather), serif" }}>
+              <p className="text-[18px] md:text-[22px] font-black text-[#0d1b3e] mb-1" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
                 {court.count}
               </p>
               

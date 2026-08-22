@@ -34,7 +34,7 @@ export default function RecentNotifications() {
       {/* Header */}
       <div className="flex items-center gap-3 mb-6">
         <Bell size={20} className="text-[#c9a84c]" />
-        <h2 className="text-[14px] md:text-[15px] font-bold text-[#0d1b3e] uppercase tracking-[0.05em]" style={{ fontFamily: "var(--font-merriweather), serif" }}>
+        <h2 className="text-[14px] md:text-[15px] font-bold text-[#0d1b3e] uppercase tracking-[0.05em]" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
           RECENT NOTIFICATIONS
         </h2>
       </div>

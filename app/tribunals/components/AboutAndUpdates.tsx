@@ -31,7 +31,7 @@ export default function AboutAndUpdates() {
         {/* Left Side: About */}
         <div className="xl:w-1/2 flex flex-col">
           <div className="flex flex-col items-start mb-6">
-            <h2 className="text-[15px] md:text-[16px] font-bold text-[#0d1b3e] uppercase tracking-[0.05em] mb-2" style={{ fontFamily: "var(--font-merriweather), serif" }}>
+            <h2 className="text-[15px] md:text-[16px] font-bold text-[#0d1b3e] uppercase tracking-[0.05em] mb-2" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
               ABOUT TRIBUNALS & FORUMS
             </h2>
             <div className="w-10 h-[3px] bg-[#c9a84c]"></div>
@@ -66,7 +66,7 @@ export default function AboutAndUpdates() {
         {/* Right Side: Updates */}
         <div className="xl:w-1/2 flex flex-col">
           <div className="flex flex-col items-start mb-6">
-            <h2 className="text-[15px] md:text-[16px] font-bold text-[#0d1b3e] uppercase tracking-[0.05em] mb-2" style={{ fontFamily: "var(--font-merriweather), serif" }}>
+            <h2 className="text-[15px] md:text-[16px] font-bold text-[#0d1b3e] uppercase tracking-[0.05em] mb-2" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
               LATEST ORDERS / UPDATES
             </h2>
             <div className="w-10 h-[3px] bg-[#c9a84c]"></div>

@@ -12,7 +12,7 @@ export default function BottomBanner() {
               <Quote size={32} className="fill-[#d4b975]" />
             </div>
             <div>
-              <p className="text-[17px] md:text-[19px] font-bold text-[#0d1b3e] leading-snug mb-3" style={{ fontFamily: "var(--font-merriweather), serif" }}>
+              <p className="text-[17px] md:text-[19px] font-bold text-[#0d1b3e] leading-snug mb-3" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
                 The roots of education are bitter, <br className="hidden lg:block" />
                 but the fruit is sweet.
               </p>
@@ -28,7 +28,7 @@ export default function BottomBanner() {
               <Headphones size={48} strokeWidth={1.2} />
             </div>
             <div>
-              <h3 className="text-[16px] md:text-[18px] font-bold text-[#0d1b3e] mb-1.5" style={{ fontFamily: "var(--font-merriweather), serif" }}>
+              <h3 className="text-[16px] md:text-[18px] font-bold text-[#0d1b3e] mb-1.5" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
                 Need Guidance for Admissions?
               </h3>
               <p className="text-[12.5px] text-[#6b7280] leading-relaxed mb-4 max-w-md">

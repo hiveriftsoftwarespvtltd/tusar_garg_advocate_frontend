@@ -32,7 +32,7 @@ export default function InfoBanner() {
               
               {/* Text Content */}
               <div className="flex-1">
-                <h3 className="text-white text-[13px] md:text-[14px] font-bold mb-1.5 tracking-wide" style={{ fontFamily: "var(--font-merriweather), serif" }}>
+                <h3 className="text-white text-[13px] md:text-[14px] font-bold mb-1.5 tracking-wide" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
                   {item.title}
                 </h3>
                 <p className="text-[#e2e8f0]/70 text-[11px] leading-relaxed pr-2">

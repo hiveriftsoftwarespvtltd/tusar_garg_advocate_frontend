@@ -27,7 +27,7 @@ export default function ArticlesSidebar() {
       {/* Popular Topics Box */}
       <div className="bg-white border border-[#e8ebf2] rounded-xl p-6 mb-8 shadow-sm">
         <div className="flex items-center justify-between mb-5">
-          <h3 className="text-[14px] font-bold text-[#0d1b3e] uppercase tracking-[0.05em]" style={{ fontFamily: "var(--font-merriweather), serif" }}>
+          <h3 className="text-[14px] font-bold text-[#0d1b3e] uppercase tracking-[0.05em]" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
             POPULAR TOPICS
           </h3>
           <button className="text-[11px] font-bold text-[#6b7280] hover:text-[#c9a84c] transition-colors">
@@ -59,7 +59,7 @@ export default function ArticlesSidebar() {
       {/* Top Authors Box */}
       <div className="bg-white border border-[#e8ebf2] rounded-xl p-6 shadow-sm">
         <div className="flex items-center justify-between mb-5">
-          <h3 className="text-[14px] font-bold text-[#0d1b3e] uppercase tracking-[0.05em]" style={{ fontFamily: "var(--font-merriweather), serif" }}>
+          <h3 className="text-[14px] font-bold text-[#0d1b3e] uppercase tracking-[0.05em]" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
             TOP AUTHORS
           </h3>
           <button className="text-[11px] font-bold text-[#6b7280] hover:text-[#c9a84c] transition-colors">

@@ -37,7 +37,7 @@ export default function BrowseByCourtType() {
       <div className="max-w-[1280px] mx-auto px-4">
         
         <div className="flex flex-col items-center mb-10">
-          <h2 className="text-[20px] font-bold text-[#0d1b3e] uppercase tracking-[0.1em]" style={{ fontFamily: "var(--font-merriweather), serif" }}>
+          <h2 className="text-[20px] font-bold text-[#0d1b3e] uppercase tracking-[0.1em]" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
             BROWSE BY COURT TYPE
           </h2>
           <div className="w-12 h-[3px] bg-[#c9a84c] mt-2" />
@@ -49,7 +49,7 @@ export default function BrowseByCourtType() {
               <div className="mb-6 transform group-hover:scale-110 transition-transform duration-300">
                 {court.icon}
               </div>
-              <h3 className="text-[15px] font-bold text-[#0d1b3e] uppercase tracking-wider mb-3" style={{ fontFamily: "var(--font-merriweather), serif" }}>
+              <h3 className="text-[15px] font-bold text-[#0d1b3e] uppercase tracking-wider mb-3" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
                 {court.title}
               </h3>
               <p className="text-[13px] text-[#6b7280] leading-relaxed">

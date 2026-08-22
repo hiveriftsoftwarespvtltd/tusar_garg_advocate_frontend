@@ -13,7 +13,7 @@ export default function CollegesSearch() {
             <div className="text-[#c9a84c]">
               <Landmark size={28} strokeWidth={1.5} className="md:w-8 md:h-8" />
             </div>
-            <h2 className="text-[14px] md:text-[15px] font-bold text-[#0d1b3e] uppercase tracking-[0.1em]" style={{ fontFamily: "var(--font-merriweather), serif" }}>
+            <h2 className="text-[14px] md:text-[15px] font-bold text-[#0d1b3e] uppercase tracking-[0.1em]" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
               SEARCH LAW COLLEGES
             </h2>
           </div>

@@ -7,7 +7,7 @@ export default function ArticlesHero() {
       <div 
         className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-90"
         style={{
-          backgroundImage: "url('/articles/article_banner.png')",
+          backgroundImage: "url('/articel/Articals_page_banner.png')",
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-[#0d1b3e]/80 via-[#0d1b3e]/30 to-transparent pointer-events-none"></div>
@@ -24,7 +24,7 @@ export default function ArticlesHero() {
 
           <h1 
             className="text-white text-[32px] md:text-[44px] font-black uppercase tracking-wider mb-4 leading-tight"
-            style={{ fontFamily: "var(--font-merriweather), serif" }}
+            style={{ fontFamily: "var(--font-roboto), sans-serif" }}
           >
             ARTICLES
           </h1>

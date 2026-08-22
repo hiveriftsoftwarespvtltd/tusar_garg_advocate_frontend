@@ -29,7 +29,7 @@ export default function ProfessionalProfile() {
           <div className="flex-1">
             <h2
               className="text-[24px] md:text-[28px] font-bold text-[#0d1b3e] uppercase tracking-[0.1em] mb-3"
-              style={{ fontFamily: "var(--font-merriweather), serif" }}
+              style={{ fontFamily: "var(--font-roboto), sans-serif" }}
             >
               PROFESSIONAL PROFILE
             </h2>
@@ -53,7 +53,7 @@ export default function ProfessionalProfile() {
                  <Award size={32} color="#c9a84c" strokeWidth={1.5} />
               </div>
             </div>
-            <h3 className="text-[13px] font-bold text-[#0d1b3e] uppercase tracking-wider leading-snug" style={{ fontFamily: "var(--font-merriweather), serif" }}>
+            <h3 className="text-[13px] font-bold text-[#0d1b3e] uppercase tracking-wider leading-snug" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
               LEGAL<br/>EXCELLENCE
             </h3>
             <hr className="w-8 border-t-[3px] border-[#c9a84c] mt-4" />
@@ -66,7 +66,7 @@ export default function ProfessionalProfile() {
                  <Landmark size={32} color="#c9a84c" strokeWidth={1.5} />
               </div>
             </div>
-            <h3 className="text-[13px] font-bold text-[#0d1b3e] uppercase tracking-wider leading-snug" style={{ fontFamily: "var(--font-merriweather), serif" }}>
+            <h3 className="text-[13px] font-bold text-[#0d1b3e] uppercase tracking-wider leading-snug" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
               SUPREME COURT<br/>PRACTICE
             </h3>
             <hr className="w-8 border-t-[3px] border-[#c9a84c] mt-4" />
@@ -79,7 +79,7 @@ export default function ProfessionalProfile() {
                  <Users size={32} color="#c9a84c" strokeWidth={1.5} />
               </div>
             </div>
-            <h3 className="text-[13px] font-bold text-[#0d1b3e] uppercase tracking-wider leading-snug" style={{ fontFamily: "var(--font-merriweather), serif" }}>
+            <h3 className="text-[13px] font-bold text-[#0d1b3e] uppercase tracking-wider leading-snug" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
               TRUSTED<br/>REPRESENTATION
             </h3>
             <hr className="w-8 border-t-[3px] border-[#c9a84c] mt-4" />
@@ -93,7 +93,7 @@ export default function ProfessionalProfile() {
                  <Scale size={32} color="#c9a84c" strokeWidth={1.5} className="relative z-10" />
               </div>
             </div>
-            <h3 className="text-[13px] font-bold text-[#0d1b3e] uppercase tracking-wider leading-snug" style={{ fontFamily: "var(--font-merriweather), serif" }}>
+            <h3 className="text-[13px] font-bold text-[#0d1b3e] uppercase tracking-wider leading-snug" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
               PROFESSIONAL<br/>INTEGRITY
             </h3>
             <hr className="w-8 border-t-[3px] border-[#c9a84c] mt-4" />

@@ -1,21 +1,14 @@
 import type { Metadata } from "next";
-import { Inter, Merriweather } from "next/font/google";
+import { Roboto } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ProductionPopup from "./components/ProductionPopup";
 
-const inter = Inter({
+const roboto = Roboto({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
-const merriweather = Merriweather({
-  subsets: ["latin"],
-  weight: ["300", "400", "700", "900"],
-  variable: "--font-merriweather",
+  weight: ["300", "400", "500", "700", "900"],
+  variable: "--font-roboto",
   display: "swap",
 });
 
@@ -33,8 +26,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${merriweather.variable}`}>
-      <body className="min-h-screen bg-white antialiased flex flex-col overflow-x-hidden">
+    <html lang="en" className={`${roboto.variable} font-sans`}>
+      <body className="min-h-screen bg-white antialiased flex flex-col overflow-x-hidden font-sans">
         <ProductionPopup />
         <Header />
         <div className="flex-1">

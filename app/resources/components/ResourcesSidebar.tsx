@@ -22,7 +22,7 @@ export default function ResourcesSidebar() {
       {/* Popular Resources Box */}
       <div className="bg-white border border-[#e8ebf2] rounded-xl p-6 mb-8 shadow-sm">
         <div className="flex items-center justify-between mb-5">
-          <h3 className="text-[14px] font-bold text-[#0d1b3e] uppercase tracking-[0.05em]" style={{ fontFamily: "var(--font-merriweather), serif" }}>
+          <h3 className="text-[14px] font-bold text-[#0d1b3e] uppercase tracking-[0.05em]" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
             POPULAR RESOURCES
           </h3>
           <button className="text-[11px] font-bold text-[#6b7280] hover:text-[#c9a84c] transition-colors">
@@ -56,7 +56,7 @@ export default function ResourcesSidebar() {
 
       {/* Quick Links Box */}
       <div className="bg-[#fafafa] border border-[#e8ebf2] rounded-xl p-6 mb-8 shadow-sm">
-        <h3 className="text-[14px] font-bold text-[#0d1b3e] uppercase tracking-[0.05em] mb-5" style={{ fontFamily: "var(--font-merriweather), serif" }}>
+        <h3 className="text-[14px] font-bold text-[#0d1b3e] uppercase tracking-[0.05em] mb-5" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
           QUICK LINKS
         </h3>
         
@@ -83,7 +83,7 @@ export default function ResourcesSidebar() {
           <Quote size={40} className="fill-[#c9a84c]/40 rotate-180" />
         </div>
         <div className="relative z-10">
-          <p className="text-[15px] font-bold text-[#0d1b3e] leading-relaxed mb-6 italic" style={{ fontFamily: "var(--font-merriweather), serif" }}>
+          <p className="text-[15px] font-bold text-[#0d1b3e] leading-relaxed mb-6 italic" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
             Law is not just a profession, it is a system of values, a means of justice and an instrument for a better society.
           </p>
           <div className="flex items-center gap-3">

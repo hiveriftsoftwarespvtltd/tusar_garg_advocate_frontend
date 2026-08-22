@@ -23,7 +23,7 @@ export default function TribunalsDirectory() {
         
         {/* Heading */}
         <div className="flex flex-col items-start mb-8">
-          <h2 className="text-[16px] md:text-[18px] font-bold text-[#0d1b3e] uppercase tracking-[0.1em] mb-2" style={{ fontFamily: "var(--font-merriweather), serif" }}>
+          <h2 className="text-[16px] md:text-[18px] font-bold text-[#0d1b3e] uppercase tracking-[0.1em] mb-2" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
             TRIBUNALS DIRECTORY
           </h2>
           <div className="w-12 h-[3px] bg-[#c9a84c]"></div>
@@ -38,7 +38,7 @@ export default function TribunalsDirectory() {
                 {tribunal.icon}
               </div>
               
-              <h3 className="text-[14px] md:text-[15px] font-black text-[#0d1b3e] mb-1.5 tracking-wide group-hover:text-[#c9a84c] transition-colors" style={{ fontFamily: "var(--font-merriweather), serif" }}>
+              <h3 className="text-[14px] md:text-[15px] font-black text-[#0d1b3e] mb-1.5 tracking-wide group-hover:text-[#c9a84c] transition-colors" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
                 {tribunal.abbr}
               </h3>
               

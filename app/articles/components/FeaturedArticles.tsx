@@ -35,7 +35,7 @@ export default function FeaturedArticles() {
   return (
     <section className="mb-12">
       <div className="flex items-center justify-between mb-5 border-b border-[#e8ebf2] pb-3">
-        <h2 className="text-[16px] font-bold text-[#0d1b3e] uppercase tracking-[0.05em]" style={{ fontFamily: "var(--font-merriweather), serif" }}>
+        <h2 className="text-[16px] font-bold text-[#0d1b3e] uppercase tracking-[0.05em]" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
           FEATURED ARTICLES
         </h2>
         <button className="text-[12px] font-bold text-[#6b7280] hover:text-[#c9a84c] transition-colors">
@@ -58,7 +58,7 @@ export default function FeaturedArticles() {
             </span>
             <h3 
               className="text-[24px] md:text-[28px] font-bold text-white leading-tight mb-3 group-hover:text-[#c9a84c] transition-colors"
-              style={{ fontFamily: "var(--font-merriweather), serif" }}
+              style={{ fontFamily: "var(--font-roboto), sans-serif" }}
             >
               The Evolving Scope of Judicial Review in India: Recent Trends and Implications
             </h3>
@@ -96,7 +96,7 @@ export default function FeaturedArticles() {
                 </span>
                 <h4 
                   className="text-[14px] font-bold text-[#0d1b3e] leading-snug mb-2 group-hover:text-[#c9a84c] transition-colors line-clamp-2"
-                  style={{ fontFamily: "var(--font-merriweather), serif" }}
+                  style={{ fontFamily: "var(--font-roboto), sans-serif" }}
                 >
                   {article.title}
                 </h4>

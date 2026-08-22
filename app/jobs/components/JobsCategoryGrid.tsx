@@ -21,7 +21,7 @@ export default function JobsCategoryGrid() {
         <div className="flex items-center justify-center gap-4 mb-10">
           <div className="w-12 h-[1px] bg-[#c9a84c]"></div>
           <div className="w-2 h-2 rounded-full bg-[#c9a84c]"></div>
-          <h2 className="text-[16px] md:text-[18px] font-bold text-[#0d1b3e] uppercase tracking-[0.15em] text-center" style={{ fontFamily: "var(--font-merriweather), serif" }}>
+          <h2 className="text-[16px] md:text-[18px] font-bold text-[#0d1b3e] uppercase tracking-[0.15em] text-center" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
             BROWSE LEGAL JOBS BY CATEGORY
           </h2>
           <div className="w-2 h-2 rounded-full bg-[#c9a84c]"></div>
@@ -37,7 +37,7 @@ export default function JobsCategoryGrid() {
                 {cat.icon}
               </div>
               
-              <h3 className="text-[12px] font-bold text-[#0d1b3e] mb-2 leading-tight group-hover:text-[#c9a84c] transition-colors whitespace-pre-line h-[32px] flex items-center justify-center" style={{ fontFamily: "var(--font-merriweather), serif" }}>
+              <h3 className="text-[12px] font-bold text-[#0d1b3e] mb-2 leading-tight group-hover:text-[#c9a84c] transition-colors whitespace-pre-line h-[32px] flex items-center justify-center" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
                 {cat.name}
               </h3>
               

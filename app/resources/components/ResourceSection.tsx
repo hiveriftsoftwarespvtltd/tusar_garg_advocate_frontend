@@ -25,7 +25,7 @@ export default function ResourceSection({ title, featured, items }: ResourceSect
   return (
     <section className="mb-12">
       <div className="flex items-center justify-between mb-5 border-b border-[#e8ebf2] pb-3">
-        <h2 className="text-[16px] font-bold text-[#0d1b3e] uppercase tracking-[0.05em]" style={{ fontFamily: "var(--font-merriweather), serif" }}>
+        <h2 className="text-[16px] font-bold text-[#0d1b3e] uppercase tracking-[0.05em]" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
           {title}
         </h2>
         <button className="text-[12px] font-bold text-[#6b7280] hover:text-[#c9a84c] transition-colors">
@@ -48,7 +48,7 @@ export default function ResourceSection({ title, featured, items }: ResourceSect
             </span>
             <h3 
               className="text-[20px] md:text-[24px] font-bold text-white leading-tight mb-2 group-hover:text-[#c9a84c] transition-colors"
-              style={{ fontFamily: "var(--font-merriweather), serif" }}
+              style={{ fontFamily: "var(--font-roboto), sans-serif" }}
             >
               {featured.title}
             </h3>
@@ -82,7 +82,7 @@ export default function ResourceSection({ title, featured, items }: ResourceSect
               <div className="flex flex-col justify-center flex-1 py-1">
                 <h4 
                   className="text-[13.5px] font-bold text-[#0d1b3e] leading-snug mb-1 group-hover:text-[#c9a84c] transition-colors line-clamp-1"
-                  style={{ fontFamily: "var(--font-merriweather), serif" }}
+                  style={{ fontFamily: "var(--font-roboto), sans-serif" }}
                 >
                   {item.title}
                 </h4>

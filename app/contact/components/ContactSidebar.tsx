@@ -14,7 +14,7 @@ export default function ContactSidebar() {
       {/* Permitted Inquiries Box */}
       <div className="bg-white border border-[#e8ebf2] rounded-xl p-6 mb-8 shadow-sm">
         <div className="mb-5">
-          <h3 className="text-[14px] font-bold text-[#0d1b3e] uppercase tracking-[0.05em] mb-3" style={{ fontFamily: "var(--font-merriweather), serif" }}>
+          <h3 className="text-[14px] font-bold text-[#0d1b3e] uppercase tracking-[0.05em] mb-3" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
             PERMITTED INQUIRIES
           </h3>
           <div className="w-12 h-[2px] bg-[#c9a84c]"></div>
@@ -37,7 +37,7 @@ export default function ContactSidebar() {
       {/* Please Note Box */}
       <div className="bg-white border border-[#e8ebf2] rounded-xl p-6 shadow-sm">
         <div className="mb-5">
-          <h3 className="text-[14px] font-bold text-[#0d1b3e] uppercase tracking-[0.05em] mb-3" style={{ fontFamily: "var(--font-merriweather), serif" }}>
+          <h3 className="text-[14px] font-bold text-[#0d1b3e] uppercase tracking-[0.05em] mb-3" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
             PLEASE NOTE
           </h3>
           <div className="w-12 h-[2px] bg-[#c9a84c]"></div>

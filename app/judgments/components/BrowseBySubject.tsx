@@ -20,7 +20,7 @@ export default function BrowseBySubject() {
         
         {/* Heading */}
         <div className="flex flex-col items-start mb-8">
-          <h2 className="text-[14px] md:text-[16px] font-bold text-[#0d1b3e] uppercase tracking-[0.1em] mb-2" style={{ fontFamily: "var(--font-merriweather), serif" }}>
+          <h2 className="text-[14px] md:text-[16px] font-bold text-[#0d1b3e] uppercase tracking-[0.1em] mb-2" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
             BROWSE JUDGMENTS BY SUBJECT
           </h2>
           <div className="w-12 h-[3px] bg-[#c9a84c]"></div>

@@ -34,7 +34,7 @@ export default function ResourcesBanner() {
                 {item.icon}
               </div>
               <div className="pt-0.5">
-                <h3 className="text-white text-[13px] font-bold mb-1.5 tracking-wide" style={{ fontFamily: "var(--font-merriweather), serif" }}>
+                <h3 className="text-white text-[13px] font-bold mb-1.5 tracking-wide" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
                   {item.title}
                 </h3>
                 <p className="text-white/70 text-[11px] leading-relaxed pr-2">

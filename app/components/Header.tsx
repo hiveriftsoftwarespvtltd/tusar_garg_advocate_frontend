@@ -30,7 +30,7 @@ export default function Header() {
       <div className="max-w-[1280px] mx-auto px-4 flex items-center justify-between h-[64px] gap-4">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 sm:gap-4 min-w-0">
-          <span className="text-[#c9a84c] text-[28px] sm:text-[34px] leading-none pr-3 sm:pr-4 border-r border-[#1a2b5a] flex-shrink-0" style={{ fontFamily: "var(--font-merriweather), serif" }}>TG</span>
+          <span className="text-[#c9a84c] text-[28px] sm:text-[34px] leading-none pr-3 sm:pr-4 border-r border-[#1a2b5a] flex-shrink-0" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>TG</span>
           <div className="flex flex-col leading-tight min-w-0">
             <span className="text-white font-bold text-[14px] sm:text-[15px] tracking-[0.1em] uppercase truncate">
               TUSHAR GARG

@@ -33,7 +33,7 @@ export default function JobHighlights() {
             <div className="w-8 md:w-16 h-[1px] bg-[#c9a84c]"></div>
             <div className="w-1.5 h-1.5 rotate-45 bg-[#c9a84c]"></div>
           </div>
-          <h2 className="text-[14px] md:text-[16px] font-bold text-[#0d1b3e] uppercase tracking-[0.1em] text-center" style={{ fontFamily: "var(--font-merriweather), serif" }}>
+          <h2 className="text-[14px] md:text-[16px] font-bold text-[#0d1b3e] uppercase tracking-[0.1em] text-center" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
             JOB DETAIL HIGHLIGHTS
           </h2>
           <div className="flex items-center">
@@ -63,7 +63,7 @@ export default function JobHighlights() {
             <div className="w-8 md:w-16 h-[1px] bg-[#c9a84c]"></div>
             <div className="w-1.5 h-1.5 rotate-45 bg-[#c9a84c]"></div>
           </div>
-          <h2 className="text-[14px] md:text-[16px] font-bold text-[#0d1b3e] uppercase tracking-[0.1em] text-center" style={{ fontFamily: "var(--font-merriweather), serif" }}>
+          <h2 className="text-[14px] md:text-[16px] font-bold text-[#0d1b3e] uppercase tracking-[0.1em] text-center" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
             BROWSE BY ROLE TYPE
           </h2>
           <div className="flex items-center">

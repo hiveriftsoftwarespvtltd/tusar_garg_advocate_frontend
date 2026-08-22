@@ -29,7 +29,7 @@ export default function StateGrid() {
             <div className="w-12 md:w-16 h-[1px] bg-[#c9a84c]"></div>
             <div className="w-1.5 h-1.5 rotate-45 bg-[#c9a84c]"></div>
           </div>
-          <h2 className="text-[14px] md:text-[16px] font-bold text-[#0d1b3e] uppercase tracking-[0.1em] text-center" style={{ fontFamily: "var(--font-merriweather), serif" }}>
+          <h2 className="text-[14px] md:text-[16px] font-bold text-[#0d1b3e] uppercase tracking-[0.1em] text-center" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
             EXPLORE JUDICIARY BY STATE
           </h2>
           <div className="flex items-center">
@@ -48,7 +48,7 @@ export default function StateGrid() {
                 </svg>
               </div>
               <div className="flex flex-col items-center justify-center flex-1 w-full">
-                <h3 className="text-[12px] xl:text-[13px] font-black text-[#0d1b3e] mb-1.5 leading-tight group-hover:text-[#c9a84c] transition-colors" style={{ fontFamily: "var(--font-merriweather), serif" }}>
+                <h3 className="text-[12px] xl:text-[13px] font-black text-[#0d1b3e] mb-1.5 leading-tight group-hover:text-[#c9a84c] transition-colors" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
                   {state.name}
                 </h3>
                 <div className="text-[9px] xl:text-[10px] text-[#6b7280] font-medium leading-relaxed mb-4">

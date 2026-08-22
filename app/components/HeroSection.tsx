@@ -37,7 +37,7 @@ export default function HeroSection() {
           {/* Main heading */}
           <h1
             className="text-[52px] md:text-[64px] font-black text-white leading-[1.0] mb-3 uppercase tracking-tight"
-            style={{ fontFamily: "var(--font-merriweather), serif" }}
+            style={{ fontFamily: "var(--font-roboto), sans-serif" }}
           >
             TUSHAR GARG
           </h1>

@@ -32,7 +32,7 @@ export default function ContactHero() {
 
           <h1 
             className="text-white text-[32px] md:text-[44px] font-black uppercase tracking-wider mb-4 leading-tight"
-            style={{ fontFamily: "var(--font-merriweather), serif" }}
+            style={{ fontFamily: "var(--font-roboto), sans-serif" }}
           >
             CONTACT US
           </h1>

@@ -69,7 +69,7 @@ export default function TopCollegesList() {
     <section>
       {/* Heading */}
       <div className="mb-6">
-        <h2 className="text-[14px] md:text-[15px] font-bold text-[#0d1b3e] uppercase tracking-[0.05em] mb-3" style={{ fontFamily: "var(--font-merriweather), serif" }}>
+        <h2 className="text-[14px] md:text-[15px] font-bold text-[#0d1b3e] uppercase tracking-[0.05em] mb-3" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
           TOP LAW COLLEGES IN INDIA
         </h2>
         <div className="w-full h-[1px] bg-[#c9a84c]/30"></div>

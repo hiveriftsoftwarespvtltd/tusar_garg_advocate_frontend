@@ -5,7 +5,7 @@ export default function AboutLegalEd() {
     <section className="bg-[#0d1b3e] rounded-xl p-6 relative overflow-hidden shadow-md">
       {/* Heading */}
       <div className="mb-5">
-        <h2 className="text-[14px] font-bold text-white uppercase tracking-[0.05em] mb-3" style={{ fontFamily: "var(--font-merriweather), serif" }}>
+        <h2 className="text-[14px] font-bold text-white uppercase tracking-[0.05em] mb-3" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
           ABOUT LEGAL EDUCATION
         </h2>
         <div className="w-12 h-[2px] bg-[#c9a84c]"></div>

@@ -44,7 +44,7 @@ export default function ProductionPopup() {
         
         <h2 
           className="text-[22px] font-bold text-[#0d1b3e] uppercase tracking-wide mb-3"
-          style={{ fontFamily: "var(--font-merriweather), serif" }}
+          style={{ fontFamily: "var(--font-roboto), sans-serif" }}
         >
           Website Under Production
         </h2>

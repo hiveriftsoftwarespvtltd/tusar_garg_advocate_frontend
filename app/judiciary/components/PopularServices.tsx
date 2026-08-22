@@ -42,7 +42,7 @@ export default function PopularServices() {
           <div className="w-8 md:w-16 h-[1px] bg-[#c9a84c]"></div>
           <div className="w-1.5 h-1.5 rotate-45 bg-[#c9a84c]"></div>
         </div>
-        <h2 className="text-[14px] md:text-[16px] font-bold text-[#0d1b3e] uppercase tracking-[0.1em] text-center" style={{ fontFamily: "var(--font-merriweather), serif" }}>
+        <h2 className="text-[14px] md:text-[16px] font-bold text-[#0d1b3e] uppercase tracking-[0.1em] text-center" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
           POPULAR JUDICIAL SERVICES
         </h2>
         <div className="flex items-center">
@@ -58,7 +58,7 @@ export default function PopularServices() {
             <div className="text-[#0d1b3e] mb-4 group-hover:scale-110 group-hover:text-[#c9a84c] transition-all duration-300">
               {service.icon}
             </div>
-            <h3 className="text-[12px] font-bold text-[#0d1b3e] mb-2 leading-snug group-hover:text-[#c9a84c] transition-colors flex-shrink-0" style={{ fontFamily: "var(--font-merriweather), serif" }}>
+            <h3 className="text-[12px] font-bold text-[#0d1b3e] mb-2 leading-snug group-hover:text-[#c9a84c] transition-colors flex-shrink-0" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
               {service.title}
             </h3>
             <p className="text-[10px] text-[#6b7280] leading-relaxed mb-4 flex-1">

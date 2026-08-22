@@ -179,7 +179,7 @@ export default function FeaturedCourts() {
         <div className="text-center mb-8">
           <h2
             className="text-[20px] font-bold text-[#0d1b3e] tracking-[0.15em] uppercase"
-            style={{ fontFamily: "var(--font-merriweather), serif" }}
+            style={{ fontFamily: "var(--font-roboto), sans-serif" }}
           >
             FEATURED COURTS
           </h2>

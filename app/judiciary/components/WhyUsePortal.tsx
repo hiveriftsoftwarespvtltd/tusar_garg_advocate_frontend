@@ -31,7 +31,7 @@ export default function WhyUsePortal() {
           <div className="w-8 md:w-16 h-[1px] bg-[#c9a84c]"></div>
           <div className="w-1.5 h-1.5 rotate-45 bg-[#c9a84c]"></div>
         </div>
-        <h2 className="text-[14px] md:text-[16px] font-bold text-[#0d1b3e] uppercase tracking-[0.1em] text-center" style={{ fontFamily: "var(--font-merriweather), serif" }}>
+        <h2 className="text-[14px] md:text-[16px] font-bold text-[#0d1b3e] uppercase tracking-[0.1em] text-center" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
           WHY USE THIS JUDICIARY PORTAL
         </h2>
         <div className="flex items-center">
@@ -47,7 +47,7 @@ export default function WhyUsePortal() {
               {reason.icon}
             </div>
             <div className="flex flex-col">
-              <h3 className="text-[14px] font-bold text-[#0d1b3e] mb-1.5" style={{ fontFamily: "var(--font-merriweather), serif" }}>
+              <h3 className="text-[14px] font-bold text-[#0d1b3e] mb-1.5" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
                 {reason.title}
               </h3>
               <p className="text-[11px] text-[#6b7280] leading-relaxed">
