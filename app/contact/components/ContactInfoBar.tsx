@@ -11,13 +11,13 @@ export default function ContactInfoBar() {
     {
       icon: <Phone size={24} strokeWidth={1.5} />,
       title: "PHONE",
-      content: "+91-7206810681",
+      content: "+91-7206810681 / 011-40817553",
       subtext: "Mon - Sat | 10:00 AM - 6:00 PM (IST)",
     },
     {
       icon: <MapPin size={24} strokeWidth={1.5} />,
       title: "ADDRESS",
-      content: "Chamber No. 5, Supreme Court of India, New Delhi - 110001",
+      content: "Flat No. 7, Second Floor, D-1, Kalindi Colony, Near Sunrise Hospital, New Delhi-110065",
       subtext: "By prior appointment only.",
     },
     {

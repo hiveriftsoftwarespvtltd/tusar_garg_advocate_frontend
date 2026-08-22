@@ -68,7 +68,7 @@ export default function Header() {
       </div>
 
       {/* Nav bar */}
-      <div className="border-t border-white/10">
+      <div >
         <div className="max-w-[1280px] mx-auto px-4">
           <nav className="hidden lg:flex items-center justify-between py-4">
             {navItems.map((item) => {

@@ -1,31 +1,33 @@
+import { Scale, Landmark, Building2, Gavel } from "lucide-react";
+
 export default function BrowseByCourtType() {
   const courtTypes = [
     {
       title: "Supreme Court",
       description: "Highest court of appeal in India.",
       icon: (
-        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2C8 2 4 6 4 10v12h16V10c0-4-4-8-8-8z"/><path d="M12 2v8"/><path d="M8 10v12"/><path d="M16 10v12"/></svg>
+        <Landmark size={48} color="#c9a84c" strokeWidth={1.5} />
       )
     },
     {
       title: "High Courts",
       description: "Constitutional courts for each state and union territory.",
       icon: (
-        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#0d1b3e" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3v18"/><path d="M3 21h18"/><path d="M12 7l-8 4v2"/><path d="M12 7l8 4v2"/><path d="M4 13c0 2.2 1.8 4 4 4s4-1.8 4-4"/><path d="M12 13c0 2.2 1.8 4 4 4s4-1.8 4-4"/></svg>
+        <Scale size={48} color="#0d1b3e" strokeWidth={1.5} />
       )
     },
     {
       title: "District Courts",
       description: "Trial courts handling civil and criminal matters.",
       icon: (
-        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#0d1b3e" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 20h16"/><path d="M4 4h16"/><path d="M6 4v16"/><path d="M10 4v16"/><path d="M14 4v16"/><path d="M18 4v16"/></svg>
+        <Building2 size={48} color="#0d1b3e" strokeWidth={1.5} />
       )
     },
     {
       title: "Tribunals",
       description: "Specialized forums for quasi-judicial matters.",
       icon: (
-        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#0d1b3e" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 21h18"/><path d="M5 21v-4"/><path d="M19 21v-4"/><path d="M3 7v4h18V7"/><path d="M12 3v4"/><path d="M8 3v4"/><path d="M16 3v4"/></svg>
+        <Gavel size={48} color="#0d1b3e" strokeWidth={1.5} />
       )
     }
   ];

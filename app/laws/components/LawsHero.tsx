@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function LawsHero() {
   return (
     <section className="relative w-full bg-[#0d1b3e] text-white overflow-hidden pb-16 pt-16">
@@ -13,6 +15,13 @@ export default function LawsHero() {
 
       <div className="max-w-[1280px] mx-auto px-4 relative z-10 flex flex-col md:flex-row items-center">
         <div className="w-full md:w-[60%] lg:w-[50%]">
+          {/* Breadcrumb */}
+          <div className="flex items-center gap-2 text-[11px] text-[#e5e9f0] font-medium tracking-wide mb-6">
+            <Link href="/" className="hover:text-white transition-colors">Home</Link>
+            <span>›</span>
+            <span className="text-white">Indian Laws</span>
+          </div>
+
           <h1 
             className="text-white text-[32px] md:text-[44px] font-black uppercase tracking-wider mb-4 leading-tight"
             style={{ fontFamily: "var(--font-merriweather), serif" }}

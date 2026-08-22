@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function ArticlesHero() {
   return (
     <section className="relative bg-[#0d1b3e] pt-16 pb-32 overflow-hidden">
@@ -5,7 +7,7 @@ export default function ArticlesHero() {
       <div 
         className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-90"
         style={{
-          backgroundImage: "url('/articel/Articals_page_banner.png')",
+          backgroundImage: "url('/articles/article_banner.png')",
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-[#0d1b3e]/80 via-[#0d1b3e]/30 to-transparent pointer-events-none"></div>
@@ -13,6 +15,13 @@ export default function ArticlesHero() {
       
       <div className="max-w-[1280px] mx-auto px-4 relative z-20">
         <div className="max-w-2xl">
+          {/* Breadcrumb */}
+          <div className="flex items-center gap-2 text-[11px] text-[#e5e9f0] font-medium tracking-wide mb-6">
+            <Link href="/" className="hover:text-white transition-colors">Home</Link>
+            <span>›</span>
+            <span className="text-white">Legal Articles</span>
+          </div>
+
           <h1 
             className="text-white text-[32px] md:text-[44px] font-black uppercase tracking-wider mb-4 leading-tight"
             style={{ fontFamily: "var(--font-merriweather), serif" }}

@@ -4,8 +4,8 @@ export default function OfficeInfo() {
   const details = [
     {
       icon: <MapPin size={18} />,
-      title: "Chamber No. 5,",
-      desc: "Supreme Court of India,\nNew Delhi – 110001"
+      title: "Address",
+      desc: "Flat No. 7, Second Floor, D-1,\nKalindi Colony, Near Sunrise Hospital,\nNew Delhi-110065"
     },
     {
       icon: <Clock size={18} />,
@@ -19,8 +19,8 @@ export default function OfficeInfo() {
     },
     {
       icon: <Phone size={18} />,
-      title: "Phone",
-      desc: "+91-7206810681"
+      title: "Phone & Landline",
+      desc: "+91-7206810681\n011-40817553"
     },
     {
       icon: <Mail size={18} />,
@@ -78,8 +78,8 @@ export default function OfficeInfo() {
                  <MapPin size={12} fill="currentColor" />
                </div>
                <div>
-                 <span className="block text-[12px] font-bold text-[#0d1b3e] leading-tight">Supreme Court of India</span>
-                 <span className="block text-[10px] text-[#6b7280]">New Delhi - 110001</span>
+                 <span className="block text-[12px] font-bold text-[#0d1b3e] leading-tight">Tushar Garg Office</span>
+                 <span className="block text-[10px] text-[#6b7280]">New Delhi-110065</span>
                </div>
                <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-white border-b border-r border-[#e8ebf2] rotate-45"></div>
              </div>

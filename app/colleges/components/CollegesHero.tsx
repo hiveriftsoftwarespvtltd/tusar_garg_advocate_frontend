@@ -1,7 +1,14 @@
 import Link from "next/link";
-import { ChevronRight } from "lucide-react";
+import { MapPin, Library, GraduationCap, Trophy, ChevronRight } from "lucide-react";
 
 export default function CollegesHero() {
+  const stats = [
+    { value: "500+", label: "Law Colleges", icon: <Library size={18} /> },
+    { value: "All States", label: "Covered", icon: <MapPin size={18} /> },
+    { value: "25+", label: "NLU's", icon: <Trophy size={18} /> },
+    { value: "10+", label: "Exams", icon: <GraduationCap size={18} /> }
+  ];
+
   return (
     <section className="relative w-full bg-[#0d1b3e] text-white overflow-hidden pb-20 pt-12">
       {/* Background Image & Overlay */}
@@ -20,9 +27,9 @@ export default function CollegesHero() {
           {/* Breadcrumb */}
           <div className="flex items-center gap-2 text-[11px] text-[#e5e9f0] font-medium tracking-wide mb-6">
             <Link href="/" className="hover:text-white transition-colors">Home</Link>
-            <ChevronRight size={12} className="text-[#e5e9f0]" />
+            <span>›</span>
             <Link href="/resources" className="hover:text-white transition-colors">Resources</Link>
-            <ChevronRight size={12} className="text-[#e5e9f0]" />
+            <span>›</span>
             <span className="text-white">Law Colleges</span>
           </div>
 

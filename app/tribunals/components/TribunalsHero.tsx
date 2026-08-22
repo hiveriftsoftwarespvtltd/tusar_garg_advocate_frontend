@@ -19,7 +19,7 @@ export default function TribunalsHero() {
           {/* Breadcrumb */}
           <div className="flex items-center gap-2 text-[11px] text-[#e5e9f0] font-medium tracking-wide mb-6">
             <Link href="/" className="hover:text-white transition-colors">Home</Link>
-            <ChevronRight size={12} />
+            <span>›</span>
             <span className="text-white">Tribunals & Forums</span>
           </div>
 

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { ReactNode } from "react";
 
 interface PageHeroProps {
@@ -33,6 +34,14 @@ export default function PageHero({
       {/* Content */}
       <div className="relative max-w-[1280px] mx-auto px-4 h-full flex flex-col justify-center">
         <div className={`max-w-[800px] ${align === "center" ? "mx-auto text-center" : ""}`}>
+          
+          {/* Breadcrumb */}
+          <div className={`flex items-center gap-2 text-[11px] text-[#e5e9f0] font-medium tracking-wide mb-6 ${align === "center" ? "justify-center" : ""}`}>
+            <Link href="/" className="hover:text-white transition-colors">Home</Link>
+            <span>›</span>
+            <span className="text-white">{title}</span>
+          </div>
+
           <h1
             className="text-white text-[32px] md:text-[44px] font-black uppercase tracking-wider mb-4 leading-tight"
             style={{ fontFamily: "var(--font-merriweather), serif" }}

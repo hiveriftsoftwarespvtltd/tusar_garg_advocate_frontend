@@ -3,6 +3,7 @@ import { Inter, Merriweather } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import ProductionPopup from "./components/ProductionPopup";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -34,6 +35,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${merriweather.variable}`}>
       <body className="min-h-screen bg-white antialiased flex flex-col overflow-x-hidden">
+        <ProductionPopup />
         <Header />
         <div className="flex-1">
           {children}

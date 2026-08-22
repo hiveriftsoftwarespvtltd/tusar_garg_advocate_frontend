@@ -56,9 +56,9 @@ export default function AboutSection() {
 
           {/* Portrait */}
           <div className="flex-shrink-0 md:w-[190px]">
-            <div className="relative w-[160px] md:w-[190px] aspect-[3/4] overflow-hidden border-l-4 border-[#c9a84c]">
+            <div className="relative w-[160px] md:w-[190px] aspect-[3/4] overflow-hidden rounded-sm">
               <Image
-                src="/advocate-about.png"
+                src="/home/tusar_garg_photo.jpeg"
                 alt="Tushar Garg"
                 fill
                 className="object-cover object-top"

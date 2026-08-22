@@ -41,7 +41,7 @@ export default function ResourcesPage() {
                 desc: "Understand key legal terms and their meanings with our comprehensive glossary.",
                 category: "Glossary",
                 date: "18 May 2025",
-                image: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=800&auto=format&fit=crop"
+                image: "/resource/legal_glossary.png"
               }}
               items={glossaryItems}
             />
@@ -54,7 +54,7 @@ export default function ResourcesPage() {
                 desc: "Explore commonly used Latin maxims and their meaning in legal practice.",
                 category: "Maxims",
                 date: "17 May 2025",
-                image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=800&auto=format&fit=crop"
+                image: "/resource/legal_maxims.png"
               }}
               items={maximsItems}
             />

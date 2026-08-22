@@ -6,7 +6,7 @@ import LatestNotifications from "./components/LatestNotifications";
 import PreparationResources from "./components/PreparationResources";
 import ExamStages from "./components/ExamStages";
 import WhyUsePortal from "./components/WhyUsePortal";
-import { GraduationCap, Library } from "lucide-react";
+import { GraduationCap, BookCopy } from "lucide-react";
 
 export default function JudiciaryPage() {
   return (
@@ -71,7 +71,7 @@ export default function JudiciaryPage() {
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M9 18l6-6-6-6"/></svg>
             </button>
             <div className="hidden lg:block text-[#c9a84c] opacity-90">
-              <Library size={64} strokeWidth={1.2} />
+              <BookCopy size={64} strokeWidth={1.2} />
             </div>
           </div>
         </div>

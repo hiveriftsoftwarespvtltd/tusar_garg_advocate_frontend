@@ -1,4 +1,4 @@
-import { ChevronRight, Phone, Mail } from "lucide-react";
+import { ChevronRight, Phone, Mail, Scale } from "lucide-react";
 
 export default function AboutDetailsGrid() {
   return (
@@ -35,7 +35,7 @@ export default function AboutDetailsGrid() {
           <div className="bg-[#fafafa] border border-[#e8ebf2] rounded-xl p-8 shadow-sm hover:shadow-md transition-all duration-300">
             <div className="flex items-center gap-4 mb-6">
               <div className="w-12 h-12 rounded-full bg-white border border-[#e8ebf2] flex items-center justify-center shadow-sm">
-                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0d1b3e" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3v18" /><path d="M3 21h18" /><path d="M12 7l-8 4v2" /><path d="M12 7l8 4v2" /><path d="M4 13c0 2.2 1.8 4 4 4s4-1.8 4-4" /><path d="M12 13c0 2.2 1.8 4 4 4s4-1.8 4-4" /></svg>
+                 <Scale size={24} color="#0d1b3e" strokeWidth={1.5} />
               </div>
               <h3 className="text-[15px] font-bold text-[#0d1b3e] uppercase tracking-wider" style={{ fontFamily: "var(--font-merriweather), serif" }}>
                 PRACTICE AREAS
@@ -101,23 +101,38 @@ export default function AboutDetailsGrid() {
             <div className="w-10 h-[2px] bg-[#c9a84c] mb-6" />
             <div className="space-y-6">
               
-              <div className="flex items-center gap-5">
+              <div className="flex items-start gap-5">
                 <div className="w-14 h-14 rounded-full bg-white border border-[#e8ebf2] flex items-center justify-center shadow-sm flex-shrink-0 text-[#c9a84c]">
                   <Phone size={24} strokeWidth={1.5} />
                 </div>
                 <div>
-                  <p className="text-[13px] text-[#6b7280] font-medium mb-1">Phone</p>
-                  <p className="text-[16px] font-bold text-[#0d1b3e]">+91 72068 10681</p>
+                  <p className="text-[13px] text-[#6b7280] font-medium mb-1">Phone & Landline</p>
+                  <p className="text-[16px] font-bold text-[#0d1b3e] mb-1">+91 72068 10681</p>
+                  <p className="text-[16px] font-bold text-[#0d1b3e]">011-40817553</p>
                 </div>
               </div>
 
-              <div className="flex items-center gap-5">
+              <div className="flex items-start gap-5">
                 <div className="w-14 h-14 rounded-full bg-white border border-[#e8ebf2] flex items-center justify-center shadow-sm flex-shrink-0 text-[#c9a84c]">
                   <Mail size={24} strokeWidth={1.5} />
                 </div>
                 <div>
                   <p className="text-[13px] text-[#6b7280] font-medium mb-1">Email</p>
-                  <p className="text-[16px] font-bold text-[#0d1b3e]">Tushargarg0681@gmail.com</p>
+                  <p className="text-[16px] font-bold text-[#0d1b3e]">tushargarg0681@gmail.com</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-5">
+                <div className="w-14 h-14 rounded-full bg-white border border-[#e8ebf2] flex items-center justify-center shadow-sm flex-shrink-0 text-[#c9a84c]">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                </div>
+                <div>
+                  <p className="text-[13px] text-[#6b7280] font-medium mb-1">Address</p>
+                  <p className="text-[14px] font-medium text-[#0d1b3e] leading-relaxed">
+                    Flat No. 7, Second Floor, D-1,<br/>
+                    Kalindi Colony, Near Sunrise Hospital,<br/>
+                    New Delhi-110065
+                  </p>
                 </div>
               </div>
 

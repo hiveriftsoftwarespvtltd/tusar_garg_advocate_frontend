@@ -19,7 +19,7 @@ export default function LawsCategoryGrid() {
   return (
     <section className="py-12 bg-[#fafafa]">
       <div className="max-w-[1280px] mx-auto px-4">
-        
+
         {/* Heading */}
         <div className="flex items-center justify-center gap-4 mb-10">
           <div className="w-12 h-[1px] bg-[#c9a84c]"></div>
@@ -35,15 +35,15 @@ export default function LawsCategoryGrid() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           {categories.map((cat, idx) => (
             <div key={idx} className="bg-white border-2 border-[#c9a84c] rounded-xl py-8 px-4 min-h-[240px] flex flex-col items-center justify-center text-center shadow-sm hover:shadow-md hover:bg-[#c9a84c]/5 hover:-translate-y-1 transition-all duration-300 group cursor-pointer">
-              
+
               <div className="text-[#c9a84c] mb-4 group-hover:scale-110 transition-transform duration-300">
                 {cat.icon}
               </div>
-              
+
               <h3 className="text-[13px] font-bold text-[#0d1b3e] mb-2 leading-tight group-hover:text-[#c9a84c] transition-colors h-[32px] flex items-center justify-center" style={{ fontFamily: "var(--font-merriweather), serif" }}>
                 {cat.name}
               </h3>
-              
+
               <p className="text-[11px] font-bold text-[#374151] mb-1">
                 {cat.acts}
               </p>
@@ -62,7 +62,7 @@ export default function LawsCategoryGrid() {
         <div className="mt-10 flex justify-center">
           <button className="flex items-center gap-2 bg-[#0d1b3e] text-white px-8 py-3 rounded-md font-bold text-[12px] uppercase tracking-wider hover:bg-[#1a2b5a] hover:shadow-lg transition-all">
             VIEW ALL CATEGORIES
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
           </button>
         </div>
 

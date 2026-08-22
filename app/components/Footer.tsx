@@ -1,4 +1,5 @@
 import { Phone, Mail } from "lucide-react";
+import Link from "next/link";
 
 function LinkedinSVG() {
   return (
@@ -32,8 +33,25 @@ function FacebookSVG() {
   );
 }
 
-const quickLinks = ["About", "Courts", "Judgments", "Laws", "Tribunals", "Judiciary", "Jobs", "Law Colleges", "Articles", "Resources"];
-const importantLinks = ["Terms & Conditions", "Privacy Policy", "Disclaimer", "Sitemap", "Contact"];
+const quickLinks = [
+  { name: "About", href: "/about" },
+  { name: "Courts", href: "/courts" },
+  { name: "Judgments", href: "/judgments" },
+  { name: "Laws", href: "/laws" },
+  { name: "Tribunals", href: "/tribunals" },
+  { name: "Judiciary", href: "/judiciary" },
+  { name: "Jobs", href: "/jobs" },
+  { name: "Law Colleges", href: "/colleges" },
+  { name: "Articles", href: "/articles" },
+  { name: "Resources", href: "/resources" }
+];
+const importantLinks = [
+  { name: "Terms & Conditions", href: "#" },
+  { name: "Privacy Policy", href: "#" },
+  { name: "Disclaimer", href: "#" },
+  { name: "Sitemap", href: "#" },
+  { name: "Contact", href: "/contact" }
+];
 
 export default function Footer() {
   return (
@@ -88,10 +106,10 @@ export default function Footer() {
             </h3>
             <ul className="grid grid-cols-2 gap-x-4 gap-y-2">
               {quickLinks.map((link) => (
-                <li key={link}>
-                  <a href="#" className="text-white/50 text-[12px] hover:text-[#c9a84c] transition-colors">
-                    {link}
-                  </a>
+                <li key={link.name}>
+                  <Link href={link.href} className="text-white/50 text-[12px] hover:text-[#c9a84c] transition-colors">
+                    {link.name}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -104,10 +122,10 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2.5">
               {importantLinks.map((link) => (
-                <li key={link}>
-                  <a href="#" className="text-white/50 text-[12px] hover:text-[#c9a84c] transition-colors">
-                    {link}
-                  </a>
+                <li key={link.name}>
+                  <Link href={link.href} className="text-white/50 text-[12px] hover:text-[#c9a84c] transition-colors">
+                    {link.name}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -120,16 +138,21 @@ export default function Footer() {
             </h3>
             <div className="space-y-3">
               <p className="text-white/50 text-[12px] leading-relaxed">
-                Chamber: Supreme Court of India<br />
-                New Delhi – 110001
+                Flat No. 7, Second Floor, D-1,<br />
+                Kalindi Colony, Near Sunrise Hospital,<br />
+                New Delhi-110065
               </p>
-              <a href="tel:+919876543210" className="flex items-center gap-2.5 text-white/50 text-[12px] hover:text-[#c9a84c] transition-colors">
+              <a href="tel:+917206810681" className="flex items-center gap-2.5 text-white/50 text-[12px] hover:text-[#c9a84c] transition-colors">
                 <Phone size={13} strokeWidth={1.5} className="text-[#c9a84c] flex-shrink-0" />
-                +91 98765 43210
+                +91 72068 10681
               </a>
-              <a href="mailto:office@tushargarg.com" className="flex items-center gap-2.5 text-white/50 text-[12px] hover:text-[#c9a84c] transition-colors">
+              <a href="tel:01140817553" className="flex items-center gap-2.5 text-white/50 text-[12px] hover:text-[#c9a84c] transition-colors">
+                <Phone size={13} strokeWidth={1.5} className="text-[#c9a84c] flex-shrink-0" />
+                011-40817553
+              </a>
+              <a href="mailto:tushargarg0681@gmail.com" className="flex items-center gap-2.5 text-white/50 text-[12px] hover:text-[#c9a84c] transition-colors">
                 <Mail size={13} strokeWidth={1.5} className="text-[#c9a84c] flex-shrink-0" />
-                office@tushargarg.com
+                tushargarg0681@gmail.com
               </a>
             </div>
           </div>
