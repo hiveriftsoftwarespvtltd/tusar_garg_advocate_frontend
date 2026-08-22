@@ -29,13 +29,13 @@ export default function Header() {
       {/* Top bar: Logo + Search + User */}
       <div className="max-w-[1280px] mx-auto px-4 flex items-center justify-between h-[64px] gap-4">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-4 flex-shrink-0">
-          <span className="text-[#c9a84c] text-[34px] leading-none pr-4 border-r border-[#1a2b5a]" style={{ fontFamily: "var(--font-merriweather), serif" }}>TG</span>
-          <div className="flex flex-col leading-tight">
-            <span className="text-white font-bold text-[15px] tracking-[0.1em] uppercase">
+        <Link href="/" className="flex items-center gap-3 sm:gap-4 min-w-0">
+          <span className="text-[#c9a84c] text-[28px] sm:text-[34px] leading-none pr-3 sm:pr-4 border-r border-[#1a2b5a] flex-shrink-0" style={{ fontFamily: "var(--font-merriweather), serif" }}>TG</span>
+          <div className="flex flex-col leading-tight min-w-0">
+            <span className="text-white font-bold text-[14px] sm:text-[15px] tracking-[0.1em] uppercase truncate">
               TUSHAR GARG
             </span>
-            <span className="text-white/80 text-[9.5px] font-medium tracking-wide mt-0.5">
+            <span className="text-white/80 text-[8px] sm:text-[9.5px] font-medium tracking-wide mt-0.5 truncate">
               Advocate-on-Record, Supreme Court of India
             </span>
           </div>
@@ -59,7 +59,7 @@ export default function Header() {
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden text-white p-1"
+          className="lg:hidden text-white p-1"
           aria-label="Toggle menu"
           onClick={() => setMobileOpen(!mobileOpen)}
         >
@@ -70,7 +70,7 @@ export default function Header() {
       {/* Nav bar */}
       <div className="border-t border-white/10">
         <div className="max-w-[1280px] mx-auto px-4">
-          <nav className="hidden md:flex items-center justify-between py-4">
+          <nav className="hidden lg:flex items-center justify-between py-4">
             {navItems.map((item) => {
               const isActive = pathname === item.href || (item.href !== "/" && pathname?.startsWith(item.href));
               return (
@@ -95,9 +95,9 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile & Tablet Menu */}
       {mobileOpen && (
-        <div className="md:hidden border-t border-white/10 bg-[#0d1b3e]">
+        <div className="lg:hidden border-t border-white/10 bg-[#0d1b3e]">
           {/* Mobile Search */}
           <div className="px-4 py-3 border-b border-white/10">
             <div className="flex items-center bg-white/10 border border-white/20 rounded-sm px-3 py-2 gap-2">

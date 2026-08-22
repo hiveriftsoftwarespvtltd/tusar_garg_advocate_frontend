@@ -38,7 +38,7 @@ export default function CourtsPage() {
             </div>
           </>
         }
-        backgroundImage="/supreme-court.png"
+        backgroundImage="/court/court_page_banner.png"
         buttons={heroButtons}
       />
 

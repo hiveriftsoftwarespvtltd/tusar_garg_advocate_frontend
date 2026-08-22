@@ -17,7 +17,7 @@ export default function AboutPage() {
             </span>
           </>
         }
-        backgroundImage="/supreme-court.png"
+        backgroundImage="/about/about_page_banner.png"
       />
 
       {/* 2. Professional Profile */}

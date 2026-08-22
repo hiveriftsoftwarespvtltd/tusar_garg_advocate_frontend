@@ -101,8 +101,8 @@ export default function IndianLaws() {
           <div className="w-10 h-[3px] bg-[#c9a84c] mx-auto mt-2" />
         </div>
 
-        {/* 12-icon grid — individual rounded cards with gap */}
-        <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-12 gap-3 mb-7">
+        {/* 12-icon grid — responsive breakpoints */}
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-12 gap-3 mb-7">
           {lawLabels.map((label) => (
             <a
               key={label}

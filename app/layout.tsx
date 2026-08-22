@@ -33,7 +33,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${merriweather.variable}`}>
-      <body className="min-h-screen bg-white antialiased flex flex-col">
+      <body className="min-h-screen bg-white antialiased flex flex-col overflow-x-hidden">
         <Header />
         <div className="flex-1">
           {children}

@@ -12,14 +12,12 @@ export default function JudiciaryHero() {
     <section className="relative w-full bg-[#0d1b3e] text-white overflow-hidden pb-12 pt-16">
       {/* Background Image & Overlay */}
       <div 
-        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-90"
         style={{
-          backgroundImage: "url('/supreme-court.png')", // Fallback image for now
-          backgroundPosition: "center 30%",
+          backgroundImage: "url('/juduciary/judiciary_banner.png')",
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0a1532] via-[#0a1532]/90 to-transparent"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0d1b3e] via-transparent to-[#0a1532]"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0d1b3e]/80 via-[#0d1b3e]/30 to-transparent pointer-events-none"></div>
       </div>
 
       <div className="max-w-[1280px] mx-auto px-4 relative z-10 flex flex-col md:flex-row items-center">

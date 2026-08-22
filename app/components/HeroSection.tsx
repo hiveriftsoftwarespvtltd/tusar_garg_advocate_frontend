@@ -15,15 +15,14 @@ export default function HeroSection() {
     <section className="relative min-h-[400px] flex items-stretch overflow-hidden bg-[#0d1b3e]">
       {/* Full background: Supreme Court image */}
       <Image
-        src="/home/hero_banner_home.png"
+        src="/home/home_page_banner.png"
         alt="Supreme Court of India"
-        width={1920}
-        height={500}
-        className="absolute inset-0 w-full h-[500px] opacity-90"
+        fill
+        className="object-cover object-center opacity-90"
         priority
       />
-
-
+      {/* Left-Side Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0d1b3e]/80 via-[#0d1b3e]/30 to-transparent pointer-events-none" />
       {/* Content — left side only */}
       <div className="relative z-10 max-w-[1280px] mx-auto px-6 py-12 w-full flex items-center">
         <div className="max-w-[560px]">

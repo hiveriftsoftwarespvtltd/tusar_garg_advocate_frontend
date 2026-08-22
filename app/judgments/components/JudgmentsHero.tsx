@@ -5,14 +5,12 @@ export default function JudgmentsHero() {
     <section className="relative w-full bg-[#0d1b3e] text-white overflow-hidden pb-20 pt-16">
       {/* Background Image & Overlay */}
       <div 
-        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-60"
+        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-90"
         style={{
-          backgroundImage: "url('/supreme-court.png')", // Fallback image for now
-          backgroundPosition: "center",
+          backgroundImage: "url('/judgements/judgment_page_banner.png')",
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0d1b3e] via-[#0d1b3e]/90 to-transparent"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0d1b3e] via-transparent to-[#0d1b3e]"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0d1b3e]/80 via-[#0d1b3e]/30 to-transparent pointer-events-none"></div>
       </div>
 
       <div className="max-w-[1280px] mx-auto px-4 relative z-10 flex flex-col md:flex-row items-center">

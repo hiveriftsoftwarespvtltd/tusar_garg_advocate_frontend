@@ -24,14 +24,12 @@ export default function PageHero({
         alt={`${title} background`}
         fill
         sizes="100vw"
-        className="object-cover object-top"
+        className="object-cover object-center opacity-90"
         priority
       />
 
-      {/* Gradient Overlays */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0d1b3e]/90 via-[#0d1b3e]/60 to-transparent" />
-      <div className="absolute inset-0 bg-[#0d1b3e]/30" />
-
+      {/* Left-Side Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0d1b3e]/80 via-[#0d1b3e]/30 to-transparent pointer-events-none" />
       {/* Content */}
       <div className="relative max-w-[1280px] mx-auto px-4 h-full flex flex-col justify-center">
         <div className={`max-w-[800px] ${align === "center" ? "mx-auto text-center" : ""}`}>

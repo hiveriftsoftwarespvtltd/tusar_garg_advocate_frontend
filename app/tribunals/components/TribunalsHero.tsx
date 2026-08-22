@@ -6,14 +6,12 @@ export default function TribunalsHero() {
     <section className="relative w-full bg-[#0d1b3e] text-white overflow-hidden pb-16 pt-12">
       {/* Background Image & Overlay */}
       <div 
-        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-50"
+        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-90"
         style={{
-          backgroundImage: "url('/supreme-court.png')", // Fallback image for now
-          backgroundPosition: "center",
+          backgroundImage: "url('/tribunals/tribulnals_banner.png')",
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0d1b3e] via-[#0d1b3e]/90 to-transparent"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0d1b3e] via-transparent to-[#0d1b3e]"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0d1b3e]/80 via-[#0d1b3e]/30 to-transparent pointer-events-none"></div>
       </div>
 
       <div className="max-w-[1280px] mx-auto px-4 relative z-10 flex flex-col justify-center">
@@ -41,13 +39,7 @@ export default function TribunalsHero() {
         </div>
       </div>
       
-      {/* Optional slant bottom edge for design */}
-      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-10 hidden md:block">
-        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full h-8">
-          <path d="M1200 120L0 120 0 0 1200 120z" fill="#fafafa"></path>
-          <path d="M1200 120L0 120 0 115 1200 115z" fill="#c9a84c"></path>
-        </svg>
-      </div>
+      {/* Slant bottom edge removed as requested */}
     </section>
   );
 }

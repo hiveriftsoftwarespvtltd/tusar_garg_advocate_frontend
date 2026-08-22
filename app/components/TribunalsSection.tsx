@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Scale, MapPin, BookOpen, FileText, Newspaper, Target, Landmark, Building2, Gavel, GraduationCap, Briefcase } from "lucide-react";
 
 // Tribunal icon — rounded-xl off-white card matching Indian Laws style
 function TribunalIcon({ label }: { label: string }) {
@@ -35,21 +35,21 @@ const tribunalGroups = [
 ];
 
 const judiciaryItems = [
-  { label: "Judicial Services", icon: "⚖" },
-  { label: "State-wise Exams", icon: "📝" },
-  { label: "Syllabus", icon: "📚" },
-  { label: "Previous Papers", icon: "📄" },
-  { label: "Current Legal Affairs", icon: "🔔" },
-  { label: "Preparation Resources", icon: "🎯" },
+  { label: "Judicial Services", icon: <Scale size={16} strokeWidth={1.5} /> },
+  { label: "State-wise Exams", icon: <MapPin size={16} strokeWidth={1.5} /> },
+  { label: "Syllabus", icon: <BookOpen size={16} strokeWidth={1.5} /> },
+  { label: "Previous Papers", icon: <FileText size={16} strokeWidth={1.5} /> },
+  { label: "Current Legal Affairs", icon: <Newspaper size={16} strokeWidth={1.5} /> },
+  { label: "Preparation Resources", icon: <Target size={16} strokeWidth={1.5} /> },
 ];
 
 const legalJobItems = [
-  { label: "Government Jobs", icon: "🏛" },
-  { label: "Judiciary Jobs", icon: "⚖" },
-  { label: "PSU & Law Officer", icon: "🏢" },
-  { label: "Court Jobs", icon: "🏛" },
-  { label: "Internships", icon: "📋" },
-  { label: "Private Legal Jobs", icon: "💼" },
+  { label: "Government Jobs", icon: <Landmark size={16} strokeWidth={1.5} /> },
+  { label: "Judiciary Jobs", icon: <Scale size={16} strokeWidth={1.5} /> },
+  { label: "PSU & Law Officer", icon: <Building2 size={16} strokeWidth={1.5} /> },
+  { label: "Court Jobs", icon: <Gavel size={16} strokeWidth={1.5} /> },
+  { label: "Internships", icon: <GraduationCap size={16} strokeWidth={1.5} /> },
+  { label: "Private Legal Jobs", icon: <Briefcase size={16} strokeWidth={1.5} /> },
 ];
 
 export default function TribunalsSection() {
