@@ -1,17 +1,14 @@
 import { User, Clock, ShieldCheck, Lock, Scale } from "lucide-react";
 
-export default function FreeConsultation() {
+export default function SupremeCourtConsultation() {
   return (
     <section className="py-16 bg-[#f9fafb]">
       <div className="max-w-[1100px] mx-auto px-4">
         
-        {/* Main Card */}
         <div className="bg-white rounded-xl flex flex-col md:flex-row overflow-hidden shadow-[0_4px_25px_rgba(0,0,0,0.06)] border border-[#f0f0f0]">
           
-          {/* Left Side - Info */}
           <div className="flex-1 p-10 md:p-14 relative bg-[#fcfcfc] border-b md:border-b-0 md:border-r border-[#f0f0f0]">
             
-            {/* Background Watermark */}
             <div className="absolute bottom-0 right-0 opacity-[0.03] pointer-events-none translate-x-10 translate-y-10">
               <Scale size={280} strokeWidth={1} className="text-[#0d1b3e]" />
             </div>
@@ -27,7 +24,7 @@ export default function FreeConsultation() {
             </h3>
             
             <p className="text-[13px] md:text-[14px] text-[#4b5563] leading-relaxed mb-10 max-w-sm font-medium">
-              Schedule a free consultation with Tushar Garg, Advocate-on-Record, Supreme Court of India, to discuss your matter across any Delhi court.
+              Schedule a free consultation with Tushar Garg, Advocate-on-Record, Supreme Court of India, to discuss your matter before the Apex Court.
             </p>
             
             <ul className="space-y-6 relative z-10">
@@ -52,7 +49,6 @@ export default function FreeConsultation() {
             </ul>
           </div>
 
-          {/* Right Side - Form */}
           <div className="flex-1 p-10 md:p-14 bg-[#f9fafb] flex flex-col justify-center">
             <form className="flex flex-col gap-4">
               
@@ -65,10 +61,10 @@ export default function FreeConsultation() {
               
               <select className="w-full bg-white border border-[#e5e7eb] rounded-md px-4 py-3 text-[#6b7280] text-[14px] outline-none focus:border-[#d19e3f] transition-colors appearance-none cursor-pointer shadow-sm">
                 <option value="">Select Court / Case Type</option>
-                <option value="civil">Civil Matter</option>
-                <option value="criminal">Criminal Matter</option>
-                <option value="corporate">Corporate & Commercial</option>
-                <option value="family">Family & Matrimonial</option>
+                <option value="civil">Special Leave Petition</option>
+                <option value="criminal">Writ Petition</option>
+                <option value="corporate">Review Petition</option>
+                <option value="family">Curative Petition</option>
                 <option value="other">Other</option>
               </select>
 
