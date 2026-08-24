@@ -1,26 +1,57 @@
 import { ArrowRight, Scale, MapPin, BookOpen, FileText, Newspaper, Target, Landmark, Building2, Gavel, GraduationCap, Briefcase } from "lucide-react";
+import Image from "next/image";
 
+const tribunalIconsMap: Record<string, string> = {
+  "NCLT": "/home/trubinals_&_forum/nclt.svg",
+  "NCLAT": "/home/trubinals_&_forum/nclat.svg",
+  "NGT": "/home/trubinals_&_forum/NGT.svg",
+  "DRT": "/home/trubinals_&_forum/DRT.svg",
+  "RERA": "/home/trubinals_&_forum/rera.svg",
+  "DRAT": "/home/trubinals_&_forum/drat.svg",
+  "ITAT": "/home/trubinals_&_forum/itat.svg",
+  "CESTAT": "/home/trubinals_&_forum/cestat.svg",
+  "CAT": "/home/trubinals_&_forum/CAT.svg",
+  "AFT": "/home/trubinals_&_forum/AFT.svg",
+  "SAT": "/home/trubinals_&_forum/sat.svg",
+  "TDSAT": "/home/trubinals_&_forum/tsat.svg",
+};
 // Tribunal icon — rounded-xl off-white card matching Indian Laws style
 function TribunalIcon({ label }: { label: string }) {
+  const customIcon = tribunalIconsMap[label];
+  
   return (
     <a
       href="/tribunals"
-      className="flex flex-col items-center gap-1.5 bg-[#fafafa] border border-[#e8ebf2] rounded-xl px-3 py-3 hover:bg-[#fffbf0] hover:border-[#c9a84c]/40 hover:-translate-y-0.5 hover:shadow-md group transition-all duration-300"
+      className="flex flex-col items-center justify-center gap-1.5 bg-[#fafafa] border border-[#e8ebf2] rounded-xl h-[64px] hover:bg-[#fffbf0] hover:border-[#c9a84c]/40 hover:-translate-y-0.5 hover:shadow-md group transition-all duration-300"
     >
-      <svg
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.3"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="text-[#c9a84c] group-hover:scale-110 transition-transform duration-200"
-      >
-        <rect x="3" y="3" width="18" height="18" rx="2" />
-        <path d="M3 9h18M9 21V9" />
-      </svg>
+      {customIcon ? (
+        <div className="flex items-center justify-center h-[34px] w-full">
+          <Image 
+            src={customIcon} 
+            alt={label} 
+            width={label === "AFT" ? 44 : 46} 
+            height={label === "AFT" ? 44 : 46} 
+            className={`object-contain transition-transform duration-200 ${label === "AFT" ? "group-hover:scale-[1.2] scale-[1.1]" : "group-hover:scale-[1.9] scale-[1.6]"}`}
+          />
+        </div>
+      ) : (
+        <div className="flex items-center justify-center h-[34px] w-full">
+          <svg
+            width="34"
+            height="34"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.3"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="text-[#c9a84c] group-hover:scale-110 transition-transform duration-200"
+          >
+            <rect x="3" y="3" width="18" height="18" rx="2" />
+            <path d="M3 9h18M9 21V9" />
+          </svg>
+        </div>
+      )}
       <span className="text-[10px] font-bold text-[#374151] text-center group-hover:text-[#c9a84c] transition-colors leading-tight">
         {label}
       </span>

@@ -1,5 +1,20 @@
 import { Landmark, Scale, Leaf, ShoppingCart, Home, PiggyBank, Receipt, FileText, BadgePercent, Users, Handshake, TrendingUp, Radio, ArrowRight } from "lucide-react";
+import Image from "next/image";
 
+const tribunalIconsMap: Record<string, string> = {
+  "NCLT": "/home/trubinals_&_forum/nclt.svg",
+  "NCLAT": "/home/trubinals_&_forum/nclat.svg",
+  "NGT": "/home/trubinals_&_forum/NGT.svg",
+  "DRT": "/home/trubinals_&_forum/DRT.svg",
+  "RERA": "/home/trubinals_&_forum/rera.svg",
+  "DRAT": "/home/trubinals_&_forum/drat.svg",
+  "ITAT": "/home/trubinals_&_forum/itat.svg",
+  "CESTAT": "/home/trubinals_&_forum/cestat.svg",
+  "CAT": "/home/trubinals_&_forum/CAT.svg",
+  "AFT": "/home/trubinals_&_forum/AFT.svg",
+  "SAT": "/home/trubinals_&_forum/sat.svg",
+  "TDSAT": "/home/trubinals_&_forum/tsat.svg",
+};
 export default function TribunalsDirectory() {
   const tribunals = [
     { abbr: "NCLT", name: "National Company\nLaw Tribunal", icon: <Landmark size={32} strokeWidth={1.5} /> },
@@ -34,8 +49,18 @@ export default function TribunalsDirectory() {
           {tribunals.map((tribunal, idx) => (
             <div key={idx} className="w-full sm:w-[calc(50%-8px)] md:w-[calc(33.33%-11px)] lg:w-[calc(20%-13px)] bg-white border border-[#e8ebf2] rounded-xl p-6 flex flex-col items-center justify-center text-center shadow-sm hover:shadow-md hover:border-[#c9a84c]/50 transition-all duration-300 group cursor-pointer">
               
-              <div className="text-[#c9a84c] mb-3 group-hover:scale-110 transition-transform duration-300">
-                {tribunal.icon}
+              <div className="text-[#c9a84c] mb-6 group-hover:scale-110 transition-transform duration-300 flex items-center justify-center h-[32px]">
+                {tribunalIconsMap[tribunal.abbr] ? (
+                  <Image 
+                    src={tribunalIconsMap[tribunal.abbr]} 
+                    alt={tribunal.abbr} 
+                    width={tribunal.abbr === "AFT" ? 76 : 92} 
+                    height={tribunal.abbr === "AFT" ? 76 : 92} 
+                    className={`object-contain ${tribunal.abbr === "AFT" ? "scale-[1.1] mb-3" : "scale-[1.8]"}`} 
+                  />
+                ) : (
+                  tribunal.icon
+                )}
               </div>
               
               <h3 className="text-[14px] md:text-[15px] font-black text-[#0d1b3e] mb-1.5 tracking-wide group-hover:text-[#c9a84c] transition-colors" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>

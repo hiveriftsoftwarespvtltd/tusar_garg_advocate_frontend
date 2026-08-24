@@ -127,16 +127,18 @@ function CourtColumn({
   title,
   courts,
   href,
+  iconPath,
 }: {
   title: string;
   courts: string[];
   href: string;
+  iconPath: string;
 }) {
   return (
     <div className="flex-1 bg-white border-r border-[#e5e9f0] px-6 py-6 flex flex-col">
       {/* Building icon */}
-      <div className="mb-3 text-[#2d5a3d]">
-        <BuildingIcon />
+      <div className="mb-3 flex items-center justify-start h-[40px]">
+        <Image src={iconPath} alt={title} width={80} height={80} className="object-contain -ml-2" />
       </div>
 
       {/* Title */}
@@ -215,6 +217,7 @@ export default function FeaturedCourts() {
               title="DELHI COURTS"
               courts={delhiCourts}
               href="/courts/delhi"
+              iconPath="/home/supreme court.svg"
             />
 
             {/* ── 3. Punjab & Haryana ── */}
@@ -222,6 +225,7 @@ export default function FeaturedCourts() {
               title={"PUNJAB & HARYANA\nHIGH COURT & DISTRICTS"}
               courts={punjabCourts}
               href="/courts/punjab-haryana"
+              iconPath="/home/high_court.svg"
             />
 
             {/* ── 4. Haryana District Courts ── */}
@@ -229,6 +233,7 @@ export default function FeaturedCourts() {
               title="HARYANA DISTRICT COURTS"
               courts={haryanaCourts}
               href="/courts/haryana"
+              iconPath="/home/district court.svg"
             />
           </div>
 
