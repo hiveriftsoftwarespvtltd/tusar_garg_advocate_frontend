@@ -31,7 +31,7 @@ export default function BrowseByCourtType() {
       )
     }
   ];
-
+ 
   return (
     <section className="py-6 bg-white">
       <div className="max-w-[1280px] mx-auto px-4">

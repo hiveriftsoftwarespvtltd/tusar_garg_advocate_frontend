@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { MapPin, Landmark, Scale, Shield, Gavel, FileText, ShieldCheck, Network, Building2 } from "lucide-react";
 
 export default function DelhiCourtsGrid() {
@@ -9,6 +10,7 @@ export default function DelhiCourtsGrid() {
       location: "North Delhi",
       Icon: Scale,
       image: "/home/featured_court.jpg",
+      slug: "tis-hazari"
     },
     {
       id: "02",
@@ -16,6 +18,7 @@ export default function DelhiCourtsGrid() {
       location: "East Delhi",
       Icon: Gavel,
       image: "/home/featured_court.jpg",
+      slug: "karkardooma"
     },
     {
       id: "03",
@@ -23,6 +26,7 @@ export default function DelhiCourtsGrid() {
       location: "New Delhi",
       Icon: FileText,
       image: "/home/featured_court.jpg",
+      slug: "patiala-house"
     },
     {
       id: "04",
@@ -30,6 +34,7 @@ export default function DelhiCourtsGrid() {
       location: "North-West Delhi",
       Icon: ShieldCheck,
       image: "/home/featured_court.jpg",
+      slug: "rohini"
     },
     {
       id: "05",
@@ -37,6 +42,7 @@ export default function DelhiCourtsGrid() {
       location: "South-West Delhi",
       Icon: Network,
       image: "/home/featured_court.jpg",
+      slug: "dwarka"
     },
     {
       id: "06",
@@ -44,6 +50,7 @@ export default function DelhiCourtsGrid() {
       location: "South Delhi",
       Icon: Landmark,
       image: "/home/featured_court.jpg",
+      slug: "saket"
     },
     {
       id: "07",
@@ -51,6 +58,7 @@ export default function DelhiCourtsGrid() {
       location: "Central Delhi",
       Icon: Building2,
       image: "/home/featured_court.jpg",
+      slug: "rouse-avenue"
     }
   ];
 
@@ -110,9 +118,10 @@ export default function DelhiCourtsGrid() {
         {/* Grid Container */}
         <div className="flex flex-wrap justify-center gap-6 md:gap-x-5 md:gap-y-10">
           {courts.map((court) => (
-            <div 
+            <Link 
+              href={`/courts/${court.slug}`}
               key={court.id} 
-              className="w-full sm:w-[calc(50%-12px)] md:w-[calc(33.33%-14px)] lg:w-[calc(25%-15px)] bg-white border border-[#f0f0f0] rounded-xl flex flex-col items-center text-center shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 group"
+              className="block w-full sm:w-[calc(50%-12px)] md:w-[calc(33.33%-14px)] lg:w-[calc(25%-15px)] bg-white border border-[#f0f0f0] rounded-xl flex flex-col items-center text-center shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 group"
             >
               {/* Image Header */}
               <div className="relative w-full h-[160px] rounded-t-xl overflow-hidden bg-[#e5e7eb]">
@@ -148,7 +157,7 @@ export default function DelhiCourtsGrid() {
                 </div>
               </div>
 
-            </div>
+            </Link>
           ))}
         </div>
 
