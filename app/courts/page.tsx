@@ -6,17 +6,29 @@ import BrowseByCourtType from "./components/BrowseByCourtType";
 import HighCourtsGrid from "./components/HighCourtsGrid";
 import DistrictCourtsRegion from "./components/DistrictCourtsRegion";
 import CourtResources from "./components/CourtResources";
+import { fetchApi } from "../../lib/api/client";
+import { getPublishedStates } from "../../lib/api/states";
 
-export default function CourtsPage() {
+export const dynamic = 'force-dynamic';
+
+export default async function CourtsPage() {
+  let allCourts: any[] = [];
+  let allStates: any[] = [];
+  try {
+    allCourts = await fetchApi('/courts');
+    allStates = await getPublishedStates();
+  } catch (error) {
+    console.error("Failed to fetch courts or states:", error);
+  }
+
+  const highCourts = allCourts.filter(c => c.courtType?.trim().toLowerCase() === "high court");
+  const districtCourts = allCourts.filter(c => c.courtType?.trim().toLowerCase() === "district court");
+
   const heroButtons = (
     <div className="flex flex-wrap gap-4 mt-6">
-      <a href="#featured" className="flex items-center gap-2 bg-[#c9a84c] text-[#0d1b3e] px-6 py-3 rounded-md font-bold text-[12px] uppercase tracking-wider transition-all hover:bg-[#d4a93a] hover:-translate-y-0.5 hover:shadow-lg shadow-sm">
+      <a href="#directory" className="flex items-center gap-2 bg-[#c9a84c] text-[#0d1b3e] px-6 py-3 rounded-md font-bold text-[12px] uppercase tracking-wider transition-all hover:bg-[#d4a93a] hover:-translate-y-0.5 hover:shadow-lg shadow-sm">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 20h16"/><path d="M4 4h16"/><path d="M6 4v16"/><path d="M10 4v16"/><path d="M14 4v16"/><path d="M18 4v16"/></svg>
-        FEATURED COURTS
-      </a>
-      <a href="#directory" className="flex items-center gap-2 bg-transparent border border-white/40 text-white px-6 py-3 rounded-md font-bold text-[12px] uppercase tracking-wider transition-all hover:bg-white/10 hover:border-white hover:-translate-y-0.5">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-        ALL COURTS DIRECTORY
+        STATE DIRECTORY
       </a>
       <a href="#search" className="flex items-center gap-2 bg-transparent border border-white/40 text-white px-6 py-3 rounded-md font-bold text-[12px] uppercase tracking-wider transition-all hover:bg-white/10 hover:border-white hover:-translate-y-0.5">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
@@ -26,44 +38,41 @@ export default function CourtsPage() {
   );
 
   return (
-    <main className="min-h-screen bg-white">
-      {/* 1. Hero */}
+    <main className="min-h-screen bg-[#fcfcfc]">
       <PageHero
-        title="COURTS OF INDIA"
+        title="ALL INDIA COURTS DIRECTORY"
         subtitle={
           <>
-            Explore Featured Courts and discover a complete<br/>searchable directory of courts across India.
-            <div className="flex gap-3 text-white/90 text-[13px] mt-4 font-normal tracking-wide">
-              <span>Supreme Court</span> • <span>High Courts</span> • <span>District Courts</span> • <span>Tribunals</span>
-            </div>
+            Explore the complete directory of courts across India.<br/>
+            Find High Courts, District Courts, and Tribunals organized by State.
           </>
         }
         backgroundImage="/court/court_page_banner.png"
         buttons={heroButtons}
       />
 
-      {/* 2. Featured Courts (Reused from Home) */}
-      <div id="featured" className="py-8 bg-white max-w-[1280px] mx-auto px-4">
+      {/* Featured Courts */}
+      <div id="featured" className="py-8 bg-[#fcfcfc] max-w-[1280px] mx-auto px-4">
         <FeaturedCourts />
-
       </div>
 
-      {/* 3. Search Section */}
       <SearchBar />
 
-      {/* 4. Browse By Court Type */}
+      {/* Browse By Court Type */}
       <BrowseByCourtType />
 
-      {/* 5. High Courts */}
-      <HighCourtsGrid />
 
-      {/* 6. District Courts */}
-      <DistrictCourtsRegion />
 
-      {/* 7. Court Resources */}
+      {/* High Courts */}
+      <HighCourtsGrid courts={highCourts} />
+
+      {/* District Courts By State */}
+      <DistrictCourtsRegion states={allStates} />
+
+      {/* Court Resources */}
       <CourtResources />
 
-      {/* 8. CTA Banner */}
+      {/* CTA Banner */}
       <CtaBanner
         title="NEED LEGAL RESEARCH ASSISTANCE?"
         subtitle="Access structured court information, judgments and judiciary resources through a trusted legal platform."

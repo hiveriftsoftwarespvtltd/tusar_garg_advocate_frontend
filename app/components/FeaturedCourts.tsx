@@ -1,5 +1,7 @@
 import Image from "next/image";
 import { ArrowRight, Landmark } from "lucide-react";
+import { fetchApi } from "../../lib/api/client";
+import { getPublishedStates } from "../../lib/api/states";
 
 // Classical building/dome SVG icon for each column header
 function BuildingIcon({ className = "" }: { className?: string }) {
@@ -130,7 +132,7 @@ function CourtColumn({
   iconPath,
 }: {
   title: string;
-  courts: string[];
+  courts: any[];
   href: string;
   iconPath: string;
 }) {
@@ -148,17 +150,20 @@ function CourtColumn({
 
       {/* Court list */}
       <ul className="flex-1 space-y-[6px] mb-4">
-        {courts.map((c) => (
-          <li key={c}>
+        {courts.slice(0, 7).map((c: any) => (
+          <li key={c._id}>
             <a
-              href={href}
+              href={`${href}/${c.slug}`}
               className="flex items-center gap-2 text-[12px] text-[#374151] hover:text-[#2d5a3d] transition-colors leading-snug"
             >
               <span className="w-[5px] h-[5px] rounded-full bg-[#374151] flex-shrink-0 mt-px" />
-              {c}
+              {c.name}
             </a>
           </li>
         ))}
+        {courts.length === 0 && (
+          <li className="text-[12px] text-gray-400 italic">No courts featured yet.</li>
+        )}
       </ul>
 
       {/* View All */}
@@ -172,7 +177,18 @@ function CourtColumn({
   );
 }
 
-export default function FeaturedCourts() {
+export default async function FeaturedCourts() {
+  let allCourts: any[] = [];
+  let allStates: any[] = [];
+  try {
+    allCourts = await fetchApi('/courts');
+    allStates = await getPublishedStates();
+  } catch (error) {
+    console.error("Failed to fetch featured courts data", error);
+  }
+
+  const featuredStates = allStates.filter(s => s.featured).slice(0, 3); // Top 3 featured states
+  const featuredCourts = allCourts.filter(c => c.featured);
   return (
     <section className="bg-white py-10">
       <div className="max-w-[1280px] mx-auto px-4">
@@ -194,7 +210,7 @@ export default function FeaturedCourts() {
           {/* ── 1. Supreme Court Card (dark green) ── */}
           <div className="lg:w-[190px] flex-shrink-0 min-h-[220px] bg-[#1e3d2f] flex flex-col items-center justify-end px-5 pt-6 pb-5 relative overflow-hidden rounded-xl shadow-sm">
             {/* Background Image */}
-            <div className="absolute inset-0 bg-[url('/home/featured_court.jpg')] bg-cover bg-center"></div>
+            <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/home/featured_court.jpg')" }}></div>
             <div className="absolute inset-0 bg-gradient-to-t from-[#0d1b3e] via-[#0d1b3e]/60 to-transparent"></div>
             
             {/* Text */}
@@ -210,31 +226,29 @@ export default function FeaturedCourts() {
             </a>
           </div>
 
-          {/* Middle 3 Cards (Attached) */}
+          {/* Middle Cards (Dynamic) */}
           <div className="flex flex-col lg:flex-row flex-1 border border-[#dde4ee] rounded-xl overflow-hidden shadow-sm [&>div:last-child]:border-r-0">
-            {/* ── 2. Delhi Courts ── */}
-            <CourtColumn
-              title="DELHI COURTS"
-              courts={delhiCourts}
-              href="/courts/delhi"
-              iconPath="/home/supreme court.svg"
-            />
-
-            {/* ── 3. Punjab & Haryana ── */}
-            <CourtColumn
-              title={"PUNJAB & HARYANA\nHIGH COURT & DISTRICTS"}
-              courts={punjabCourts}
-              href="/courts/punjab-haryana"
-              iconPath="/home/high_court.svg"
-            />
-
-            {/* ── 4. Haryana District Courts ── */}
-            <CourtColumn
-              title="HARYANA DISTRICT COURTS"
-              courts={haryanaCourts}
-              href="/courts/haryana"
-              iconPath="/home/district court.svg"
-            />
+            {featuredStates.map((state) => {
+              const stateCourts = featuredCourts.filter(c => 
+                (typeof c.stateId === 'object' ? c.stateId._id : c.stateId) === state._id
+              );
+              return (
+                <CourtColumn
+                  key={state._id}
+                  title={state.name + " COURTS"}
+                  courts={stateCourts}
+                  href={`/courts/${state.slug}`}
+                  iconPath={state.image && state.image.endsWith('.svg') ? state.image : "/home/district court.svg"}
+                />
+              );
+            })}
+            
+            {/* Fallback if no featured states exist */}
+            {featuredStates.length === 0 && (
+              <div className="flex-1 bg-white border-r border-[#e5e9f0] px-6 py-6 flex items-center justify-center text-gray-400 italic text-sm">
+                No featured states selected in Admin.
+              </div>
+            )}
           </div>
 
           {/* ── 5. All Courts of India Card (cream) ── */}

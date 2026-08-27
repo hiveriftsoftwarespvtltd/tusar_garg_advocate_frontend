@@ -1,4 +1,3 @@
-import { CourtData } from "../components/template/CourtTemplate";
 import { Landmark, MapPin, Scale, Shield, Gavel, Users, Briefcase, FileText, BookOpen, Clock, Handshake, FileSearch, Building2, HelpCircle } from "lucide-react";
 
 const commonPracticeAreas = [
@@ -60,7 +59,7 @@ const baseData = {
   faqs: commonFaqs,
 };
 
-export const courtsData: Record<string, CourtData> = {
+export const courtsData: Record<string, any> = {
   "tis-hazari": {
     ...baseData,
     breadcrumbs: [{ label: "Home", href: "/" }, { label: "Courts", href: "/courts" }, { label: "Delhi Courts", href: "/courts/delhi" }, { label: "Tis Hazari Court" }],

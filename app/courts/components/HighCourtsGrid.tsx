@@ -1,10 +1,8 @@
 import { ArrowRight } from "lucide-react";
 
-export default function HighCourtsGrid() {
-  const highCourts = [
-    "Delhi High Court", "Allahabad High Court", "Bombay High Court",
-    "Calcutta High Court", "Punjab and Haryana High Court", "Karnataka High Court"
-  ];
+import Link from "next/link";
+
+export default function HighCourtsGrid({ courts }: { courts: any[] }) {
 
   return (
     <section className="py-6 bg-white">
@@ -18,8 +16,8 @@ export default function HighCourtsGrid() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {highCourts.map((court, idx) => (
-            <div key={idx} className="bg-white border border-[#e8ebf2] rounded-xl p-8 min-h-[120px] flex flex-row items-center gap-6 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 group cursor-pointer">
+          {courts.map((court, idx) => (
+            <Link key={idx} href={`/courts/${court.state?.slug || 'unknown'}/${court.slug}`} className="bg-white border border-[#e8ebf2] rounded-xl p-8 min-h-[120px] flex flex-row items-center gap-6 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 group cursor-pointer">
               
               <div className="flex-shrink-0 opacity-80 group-hover:opacity-100 transition-opacity">
                  {/* Standard Building Icon */}
@@ -28,13 +26,13 @@ export default function HighCourtsGrid() {
 
               <div className="flex-1">
                 <h3 className="text-[14px] font-bold text-[#0d1b3e] mb-1 leading-tight group-hover:text-[#c9a84c] transition-colors">
-                  {court}
+                  {court.name}
                 </h3>
                 <span className="text-[12px] font-bold text-[#c9a84c] flex items-center gap-1 group-hover:gap-2 transition-all">
                   Explore <ArrowRight size={12} strokeWidth={2.5} />
                 </span>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 
