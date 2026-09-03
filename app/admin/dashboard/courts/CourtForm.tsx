@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Plus, Trash2, X, Upload, ImageIcon } from "lucide-react";
-import { fetchApi } from "../../../../lib/api/client";
+import { fetchApi, compressImage } from "../../../../lib/api/client";
 
 export default function CourtForm({ initialData, states, onClose, onSuccess }: any) {
   const [formData, setFormData] = useState({
@@ -17,18 +17,15 @@ export default function CourtForm({ initialData, states, onClose, onSuccess }: a
 
   const [loading, setLoading] = useState(false);
 
-  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
-      if (file.size > 10 * 1024 * 1024) {
-        alert("File size exceeds 10MB limit. Please choose a smaller image.");
-        return;
+      try {
+        const compressed = await compressImage(file);
+        setFormData((prev: any) => ({ ...prev, image: compressed }));
+      } catch (err) {
+        console.error("Image compression failed", err);
       }
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setFormData((prev: any) => ({ ...prev, image: reader.result as string }));
-      };
-      reader.readAsDataURL(file);
     }
   };
 

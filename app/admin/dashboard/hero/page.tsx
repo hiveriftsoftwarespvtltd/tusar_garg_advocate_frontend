@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { Save, Plus, Trash2, Check, RefreshCw, Image as ImageIcon, Sliders, Upload } from "lucide-react";
 import { getHeroData, updateHeroData, HeroData } from "../../../../lib/api/hero";
+import { compressImage } from "../../../../lib/api/client";
 import Swal from 'sweetalert2';
 
 export default function AdminHeroPage() {
@@ -81,18 +82,16 @@ export default function AdminHeroPage() {
   };
 
   // Image File Upload Handler
-  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>, fieldName: 'bgImage' | 'advocatePhoto') => {
+  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>, fieldName: 'bgImage' | 'advocatePhoto') => {
     const file = e.target.files?.[0];
     if (!file) return;
 
-    const reader = new FileReader();
-    reader.onload = (event) => {
-      const result = event.target?.result as string;
-      if (result) {
-        setFormData((prev) => ({ ...prev, [fieldName]: result }));
-      }
-    };
-    reader.readAsDataURL(file);
+    try {
+      const compressed = await compressImage(file);
+      setFormData((prev) => ({ ...prev, [fieldName]: compressed }));
+    } catch (err) {
+      console.error("Image compression failed", err);
+    }
   };
 
   // Badges handler

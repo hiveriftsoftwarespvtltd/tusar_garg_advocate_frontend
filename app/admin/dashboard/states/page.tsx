@@ -20,7 +20,7 @@ import {
   CheckCircle2,
   Clock
 } from "lucide-react";
-import { fetchApi } from "../../../../lib/api/client";
+import { fetchApi, compressImage } from "../../../../lib/api/client";
 import Swal from 'sweetalert2';
 
 type State = {
@@ -89,25 +89,15 @@ export default function AdminStates() {
     setFormData(defaultFormData);
   };
 
-  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
-      if (file.size > 10 * 1024 * 1024) {
-        Swal.fire({
-          title: 'File too large',
-          text: 'Image size exceeds 10MB limit. Please choose a smaller image.',
-          icon: 'warning',
-          confirmButtonColor: '#0d1b3e',
-        });
-        return;
+      try {
+        const compressed = await compressImage(file);
+        setFormData((prev: any) => ({ ...prev, image: compressed }));
+      } catch (err) {
+        console.error("Image compression failed", err);
       }
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        if (reader.result) {
-          setFormData((prev: any) => ({ ...prev, image: reader.result as string }));
-        }
-      };
-      reader.readAsDataURL(file);
     }
   };
 
