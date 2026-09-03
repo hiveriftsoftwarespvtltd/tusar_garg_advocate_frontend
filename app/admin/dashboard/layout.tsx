@@ -34,7 +34,14 @@ export default function AdminDashboardLayout({ children }: { children: React.Rea
     if (!token || !adminData) {
       router.push("/admin");
     } else {
-      setAdminUser(JSON.parse(adminData));
+      try {
+        setAdminUser(JSON.parse(adminData));
+      } catch (e) {
+        console.error("Error parsing adminData", e);
+        localStorage.removeItem("adminToken");
+        localStorage.removeItem("adminData");
+        router.push("/admin");
+      }
     }
   }, [router]);
 

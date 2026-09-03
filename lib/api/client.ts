@@ -9,6 +9,17 @@ export const apiClient = axios.create({
   timeout: 60000,
 });
 
+// Automatically attach Authorization Bearer token from localStorage
+apiClient.interceptors.request.use((config) => {
+  if (typeof window !== 'undefined') {
+    const token = localStorage.getItem('adminToken');
+    if (token && config.headers) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+  }
+  return config;
+});
+
 export async function compressImage(file: File, maxWidth = 1200, maxHeight = 800, quality = 0.8): Promise<string> {
   return new Promise((resolve) => {
     const reader = new FileReader();
