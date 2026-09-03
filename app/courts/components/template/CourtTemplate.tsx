@@ -125,7 +125,7 @@ export default function CourtTemplate({ data }: { data: any }) {
                   if (service.iconType === 'Search') IconComponent = Search;
                   if (service.iconType === 'Briefcase') IconComponent = Briefcase;
                   return (
-                    <a key={idx} href={service.link || "#"} className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm flex flex-col items-center text-center hover:shadow-md transition-shadow group">
+                    <a key={idx} href={service.link || "#"} target="_blank" rel="noopener noreferrer" className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm flex flex-col items-center text-center hover:shadow-md transition-shadow group">
                       <div className="w-12 h-12 rounded-full bg-[#c9a84c]/10 text-[#c9a84c] flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
                         <IconComponent size={24} />
                       </div>
@@ -204,11 +204,11 @@ export default function CourtTemplate({ data }: { data: any }) {
           <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
             <h3 className="text-lg font-semibold text-[#0d1b3e] mb-4">Important Links</h3>
             <div className="flex flex-col gap-3">
-              {court.caseStatusUrl && <a href={court.caseStatusUrl} className="text-blue-600 hover:underline flex items-center justify-between group">Case Status <ExternalLink size={14} className="opacity-0 group-hover:opacity-100"/></a>}
-              {court.causeListUrl && <a href={court.causeListUrl} className="text-blue-600 hover:underline flex items-center justify-between group">Cause List <ExternalLink size={14} className="opacity-0 group-hover:opacity-100"/></a>}
-              {court.judgmentsUrl && <a href={court.judgmentsUrl} className="text-blue-600 hover:underline flex items-center justify-between group">Orders & Judgments <ExternalLink size={14} className="opacity-0 group-hover:opacity-100"/></a>}
-              {court.recruitmentUrl && <a href={court.recruitmentUrl} className="text-blue-600 hover:underline flex items-center justify-between group">Recruitment <ExternalLink size={14} className="opacity-0 group-hover:opacity-100"/></a>}
-              {court.rulesUrl && <a href={court.rulesUrl} className="text-blue-600 hover:underline flex items-center justify-between group">Rules & Regulations <ExternalLink size={14} className="opacity-0 group-hover:opacity-100"/></a>}
+              {court.caseStatusUrl && <a href={court.caseStatusUrl} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline flex items-center justify-between group">Case Status <ExternalLink size={14} className="opacity-0 group-hover:opacity-100"/></a>}
+              {court.causeListUrl && <a href={court.causeListUrl} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline flex items-center justify-between group">Cause List <ExternalLink size={14} className="opacity-0 group-hover:opacity-100"/></a>}
+              {court.judgmentsUrl && <a href={court.judgmentsUrl} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline flex items-center justify-between group">Orders & Judgments <ExternalLink size={14} className="opacity-0 group-hover:opacity-100"/></a>}
+              {court.recruitmentUrl && <a href={court.recruitmentUrl} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline flex items-center justify-between group">Recruitment <ExternalLink size={14} className="opacity-0 group-hover:opacity-100"/></a>}
+              {court.rulesUrl && <a href={court.rulesUrl} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline flex items-center justify-between group">Rules & Regulations <ExternalLink size={14} className="opacity-0 group-hover:opacity-100"/></a>}
               {!court.caseStatusUrl && !court.causeListUrl && !court.judgmentsUrl && <p className="text-sm text-gray-500">No official links provided by admin.</p>}
             </div>
           </div>

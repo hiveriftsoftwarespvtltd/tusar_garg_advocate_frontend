@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Plus, Trash2, X } from "lucide-react";
+import { Plus, Trash2, X, Upload, ImageIcon } from "lucide-react";
 import { fetchApi } from "../../../../lib/api/client";
 
 export default function CourtForm({ initialData, states, onClose, onSuccess }: any) {
@@ -16,6 +16,21 @@ export default function CourtForm({ initialData, states, onClose, onSuccess }: a
   });
 
   const [loading, setLoading] = useState(false);
+
+  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      if (file.size > 10 * 1024 * 1024) {
+        alert("File size exceeds 10MB limit. Please choose a smaller image.");
+        return;
+      }
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setFormData((prev: any) => ({ ...prev, image: reader.result as string }));
+      };
+      reader.readAsDataURL(file);
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -97,9 +112,72 @@ export default function CourtForm({ initialData, states, onClose, onSuccess }: a
                 <label className="block text-sm font-medium mb-1">City / District</label>
                 <input type="text" className="w-full p-2 border rounded" value={formData.city} onChange={e => setFormData({...formData, city: e.target.value})} />
               </div>
-              <div>
-                <label className="block text-sm font-medium mb-1">Image URL</label>
-                <input type="url" className="w-full p-2 border rounded" value={formData.image} onChange={e => setFormData({...formData, image: e.target.value})} />
+            </div>
+
+            {/* Court Image Selection & File Upload */}
+            <div className="bg-gray-50 p-4 rounded-xl border border-gray-200 mt-4 space-y-3">
+              <label className="block text-sm font-bold text-[#0d1b3e] flex items-center gap-2">
+                <ImageIcon size={18} className="text-[#c9a84c]" />
+                Court Image (Upload File from PC or Enter Image URL)
+              </label>
+
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
+                
+                {/* File Upload Option */}
+                <div className="md:col-span-6">
+                  <label className="block text-xs font-semibold text-gray-600 mb-1 flex items-center gap-1">
+                    <Upload size={14} className="text-[#0d1b3e]" /> Option 1: Upload Image File
+                  </label>
+                  <input 
+                    type="file" 
+                    accept="image/*"
+                    onChange={handleFileUpload}
+                    className="block w-full text-xs text-gray-500 file:mr-3 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-[#0d1b3e] file:text-white hover:file:bg-[#1a2b5e] cursor-pointer bg-white border border-gray-300 rounded-lg p-1"
+                  />
+                </div>
+
+                {/* Direct Image URL Option */}
+                <div className="md:col-span-4">
+                  <label className="block text-xs font-semibold text-gray-600 mb-1">
+                    Option 2: Direct Image URL
+                  </label>
+                  <input 
+                    type="text" 
+                    placeholder="https://... or /court/gurugram_court.jpg"
+                    className="w-full p-2 border border-gray-300 rounded-lg text-sm text-[#0d1b3e] outline-none focus:border-[#c9a84c] bg-white" 
+                    value={formData.image} 
+                    onChange={e => setFormData({...formData, image: e.target.value})} 
+                  />
+                </div>
+
+                {/* Live Image Preview Thumbnail */}
+                <div className="md:col-span-2 flex items-center justify-center">
+                  {formData.image ? (
+                    <div className="relative shrink-0 w-20 h-20 rounded-xl overflow-hidden border-2 border-[#c9a84c] bg-gray-100 group shadow-md flex items-center justify-center">
+                      <img 
+                        key={formData.image.slice(0, 40)}
+                        src={formData.image} 
+                        alt="Court Preview" 
+                        className="w-full h-full object-cover" 
+                      />
+                      <button
+                        type="button"
+                        onClick={() => setFormData({ ...formData, image: "" })}
+                        className="absolute inset-0 bg-black/70 text-white flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity text-[10px] font-bold z-10"
+                        title="Remove Image"
+                      >
+                        <X size={18} />
+                        <span>Remove</span>
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="w-20 h-20 rounded-xl border-2 border-dashed border-gray-300 flex flex-col items-center justify-center text-gray-400 bg-white text-[10px] font-semibold text-center p-1">
+                      <ImageIcon size={20} className="mb-1 text-gray-300" />
+                      <span>No Image</span>
+                    </div>
+                  )}
+                </div>
+
               </div>
             </div>
             
