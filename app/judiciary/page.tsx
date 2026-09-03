@@ -56,7 +56,7 @@ export default function JudiciaryPage() {
               <GraduationCap size={64} strokeWidth={1.5} />
             </div>
             <div>
-              <h2 className="text-white text-[20px] md:text-[24px] font-bold uppercase tracking-wider mb-2" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
+              <h2 className="font-serif text-white text-[20px] md:text-[24px] uppercase tracking-wider mb-2">
                 START YOUR JUDICIARY PREPARATION
               </h2>
               <p className="text-[#e2e8f0]/80 text-[13px] md:text-[14px] max-w-lg leading-relaxed">

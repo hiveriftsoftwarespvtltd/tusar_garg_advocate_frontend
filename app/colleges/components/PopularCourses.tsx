@@ -14,7 +14,7 @@ export default function PopularCourses() {
     <section className="bg-[#fafafa] border border-[#e8ebf2] rounded-xl p-6 shadow-sm">
       {/* Heading */}
       <div className="mb-5">
-        <h2 className="text-[14px] font-bold text-[#0d1b3e] uppercase tracking-[0.05em] mb-3" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
+        <h2 className="font-serif text-[14px] text-[#0d1b3e] uppercase tracking-[0.05em] mb-3">
           POPULAR LAW COURSES
         </h2>
         <div className="w-12 h-[2px] bg-[#c9a84c]"></div>

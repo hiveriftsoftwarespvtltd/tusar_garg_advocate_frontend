@@ -95,7 +95,7 @@ export default function IndianLaws() {
       <div className="max-w-[1280px] mx-auto px-4">
         {/* Heading */}
         <div className="text-center mb-8">
-          <h2 className="text-[20px] font-bold text-[#0d1b3e] uppercase tracking-[0.1em]">
+          <h2 className="font-serif text-[20px] text-[#0d1b3e] uppercase tracking-[0.1em]">
             EXPLORE INDIAN LAWS
           </h2>
           <div className="w-10 h-[3px] bg-[#c9a84c] mx-auto mt-2" />

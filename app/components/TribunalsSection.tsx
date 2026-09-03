@@ -92,7 +92,7 @@ export default function TribunalsSection() {
 
           {/* ── Tribunals & Forums ── */}
           <div className="bg-[#fafafa] border border-[#e8ebf2] rounded-xl p-6 shadow-sm">
-            <h3 className="text-[13px] font-black text-[#0d1b3e] uppercase tracking-[0.1em] text-center mb-5">
+            <h3 className="text-[13px] font-semibold text-[#0d1b3e] uppercase tracking-[0.1em] text-center mb-5">
               TRIBUNALS & FORUMS
             </h3>
             {/* Tribunal icon cards — same style as Indian Laws */}
@@ -109,7 +109,7 @@ export default function TribunalsSection() {
 
           {/* ── Judiciary & Careers ── */}
           <div className="bg-[#fafafa] border border-[#e8ebf2] rounded-xl p-6 shadow-sm flex flex-col">
-            <h3 className="text-[13px] font-black text-[#0d1b3e] uppercase tracking-[0.1em] text-center mb-5">
+            <h3 className="text-[13px] font-semibold text-[#0d1b3e] uppercase tracking-[0.1em] text-center mb-5">
               JUDICIARY & CAREERS
             </h3>
             <ul className="space-y-2.5 flex-1">
@@ -140,7 +140,7 @@ export default function TribunalsSection() {
 
           {/* ── Legal Jobs ── */}
           <div className="bg-[#fafafa] border border-[#e8ebf2] rounded-xl p-6 shadow-sm flex flex-col">
-            <h3 className="text-[13px] font-black text-[#0d1b3e] uppercase tracking-[0.1em] text-center mb-5">
+            <h3 className="text-[13px] font-semibold text-[#0d1b3e] uppercase tracking-[0.1em] text-center mb-5">
               LEGAL JOBS
             </h3>
             <ul className="space-y-2.5 flex-1">

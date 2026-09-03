@@ -22,7 +22,7 @@ export default function CtaBanner({ title, subtitle, buttonText, href }: CtaBann
             <Scale size={100} color="#c9a84c" strokeWidth={1.5} />
           </div>
           <div>
-            <h2 className="text-[#c9a84c] text-[18px] md:text-[22px] font-bold uppercase tracking-widest" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
+            <h2 className="font-serif text-[#c9a84c] text-[18px] md:text-[22px] uppercase tracking-widest">
               {title}
             </h2>
             <hr className="w-16 border-t-2 border-[#c9a84c] mt-2 mb-3 opacity-80" />

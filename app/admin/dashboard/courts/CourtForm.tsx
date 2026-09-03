@@ -6,7 +6,7 @@ import { fetchApi } from "../../../../lib/api/client";
 
 export default function CourtForm({ initialData, states, onClose, onSuccess }: any) {
   const [formData, setFormData] = useState({
-    name: "", slug: "", stateId: states[0]?._id || "", courtType: "District Court", city: "", description: "", image: "",
+    name: "", slug: "", courtType: "District Court", city: "", description: "", image: "",
     jurisdiction: "", address: "", officialWebsite: "", caseStatusUrl: "", judgmentsUrl: "", causeListUrl: "", recruitmentUrl: "", rulesUrl: "", metaTitle: "", metaDescription: "", status: "PUBLISHED", featured: false,
     contactInfo: { phone: "", email: "" },
     workingHours: "", postalDetails: "", history: "",

@@ -9,7 +9,7 @@ export default function HighCourtsGrid({ courts }: { courts: any[] }) {
       <div className="max-w-[1280px] mx-auto px-4">
         
         <div className="flex flex-col items-center mb-10">
-          <h2 className="text-[20px] font-bold text-[#0d1b3e] uppercase tracking-[0.1em]" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
+          <h2 className="font-serif text-[20px] text-[#0d1b3e] uppercase tracking-[0.1em]">
             HIGH COURTS OF INDIA
           </h2>
           <div className="w-12 h-[3px] bg-[#c9a84c] mt-2" />
@@ -25,7 +25,7 @@ export default function HighCourtsGrid({ courts }: { courts: any[] }) {
               </div>
 
               <div className="flex-1">
-                <h3 className="text-[14px] font-bold text-[#0d1b3e] mb-1 leading-tight group-hover:text-[#c9a84c] transition-colors">
+                <h3 className="text-[14px] font-semibold text-[#0d1b3e] mb-1 leading-tight group-hover:text-[#c9a84c] transition-colors">
                   {court.name}
                 </h3>
                 <span className="text-[12px] font-bold text-[#c9a84c] flex items-center gap-1 group-hover:gap-2 transition-all">

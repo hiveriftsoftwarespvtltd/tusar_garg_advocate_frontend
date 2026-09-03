@@ -22,9 +22,8 @@ export default function LawsHero() {
             <span className="text-white">Indian Laws</span>
           </div>
 
-          <h1 
-            className="text-white text-[32px] md:text-[44px] font-black uppercase tracking-wider mb-4 leading-tight"
-            style={{ fontFamily: "var(--font-roboto), sans-serif" }}
+          <h1 className="font-serif text-white text-[32px] md:text-[44px] uppercase tracking-wider mb-4 leading-tight"
+           
           >
             Indian Laws
           </h1>

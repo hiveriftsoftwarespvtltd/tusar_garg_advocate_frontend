@@ -14,7 +14,7 @@ export default function ClientLayoutWrapper({ children }: { children: React.Reac
       {!isAdmin && <ProductionPopup />}
       {!isAdmin && <Header />}
       
-      <div className="flex-1">
+      <div className="flex-1" suppressHydrationWarning>
         {children}
       </div>
       

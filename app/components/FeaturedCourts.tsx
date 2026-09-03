@@ -1,130 +1,9 @@
 import Image from "next/image";
-import { ArrowRight, Landmark } from "lucide-react";
+import { ArrowRight, Landmark, Building2 } from "lucide-react";
 import { fetchApi } from "../../lib/api/client";
 import { getPublishedStates } from "../../lib/api/states";
 
-// Classical building/dome SVG icon for each column header
-function BuildingIcon({ className = "" }: { className?: string }) {
-  return (
-    <svg
-      width="40"
-      height="40"
-      viewBox="0 0 64 64"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className={className}
-    >
-      {/* Dome */}
-      <path d="M32 8 C20 8 14 18 14 26 L50 26 C50 18 44 8 32 8Z" />
-      {/* Columns base */}
-      <rect x="10" y="26" width="44" height="4" rx="1" />
-      {/* Columns */}
-      <line x1="16" y1="30" x2="16" y2="50" />
-      <line x1="24" y1="30" x2="24" y2="50" />
-      <line x1="32" y1="30" x2="32" y2="50" />
-      <line x1="40" y1="30" x2="40" y2="50" />
-      <line x1="48" y1="30" x2="48" y2="50" />
-      {/* Base */}
-      <rect x="8" y="50" width="48" height="4" rx="1" />
-      {/* Steps */}
-      <rect x="6" y="54" width="52" height="3" rx="1" />
-    </svg>
-  );
-}
-
-// White dome SVG for Supreme Court card (on dark green bg)
-function SupremeCourtDomeIcon() {
-  return (
-    <svg
-      width="72"
-      height="72"
-      viewBox="0 0 80 80"
-      fill="none"
-      stroke="white"
-      strokeWidth="1.2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="opacity-90"
-    >
-      {/* Flag pole */}
-      <line x1="40" y1="4" x2="40" y2="14" />
-      {/* Flag */}
-      <path d="M40 6 L50 9 L40 12Z" fill="white" stroke="white" strokeWidth="0.8" />
-      {/* Main dome */}
-      <path d="M40 14 C24 14 16 26 16 36 L64 36 C64 26 56 14 40 14Z" />
-      {/* Drum/collar */}
-      <rect x="20" y="36" width="40" height="5" rx="1" />
-      {/* Small dome on top */}
-      <path d="M40 10 C36 10 33 12 33 15 L47 15 C47 12 44 10 40 10Z" />
-      {/* Columns */}
-      <line x1="22" y1="41" x2="22" y2="58" />
-      <line x1="30" y1="41" x2="30" y2="58" />
-      <line x1="40" y1="41" x2="40" y2="58" />
-      <line x1="50" y1="41" x2="50" y2="58" />
-      <line x1="58" y1="41" x2="58" y2="58" />
-      {/* Entablature */}
-      <rect x="14" y="58" width="52" height="4" rx="1" />
-      {/* Steps */}
-      <rect x="10" y="62" width="60" height="3" rx="1" />
-      <rect x="6" y="65" width="68" height="3" rx="1" />
-    </svg>
-  );
-}
-
-// India map outline SVG (simplified)
-function IndiaMapIcon() {
-  return (
-    <svg
-      width="80"
-      height="90"
-      viewBox="0 0 100 110"
-      fill="none"
-      stroke="#8b7355"
-      strokeWidth="1.2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="opacity-60"
-    >
-      <path d="M50 5 L58 8 L70 6 L78 12 L80 22 L75 30 L78 38 L74 46 L70 52 L72 60 L68 68 L62 74 L58 82 L54 90 L50 96 L46 90 L42 82 L38 74 L32 68 L28 60 L30 52 L26 46 L22 38 L25 30 L20 22 L22 12 L30 6 L42 8 Z" />
-      <path d="M50 96 L44 104 L50 108 L56 104 Z" />
-      {/* Sri Lanka */}
-      <ellipse cx="66" cy="100" rx="4" ry="5" />
-    </svg>
-  );
-}
-
-// Court list data
-const delhiCourts = [
-  "Rouse Avenue",
-  "Tis Hazari",
-  "Karkardooma",
-  "Patiala House",
-  "Rohini",
-  "Dwarka",
-  "Saket",
-];
-
-const punjabCourts = [
-  "Punjab & Haryana High Court",
-  "Chandigarh",
-  "Mohali",
-  "Amritsar",
-  "Ludhiana",
-];
-
-const haryanaCourts = [
-  "Karnal",
-  "Panipat",
-  "Kurukshetra",
-  "Panchkula",
-  "Faridabad",
-  "Gurugram",
-];
-
-// Reusable middle column
+// Reusable middle column for State Courts
 function CourtColumn({
   title,
   courts,
@@ -137,41 +16,56 @@ function CourtColumn({
   iconPath: string;
 }) {
   return (
-    <div className="flex-1 bg-white border-r border-[#e5e9f0] px-6 py-6 flex flex-col">
-      {/* Building icon */}
-      <div className="mb-3 flex items-center justify-start h-[40px]">
-        <Image src={iconPath} alt={title} width={80} height={80} className="object-contain -ml-2" />
+    <div className="flex-1 bg-white border-r border-gray-100 last:border-r-0 px-6 py-6 flex flex-col justify-between group/col transition-all duration-300 hover:bg-gray-50/50">
+      <div>
+        {/* State Building icon header */}
+        <div className="mb-4 flex items-center justify-between">
+          <div className="p-2 bg-[#0d1b3e]/5 rounded-xl group-hover/col:bg-[#c9a84c]/15 transition-colors">
+            <Image 
+              src={iconPath || "/home/district court.svg"} 
+              alt={title} 
+              width={36} 
+              height={36} 
+              className="object-contain" 
+            />
+          </div>
+          <span className="text-[10px] font-bold text-[#c9a84c] bg-[#c9a84c]/10 px-2 py-0.5 rounded-full uppercase tracking-wider">
+            {courts.length} Courts
+          </span>
+        </div>
+
+        {/* State Title */}
+        <h3 className="text-[14px] font-bold text-[#0d1b3e] uppercase leading-snug mb-3 tracking-wide flex items-center gap-1.5">
+          <Building2 size={15} className="text-[#c9a84c]" />
+          {title}
+        </h3>
+
+        {/* Court list */}
+        <ul className="space-y-2 mb-6">
+          {courts.slice(0, 7).map((c: any) => (
+            <li key={c._id}>
+              <a
+                href={`${href}/${c.slug}`}
+                className="group/item flex items-center gap-2 text-[12.5px] text-gray-600 hover:text-[#0d1b3e] font-medium transition-all duration-200 hover:translate-x-1"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-[#c9a84c] flex-shrink-0 group-hover/item:scale-125 transition-transform" />
+                <span className="truncate">{c.name}</span>
+              </a>
+            </li>
+          ))}
+          {courts.length === 0 && (
+            <li className="text-[12px] text-gray-400 italic">No courts listed yet.</li>
+          )}
+        </ul>
       </div>
 
-      {/* Title */}
-      <h3 className="text-[13px] font-black text-[#0d1b3e] uppercase leading-snug mb-4 tracking-wide">
-        {title}
-      </h3>
-
-      {/* Court list */}
-      <ul className="flex-1 space-y-[6px] mb-4">
-        {courts.slice(0, 7).map((c: any) => (
-          <li key={c._id}>
-            <a
-              href={`${href}/${c.slug}`}
-              className="flex items-center gap-2 text-[12px] text-[#374151] hover:text-[#2d5a3d] transition-colors leading-snug"
-            >
-              <span className="w-[5px] h-[5px] rounded-full bg-[#374151] flex-shrink-0 mt-px" />
-              {c.name}
-            </a>
-          </li>
-        ))}
-        {courts.length === 0 && (
-          <li className="text-[12px] text-gray-400 italic">No courts featured yet.</li>
-        )}
-      </ul>
-
-      {/* View All */}
+      {/* View All Footer Link */}
       <a
         href={href}
-        className="flex items-center gap-1 text-[12px] text-[#374151] font-semibold hover:text-[#2d5a3d] transition-colors mt-auto pt-3 border-t border-[#e5e9f0]"
+        className="flex items-center justify-between text-[12px] text-[#0d1b3e] font-bold hover:text-[#c9a84c] transition-colors pt-3 border-t border-gray-100 group/link"
       >
-        View All <ArrowRight size={11} strokeWidth={2} />
+        <span>Explore All District Courts</span>
+        <ArrowRight size={13} strokeWidth={2.5} className="text-[#c9a84c] transition-transform duration-300 group-hover/link:translate-x-1" />
       </a>
     </div>
   );
@@ -189,45 +83,53 @@ export default async function FeaturedCourts() {
 
   const featuredStates = allStates.filter(s => s.featured).slice(0, 3); // Top 3 featured states
   const featuredCourts = allCourts.filter(c => c.featured);
-  return (
-    <section className="bg-white py-10">
-      <div className="max-w-[1280px] mx-auto px-4">
 
-        {/* Section heading */}
-        <div className="text-center mb-8">
-          <h2
-            className="text-[20px] font-bold text-[#0d1b3e] tracking-[0.15em] uppercase"
-            style={{ fontFamily: "var(--font-roboto), sans-serif" }}
-          >
-            FEATURED COURTS
+  return (
+    <section className="bg-[#f8f9fb] py-12 lg:py-16 border-y border-gray-100">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-12">
+
+        {/* Section Heading */}
+        <div className="text-center mb-10">
+          <div className="inline-flex items-center gap-2 bg-[#0d1b3e]/5 px-3 py-1 rounded-full mb-2">
+            <Landmark size={14} className="text-[#c9a84c]" />
+            <span className="text-[#c9a84c] text-[11px] font-bold tracking-widest uppercase">JUDICIAL DIRECTORY</span>
+          </div>
+          <h2 className="font-serif text-[26px] sm:text-[32px] font-bold text-[#0d1b3e] tracking-tight uppercase">
+            FEATURED COURTS OF INDIA
           </h2>
-          <div className="w-10 h-[3px] bg-[#c9a84c] mx-auto mt-2" />
+          <div className="w-12 h-1 bg-[#c9a84c] mx-auto mt-2 rounded-full" />
         </div>
 
-        {/* 5-column layout */}
-        <div className="flex flex-col lg:flex-row gap-4 mb-5">
+        {/* 5-Column Grid Layout */}
+        <div className="flex flex-col lg:flex-row gap-5 mb-8">
 
-          {/* ── 1. Supreme Court Card (dark green) ── */}
-          <div className="lg:w-[190px] flex-shrink-0 min-h-[220px] bg-[#1e3d2f] flex flex-col items-center justify-end px-5 pt-6 pb-5 relative overflow-hidden rounded-xl shadow-sm">
-            {/* Background Image */}
-            <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/home/featured_court.jpg')" }}></div>
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0d1b3e] via-[#0d1b3e]/60 to-transparent"></div>
+          {/* ── 1. Supreme Court Card ── */}
+          <div className="lg:w-[210px] flex-shrink-0 min-h-[260px] bg-[#071126] flex flex-col items-center justify-between p-5 relative overflow-hidden rounded-2xl shadow-md border border-gray-200 group">
+            {/* Background Image with Dark Overlay */}
+            <div 
+              className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" 
+              style={{ backgroundImage: "url('/home/featured_court.jpg')" }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#071126] via-[#071126]/60 to-transparent" />
             
-            {/* Text */}
-            <h3 className="text-white font-black text-[14px] uppercase text-center leading-tight tracking-wider mb-3 mt-auto relative z-10">
-              SUPREME COURT<br />OF INDIA
-            </h3>
-            {/* Gold button */}
-            <a
-              href="/courts/supreme-court"
-              className="inline-flex items-center gap-1.5 bg-[#c9a84c] text-[#1e3d2f] text-[10px] font-bold px-4 py-2 rounded-md transition-all duration-300 whitespace-nowrap w-full justify-center hover:bg-[#d4a93a] hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#c9a84c]/30 active:scale-[0.97] relative z-10"
-            >
-              Explore Supreme Court <ArrowRight size={10} strokeWidth={2.5} />
-            </a>
+            {/* Card Content */}
+            <div className="relative z-10 text-center w-full mt-auto">
+              <h3 className="text-white font-serif font-bold text-[15px] uppercase tracking-wider leading-snug mb-3">
+                SUPREME COURT<br /><span className="text-[#c9a84c]">OF INDIA</span>
+              </h3>
+              {/* Gold Button */}
+              {/* <a
+                href="/courts/supreme-court"
+                className="inline-flex items-center gap-1.5 bg-[#c9a84c] hover:bg-[#d4a93a] text-[#071126] text-[11px] font-bold px-4 py-2.5 rounded-xl transition-all duration-300 w-full justify-center shadow-md hover:-translate-y-0.5"
+              >
+                <span>Explore Supreme Court</span>
+                <ArrowRight size={12} strokeWidth={2.5} />
+              </a> */}
+            </div>
           </div>
 
-          {/* Middle Cards (Dynamic) */}
-          <div className="flex flex-col lg:flex-row flex-1 border border-[#dde4ee] rounded-xl overflow-hidden shadow-sm [&>div:last-child]:border-r-0">
+          {/* ── 2, 3, 4. Middle Cards Grid (Dynamic State Courts) ── */}
+          <div className="flex flex-col lg:flex-row flex-1 bg-white border border-gray-200/80 rounded-2xl overflow-hidden shadow-md">
             {featuredStates.map((state) => {
               const stateCourts = featuredCourts.filter(c => 
                 (typeof c.stateId === 'object' ? c.stateId._id : c.stateId) === state._id
@@ -245,41 +147,49 @@ export default async function FeaturedCourts() {
             
             {/* Fallback if no featured states exist */}
             {featuredStates.length === 0 && (
-              <div className="flex-1 bg-white border-r border-[#e5e9f0] px-6 py-6 flex items-center justify-center text-gray-400 italic text-sm">
+              <div className="flex-1 bg-white p-8 flex items-center justify-center text-gray-400 italic text-sm">
                 No featured states selected in Admin.
               </div>
             )}
           </div>
 
-          {/* ── 5. All Courts of India Card (cream) ── */}
-          <div className="lg:w-[170px] min-h-[220px] flex-shrink-0 bg-[#f7f3ec] border border-[#e5e0d5] rounded-xl flex flex-col items-center justify-end px-5 py-6 shadow-sm relative overflow-hidden">
-            {/* Absolute Background Logo */}
-            <div className="absolute inset-0 flex items-center justify-center z-0 mb-8 pointer-events-none">
+          {/* ── 5. All Courts of India Directory Card (Clean Cream Card) ── */}
+          <div className="lg:w-[190px] min-h-[260px] flex-shrink-0 bg-[#f7f3ec] border border-[#e5e0d5] rounded-2xl flex flex-col items-center justify-between p-5 shadow-sm relative overflow-hidden group hover:border-[#c9a84c] transition-all">
+            {/* Background Map Graphic */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-80 group-hover:scale-105 transition-transform p-3">
               <Image src="/home/india_logo.png" alt="All Courts of India" width={220} height={220} className="object-contain" />
             </div>
             
-            <h3 className="text-[13px] font-black text-[#1e3d2f] uppercase text-center leading-tight tracking-wider relative z-10 mt-auto mb-3 drop-shadow-sm">
-              ALL COURTS<br />OF INDIA
-            </h3>
+            <div className="relative z-10 w-full text-center mt-2">
+              <h3 className="text-[#0d1b3e] font-serif font-bold text-[14px] uppercase leading-tight tracking-wider mb-1 drop-shadow-sm">
+                ALL COURTS<br /><span className="text-[#c9a84c]">OF INDIA</span>
+              </h3>
+              <p className="text-gray-500 text-[10px] font-medium">Covering 28+ States & UTs</p>
+            </div>
+
             <a
               href="/courts"
-              className="group flex items-center gap-1 text-[12px] text-[#374151] font-semibold transition-all duration-300 hover:text-[#1e3d2f] hover:gap-2 relative z-10"
+              className="relative z-10 w-full flex items-center justify-center gap-1.5 bg-[#0d1b3e] hover:bg-[#c9a84c] text-white hover:text-[#0d1b3e] text-[11px] font-bold py-2.5 px-3 rounded-xl transition-all duration-300 shadow-sm"
             >
-              Explore Now <ArrowRight size={11} strokeWidth={2} className="transition-transform duration-300 group-hover:translate-x-0.5" />
+              <span>Explore Now</span>
+              <ArrowRight size={12} strokeWidth={2.5} />
             </a>
           </div>
+
         </div>
 
-        {/* VIEW ALL COURTS button — dark green filled */}
-        <div className="flex justify-center">
+        {/* Main CTA Button: VIEW ALL COURTS IN INDIA */}
+        <div className="flex justify-center pt-2">
           <a
             href="/courts"
-            className="inline-flex items-center gap-2 bg-[#1e3d2f] text-white px-10 py-3 text-[11.5px] font-bold uppercase tracking-widest rounded-md transition-all duration-300 hover:bg-[#162e23] hover:-translate-y-0.5 hover:shadow-xl hover:shadow-[#1e3d2f]/30 active:scale-[0.98]"
+            className="inline-flex items-center gap-2.5 bg-[#0d1b3e] hover:bg-[#1a2b5e] text-white px-8 py-3.5 text-[12px] font-bold uppercase tracking-widest rounded-xl transition-all duration-300 border border-[#c9a84c]/40 shadow-xl hover:shadow-[#0d1b3e]/30 hover:-translate-y-0.5 active:scale-[0.98]"
           >
-            <Landmark size={15} strokeWidth={1.5} />
-            VIEW ALL COURTS IN INDIA
+            <Landmark size={16} className="text-[#c9a84c]" />
+            <span>EXPLORE ALL COURTS IN INDIA</span>
+            <ArrowRight size={14} className="text-[#c9a84c]" />
           </a>
         </div>
+
       </div>
     </section>
   );

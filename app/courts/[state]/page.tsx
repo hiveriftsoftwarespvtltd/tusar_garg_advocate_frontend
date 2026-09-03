@@ -45,7 +45,7 @@ export default async function StateCourtsPage({ params }: Props) {
             <ChevronRight size={14} className="mx-2" />
             <span className="text-[#c9a84c]">{stateData.name}</span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">{stateData.name} Courts</h1>
+          <h1 className="font-serif text-4xl md:text-5xl mb-4">{stateData.name} Courts</h1>
           <p className="text-lg text-gray-300 max-w-2xl">
             {stateData.description || `Explore the complete directory of courts in ${stateData.name}.`}
           </p>
@@ -75,7 +75,7 @@ export default async function StateCourtsPage({ params }: Props) {
                     </span>
                   </div>
                   <div className="p-6 flex-1 flex flex-col">
-                    <h3 className="text-[20px] font-bold text-[#0d1b3e] mb-3 group-hover:text-[#c9a84c] transition-colors line-clamp-2">
+                    <h3 className="text-[20px] font-semibold text-[#0d1b3e] mb-3 group-hover:text-[#c9a84c] transition-colors line-clamp-2">
                       {court.name}
                     </h3>
                     <div className="flex items-center text-[#4b5563] text-[14px] mb-4">

@@ -1,33 +1,50 @@
+"use client";
+
 import { Scale, Gavel, BookOpen, Lightbulb, GraduationCap, MessageCircle, FileSearch, Users } from "lucide-react";
 
-export default function CategoryNav() {
+interface CategoryNavProps {
+  selectedCategory: string;
+  setSelectedCategory: (cat: string) => void;
+}
+
+export default function CategoryNav({ selectedCategory, setSelectedCategory }: CategoryNavProps) {
   const categories = [
-    { name: "Legal Analysis", icon: <Scale size={24} strokeWidth={1.2} /> },
-    { name: "Case Notes", icon: <Gavel size={24} strokeWidth={1.2} /> },
-    { name: "Practice Guides", icon: <BookOpen size={24} strokeWidth={1.2} /> },
-    { name: "Explainers", icon: <Lightbulb size={24} strokeWidth={1.2} /> },
-    { name: "Legal Education", icon: <GraduationCap size={24} strokeWidth={1.2} /> },
-    { name: "Opinion", icon: <MessageCircle size={24} strokeWidth={1.2} /> },
-    { name: "Research", icon: <FileSearch size={24} strokeWidth={1.2} /> },
-    { name: "Interviews", icon: <Users size={24} strokeWidth={1.2} /> },
+    { name: "All", label: "All Categories", icon: <BookOpen size={22} strokeWidth={1.5} /> },
+    { name: "Legal Analysis", label: "Legal Analysis", icon: <Scale size={22} strokeWidth={1.5} /> },
+    { name: "Case Note", label: "Case Notes", icon: <Gavel size={22} strokeWidth={1.5} /> },
+    { name: "Practice Guide", label: "Practice Guides", icon: <BookOpen size={22} strokeWidth={1.5} /> },
+    { name: "Explainer", label: "Explainers", icon: <Lightbulb size={22} strokeWidth={1.5} /> },
+    { name: "Constitutional Law", label: "Constitutional Law", icon: <GraduationCap size={22} strokeWidth={1.5} /> },
+    { name: "Criminal Law", label: "Criminal Law", icon: <FileSearch size={22} strokeWidth={1.5} /> },
+    { name: "Corporate Law", label: "Corporate Law", icon: <Users size={22} strokeWidth={1.5} /> },
   ];
 
   return (
-    <section className="max-w-[1280px] mx-auto px-4 mb-12">
-      <div className="flex flex-wrap justify-center lg:justify-between items-center gap-x-6 md:gap-x-10 lg:gap-x-4 gap-y-6 py-6 border-y border-[#e8ebf2]">
-        {categories.map((cat, idx) => (
-          <div 
-            key={idx} 
-            className="flex items-center gap-2 cursor-pointer group"
-          >
-            <div className="text-[#c9a84c] group-hover:scale-110 transition-transform duration-300">
-              {cat.icon}
-            </div>
-            <span className="text-[13.5px] md:text-[14px] font-bold text-[#0d1b3e] group-hover:text-[#c9a84c] transition-colors whitespace-nowrap">
-              {cat.name}
-            </span>
-          </div>
-        ))}
+    <section className="max-w-[1280px] mx-auto px-4 mb-10">
+      <div className="flex flex-wrap justify-center lg:justify-between items-center gap-x-6 md:gap-x-8 gap-y-4 py-5 border-y border-[#e8ebf2]">
+        {categories.map((cat, idx) => {
+          const isSelected = selectedCategory.toLowerCase() === cat.name.toLowerCase();
+          return (
+            <button 
+              key={idx} 
+              onClick={() => setSelectedCategory(cat.name)}
+              className={`flex items-center gap-2 cursor-pointer group transition-colors ${
+                isSelected ? "text-[#c9a84c]" : "text-[#0d1b3e] hover:text-[#c9a84c]"
+              }`}
+            >
+              <div className={`transition-transform duration-300 group-hover:scale-110 ${
+                isSelected ? "text-[#c9a84c] scale-110" : "text-[#c9a84c]"
+              }`}>
+                {cat.icon}
+              </div>
+              <span className={`text-[13px] md:text-[13.5px] font-bold whitespace-nowrap ${
+                isSelected ? "underline underline-offset-4 font-extrabold" : ""
+              }`}>
+                {cat.label}
+              </span>
+            </button>
+          );
+        })}
       </div>
     </section>
   );

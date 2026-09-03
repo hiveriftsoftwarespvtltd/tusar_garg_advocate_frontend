@@ -1,7 +1,9 @@
-import { ArrowRight, Calendar, Building2 } from "lucide-react";
+"use client";
 
-// Court badge icons matching the reference design
-// SC = blue circle with government building icon
+import { useEffect, useState } from "react";
+import { ArrowRight, Calendar, Building2, ExternalLink } from "lucide-react";
+import { fetchApi } from "../../lib/api/client";
+
 function SCBadge() {
   return (
     <div className="w-10 h-10 rounded-full bg-[#dbeafe] border-2 border-[#93c5fd] flex items-center justify-center flex-shrink-0">
@@ -13,11 +15,7 @@ function SCBadge() {
 function HCBadge() {
   return (
     <div className="w-10 h-10 rounded-full bg-[#dcfce7] border-2 border-[#86efac] flex items-center justify-center flex-shrink-0">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#15803d" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="4" y="2" width="16" height="20" rx="2" />
-        <path d="M9 22v-4h6v4" />
-        <path d="M8 6h.01M12 6h.01M16 6h.01M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01" />
-      </svg>
+      <Building2 size={18} strokeWidth={1.5} className="text-[#15803d]" />
     </div>
   );
 }
@@ -25,126 +23,172 @@ function HCBadge() {
 function DCBadge() {
   return (
     <div className="w-10 h-10 rounded-full bg-[#f3e8ff] border-2 border-[#d8b4fe] flex items-center justify-center flex-shrink-0">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7e22ce" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-        <polyline points="14 2 14 8 20 8" />
-        <line x1="16" y1="13" x2="8" y2="13" />
-        <line x1="16" y1="17" x2="8" y2="17" />
-        <polyline points="10 9 9 9 8 9" />
-      </svg>
+      <Building2 size={18} strokeWidth={1.5} className="text-[#7e22ce]" />
     </div>
   );
 }
 
-const judgments = [
+const defaultJudgments = [
   {
-    badge: <SCBadge />,
-    courtLabel: "SUPREME COURT",
+    _id: "sc-1",
+    courtName: "SUPREME COURT",
     courtColor: "text-[#1d4ed8]",
     underlineColor: "bg-[#1d4ed8]",
     title: "State of X vs. ABC Pvt. Ltd.",
-    citation: "Civil Appeal No. 1234/2024",
+    caseNumber: "Civil Appeal No. 1234/2024",
     date: "16 May 2024",
-    scc: "2024 SCC OnLine SC 789",
-    subject: "Constitutional Law",
-    href: "/judgments/sc-1",
+    bench: "Hon'ble Supreme Court Bench",
+    shortDescription: "Landmark judgment on constitutional validity and statutory interpretation.",
+    link: "/judgments",
   },
   {
-    badge: <HCBadge />,
-    courtLabel: "HIGH COURTS",
+    _id: "hc-1",
+    courtName: "HIGH COURT",
     courtColor: "text-[#15803d]",
     underlineColor: "bg-[#15803d]",
     title: "Ramesh Kumar vs. State of Haryana",
-    citation: "CRM-M No. 5678/2024",
+    caseNumber: "CRM-M No. 5678/2024",
     date: "14 May 2024",
-    scc: "2024 SCC OnLine P&H 456",
-    subject: "Criminal Law",
-    href: "/judgments/hc-1",
+    bench: "High Court of Punjab & Haryana",
+    shortDescription: "Appellate criminal law judgment regarding anticipatory bail.",
+    link: "/judgments",
   },
   {
-    badge: <DCBadge />,
-    courtLabel: "DISTRICT COURTS",
+    _id: "dc-1",
+    courtName: "DISTRICT COURT",
     courtColor: "text-[#7e22ce]",
     underlineColor: "bg-[#7e22ce]",
     title: "Sunita Devi vs. Rajesh Singh",
-    citation: "Civil Suit No. 234/2023",
+    caseNumber: "Civil Suit No. 234/2023",
     date: "10 May 2024",
-    scc: "District Court Delhi",
-    subject: "Property Law",
-    href: "/judgments/dc-1",
+    bench: "District Court Delhi",
+    shortDescription: "Civil property and land dispute settlement ruling.",
+    link: "/judgments",
   },
 ];
 
 export default function LatestJudgments() {
+  const [judgmentsList, setJudgmentsList] = useState<any[]>(defaultJudgments);
+
+  useEffect(() => {
+    async function loadJudgments() {
+      try {
+        const res = await fetchApi('/courts/judgments/all');
+        if (res && Array.isArray(res) && res.length > 0) {
+          const mapped = res.map((j: any) => {
+            const courtName = j.courtId?.name?.toUpperCase() || "SUPREME COURT";
+            const isHC = courtName.includes("HIGH");
+            const isDC = courtName.includes("DISTRICT");
+            return {
+              _id: j._id,
+              courtName: courtName,
+              courtColor: isHC ? "text-[#15803d]" : isDC ? "text-[#7e22ce]" : "text-[#1d4ed8]",
+              underlineColor: isHC ? "bg-[#15803d]" : isDC ? "bg-[#7e22ce]" : "bg-[#1d4ed8]",
+              title: j.title || "Court Judgment",
+              caseNumber: j.caseNumber || "Civil Case",
+              date: j.date ? new Date(j.date).toLocaleDateString("en-IN", { day: 'numeric', month: 'short', year: 'numeric' }) : "Recently Decided",
+              bench: j.bench || j.courtId?.name || "Judicial Bench",
+              shortDescription: j.shortDescription || j.title,
+              link: j.link || "/judgments",
+            };
+          });
+          setJudgmentsList(mapped.slice(0, 3));
+        }
+      } catch (err) {
+        console.error("Failed to load dynamic judgments", err);
+      }
+    }
+    loadJudgments();
+  }, []);
+
   return (
-    <section className="bg-white py-10">
-      <div className="max-w-[1280px] mx-auto px-4">
-        {/* Section header */}
-        <div className="flex items-start justify-between mb-6">
+    <section className="bg-white py-10 sm:py-14 border-b border-gray-100">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-12">
+        {/* Section Header */}
+        <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 mb-8">
           <div>
-            <h2 className="text-[20px] font-bold text-[#0d1b3e] uppercase tracking-[0.1em]">
-              LATEST JUDGMENTS
+            <div className="inline-flex items-center gap-2 bg-[#0d1b3e]/5 px-3 py-1 rounded-full mb-2">
+              <Building2 size={13} className="text-[#c9a84c]" />
+              <span className="text-[#c9a84c] text-[10.5px] font-bold tracking-widest uppercase">CASE LAW & PRECEDENTS</span>
+            </div>
+            <h2 className="font-serif text-[24px] sm:text-[30px] font-bold text-[#0d1b3e] uppercase tracking-tight">
+              LATEST & IMPORTANT JUDGMENTS
             </h2>
-            <div className="w-10 h-[3px] bg-[#c9a84c] mt-1.5" />
+            <div className="w-12 h-1 bg-[#c9a84c] mt-2 rounded-full" />
           </div>
           <a
             href="/judgments"
-            className="text-[12px] text-[#0d1b3e] font-semibold hover:text-[#c9a84c] flex items-center gap-1 transition-colors mt-1.5"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[12.5px] text-[#0d1b3e] font-bold hover:text-[#c9a84c] flex items-center gap-1.5 transition-colors bg-[#0d1b3e]/5 hover:bg-[#0d1b3e] hover:text-white px-4 py-2 rounded-xl"
           >
-            View All Judgments <ArrowRight size={13} strokeWidth={2} />
+            <span>View All Judgments Page</span>
+            <ArrowRight size={13} strokeWidth={2.5} />
           </a>
         </div>
 
-        {/* 3-column grid — separated cards with rounded corners + gap */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {judgments.map((j) => (
-            <div
-              key={j.title}
-              className="bg-[#fafafa] border border-[#e8ebf2] rounded-xl p-6 flex flex-col shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
-            >
-              {/* Badge + court label + colored underline */}
-              <div className="flex items-center gap-3 mb-1">
-                {j.badge}
+        {/* 3-Column Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {judgmentsList.map((j) => {
+            const isHC = j.courtName.includes("HIGH");
+            const isDC = j.courtName.includes("DISTRICT");
+            const BadgeComponent = isHC ? HCBadge : isDC ? DCBadge : SCBadge;
+
+            return (
+              <div
+                key={j._id}
+                className="bg-[#fafafa] border border-gray-200/80 rounded-2xl p-6 flex flex-col justify-between shadow-sm hover:shadow-xl hover:border-[#c9a84c]/50 hover:-translate-y-1 transition-all duration-300 group"
+              >
                 <div>
-                  <span className={`text-[11px] font-black tracking-wider ${j.courtColor}`}>
-                    {j.courtLabel}
-                  </span>
-                  <div className={`h-[2px] ${j.underlineColor} mt-0.5 w-12`} />
+                  {/* Badge + Court Label */}
+                  <div className="flex items-center gap-3 mb-4">
+                    <BadgeComponent />
+                    <div>
+                      <span className={`text-[11px] font-black tracking-wider ${j.courtColor}`}>
+                        {j.courtName}
+                      </span>
+                      <div className={`h-[2.5px] ${j.underlineColor} mt-0.5 w-10 rounded-full`} />
+                    </div>
+                  </div>
+
+                  {/* Case Title */}
+                  <h3 className="text-[15px] font-bold text-[#0d1b3e] mb-2 leading-snug group-hover:text-[#c9a84c] transition-colors">
+                    {j.title}
+                  </h3>
+                  <p className="text-[12px] font-medium text-gray-500 mb-3">{j.caseNumber}</p>
+
+                  {/* Date & Bench */}
+                  <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 mb-3 text-[11.5px] text-gray-500 bg-white p-2.5 rounded-lg border border-gray-100">
+                    <span className="flex items-center gap-1.5">
+                      <Calendar size={13} className="text-[#c9a84c]" />
+                      {j.date}
+                    </span>
+                    <span className="flex items-center gap-1.5">
+                      <Building2 size={13} className="text-[#c9a84c]" />
+                      {j.bench}
+                    </span>
+                  </div>
+
+                  {j.shortDescription && (
+                    <p className="text-[12px] text-gray-600 mb-5 line-clamp-2">
+                      {j.shortDescription}
+                    </p>
+                  )}
                 </div>
-              </div>
 
-              <div className="mt-3">
-                {/* Case title */}
-                <h3 className="text-[14px] font-bold text-[#0d1b3e] mb-1.5 leading-snug">
-                  {j.title}
-                </h3>
-                <p className="text-[11.5px] text-[#6b7280] mb-3">{j.citation}</p>
-
-                {/* Date row */}
-                <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mb-2 text-[11px] text-[#6b7280]">
-                  <span className="flex items-center gap-1.5">
-                    <Calendar size={11} strokeWidth={1.5} className="text-[#c9a84c]" />
-                    {j.date}
-                  </span>
-                  <span className="flex items-center gap-1.5">
-                    <Building2 size={11} strokeWidth={1.5} className="text-[#c9a84c]" />
-                    {j.scc}
-                  </span>
-                </div>
-
-                <p className="text-[11.5px] text-[#374151] mb-5">
-                  <span className="font-semibold">Subject:</span> {j.subject}
-                </p>
-
+                {/* VIEW JUDGMENT Button (Opens target="_blank" in new page) */}
                 <a
-                  href={j.href}
-                  className="text-[12px] text-[#0d1b3e] font-bold hover:text-[#c9a84c] flex items-center gap-1 transition-colors"
+                  href={j.link || "/judgments"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center gap-2 bg-[#0d1b3e] hover:bg-[#c9a84c] text-white hover:text-[#0d1b3e] font-bold text-[11.5px] uppercase tracking-wider py-2.5 px-4 rounded-xl transition-all duration-300 shadow-sm"
                 >
-                  Read Judgment <ArrowRight size={12} strokeWidth={2} />
+                  <span>VIEW JUDGMENT</span>
+                  <ExternalLink size={13} strokeWidth={2.5} />
                 </a>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

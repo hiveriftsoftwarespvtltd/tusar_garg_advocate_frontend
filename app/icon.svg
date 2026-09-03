@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f3e092"/>
+      <stop offset="50%" stop-color="#c9a84c"/>
+      <stop offset="100%" stop-color="#9a7b2c"/>
+    </linearGradient>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d1b3e"/>
+      <stop offset="100%" stop-color="#071126"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Outer Dark Navy Circle with Metallic Gold Ring -->
+  <circle cx="256" cy="256" r="248" fill="url(#bgGrad)" stroke="url(#goldGrad)" stroke-width="16"/>
+  
+  <!-- Inner Subtle Ring -->
+  <circle cx="256" cy="256" r="228" fill="none" stroke="url(#goldGrad)" stroke-width="3" stroke-dasharray="6,4" opacity="0.6"/>
+
+  <!-- TG Serif Monogram & Scales Icon -->
+  <g fill="url(#goldGrad)" text-anchor="middle" font-family="'Times New Roman', Times, serif">
+    <!-- TG Text -->
+    <text x="256" y="270" font-size="190" font-weight="bold" letter-spacing="-6">TG</text>
+  </g>
+
+  <!-- Scales of Justice Accent below TG -->
+  <path d="M 256 310 L 256 410 M 200 410 L 312 410 M 180 340 L 332 340 M 180 340 L 155 385 M 180 340 L 205 385 M 332 340 L 307 385 M 332 340 L 357 385 M 150 385 Q 180 405 210 385 Z M 302 385 Q 332 405 362 385 Z" fill="none" stroke="url(#goldGrad)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Top Star Accent -->
+  <polygon points="256,70 263,90 285,90 267,103 274,123 256,110 238,123 245,103 227,90 249,90" fill="url(#goldGrad)"/>
+</svg>

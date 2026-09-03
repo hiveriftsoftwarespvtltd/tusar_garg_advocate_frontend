@@ -38,7 +38,7 @@ export default function ContactInfoBar() {
                 {item.icon}
               </div>
               <div className="flex flex-col">
-                <h3 className="text-[11px] font-bold text-white uppercase tracking-wider mb-2">
+                <h3 className="text-[11px] font-semibold text-white uppercase tracking-wider mb-2">
                   {item.title}
                 </h3>
                 <p className="text-[13px] font-bold text-white mb-2 leading-snug break-words">

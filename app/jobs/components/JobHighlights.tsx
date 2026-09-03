@@ -33,7 +33,7 @@ export default function JobHighlights() {
             <div className="w-8 md:w-16 h-[1px] bg-[#c9a84c]"></div>
             <div className="w-1.5 h-1.5 rotate-45 bg-[#c9a84c]"></div>
           </div>
-          <h2 className="text-[14px] md:text-[16px] font-bold text-[#0d1b3e] uppercase tracking-[0.1em] text-center" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
+          <h2 className="font-serif text-[14px] md:text-[16px] text-[#0d1b3e] uppercase tracking-[0.1em] text-center">
             JOB DETAIL HIGHLIGHTS
           </h2>
           <div className="flex items-center">
@@ -50,7 +50,7 @@ export default function JobHighlights() {
                 {item.icon}
               </div>
               <div className="flex flex-col">
-                <h3 className="text-[13.5px] font-bold text-[#0d1b3e] mb-1 group-hover:text-[#c9a84c] transition-colors">{item.title}</h3>
+                <h3 className="text-[13.5px] font-semibold text-[#0d1b3e] mb-1 group-hover:text-[#c9a84c] transition-colors">{item.title}</h3>
                 <p className="text-[11.5px] text-[#6b7280] leading-snug">{item.desc}</p>
               </div>
             </div>
@@ -63,7 +63,7 @@ export default function JobHighlights() {
             <div className="w-8 md:w-16 h-[1px] bg-[#c9a84c]"></div>
             <div className="w-1.5 h-1.5 rotate-45 bg-[#c9a84c]"></div>
           </div>
-          <h2 className="text-[14px] md:text-[16px] font-bold text-[#0d1b3e] uppercase tracking-[0.1em] text-center" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
+          <h2 className="font-serif text-[14px] md:text-[16px] text-[#0d1b3e] uppercase tracking-[0.1em] text-center">
             BROWSE BY ROLE TYPE
           </h2>
           <div className="flex items-center">

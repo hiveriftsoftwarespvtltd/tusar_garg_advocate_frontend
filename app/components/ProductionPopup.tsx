@@ -42,9 +42,8 @@ export default function ProductionPopup() {
           <Hammer size={32} className="text-[#c9a84c]" />
         </div>
         
-        <h2 
-          className="text-[22px] font-bold text-[#0d1b3e] uppercase tracking-wide mb-3"
-          style={{ fontFamily: "var(--font-roboto), sans-serif" }}
+        <h2 className="font-serif text-[22px] text-[#0d1b3e] uppercase tracking-wide mb-3"
+         
         >
           Website Under Production
         </h2>

@@ -10,7 +10,7 @@ const navItems = [
   { label: "ABOUT", href: "/about" },
   { label: "COURTS", href: "/courts", hasDropdown: true },
   { label: "JUDGMENTS", href: "/judgments", hasDropdown: true },
-  { label: "LAWS", href: "/laws", hasDropdown: true },
+  { label: "PRACTICE AREAS", href: "/laws", hasDropdown: true },
   { label: "TRIBUNALS", href: "/tribunals" },
   { label: "JUDICIARY", href: "/judiciary" },
   { label: "JOBS", href: "/jobs" },
@@ -27,12 +27,12 @@ export default function Header() {
   return (
     <header className="bg-[#0d1b3e] sticky top-0 z-50">
       {/* Top bar: Logo + Search + User */}
-      <div className="max-w-[1280px] mx-auto px-4 flex items-center justify-between h-[64px] gap-4">
+      <div className="max-w-[1600px] mx-auto px-4 flex items-center justify-between h-[64px] gap-4">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 sm:gap-4 min-w-0">
-          <span className="text-[#c9a84c] text-[28px] sm:text-[34px] leading-none pr-3 sm:pr-4 border-r border-[#1a2b5a] flex-shrink-0" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>TG</span>
+          <span className="text-[#c9a84c] text-[28px] sm:text-[34px] leading-none pr-3 sm:pr-4 border-r border-[#1a2b5a] flex-shrink-0">TG</span>
           <div className="flex flex-col leading-tight min-w-0">
-            <span className="text-white font-bold text-[14px] sm:text-[15px] tracking-[0.1em] uppercase truncate">
+            <span className="text-white font-bold font-serif text-[17px] sm:text-[19px] tracking-widest uppercase truncate">
               TUSHAR GARG
             </span>
             <span className="text-white/80 text-[8px] sm:text-[9.5px] font-medium tracking-wide mt-0.5 truncate">
@@ -69,7 +69,7 @@ export default function Header() {
 
       {/* Nav bar */}
       <div >
-        <div className="max-w-[1280px] mx-auto px-4">
+        <div className="max-w-[1600px] mx-auto px-4">
           <nav className="hidden lg:flex items-center justify-between py-4">
             {navItems.map((item) => {
               const isActive = pathname === item.href || (item.href !== "/" && pathname?.startsWith(item.href));
@@ -77,8 +77,8 @@ export default function Header() {
               <Link
                 key={item.label}
                 href={item.href}
-                className={`group relative flex flex-col items-center gap-1 text-[11px] font-bold tracking-widest whitespace-nowrap transition-colors ${
-                  isActive ? "text-[#c9a84c]" : "text-white/70 hover:text-[#c9a84c]"
+                className={`group relative flex flex-col items-center gap-1 text-[11.5px] font-bold tracking-wider uppercase whitespace-nowrap transition-colors ${
+                  isActive ? "text-[#c9a84c]" : "text-white/75 hover:text-[#c9a84c]"
                 }`}
               >
                 <div className="flex items-center gap-1">

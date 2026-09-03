@@ -31,7 +31,7 @@ export default function AboutAndUpdates() {
         {/* Left Side: About */}
         <div className="xl:w-1/2 flex flex-col">
           <div className="flex flex-col items-start mb-6">
-            <h2 className="text-[15px] md:text-[16px] font-bold text-[#0d1b3e] uppercase tracking-[0.05em] mb-2" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
+            <h2 className="font-serif text-[15px] md:text-[16px] text-[#0d1b3e] uppercase tracking-[0.05em] mb-2">
               ABOUT TRIBUNALS & FORUMS
             </h2>
             <div className="w-10 h-[3px] bg-[#c9a84c]"></div>
@@ -66,7 +66,7 @@ export default function AboutAndUpdates() {
         {/* Right Side: Updates */}
         <div className="xl:w-1/2 flex flex-col">
           <div className="flex flex-col items-start mb-6">
-            <h2 className="text-[15px] md:text-[16px] font-bold text-[#0d1b3e] uppercase tracking-[0.05em] mb-2" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
+            <h2 className="font-serif text-[15px] md:text-[16px] text-[#0d1b3e] uppercase tracking-[0.05em] mb-2">
               LATEST ORDERS / UPDATES
             </h2>
             <div className="w-10 h-[3px] bg-[#c9a84c]"></div>
@@ -83,7 +83,7 @@ export default function AboutAndUpdates() {
                   
                   {/* Content */}
                   <div className="flex-1 min-w-0 pr-4">
-                    <h3 className="text-[13px] font-bold text-[#0d1b3e] leading-snug mb-1.5 group-hover:text-[#c9a84c] transition-colors line-clamp-1">
+                    <h3 className="text-[13px] font-semibold text-[#0d1b3e] leading-snug mb-1.5 group-hover:text-[#c9a84c] transition-colors line-clamp-1">
                       {update.title}
                     </h3>
                     <div className="flex flex-wrap items-center text-[11px] font-medium text-[#6b7280]">

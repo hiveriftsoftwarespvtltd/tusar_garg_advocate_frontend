@@ -39,7 +39,7 @@ export default function LatestArticles() {
   return (
     <section className="mb-16">
       <div className="flex items-center justify-between mb-6 border-b border-[#e8ebf2] pb-3">
-        <h2 className="text-[16px] font-bold text-[#0d1b3e] uppercase tracking-[0.05em]" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
+        <h2 className="font-serif text-[16px] text-[#0d1b3e] uppercase tracking-[0.05em]">
           LATEST ARTICLES
         </h2>
         <button className="text-[12px] font-bold text-[#6b7280] hover:text-[#c9a84c] transition-colors">
@@ -62,9 +62,8 @@ export default function LatestArticles() {
               </div>
             </div>
             
-            <h3 
-              className="text-[15px] font-bold text-[#0d1b3e] leading-snug mb-2 group-hover:text-[#c9a84c] transition-colors line-clamp-2"
-              style={{ fontFamily: "var(--font-roboto), sans-serif" }}
+            <h3 className="text-[15px] font-semibold text-[#0d1b3e] leading-snug mb-2 group-hover:text-[#c9a84c] transition-colors line-clamp-2"
+             
             >
               {article.title}
             </h3>

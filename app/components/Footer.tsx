@@ -58,7 +58,7 @@ export default function Footer() {
     <footer className="bg-[#0a1530] border-t border-white/10">
 
       {/* Main content */}
-      <div className="max-w-[1280px] mx-auto px-4 py-10">
+      <div className="max-w-[1600px] mx-auto px-4 py-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
 
           {/* Brand */}
@@ -68,7 +68,7 @@ export default function Footer() {
                 <span className="text-[#c9a84c] font-bold text-[12px]">TG</span>
               </div>
               <div>
-                <p className="text-white font-bold text-[13px] tracking-[0.1em] uppercase leading-tight">
+                <p className="text-white font-serif font-bold text-[15px] tracking-widest uppercase leading-tight">
                   TUSHAR GARG
                 </p>
                 <p className="text-white/40 text-[9.5px] leading-tight">
@@ -101,7 +101,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-white text-[11px] font-bold uppercase tracking-[0.15em] mb-4 pb-2 border-b border-white/10">
+            <h3 className="text-white text-[11px] font-semibold uppercase tracking-[0.15em] mb-4 pb-2 border-b border-white/10">
               QUICK LINKS
             </h3>
             <ul className="grid grid-cols-2 gap-x-4 gap-y-2">
@@ -117,7 +117,7 @@ export default function Footer() {
 
           {/* Important Links */}
           <div>
-            <h3 className="text-white text-[11px] font-bold uppercase tracking-[0.15em] mb-4 pb-2 border-b border-white/10">
+            <h3 className="text-white text-[11px] font-semibold uppercase tracking-[0.15em] mb-4 pb-2 border-b border-white/10">
               IMPORTANT LINKS
             </h3>
             <ul className="space-y-2.5">
@@ -133,7 +133,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="text-white text-[11px] font-bold uppercase tracking-[0.15em] mb-4 pb-2 border-b border-white/10">
+            <h3 className="text-white text-[11px] font-semibold uppercase tracking-[0.15em] mb-4 pb-2 border-b border-white/10">
               CONTACT
             </h3>
             <div className="space-y-3">
@@ -161,7 +161,7 @@ export default function Footer() {
 
       {/* Bottom bar */}
       <div className="border-t border-white/10">
-        <div className="max-w-[1280px] mx-auto px-4 py-3 flex flex-col md:flex-row items-center justify-between gap-2">
+        <div className="max-w-[1600px] mx-auto px-4 py-3 flex flex-col md:flex-row items-center justify-between gap-2">
           <p className="text-white/35 text-[11px]">
             © 2024 Tushar Garg. All Rights Reserved.
           </p>

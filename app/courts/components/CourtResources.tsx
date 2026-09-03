@@ -33,7 +33,7 @@ export default function CourtResources() {
       <div className="max-w-[1280px] mx-auto px-4">
 
         <div className="flex flex-col items-center mb-10">
-          <h2 className="text-[20px] font-bold text-[#0d1b3e] uppercase tracking-[0.1em]" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
+          <h2 className="font-serif text-[20px] text-[#0d1b3e] uppercase tracking-[0.1em]">
             COURT RESOURCES
           </h2>
           <div className="w-12 h-[3px] bg-[#c9a84c] mt-2" />
@@ -45,7 +45,7 @@ export default function CourtResources() {
               <div className="text-[#0d1b3e] mb-4 group-hover:text-[#c9a84c] group-hover:scale-110 transition-all duration-300">
                 {res.icon}
               </div>
-              <h3 className="text-[13px] font-bold text-[#374151] group-hover:text-[#c9a84c] transition-colors">
+              <h3 className="text-[13px] font-semibold text-[#374151] group-hover:text-[#c9a84c] transition-colors">
                 {res.title}
               </h3>
             </div>

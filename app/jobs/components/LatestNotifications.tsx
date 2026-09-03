@@ -35,7 +35,7 @@ export default function LatestNotifications() {
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-3">
           <Bell size={22} className="text-[#c9a84c]" />
-          <h2 className="text-[15px] font-bold text-[#0d1b3e] uppercase tracking-[0.05em]" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
+          <h2 className="font-serif text-[15px] text-[#0d1b3e] uppercase tracking-[0.05em]">
             LATEST NOTIFICATIONS
           </h2>
         </div>
@@ -55,7 +55,7 @@ export default function LatestNotifications() {
             
             {/* Content */}
             <div className="flex-1 min-w-0">
-              <h3 className="text-[12.5px] font-bold text-[#374151] leading-snug mb-1 group-hover:text-[#0d1b3e] transition-colors pr-4 truncate">
+              <h3 className="text-[12.5px] font-semibold text-[#374151] leading-snug mb-1 group-hover:text-[#0d1b3e] transition-colors pr-4 truncate">
                 {notif.title}
               </h3>
               <div className="flex items-center justify-between">

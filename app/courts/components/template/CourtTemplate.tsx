@@ -59,7 +59,7 @@ export default function CourtTemplate({ data }: { data: any }) {
           
           {/* 2. Court Overview */}
           <section>
-            <h2 className="text-2xl font-bold text-[#0d1b3e] mb-6 border-b-2 border-[#c9a84c] inline-block pb-2">Court Overview</h2>
+            <h2 className="font-serif text-2xl text-[#0d1b3e] mb-6 border-b-2 border-[#c9a84c] inline-block pb-2">Court Overview</h2>
             <div className="prose max-w-none text-gray-700 space-y-4">
               <p><strong>Establishment / History:</strong> {court.history || `The ${court.name} was established to serve the jurisdiction of ${court.jurisdiction || court.city}.`}</p>
               <p><strong>Jurisdiction:</strong> {court.jurisdiction || `Handles civil and criminal matters within ${court.city}.`}</p>
@@ -70,7 +70,7 @@ export default function CourtTemplate({ data }: { data: any }) {
           {/* 5. Judges / Bench */}
           {court.judges && court.judges.length > 0 && (
             <section>
-              <h2 className="text-2xl font-bold text-[#0d1b3e] mb-6 border-b-2 border-[#c9a84c] inline-block pb-2">Judges & Roster</h2>
+              <h2 className="font-serif text-2xl text-[#0d1b3e] mb-6 border-b-2 border-[#c9a84c] inline-block pb-2">Judges & Roster</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {court.judges.map((judge: any, idx: number) => (
                   <div key={idx} className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm flex items-center gap-4">
@@ -78,7 +78,7 @@ export default function CourtTemplate({ data }: { data: any }) {
                       <User size={24} />
                     </div>
                     <div>
-                      <h3 className="font-bold text-[#0d1b3e]">{judge.name}</h3>
+                      <h3 className="font-semibold text-[#0d1b3e]">{judge.name}</h3>
                       <p className="text-sm text-gray-600">{judge.designation}</p>
                       {judge.bench && <p className="text-xs text-[#c9a84c] font-medium mt-1">{judge.bench}</p>}
                     </div>
@@ -91,12 +91,12 @@ export default function CourtTemplate({ data }: { data: any }) {
           {/* 6. Latest Judgments */}
           {latestJudgments.length > 0 && (
             <section>
-              <h2 className="text-2xl font-bold text-[#0d1b3e] mb-6 border-b-2 border-[#c9a84c] inline-block pb-2">Latest Judgments</h2>
+              <h2 className="font-serif text-2xl text-[#0d1b3e] mb-6 border-b-2 border-[#c9a84c] inline-block pb-2">Latest Judgments</h2>
               <div className="space-y-4">
                 {latestJudgments.map((j: any) => (
                   <div key={j._id} className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div>
-                      <h3 className="font-bold text-[#0d1b3e] text-lg">{j.title}</h3>
+                      <h3 className="font-semibold text-[#0d1b3e] text-lg">{j.title}</h3>
                       <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-gray-500 mt-1">
                         <span><strong>Case No:</strong> {j.caseNumber}</span>
                         <span><strong>Date:</strong> {new Date(j.date).toLocaleDateString()}</span>
@@ -118,7 +118,7 @@ export default function CourtTemplate({ data }: { data: any }) {
           {/* 8. Court Services */}
           {court.services && court.services.length > 0 && (
             <section>
-              <h2 className="text-2xl font-bold text-[#0d1b3e] mb-6 border-b-2 border-[#c9a84c] inline-block pb-2">Court Services</h2>
+              <h2 className="font-serif text-2xl text-[#0d1b3e] mb-6 border-b-2 border-[#c9a84c] inline-block pb-2">Court Services</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 {court.services.map((service: any, idx: number) => {
                   let IconComponent = FileText;
@@ -129,7 +129,7 @@ export default function CourtTemplate({ data }: { data: any }) {
                       <div className="w-12 h-12 rounded-full bg-[#c9a84c]/10 text-[#c9a84c] flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
                         <IconComponent size={24} />
                       </div>
-                      <h3 className="font-bold text-[#0d1b3e]">{service.title}</h3>
+                      <h3 className="font-semibold text-[#0d1b3e]">{service.title}</h3>
                     </a>
                   )
                 })}
@@ -140,7 +140,7 @@ export default function CourtTemplate({ data }: { data: any }) {
           {/* 11. FAQs */}
           {court.faqs && court.faqs.length > 0 && (
             <section>
-              <h2 className="text-2xl font-bold text-[#0d1b3e] mb-6 border-b-2 border-[#c9a84c] inline-block pb-2">Frequently Asked Questions</h2>
+              <h2 className="font-serif text-2xl text-[#0d1b3e] mb-6 border-b-2 border-[#c9a84c] inline-block pb-2">Frequently Asked Questions</h2>
               <div className="space-y-4">
                 <FaqAccordion faqs={court.faqs} />
               </div>
@@ -154,7 +154,7 @@ export default function CourtTemplate({ data }: { data: any }) {
           
           {/* 3. Court Information */}
           <div className="bg-[#0d1b3e] text-white rounded-xl p-6 shadow-lg">
-            <h3 className="text-xl font-bold text-[#c9a84c] mb-6">Court Information</h3>
+            <h3 className="text-xl font-semibold text-[#c9a84c] mb-6">Court Information</h3>
             <ul className="space-y-4">
               <li className="flex gap-3 items-start">
                 <MapPin className="text-[#c9a84c] shrink-0 mt-1" size={20} />
@@ -202,7 +202,7 @@ export default function CourtTemplate({ data }: { data: any }) {
 
           {/* 4. Important Court Links */}
           <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
-            <h3 className="text-lg font-bold text-[#0d1b3e] mb-4">Important Links</h3>
+            <h3 className="text-lg font-semibold text-[#0d1b3e] mb-4">Important Links</h3>
             <div className="flex flex-col gap-3">
               {court.caseStatusUrl && <a href={court.caseStatusUrl} className="text-blue-600 hover:underline flex items-center justify-between group">Case Status <ExternalLink size={14} className="opacity-0 group-hover:opacity-100"/></a>}
               {court.causeListUrl && <a href={court.causeListUrl} className="text-blue-600 hover:underline flex items-center justify-between group">Cause List <ExternalLink size={14} className="opacity-0 group-hover:opacity-100"/></a>}
@@ -216,11 +216,11 @@ export default function CourtTemplate({ data }: { data: any }) {
           {/* 7. Featured Judgments */}
           {featuredJudgments.length > 0 && (
             <div className="bg-[#f0f4f8] rounded-xl p-6 border border-blue-100">
-              <h3 className="text-lg font-bold text-[#0d1b3e] mb-4 flex items-center gap-2"><Scale size={18} className="text-blue-600"/> Featured Judgments</h3>
+              <h3 className="text-lg font-semibold text-[#0d1b3e] mb-4 flex items-center gap-2"><Scale size={18} className="text-blue-600"/> Featured Judgments</h3>
               <div className="space-y-4">
                 {featuredJudgments.map((j: any) => (
                   <div key={j._id} className="bg-white p-3 rounded shadow-sm text-sm">
-                    <h4 className="font-bold text-[#0d1b3e]">{j.title}</h4>
+                    <h4 className="font-semibold text-[#0d1b3e]">{j.title}</h4>
                     <p className="text-gray-500 text-xs mt-1">{j.caseNumber} • {new Date(j.date).toLocaleDateString()}</p>
                     {j.link && <a href={j.link} className="text-blue-600 hover:underline mt-2 inline-block">Read More</a>}
                   </div>
@@ -232,7 +232,7 @@ export default function CourtTemplate({ data }: { data: any }) {
           {/* 9. Related Laws / Practice Areas */}
           {court.practiceAreas && court.practiceAreas.length > 0 && (
             <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0d1b3e] mb-4">Practice Areas</h3>
+              <h3 className="text-lg font-semibold text-[#0d1b3e] mb-4">Practice Areas</h3>
               <div className="flex flex-wrap gap-2">
                 {court.practiceAreas.map((area: string, idx: number) => (
                   <span key={idx} className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium border border-gray-200">
@@ -246,7 +246,7 @@ export default function CourtTemplate({ data }: { data: any }) {
           {/* 10. Related Courts */}
           {relatedCourts && relatedCourts.length > 0 && (
             <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
-              <h3 className="text-lg font-bold text-[#0d1b3e] mb-4">Other Courts in {state.name}</h3>
+              <h3 className="text-lg font-semibold text-[#0d1b3e] mb-4">Other Courts in {state.name}</h3>
               <ul className="space-y-3">
                 {relatedCourts.map((c: any) => (
                   <li key={c._id}>

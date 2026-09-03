@@ -46,7 +46,7 @@ export default function LegalKnowledge() {
       <div className="max-w-[1280px] mx-auto px-4">
         {/* Heading */}
         <div className="text-center mb-8">
-          <h2 className="text-[20px] font-bold text-[#0d1b3e] uppercase tracking-[0.1em]">
+          <h2 className="font-serif text-[20px] text-[#0d1b3e] uppercase tracking-[0.1em]">
             LEGAL KNOWLEDGE & INSIGHTS
           </h2>
           <div className="w-10 h-[3px] bg-[#c9a84c] mx-auto mt-2" />
@@ -72,7 +72,7 @@ export default function LegalKnowledge() {
               </div>
               {/* Content */}
               <div className="p-4 flex flex-col flex-1">
-                <h3 className="text-[12.5px] font-bold text-[#0d1b3e] mb-1.5 leading-snug group-hover:text-[#c9a84c] transition-colors">
+                <h3 className="text-[12.5px] font-semibold text-[#0d1b3e] mb-1.5 leading-snug group-hover:text-[#c9a84c] transition-colors">
                   {card.title}
                 </h3>
                 <p className="text-[11px] text-[#6b7280] mb-3 flex-1 leading-relaxed">

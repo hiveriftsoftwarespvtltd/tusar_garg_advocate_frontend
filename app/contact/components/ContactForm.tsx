@@ -4,7 +4,7 @@ export default function ContactForm() {
   return (
     <section className="bg-white border border-[#e8ebf2] rounded-xl p-8 mb-8 shadow-sm">
       <div className="mb-6">
-        <h2 className="text-[16px] font-bold text-[#0d1b3e] uppercase tracking-[0.05em] mb-3" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
+        <h2 className="font-serif text-[16px] text-[#0d1b3e] uppercase tracking-[0.05em] mb-3">
           SEND US A MESSAGE
         </h2>
         <div className="w-12 h-[2px] bg-[#c9a84c]"></div>

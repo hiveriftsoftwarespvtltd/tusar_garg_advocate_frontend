@@ -8,7 +8,7 @@ export default function DistrictCourtsRegion({ states }: { states: any[] }) {
       <div className="max-w-[1280px] mx-auto px-4">
         
         <div className="flex flex-col items-center mb-10">
-          <h2 className="text-[20px] font-bold text-[#0d1b3e] uppercase tracking-[0.1em]" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
+          <h2 className="font-serif text-[20px] text-[#0d1b3e] uppercase tracking-[0.1em]">
             DISTRICT COURTS BY STATE
           </h2>
           <div className="w-12 h-[3px] bg-[#c9a84c] mt-2" />
@@ -31,7 +31,7 @@ export default function DistrictCourtsRegion({ states }: { states: any[] }) {
                 )}
               </div>
               <div className="p-5 flex-1 flex items-center justify-between">
-                <h3 className="text-[18px] font-bold text-[#0d1b3e] group-hover:text-[#c9a84c] transition-colors">
+                <h3 className="text-[18px] font-semibold text-[#0d1b3e] group-hover:text-[#c9a84c] transition-colors">
                   {state.name}
                 </h3>
                 <ChevronRight size={18} className="text-gray-400 transform group-hover:translate-x-1 group-hover:text-[#c9a84c] transition-all" />

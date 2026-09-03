@@ -57,7 +57,7 @@ export default function CategoryGrid() {
               className="flex flex-col items-center text-center p-5 hover:bg-[#f8f9fb] transition-colors group"
             >
               <div className="mb-3">{cat.icon}</div>
-              <h3 className="text-[13px] font-bold text-[#1a2b5e] mb-2 leading-tight">
+              <h3 className="text-[13px] font-semibold text-[#1a2b5e] mb-2 leading-tight">
                 {cat.title}
               </h3>
               <p className="text-[11.5px] text-[#6b7280] leading-relaxed mb-3 flex-1">

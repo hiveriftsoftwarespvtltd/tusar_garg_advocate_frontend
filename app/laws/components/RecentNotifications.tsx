@@ -34,7 +34,7 @@ export default function RecentNotifications() {
       {/* Header */}
       <div className="flex items-center gap-3 mb-6">
         <Bell size={20} className="text-[#c9a84c]" />
-        <h2 className="text-[14px] md:text-[15px] font-bold text-[#0d1b3e] uppercase tracking-[0.05em]" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
+        <h2 className="font-serif text-[14px] md:text-[15px] text-[#0d1b3e] uppercase tracking-[0.05em]">
           RECENT NOTIFICATIONS
         </h2>
       </div>
@@ -50,7 +50,7 @@ export default function RecentNotifications() {
             
             {/* Content */}
             <div className="flex-1 min-w-0">
-              <h3 className="text-[12px] font-bold text-[#374151] leading-snug mb-1.5 group-hover:text-[#0d1b3e] transition-colors line-clamp-2">
+              <h3 className="text-[12px] font-semibold text-[#374151] leading-snug mb-1.5 group-hover:text-[#0d1b3e] transition-colors line-clamp-2">
                 {notif.title}
               </h3>
               <div className="flex flex-wrap items-center gap-2 text-[10px] text-[#6b7280]">

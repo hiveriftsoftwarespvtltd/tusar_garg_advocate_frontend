@@ -71,9 +71,8 @@ export default function AboutSection() {
             <p className="text-[#c9a84c] text-[10px] font-bold tracking-[0.3em] uppercase mb-1">
               ABOUT
             </p>
-            <h2
-              className="text-[26px] md:text-[30px] font-black text-white uppercase leading-tight mb-4 tracking-wide"
-              style={{ fontFamily: "var(--font-roboto), sans-serif" }}
+            <h2 className="font-serif text-[26px] md:text-[30px] text-white uppercase leading-tight mb-4 tracking-wide"
+             
             >
               TUSHAR GARG
             </h2>

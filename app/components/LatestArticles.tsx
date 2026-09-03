@@ -33,7 +33,7 @@ export default function LatestArticles() {
     <div className="flex-1">
       {/* Section header */}
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-[14px] font-bold text-[#1a2b5e] uppercase tracking-widest">
+        <h2 className="font-serif text-[14px] text-[#1a2b5e] uppercase tracking-widest">
           LATEST ARTICLES
         </h2>
         <a

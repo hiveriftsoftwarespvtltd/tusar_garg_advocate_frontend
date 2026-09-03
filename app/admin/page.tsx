@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Lock, Mail, ArrowRight, AlertCircle } from "lucide-react";
 import Image from "next/image";
+import { fetchApi } from "../../lib/api/client";
 
 export default function AdminLogin() {
   const router = useRouter();
@@ -18,17 +19,10 @@ export default function AdminLogin() {
     setLoading(true);
 
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/admin/login`, {
+      const data = await fetchApi("/auth/admin/login", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
       });
-
-      if (!res.ok) {
-        throw new Error("Invalid email or password");
-      }
-
-      const data = await res.json();
       
       // Store token securely (using localStorage for simplicity in this demo, though httpOnly cookies are better)
       localStorage.setItem("adminToken", data.accessToken);

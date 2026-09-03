@@ -20,7 +20,7 @@ export default function BrowseBySubject() {
         
         {/* Heading */}
         <div className="flex flex-col items-start mb-8">
-          <h2 className="text-[14px] md:text-[16px] font-bold text-[#0d1b3e] uppercase tracking-[0.1em] mb-2" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
+          <h2 className="font-serif text-[14px] md:text-[16px] text-[#0d1b3e] uppercase tracking-[0.1em] mb-2">
             BROWSE JUDGMENTS BY SUBJECT
           </h2>
           <div className="w-12 h-[3px] bg-[#c9a84c]"></div>
@@ -35,7 +35,7 @@ export default function BrowseBySubject() {
                 {subject.icon}
               </div>
               
-              <h3 className="text-[11px] font-bold text-[#374151] group-hover:text-[#0d1b3e] transition-colors h-[28px] flex items-center justify-center">
+              <h3 className="text-[11px] font-semibold text-[#374151] group-hover:text-[#0d1b3e] transition-colors h-[28px] flex items-center justify-center">
                 {subject.name}
               </h3>
             </div>

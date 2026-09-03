@@ -14,7 +14,7 @@ export default function PopularActs() {
       {/* Header */}
       <div className="flex items-center gap-3 mb-6">
         <Award size={20} className="text-[#c9a84c]" />
-        <h2 className="text-[14px] md:text-[15px] font-bold text-[#0d1b3e] uppercase tracking-[0.05em]" style={{ fontFamily: "var(--font-roboto), sans-serif" }}>
+        <h2 className="font-serif text-[14px] md:text-[15px] text-[#0d1b3e] uppercase tracking-[0.05em]">
           POPULAR ACTS
         </h2>
       </div>
@@ -30,7 +30,7 @@ export default function PopularActs() {
             
             {/* Content */}
             <div className="flex-1 min-w-0">
-              <h3 className="text-[13px] font-bold text-[#374151] leading-tight mb-1 group-hover:text-[#0d1b3e] transition-colors truncate">
+              <h3 className="text-[13px] font-semibold text-[#374151] leading-tight mb-1 group-hover:text-[#0d1b3e] transition-colors truncate">
                 {act.name}
               </h3>
               <div className="flex items-center gap-2 text-[11px] text-[#6b7280]">
