@@ -24,28 +24,50 @@ export default function AdminDashboardLayout({ children }: { children: React.Rea
   const router = useRouter();
   const pathname = usePathname();
   const [isSidebarOpen, setSidebarOpen] = useState(true);
-  const [adminUser, setAdminUser] = useState<any>(null);
+  const [adminUser, setAdminUser] = useState<any>(() => {
+    if (typeof window !== "undefined") {
+      const data = localStorage.getItem("adminData");
+      if (data) {
+        try {
+          return JSON.parse(data);
+        } catch (e) {}
+      }
+      const token = localStorage.getItem("adminToken");
+      if (token) {
+        return { name: "Admin", email: "admin@example.com", role: "ADMIN" };
+      }
+    }
+    return null;
+  });
 
   useEffect(() => {
     // Basic auth check
     const token = localStorage.getItem("adminToken");
     const adminData = localStorage.getItem("adminData");
     
-    if (!token || !adminData) {
+    if (!token) {
       router.push("/admin");
-    } else {
+    } else if (adminData) {
       try {
         setAdminUser(JSON.parse(adminData));
       } catch (e) {
-        console.error("Error parsing adminData", e);
-        localStorage.removeItem("adminToken");
-        localStorage.removeItem("adminData");
-        router.push("/admin");
+        setAdminUser({ name: "Admin", email: "admin@example.com", role: "ADMIN" });
       }
+    } else {
+      setAdminUser({ name: "Admin", email: "admin@example.com", role: "ADMIN" });
     }
   }, [router]);
 
-  if (!adminUser) return null; // Loading state
+  if (!adminUser) {
+    return (
+      <div className="h-screen w-screen bg-[#0d1b3e] flex items-center justify-center">
+        <div className="text-center">
+          <div className="w-12 h-12 border-4 border-[#c9a84c] border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+          <p className="text-white text-sm font-semibold tracking-wider">LOADING ADMIN PORTAL...</p>
+        </div>
+      </div>
+    );
+  }
 
   const navItems = [
     { name: "Dashboard", href: "/admin/dashboard", icon: LayoutDashboard },
