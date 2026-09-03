@@ -61,26 +61,20 @@ export default function AdminStates() {
   
   const [formData, setFormData] = useState(defaultFormData);
 
-  const loadStates = async () => {
-    setLoading(true);
+  const loadStates = async (showSpinner = true) => {
+    if (showSpinner) setLoading(true);
     try {
       const data = await fetchApi('/states');
       setStates(data || []);
     } catch (err: any) {
       console.error("Failed to load states", err);
-      Swal.fire({
-        title: 'Error!',
-        text: err.message || 'Failed to load states data.',
-        icon: 'error',
-        confirmButtonColor: '#0d1b3e',
-      });
     } finally {
-      setLoading(false);
+      if (showSpinner) setLoading(false);
     }
   };
 
   useEffect(() => {
-    loadStates();
+    loadStates(true);
   }, []);
 
   const resetForm = () => {

@@ -39,8 +39,8 @@ export default function AdminCourts() {
   const [sortField, setSortField] = useState<string>("name");
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
 
-  const loadData = async () => {
-    setLoading(true);
+  const loadData = async (showSpinner = true) => {
+    if (showSpinner) setLoading(true);
     try {
       const [courtsData, statesData] = await Promise.all([
         fetchApi('/courts'),
@@ -57,12 +57,12 @@ export default function AdminCourts() {
         confirmButtonColor: '#0d1b3e',
       });
     } finally {
-      setLoading(false);
+      if (showSpinner) setLoading(false);
     }
   };
 
   useEffect(() => {
-    loadData();
+    loadData(true);
   }, []);
 
   const handleEdit = (court: any) => {
@@ -96,7 +96,7 @@ export default function AdminCourts() {
           confirmButtonColor: '#0d1b3e',
           timer: 2000,
         });
-        loadData();
+        loadData(false);
       } catch (err: any) {
         Swal.fire({
           title: 'Failed',
@@ -211,7 +211,7 @@ export default function AdminCourts() {
           onClose={() => setShowForm(false)} 
           onSuccess={() => {
             setShowForm(false);
-            loadData();
+            loadData(false);
           }} 
         />
       )}
