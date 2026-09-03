@@ -11,10 +11,10 @@ export default function ProductionPopup() {
     const hasSeenPopup = sessionStorage.getItem("hasSeenProductionPopup");
     
     if (!hasSeenPopup) {
-      // Small delay for better UX
+      // Delay for 6 seconds after website load
       const timer = setTimeout(() => {
         setIsOpen(true);
-      }, 800);
+      }, 6000);
       return () => clearTimeout(timer);
     }
   }, []);
