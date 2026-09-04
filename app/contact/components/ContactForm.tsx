@@ -1,6 +1,57 @@
-import { Send, Lock, ChevronDown } from "lucide-react";
+"use client";
+
+import { useState } from "react";
+import { Send, Lock, ChevronDown, RefreshCw } from "lucide-react";
+import { fetchApi } from "../../../lib/api/client";
+import Swal from "sweetalert2";
 
 export default function ContactForm() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    subject: "Legal Consultation",
+    message: "",
+  });
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      await fetchApi('/contacts', {
+        method: "POST",
+        body: JSON.stringify(formData),
+      });
+
+      Swal.fire({
+        title: 'Message Sent Successfully!',
+        text: 'Thank you for reaching out. Advocate Tushar Garg\'s office will review your inquiry and contact you shortly.',
+        icon: 'success',
+        confirmButtonColor: '#0d1b3e',
+        timer: 4000,
+      });
+
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        subject: "Legal Consultation",
+        message: "",
+      });
+    } catch (err: any) {
+      console.error(err);
+      Swal.fire({
+        title: 'Submission Failed',
+        text: err.message || 'Could not send message. Please try again or contact our office directly.',
+        icon: 'error',
+        confirmButtonColor: '#0d1b3e',
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <section className="bg-white border border-[#e8ebf2] rounded-xl p-8 mb-8 shadow-sm">
       <div className="mb-6">
@@ -11,16 +62,18 @@ export default function ContactForm() {
       </div>
       
       <p className="text-[13px] text-[#374151] mb-6">
-        Please fill out the form below. We will get back to you regarding your inquiry.
+        Please fill out the form below. Advocate Tushar Garg's legal team will get back to you regarding your inquiry.
       </p>
 
-      <form className="space-y-5">
+      <form onSubmit={handleSubmit} className="space-y-5">
         {/* Row 1 */}
         <div className="flex flex-col md:flex-row gap-5">
           <div className="flex-1">
             <input 
               type="text" 
               placeholder="Full Name *" 
+              value={formData.name}
+              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               className="w-full border border-[#e8ebf2] rounded-md px-4 py-3 text-[13px] text-[#374151] outline-none focus:border-[#c9a84c] transition-colors bg-transparent placeholder-[#9ca3af]"
               required 
             />
@@ -29,6 +82,8 @@ export default function ContactForm() {
             <input 
               type="email" 
               placeholder="Email Address *" 
+              value={formData.email}
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               className="w-full border border-[#e8ebf2] rounded-md px-4 py-3 text-[13px] text-[#374151] outline-none focus:border-[#c9a84c] transition-colors bg-transparent placeholder-[#9ca3af]"
               required 
             />
@@ -40,45 +95,37 @@ export default function ContactForm() {
           <div className="flex-1">
             <input 
               type="tel" 
-              placeholder="Phone Number" 
+              placeholder="Phone Number *" 
+              value={formData.phone}
+              onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
               className="w-full border border-[#e8ebf2] rounded-md px-4 py-3 text-[13px] text-[#374151] outline-none focus:border-[#c9a84c] transition-colors bg-transparent placeholder-[#9ca3af]"
+              required
             />
           </div>
           <div className="flex-1 relative">
             <select 
-              className="w-full border border-[#e8ebf2] rounded-md px-4 py-3 text-[13px] text-[#9ca3af] outline-none focus:border-[#c9a84c] transition-colors bg-transparent appearance-none cursor-pointer"
+              className="w-full border border-[#e8ebf2] rounded-md px-4 py-3 text-[13px] text-[#374151] outline-none focus:border-[#c9a84c] transition-colors bg-transparent appearance-none cursor-pointer"
               required
-              defaultValue=""
+              value={formData.subject}
+              onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
             >
-              <option value="" disabled>Subject / Purpose *</option>
-              <option value="consultation" className="text-black">Legal Consultation</option>
-              <option value="appointment" className="text-black">Appointment Request</option>
-              <option value="general" className="text-black">General Inquiry</option>
+              <option value="Legal Consultation">Legal Consultation</option>
+              <option value="Supreme Court / High Court Representation">Supreme Court / High Court Representation</option>
+              <option value="Appointment Request">Appointment Request</option>
+              <option value="General Legal Inquiry">General Legal Inquiry</option>
+              <option value="Academic / Collaboration">Academic / Collaboration</option>
             </select>
             <ChevronDown size={16} className="text-[#9ca3af] absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none" />
           </div>
         </div>
 
-        {/* Row 3 */}
-        <div className="relative">
-          <select 
-            className="w-full border border-[#e8ebf2] rounded-md px-4 py-3 text-[13px] text-[#9ca3af] outline-none focus:border-[#c9a84c] transition-colors bg-transparent appearance-none cursor-pointer"
-            required
-            defaultValue=""
-          >
-            <option value="" disabled>Inquiry Type *</option>
-            <option value="professional" className="text-black">Professional Inquiry</option>
-            <option value="academic" className="text-black">Academic/Collaboration</option>
-            <option value="other" className="text-black">Other</option>
-          </select>
-          <ChevronDown size={16} className="text-[#9ca3af] absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none" />
-        </div>
-
         {/* Message */}
         <div>
           <textarea 
-            placeholder="Your Message *" 
+            placeholder="Your Message / Case Overview *" 
             rows={5}
+            value={formData.message}
+            onChange={(e) => setFormData({ ...formData, message: e.target.value })}
             className="w-full border border-[#e8ebf2] rounded-md px-4 py-3 text-[13px] text-[#374151] outline-none focus:border-[#c9a84c] transition-colors bg-transparent placeholder-[#9ca3af] resize-none"
             required
           ></textarea>
@@ -93,17 +140,26 @@ export default function ContactForm() {
             required 
           />
           <label htmlFor="confirm" className="text-[12px] text-[#374151] cursor-pointer leading-relaxed">
-            I confirm that the information provided is accurate and I understand that this form is only for professional inquiries.
+            I confirm that the information provided is accurate and I understand that this form is for legal consultation and professional inquiries.
           </label>
         </div>
 
-        {/* Submit */}
+        {/* Submit Button */}
         <div className="pt-2">
           <button 
             type="submit" 
-            className="w-full md:w-auto flex items-center justify-center gap-2 bg-[#d48c36] text-white px-10 py-3 rounded-md font-bold text-[12px] uppercase tracking-wider hover:bg-[#b07024] transition-colors shadow-sm"
+            disabled={loading}
+            className="w-full md:w-auto flex items-center justify-center gap-2 bg-[#d48c36] text-white px-10 py-3 rounded-md font-bold text-[12px] uppercase tracking-wider hover:bg-[#b07024] transition-colors shadow-sm disabled:opacity-50"
           >
-            <Send size={16} /> SEND MESSAGE
+            {loading ? (
+              <>
+                <RefreshCw size={16} className="animate-spin" /> SENDING...
+              </>
+            ) : (
+              <>
+                <Send size={16} /> SEND MESSAGE
+              </>
+            )}
           </button>
         </div>
         

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useMemo } from "react";
+import Link from "next/link";
 import { 
   Plus, 
   Trash2, 
@@ -15,7 +16,8 @@ import {
   ChevronRight, 
   ArrowUpDown, 
   ChevronUp, 
-  ChevronDown 
+  ChevronDown,
+  BookOpen
 } from "lucide-react";
 import { fetchApi } from "../../../../lib/api/client";
 import Swal from 'sweetalert2';
@@ -110,7 +112,7 @@ export default function AdminLawsCategories() {
         });
         Swal.fire({
           title: 'Updated!',
-          text: 'Law Category updated successfully.',
+          text: 'Practice Area Card updated successfully.',
           icon: 'success',
           confirmButtonColor: '#0d1b3e',
           timer: 2500,
@@ -122,7 +124,7 @@ export default function AdminLawsCategories() {
         });
         Swal.fire({
           title: 'Created!',
-          text: 'New Law Category added successfully.',
+          text: 'New Practice Area Card added successfully.',
           icon: 'success',
           confirmButtonColor: '#0d1b3e',
           timer: 2500,
@@ -133,7 +135,7 @@ export default function AdminLawsCategories() {
     } catch (err: any) {
       Swal.fire({
         title: 'Error!',
-        text: err.message || 'Failed to save law category.',
+        text: err.message || 'Failed to save practice area.',
         icon: 'error',
         confirmButtonColor: '#0d1b3e',
       });
@@ -231,21 +233,30 @@ export default function AdminLawsCategories() {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white p-6 rounded-xl shadow-sm border border-gray-100">
         <div>
           <h1 className="text-2xl font-bold font-serif text-[#0d1b3e] flex items-center gap-2">
-            <Scale className="text-[#c9a84c]" size={24} /> Manage Law Categories & Practice Areas
+            <Scale className="text-[#c9a84c]" size={24} /> Manage Practice Cards
           </h1>
           <p className="text-sm text-gray-500 mt-1">
-            Search, sort, filter, and manage all law categories and practice area cards.
+            Manage the practice area cards displayed on the website.
           </p>
         </div>
-        <button 
-          onClick={() => {
-            if (showForm) resetForm();
-            else setShowForm(true);
-          }}
-          className="bg-[#0d1b3e] hover:bg-[#1a2b5e] text-white px-5 py-2.5 rounded-lg text-sm font-bold flex items-center gap-2 transition-all shadow-md"
-        >
-          <Plus size={18} /> Add New Category
-        </button>
+        <div className="flex items-center gap-3">
+          <Link
+            href="/admin/dashboard/practice-area-details"
+            className="bg-[#c9a84c] hover:bg-[#b5953d] text-[#071126] px-4 py-2.5 rounded-lg text-sm font-bold flex items-center gap-2 transition-all shadow-md"
+          >
+            <BookOpen size={18} />
+            <span>Manage Page Details & Bare Acts →</span>
+          </Link>
+          <button 
+            onClick={() => {
+              if (showForm) resetForm();
+              else setShowForm(true);
+            }}
+            className="bg-[#0d1b3e] hover:bg-[#1a2b5e] text-white px-5 py-2.5 rounded-lg text-sm font-bold flex items-center gap-2 transition-all shadow-md"
+          >
+            <Plus size={18} /> Add New Practice Card
+          </button>
+        </div>
       </div>
 
       {/* Modal Overlay Form */}
@@ -257,7 +268,7 @@ export default function AdminLawsCategories() {
             <div className="bg-[#0d1b3e] text-white px-6 py-4 flex items-center justify-between">
               <h2 className="text-base font-serif font-bold text-[#c9a84c] uppercase tracking-wider flex items-center gap-2">
                 <Scale size={18} />
-                {editId ? "Edit Law Category" : "Add New Law Category"}
+                {editId ? "Edit Practice Area" : "Add New Practice Area"}
               </h2>
               <button 
                 type="button"
@@ -273,7 +284,7 @@ export default function AdminLawsCategories() {
             <form onSubmit={handleSubmit} className="p-6 space-y-4 max-h-[80vh] overflow-y-auto">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Category Name *</label>
+                  <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Practice Area Name *</label>
                   <input 
                     required 
                     type="text" 

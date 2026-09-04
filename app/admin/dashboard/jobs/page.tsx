@@ -344,9 +344,8 @@ export default function AdminJobs() {
                   <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Last Date to Apply *</label>
                   <input 
                     required
-                    type="text" 
-                    placeholder="e.g. 30 Jun 2025"
-                    className="w-full p-2.5 border border-gray-300 rounded-lg text-sm text-black outline-none focus:border-[#c9a84c]"
+                    type="date" 
+                    className="w-full p-2.5 border border-gray-300 rounded-lg text-sm text-black outline-none focus:border-[#c9a84c] cursor-pointer"
                     value={formData.lastDate} 
                     onChange={e => setFormData({...formData, lastDate: e.target.value})}
                   />

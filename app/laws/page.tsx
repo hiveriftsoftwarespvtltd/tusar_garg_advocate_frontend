@@ -1,5 +1,4 @@
 import LawsHero from "./components/LawsHero";
-import LawsSearch from "./components/LawsSearch";
 import LawsCategoryGrid from "./components/LawsCategoryGrid";
 import PopularActs from "./components/PopularActs";
 import RecentNotifications from "./components/RecentNotifications";
@@ -11,13 +10,10 @@ export default function LawsPage() {
       {/* 1. Hero Section */}
       <LawsHero />
 
-      {/* 2. Search Section */}
-      <LawsSearch />
-
-      {/* 3. Browse Laws By Category */}
+      {/* 2. Browse Laws By Category */}
       <LawsCategoryGrid />
 
-      {/* 4. Popular Acts & Recent Notifications */}
+      {/* 3. Popular Acts & Recent Notifications */}
       <div className="max-w-[1280px] mx-auto px-4 py-12 flex flex-col xl:flex-row gap-8">
         <div className="xl:w-1/2">
           <PopularActs />
@@ -27,7 +23,7 @@ export default function LawsPage() {
         </div>
       </div>
 
-      {/* 5. Bottom Info Banner */}
+      {/* 4. Bottom Info Banner */}
       <InfoBanner />
     </main>
   );

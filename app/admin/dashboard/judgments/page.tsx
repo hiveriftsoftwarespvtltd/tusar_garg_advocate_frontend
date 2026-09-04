@@ -307,11 +307,10 @@ export default function AdminJudgments() {
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Date</label>
+                  <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Judgment Date *</label>
                   <input 
-                    type="text" 
-                    placeholder="e.g. 15 March 2024"
-                    className="w-full p-2.5 border border-gray-300 rounded-lg text-sm text-black outline-none focus:border-[#c9a84c]"
+                    type="date" 
+                    className="w-full p-2.5 border border-gray-300 rounded-lg text-sm text-black outline-none focus:border-[#c9a84c] cursor-pointer"
                     value={formData.date} 
                     onChange={e => setFormData({...formData, date: e.target.value})}
                   />

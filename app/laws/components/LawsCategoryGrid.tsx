@@ -1,9 +1,20 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { ArrowRight, Scale, RefreshCw } from "lucide-react";
 import { fetchApi } from "../../../lib/api/client";
+
+function getCategorySlug(name: string): string {
+  if (!name) return "";
+  return name
+    .toLowerCase()
+    .trim()
+    .replace(/&/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)+/g, "");
+}
 
 const defaultCategories = [
   { 
@@ -125,7 +136,7 @@ export default function LawsCategoryGrid() {
             </span>
           </div>
           <h2 className="font-serif text-[24px] sm:text-[30px] font-bold text-[#0d1b3e] uppercase tracking-tight">
-            BROWSE LAWS BY CATEGORY
+            PRACTICE AREAS DIRECTORY
           </h2>
           <div className="w-14 h-1 bg-[#c9a84c] mx-auto mt-2 rounded-full" />
         </div>
@@ -137,52 +148,56 @@ export default function LawsCategoryGrid() {
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {categories.map((cat, idx) => (
-              <div
-                key={cat._id || idx}
-                className="group relative h-[280px] rounded-2xl overflow-hidden shadow-md border border-gray-200 hover:border-[#c9a84c] transition-all duration-500 flex flex-col justify-between p-6 cursor-pointer hover:-translate-y-1.5"
-              >
-                {/* High Resolution Background Image */}
-                <Image
-                  src={cat.image || "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=600&q=80"}
-                  alt={cat.name}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
-                />
+            {categories.map((cat, idx) => {
+              const slug = cat.slug || getCategorySlug(cat.name);
+              return (
+                <Link
+                  key={cat._id || idx}
+                  href={`/laws/${slug}`}
+                  className="group relative h-[280px] rounded-2xl overflow-hidden shadow-md border border-gray-200 hover:border-[#c9a84c] transition-all duration-500 flex flex-col justify-between p-6 cursor-pointer hover:-translate-y-1.5 block"
+                >
+                  {/* High Resolution Background Image */}
+                  <Image
+                    src={cat.image || "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=600&q=80"}
+                    alt={cat.name}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
 
-                {/* Dark Contrast Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#071126] via-[#071126]/75 to-black/40" />
+                  {/* Dark Contrast Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#071126] via-[#071126]/75 to-black/40" />
 
-                {/* Top Badge Tag */}
-                <div className="relative z-10 flex items-center justify-between w-full">
-                  <span className="bg-[#0d1b3e] text-[#c9a84c] border border-[#c9a84c]/50 font-bold text-[10.5px] uppercase tracking-widest px-3 py-1 rounded-lg shadow-md">
-                    {cat.tag || "Legal Category"}
-                  </span>
-                  <span className="text-white/80 text-[11px] font-bold bg-white/10 backdrop-blur-md px-2.5 py-1 rounded-lg border border-white/20">
-                    {cat.acts || "10+ Acts"}
-                  </span>
-                </div>
-
-                {/* Bottom Card Content */}
-                <div className="relative z-10 w-full mt-auto">
-                  <h3 className="text-white font-serif font-bold text-[17px] leading-snug uppercase tracking-wide mb-1 group-hover:text-[#c9a84c] transition-colors drop-shadow-md">
-                    {cat.name}
-                  </h3>
-                  <p className="text-gray-300 text-[12px] font-medium flex items-center gap-1">
-                    <span>{cat.sections || "Sections Included"}</span>
-                    <span className="text-[#c9a84c]">• Bare Acts & Precedents</span>
-                  </p>
-                  <div className="flex items-center justify-between mt-3 pt-3 border-t border-white/10">
-                    <span className="text-[11px] font-bold text-[#c9a84c] uppercase tracking-wider group-hover:underline">
-                      Explore Bare Acts
+                  {/* Top Badge Tag */}
+                  <div className="relative z-10 flex items-center justify-between w-full">
+                    <span className="bg-[#0d1b3e] text-[#c9a84c] border border-[#c9a84c]/50 font-bold text-[10.5px] uppercase tracking-widest px-3 py-1 rounded-lg shadow-md">
+                      {cat.tag || "Legal Category"}
                     </span>
-                    <div className="w-7 h-7 rounded-full bg-[#c9a84c] text-[#071126] flex items-center justify-center shadow-md group-hover:bg-white transition-colors">
-                      <ArrowRight size={13} strokeWidth={2.5} />
+                    <span className="text-white/80 text-[11px] font-bold bg-white/10 backdrop-blur-md px-2.5 py-1 rounded-lg border border-white/20">
+                      {cat.acts || "10+ Acts"}
+                    </span>
+                  </div>
+
+                  {/* Bottom Card Content */}
+                  <div className="relative z-10 w-full mt-auto">
+                    <h3 className="text-white font-serif font-bold text-[17px] leading-snug uppercase tracking-wide mb-1 group-hover:text-[#c9a84c] transition-colors drop-shadow-md">
+                      {cat.name}
+                    </h3>
+                    <p className="text-gray-300 text-[12px] font-medium flex items-center gap-1">
+                      <span>{cat.sections || "Sections Included"}</span>
+                      <span className="text-[#c9a84c]">• Bare Acts & Precedents</span>
+                    </p>
+                    <div className="flex items-center justify-between mt-3 pt-3 border-t border-white/10">
+                      <span className="text-[11px] font-bold text-[#c9a84c] uppercase tracking-wider group-hover:underline">
+                        Explore Bare Acts
+                      </span>
+                      <div className="w-7 h-7 rounded-full bg-[#c9a84c] text-[#071126] flex items-center justify-center shadow-md group-hover:bg-white transition-colors">
+                        <ArrowRight size={13} strokeWidth={2.5} />
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
-            ))}
+                </Link>
+              );
+            })}
           </div>
         )}
 

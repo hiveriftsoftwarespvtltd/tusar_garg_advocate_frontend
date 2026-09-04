@@ -17,7 +17,8 @@ import {
   GraduationCap,
   LogOut, 
   Menu,
-  X
+  X,
+  Mail
 } from "lucide-react";
 
 export default function AdminDashboardLayout({ children }: { children: React.ReactNode }) {
@@ -71,9 +72,11 @@ export default function AdminDashboardLayout({ children }: { children: React.Rea
 
   const navItems = [
     { name: "Dashboard", href: "/admin/dashboard", icon: LayoutDashboard },
+    { name: "Manage Contact Inquiries", href: "/admin/dashboard/contacts", icon: Mail },
     { name: "Manage Hero Section", href: "/admin/dashboard/hero", icon: Sliders },
     { name: "Manage Judgments", href: "/admin/dashboard/judgments", icon: Gavel },
-    { name: "Manage Law Categories", href: "/admin/dashboard/laws-categories", icon: BookOpen },
+    { name: "Manage Practice Cards", href: "/admin/dashboard/laws-categories", icon: Scale },
+    { name: "Manage Practice Details & Bare Acts", href: "/admin/dashboard/practice-area-details", icon: BookOpen },
     { name: "Manage Articles", href: "/admin/dashboard/articles", icon: FileText },
     { name: "Manage Testimonials", href: "/admin/dashboard/testimonials", icon: MessageSquareQuote },
     { name: "Manage Tribunals", href: "/admin/dashboard/tribunals", icon: Landmark },

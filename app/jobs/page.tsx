@@ -1,5 +1,4 @@
 import JobsHero from "./components/JobsHero";
-import JobsSearch from "./components/JobsSearch";
 import JobsCategoryGrid from "./components/JobsCategoryGrid";
 import FeaturedOpenings from "./components/FeaturedOpenings";
 import LatestNotifications from "./components/LatestNotifications";
@@ -12,13 +11,10 @@ export default function JobsPage() {
       {/* 1. Hero Section */}
       <JobsHero />
 
-      {/* 2. Search Section */}
-      <JobsSearch />
-
-      {/* 3. Browse By Category */}
+      {/* 2. Browse By Category */}
       <JobsCategoryGrid />
 
-      {/* 4. Featured Openings & Latest Notifications */}
+      {/* 3. Featured Openings & Latest Notifications */}
       <div className="max-w-[1280px] mx-auto px-4 py-12 flex flex-col lg:flex-row gap-8">
         <div className="lg:w-[60%] xl:w-[65%]">
           <FeaturedOpenings />
@@ -28,10 +24,10 @@ export default function JobsPage() {
         </div>
       </div>
 
-      {/* 5. Job Detail Highlights */}
+      {/* 4. Job Detail Highlights */}
       <JobHighlights />
 
-      {/* 6. Bottom Info Banner */}
+      {/* 5. Bottom Info Banner */}
       <InfoBanner />
     </main>
   );

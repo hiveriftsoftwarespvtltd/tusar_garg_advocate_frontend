@@ -318,9 +318,8 @@ export default function AdminArticles() {
                 <div>
                   <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Publish Date</label>
                   <input 
-                    type="text" 
-                    placeholder="e.g. 19 May 2025"
-                    className="w-full p-2.5 border border-gray-300 rounded-lg text-sm text-black outline-none focus:border-[#c9a84c]"
+                    type="date" 
+                    className="w-full p-2.5 border border-gray-300 rounded-lg text-sm text-black outline-none focus:border-[#c9a84c] cursor-pointer"
                     value={formData.date} 
                     onChange={e => setFormData({...formData, date: e.target.value})}
                   />

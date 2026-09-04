@@ -40,7 +40,7 @@ export default function TribunalDetailPage({ params }: { params: Promise<{ slug:
     loadDetail();
   }, [slug]);
 
-  const item = tribunal || {
+  const rawItem = tribunal || {
     abbr: slug.toUpperCase(),
     name: `${slug.toUpperCase()} Tribunal / Authority`,
     tagline: "Specialized Adjudicatory Forum across India",
@@ -51,17 +51,21 @@ export default function TribunalDetailPage({ params }: { params: Promise<{ slug:
     website: "https://main.sci.gov.in",
     logoUrl: `/home/trubinals_&_forum/${slug}.svg`,
     description: `Detailed information and official record for ${slug.toUpperCase()} tribunal. This quasi-judicial forum handles specialized litigation, appeals, and statutory remedies under Indian federal laws.`,
-    benches: [
+  };
+
+  const item = {
+    ...rawItem,
+    benches: Array.isArray(rawItem.benches) && rawItem.benches.length > 0 ? rawItem.benches : [
       { name: "Principal Bench", location: "New Delhi", type: "Apex Bench" },
       { name: "Regional Benches", location: "Major Metro Cities", type: "Division Benches" }
     ],
-    keyMatters: [
-      "Specialized statutory litigation and appeals",
-      "Enforcement of regulatory directives and public compliance",
-      "Appellate review of administrative decisions"
+    keyMatters: Array.isArray(rawItem.keyMatters) && rawItem.keyMatters.length > 0 ? rawItem.keyMatters : [
+      "Specialized statutory litigation and appeals before Apex & Regional Forums",
+      "Enforcement of regulatory directives, statutory compliance & public interest remedies",
+      "Appellate review of quasi-judicial orders & administrative decisions"
     ],
-    recentOrders: [
-      { title: `Notice & Orders by ${slug.toUpperCase()}`, date: "May 2025", bench: "Principal Bench", orderNo: "Order Ref No. 101/2025" }
+    recentOrders: Array.isArray(rawItem.recentOrders) && rawItem.recentOrders.length > 0 ? rawItem.recentOrders : [
+      { title: `Notice & Statutory Orders by ${rawItem.abbr || slug.toUpperCase()}`, date: "May 2025", bench: "Principal Bench", orderNo: "Order Ref No. 101/2025" }
     ]
   };
 

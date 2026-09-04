@@ -46,7 +46,10 @@ export default function AdminTribunals() {
     website: "",
     logoUrl: "",
     description: "",
-    isFeatured: true
+    isFeatured: true,
+    benches: [] as any[],
+    keyMatters: [] as string[],
+    recentOrders: [] as any[]
   });
 
   const loadData = async () => {
@@ -79,7 +82,17 @@ export default function AdminTribunals() {
       website: "",
       logoUrl: "",
       description: "",
-      isFeatured: true
+      isFeatured: true,
+      benches: [
+        { name: "Principal Bench", location: "New Delhi", type: "Apex Bench" }
+      ],
+      keyMatters: [
+        "Specialized statutory litigation and appeals",
+        "Enforcement of regulatory directives and public compliance"
+      ],
+      recentOrders: [
+        { title: "Notice & Statutory Orders", date: new Date().toISOString().split('T')[0], bench: "Principal Bench", orderNo: "Order Ref No. 101/2025" }
+      ]
     });
   };
 
@@ -97,9 +110,87 @@ export default function AdminTribunals() {
       website: item.website || "",
       logoUrl: item.logoUrl || "",
       description: item.description || "",
-      isFeatured: item.isFeatured !== false
+      isFeatured: item.isFeatured !== false,
+      benches: Array.isArray(item.benches) && item.benches.length > 0 ? item.benches : [
+        { name: "Principal Bench", location: "New Delhi", type: "Apex Bench" }
+      ],
+      keyMatters: Array.isArray(item.keyMatters) && item.keyMatters.length > 0 ? item.keyMatters : [
+        "Specialized statutory litigation and appeals"
+      ],
+      recentOrders: Array.isArray(item.recentOrders) && item.recentOrders.length > 0 ? item.recentOrders : [
+        { title: "Notice & Statutory Orders", date: new Date().toISOString().split('T')[0], bench: "Principal Bench", orderNo: "Order Ref No. 101/2025" }
+      ]
     });
     setShowForm(true);
+  };
+
+  // --- BENCHES HELPERS ---
+  const addBench = () => {
+    setFormData(prev => ({
+      ...prev,
+      benches: [...(prev.benches || []), { name: "Principal Bench", location: "New Delhi", type: "Apex Bench" }]
+    }));
+  };
+
+  const removeBench = (idx: number) => {
+    setFormData(prev => ({
+      ...prev,
+      benches: prev.benches.filter((_, i) => i !== idx)
+    }));
+  };
+
+  const updateBench = (idx: number, field: string, value: string) => {
+    setFormData(prev => {
+      const updated = [...prev.benches];
+      updated[idx] = { ...updated[idx], [field]: value };
+      return { ...prev, benches: updated };
+    });
+  };
+
+  // --- KEY MATTERS HELPERS ---
+  const addKeyMatter = () => {
+    setFormData(prev => ({
+      ...prev,
+      keyMatters: [...(prev.keyMatters || []), "New Key Subject Jurisdiction & Statutory Remedy"]
+    }));
+  };
+
+  const removeKeyMatter = (idx: number) => {
+    setFormData(prev => ({
+      ...prev,
+      keyMatters: prev.keyMatters.filter((_, i) => i !== idx)
+    }));
+  };
+
+  const updateKeyMatter = (idx: number, value: string) => {
+    setFormData(prev => {
+      const updated = [...prev.keyMatters];
+      updated[idx] = value;
+      return { ...prev, keyMatters: updated };
+    });
+  };
+
+  // --- RECENT ORDERS HELPERS ---
+  const addRecentOrder = () => {
+    setFormData(prev => ({
+      ...prev,
+      recentOrders: [...(prev.recentOrders || []), { title: "Order / Notice Title", date: new Date().toISOString().split('T')[0], bench: "Principal Bench", orderNo: "Ref No. 101/2025" }]
+    }));
+  };
+
+  const removeRecentOrder = (idx: number) => {
+    setFormData(prev => ({
+      ...prev,
+      recentOrders: prev.recentOrders.filter((_, i) => i !== idx)
+    }));
+  };
+
+  const updateRecentOrder = (idx: number, field: string, value: string) => {
+    setFormData(prev => {
+      const updated = [...prev.recentOrders];
+      updated[idx] = { ...updated[idx], [field]: value };
+      return { ...prev, recentOrders: updated };
+    });
   };
 
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -312,9 +403,8 @@ export default function AdminTribunals() {
                 <div>
                   <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Establishment Date</label>
                   <input 
-                    type="text" 
-                    placeholder="e.g. 1 June 2016"
-                    className="w-full p-2.5 border border-gray-300 rounded-lg text-sm text-black outline-none focus:border-[#c9a84c]"
+                    type="date" 
+                    className="w-full p-2.5 border border-gray-300 rounded-lg text-sm text-black outline-none focus:border-[#c9a84c] cursor-pointer"
                     value={formData.established} 
                     onChange={e => setFormData({...formData, established: e.target.value})}
                   />
@@ -421,6 +511,172 @@ export default function AdminTribunals() {
                   value={formData.description} 
                   onChange={e => setFormData({...formData, description: e.target.value})}
                 />
+              </div>
+
+              {/* 1. KEY SUBJECT JURISDICTION & REMEDIES */}
+              <div className="bg-gray-50 p-4 rounded-xl space-y-3 border border-gray-200">
+                <div className="flex items-center justify-between">
+                  <label className="block text-xs font-bold text-[#0d1b3e] uppercase">
+                    Key Subject Jurisdiction & Remedies ({formData.keyMatters?.length || 0})
+                  </label>
+                  <button
+                    type="button"
+                    onClick={addKeyMatter}
+                    className="text-xs font-bold text-[#c9a84c] hover:underline flex items-center gap-1"
+                  >
+                    <Plus size={14} /> Add Remedy
+                  </button>
+                </div>
+
+                {formData.keyMatters?.map((matter, idx) => (
+                  <div key={idx} className="flex items-center gap-2">
+                    <input
+                      type="text"
+                      value={matter}
+                      onChange={(e) => updateKeyMatter(idx, e.target.value)}
+                      placeholder="e.g. Corporate Insolvency Resolution Process under Section 7/9/10"
+                      className="w-full p-2 border border-gray-300 rounded-lg text-xs font-medium text-black outline-none focus:border-[#c9a84c]"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => removeKeyMatter(idx)}
+                      className="text-red-500 hover:text-red-700 p-1"
+                      title="Remove matter"
+                    >
+                      <Trash2 size={15} />
+                    </button>
+                  </div>
+                ))}
+              </div>
+
+              {/* 2. BENCHES & TERRITORIAL DIVISIONS */}
+              <div className="bg-gray-50 p-4 rounded-xl space-y-3 border border-gray-200">
+                <div className="flex items-center justify-between">
+                  <label className="block text-xs font-bold text-[#0d1b3e] uppercase">
+                    Benches & Territorial Divisions ({formData.benches?.length || 0})
+                  </label>
+                  <button
+                    type="button"
+                    onClick={addBench}
+                    className="text-xs font-bold text-[#c9a84c] hover:underline flex items-center gap-1"
+                  >
+                    <Plus size={14} /> Add Bench
+                  </button>
+                </div>
+
+                {formData.benches?.map((bench, idx) => (
+                  <div key={idx} className="bg-white p-3 rounded-lg border border-gray-200 grid grid-cols-1 md:grid-cols-12 gap-2 items-center">
+                    <div className="md:col-span-4">
+                      <input
+                        type="text"
+                        value={bench.name}
+                        onChange={(e) => updateBench(idx, "name", e.target.value)}
+                        placeholder="Bench Name (e.g. Principal Bench)"
+                        className="w-full p-2 border border-gray-300 rounded text-xs font-bold text-black"
+                      />
+                    </div>
+                    <div className="md:col-span-4">
+                      <input
+                        type="text"
+                        value={bench.location}
+                        onChange={(e) => updateBench(idx, "location", e.target.value)}
+                        placeholder="Location (e.g. New Delhi)"
+                        className="w-full p-2 border border-gray-300 rounded text-xs text-black"
+                      />
+                    </div>
+                    <div className="md:col-span-3">
+                      <input
+                        type="text"
+                        value={bench.type}
+                        onChange={(e) => updateBench(idx, "type", e.target.value)}
+                        placeholder="Type (e.g. Apex Bench)"
+                        className="w-full p-2 border border-gray-300 rounded text-xs text-black"
+                      />
+                    </div>
+                    <div className="md:col-span-1 text-right">
+                      <button
+                        type="button"
+                        onClick={() => removeBench(idx)}
+                        className="text-red-500 hover:text-red-700 p-1"
+                        title="Remove bench"
+                      >
+                        <Trash2 size={15} />
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* 3. LATEST PRONOUNCEMENTS & ORDERS */}
+              <div className="bg-gray-50 p-4 rounded-xl space-y-3 border border-gray-200">
+                <div className="flex items-center justify-between">
+                  <label className="block text-xs font-bold text-[#0d1b3e] uppercase">
+                    Latest Pronouncements & Orders ({formData.recentOrders?.length || 0})
+                  </label>
+                  <button
+                    type="button"
+                    onClick={addRecentOrder}
+                    className="text-xs font-bold text-[#c9a84c] hover:underline flex items-center gap-1"
+                  >
+                    <Plus size={14} /> Add Order
+                  </button>
+                </div>
+
+                {formData.recentOrders?.map((order, idx) => (
+                  <div key={idx} className="bg-white p-3 rounded-lg border border-gray-200 space-y-2">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[11px] font-bold text-[#c9a84c]">Order #{idx + 1}</span>
+                      <button
+                        type="button"
+                        onClick={() => removeRecentOrder(idx)}
+                        className="text-red-500 hover:text-red-700 text-xs font-bold"
+                      >
+                        Remove
+                      </button>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                      <div>
+                        <input
+                          type="text"
+                          value={order.title}
+                          onChange={(e) => updateRecentOrder(idx, "title", e.target.value)}
+                          placeholder="Order / Judgment Title"
+                          className="w-full p-2 border border-gray-300 rounded text-xs font-bold text-black"
+                        />
+                      </div>
+                      <div>
+                        <input
+                          type="text"
+                          value={order.orderNo}
+                          onChange={(e) => updateRecentOrder(idx, "orderNo", e.target.value)}
+                          placeholder="Order Ref No. (e.g. CP (IB) No. 412/2024)"
+                          className="w-full p-2 border border-gray-300 rounded text-xs text-black"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                      <div>
+                        <input
+                          type="text"
+                          value={order.bench}
+                          onChange={(e) => updateRecentOrder(idx, "bench", e.target.value)}
+                          placeholder="Bench (e.g. Principal Bench, New Delhi)"
+                          className="w-full p-2 border border-gray-300 rounded text-xs text-black"
+                        />
+                      </div>
+                      <div>
+                        <input
+                          type="date"
+                          value={order.date}
+                          onChange={(e) => updateRecentOrder(idx, "date", e.target.value)}
+                          className="w-full p-2 border border-gray-300 rounded text-xs text-black cursor-pointer"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
 
               <div className="flex items-center gap-2 pt-1">

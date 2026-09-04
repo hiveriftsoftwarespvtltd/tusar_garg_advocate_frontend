@@ -1,5 +1,4 @@
 import JudiciaryHero from "./components/JudiciaryHero";
-import JudiciarySearch from "./components/JudiciarySearch";
 import StateGrid from "./components/StateGrid";
 import PopularServices from "./components/PopularServices";
 import LatestNotifications from "./components/LatestNotifications";
@@ -14,10 +13,7 @@ export default function JudiciaryPage() {
       {/* 1. Hero Section */}
       <JudiciaryHero />
 
-      {/* 2. Advanced Search Bar */}
-      <JudiciarySearch />
-
-      {/* 3. Explore Judiciary by State */}
+      {/* 2. Explore Judiciary by State */}
       <StateGrid />
 
       {/* 4. Popular Judicial Services */}

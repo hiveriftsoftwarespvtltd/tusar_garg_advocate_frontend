@@ -1,5 +1,4 @@
 import CollegesHero from "./components/CollegesHero";
-import CollegesSearch from "./components/CollegesSearch";
 import TopCollegesList from "./components/TopCollegesList";
 import PopularCourses from "./components/PopularCourses";
 import AboutLegalEd from "./components/AboutLegalEd";
@@ -12,10 +11,7 @@ export default function CollegesPage() {
       {/* 1. Hero Section */}
       <CollegesHero />
 
-      {/* 2. Search Section */}
-      <CollegesSearch />
-
-      {/* 3. Main Content Grid */}
+      {/* 2. Main Content Grid */}
       <div className="max-w-[1280px] mx-auto px-4 py-8 mb-12 flex flex-col lg:flex-row gap-8">
         
         {/* Left Column: Top Colleges */}
@@ -32,7 +28,7 @@ export default function CollegesPage() {
 
       </div>
 
-      {/* 4. Bottom Banner */}
+      {/* 3. Bottom Banner */}
       <BottomBanner />
     </main>
   );
