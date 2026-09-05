@@ -1,6 +1,7 @@
 "use client";
 
 import { Scale, Landmark, Building2, Gavel, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export default function BrowseByCourtType() {
   const courtTypes = [
@@ -9,7 +10,7 @@ export default function BrowseByCourtType() {
       subtitle: "Apex Court of the Nation",
       description: "Highest constitutional court and apex court of appeal under Article 124.",
       badge: "APEX COURT",
-      href: "/courts/delhi/supreme-court-of-india",
+      href: "/all-courts",
       icon: <Landmark size={36} className="text-[#c9a84c]" />
     },
     {
@@ -17,7 +18,7 @@ export default function BrowseByCourtType() {
       subtitle: "25 Constitutional High Courts",
       description: "State apex courts exercising writ jurisdiction under Article 226.",
       badge: "STATE APEX",
-      href: "#high-courts",
+      href: "/high-courts",
       icon: <Scale size={36} className="text-[#0d1b3e]" />
     },
     {
@@ -25,7 +26,7 @@ export default function BrowseByCourtType() {
       subtitle: "Subordinate Judiciary",
       description: "Principal civil and criminal trial courts across 700+ districts.",
       badge: "TRIAL COURTS",
-      href: "#district-courts",
+      href: "/district-courts",
       icon: <Building2 size={36} className="text-[#0d1b3e]" />
     },
     {
@@ -56,7 +57,7 @@ export default function BrowseByCourtType() {
         {/* 4 Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {courtTypes.map((court, idx) => (
-            <a
+            <Link
               key={idx}
               href={court.href}
               className="bg-white border border-gray-200/90 hover:border-[#c9a84c] rounded-2xl p-6 flex flex-col justify-between shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden"
@@ -88,7 +89,7 @@ export default function BrowseByCourtType() {
                 <span>Explore Directory</span>
                 <ArrowRight size={14} className="transform group-hover:translate-x-1 transition-transform text-[#c9a84c]" />
               </div>
-            </a>
+            </Link>
           ))}
         </div>
 

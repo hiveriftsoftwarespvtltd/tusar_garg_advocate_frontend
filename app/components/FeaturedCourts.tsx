@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowRight, Landmark, Building2 } from "lucide-react";
 import { fetchApi } from "../../lib/api/client";
 import { getPublishedStates } from "../../lib/api/states";
@@ -154,40 +155,42 @@ export default async function FeaturedCourts() {
           </div>
 
           {/* ── 5. All Courts of India Directory Card (Clean Cream Card) ── */}
-          <div className="lg:w-[190px] min-h-[260px] flex-shrink-0 bg-[#f7f3ec] border border-[#e5e0d5] rounded-2xl flex flex-col items-center justify-between p-5 shadow-sm relative overflow-hidden group hover:border-[#c9a84c] transition-all">
+          <Link
+            href="/all-courts"
+            className="lg:w-[190px] min-h-[260px] flex-shrink-0 bg-[#f7f3ec] border border-[#e5e0d5] rounded-2xl flex flex-col items-center justify-between p-5 shadow-sm relative overflow-hidden group hover:border-[#c9a84c] hover:shadow-lg transition-all"
+          >
             {/* Background Map Graphic */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-80 group-hover:scale-105 transition-transform p-3">
               <Image src="/home/india_logo.png" alt="All Courts of India" width={220} height={220} className="object-contain" />
             </div>
             
             <div className="relative z-10 w-full text-center mt-2">
-              <h3 className="text-[#0d1b3e] font-serif font-bold text-[14px] uppercase leading-tight tracking-wider mb-1 drop-shadow-sm">
+              <h3 className="text-[#0d1b3e] font-serif font-bold text-[14px] uppercase leading-tight tracking-wider mb-1 drop-shadow-sm group-hover:text-[#c9a84c] transition-colors">
                 ALL COURTS<br /><span className="text-[#c9a84c]">OF INDIA</span>
               </h3>
               <p className="text-gray-500 text-[10px] font-medium">Covering 28+ States & UTs</p>
             </div>
 
-            <a
-              href="/courts"
-              className="relative z-10 w-full flex items-center justify-center gap-1.5 bg-[#0d1b3e] hover:bg-[#c9a84c] text-white hover:text-[#0d1b3e] text-[11px] font-bold py-2.5 px-3 rounded-xl transition-all duration-300 shadow-sm"
+            <div
+              className="relative z-10 w-full flex items-center justify-center gap-1.5 bg-[#0d1b3e] group-hover:bg-[#c9a84c] text-white group-hover:text-[#0d1b3e] text-[11px] font-bold py-2.5 px-3 rounded-xl transition-all duration-300 shadow-sm"
             >
               <span>Explore Now</span>
               <ArrowRight size={12} strokeWidth={2.5} />
-            </a>
-          </div>
+            </div>
+          </Link>
 
         </div>
 
         {/* Main CTA Button: VIEW ALL COURTS IN INDIA */}
         <div className="flex justify-center pt-2">
-          <a
-            href="/courts"
+          <Link
+            href="/all-courts"
             className="inline-flex items-center gap-2.5 bg-[#0d1b3e] hover:bg-[#1a2b5e] text-white px-8 py-3.5 text-[12px] font-bold uppercase tracking-widest rounded-xl transition-all duration-300 border border-[#c9a84c]/40 shadow-xl hover:shadow-[#0d1b3e]/30 hover:-translate-y-0.5 active:scale-[0.98]"
           >
             <Landmark size={16} className="text-[#c9a84c]" />
             <span>EXPLORE ALL COURTS IN INDIA</span>
             <ArrowRight size={14} className="text-[#c9a84c]" />
-          </a>
+          </Link>
         </div>
 
       </div>

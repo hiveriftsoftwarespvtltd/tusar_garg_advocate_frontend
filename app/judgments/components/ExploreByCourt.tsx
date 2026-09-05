@@ -1,12 +1,48 @@
-import { Landmark, Scale, Building2, Briefcase, FileText } from "lucide-react";
+import { Landmark, Scale, Building2, Briefcase, FileText, ExternalLink } from "lucide-react";
+import Link from "next/link";
 
 export default function ExploreByCourt() {
   const courts = [
-    { name: "Supreme Court of India", count: "28,745+", label: "Judgments", icon: <Landmark size={36} strokeWidth={1.2} /> },
-    { name: "High Courts", count: "1,24,890+", label: "Judgments", icon: <Building2 size={36} strokeWidth={1.2} /> },
-    { name: "District Courts", count: "3,45,678+", label: "Judgments", icon: <Briefcase size={36} strokeWidth={1.2} /> },
-    { name: "Tribunals & Forums", count: "45,230+", label: "Judgments", icon: <Scale size={36} strokeWidth={1.2} /> },
-    { name: "All Courts of India", count: "5,44,543+", label: "Judgments", icon: <FileText size={36} strokeWidth={1.2} /> },
+    {
+      name: "Supreme Court of India",
+      count: "28,745+",
+      label: "Judgments",
+      icon: <Landmark size={36} strokeWidth={1.2} />,
+      href: "https://www.sci.gov.in/",
+      isExternal: true,
+    },
+    {
+      name: "High Courts",
+      count: "1,24,890+",
+      label: "Judgments",
+      icon: <Building2 size={36} strokeWidth={1.2} />,
+      href: "/high-courts",
+      isExternal: false,
+    },
+    {
+      name: "District Courts",
+      count: "3,45,678+",
+      label: "Judgments",
+      icon: <Briefcase size={36} strokeWidth={1.2} />,
+      href: "/district-courts",
+      isExternal: false,
+    },
+    {
+      name: "Tribunals & Forums",
+      count: "45,230+",
+      label: "Judgments",
+      icon: <Scale size={36} strokeWidth={1.2} />,
+      href: "/tribunals",
+      isExternal: false,
+    },
+    {
+      name: "All Courts of India",
+      count: "5,44,543+",
+      label: "Judgments",
+      icon: <FileText size={36} strokeWidth={1.2} />,
+      href: "/all-courts",
+      isExternal: false,
+    },
   ];
 
   return (
@@ -23,33 +59,63 @@ export default function ExploreByCourt() {
 
         {/* Grid */}
         <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-          {courts.map((court, idx) => (
-            <div key={idx} className="bg-white border border-[#e8ebf2] rounded-xl p-6 flex flex-col items-center justify-center text-center shadow-sm hover:shadow-md hover:border-[#c9a84c]/50 hover:-translate-y-1 transition-all duration-300 group cursor-pointer">
-              
-              <div className="text-[#c9a84c] mb-4 group-hover:scale-110 transition-transform duration-300">
-                {court.icon}
-              </div>
-              
-              <h3 className="text-[13px] font-semibold text-[#374151] mb-2 leading-tight group-hover:text-[#0d1b3e] transition-colors h-[32px] flex items-center justify-center">
-                {court.name}
-              </h3>
-              
-              <p className="text-[18px] md:text-[22px] font-black text-[#0d1b3e] mb-1">
-                {court.count}
-              </p>
-              
-              <p className="text-[11px] text-[#6b7280]">
-                {court.label}
-              </p>
-            </div>
-          ))}
+          {courts.map((court, idx) => {
+            const cardContent = (
+              <>
+                <div className="text-[#c9a84c] mb-4 group-hover:scale-110 transition-transform duration-300 relative">
+                  {court.icon}
+                  {court.isExternal && (
+                    <ExternalLink size={12} className="absolute -top-1 -right-3 text-[#c9a84c]/80" />
+                  )}
+                </div>
+                
+                <h3 className="text-[13px] font-semibold text-[#374151] mb-2 leading-tight group-hover:text-[#0d1b3e] transition-colors h-[32px] flex items-center justify-center">
+                  {court.name}
+                </h3>
+                
+                <p className="text-[18px] md:text-[22px] font-black text-[#0d1b3e] mb-1">
+                  {court.count}
+                </p>
+                
+                <p className="text-[11px] text-[#6b7280]">
+                  {court.label}
+                </p>
+              </>
+            );
+
+            const cardClass = "bg-white border border-[#e8ebf2] rounded-xl p-6 flex flex-col items-center justify-center text-center shadow-sm hover:shadow-md hover:border-[#c9a84c]/50 hover:-translate-y-1 transition-all duration-300 group cursor-pointer block h-full";
+
+            if (court.isExternal) {
+              return (
+                <a
+                  key={idx}
+                  href={court.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={cardClass}
+                  title={`Open ${court.name} official portal`}
+                >
+                  {cardContent}
+                </a>
+              );
+            }
+
+            return (
+              <Link key={idx} href={court.href} className={cardClass}>
+                {cardContent}
+              </Link>
+            );
+          })}
         </div>
 
         {/* View All Button */}
         <div className="mt-8 flex justify-center">
-          <button className="bg-[#0d1b3e] text-white px-8 py-3 rounded-md font-bold text-[12px] uppercase tracking-wider hover:bg-[#1a2b5a] hover:shadow-lg transition-all">
+          <Link
+            href="/courts"
+            className="bg-[#0d1b3e] text-white px-8 py-3 rounded-md font-bold text-[12px] uppercase tracking-wider hover:bg-[#1a2b5a] hover:shadow-lg transition-all inline-block"
+          >
             VIEW ALL COURTS
-          </button>
+          </Link>
         </div>
 
       </div>

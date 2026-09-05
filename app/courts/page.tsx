@@ -8,19 +8,22 @@ import { fetchApi } from "../../lib/api/client";
 import { getPublishedStates } from "../../lib/api/states";
 import { Building2, Landmark, Search, ShieldCheck } from "lucide-react";
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 30;
 
 export default async function CourtsPage() {
-  let allCourts: any[] = [];
+  let highCourts: any[] = [];
   let allStates: any[] = [];
   try {
-    allCourts = await fetchApi('/courts');
-    allStates = await getPublishedStates();
+    const [courtsData, statesData] = await Promise.all([
+      fetchApi('/courts/high-courts').catch(() => fetchApi('/courts').catch(() => [])),
+      getPublishedStates().catch(() => [])
+    ]);
+    const rawCourts = Array.isArray(courtsData) ? courtsData : [];
+    highCourts = rawCourts.filter(c => !c.courtType || c.courtType?.trim().toLowerCase() === "high court");
+    allStates = Array.isArray(statesData) ? statesData : [];
   } catch (error) {
     console.error("Failed to fetch courts or states:", error);
   }
-
-  const highCourts = allCourts.filter(c => c.courtType?.trim().toLowerCase() === "high court");
 
   const heroButtons = (
     <div className="flex flex-wrap gap-4 mt-6">
@@ -76,7 +79,7 @@ export default async function CourtsPage() {
       </div>
 
       {/* 4. 🏛️ District Courts By State (Live Dynamic Data from /api/states) */}
-      <DistrictCourtsRegion states={allStates} courts={allCourts} />
+      <DistrictCourtsRegion states={allStates} courts={highCourts} />
 
       {/* 6. ⚖️ High Courts Grid (Live Dynamic Data from /api/courts) */}
       <HighCourtsGrid courts={highCourts} />

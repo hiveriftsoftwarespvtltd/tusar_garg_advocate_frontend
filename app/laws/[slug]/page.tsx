@@ -103,42 +103,48 @@ export default async function LawCategoryPage({ params }: PageProps) {
               </p>
 
               {/* Stats Bar */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 border-t border-white/10">
-                <div className="bg-white/5 backdrop-blur-md rounded-xl p-3 border border-white/10 text-center">
-                  <div className="text-[#c9a84c] font-bold text-lg font-serif">
-                    {detail.stats.actsCount}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-4 border-t border-white/10">
+                <Link
+                  href={`/laws/${slug}/acts`}
+                  className="bg-white/10 hover:bg-[#c9a84c]/20 backdrop-blur-md rounded-xl p-3 border border-[#c9a84c]/40 hover:border-[#c9a84c] text-center transition-all group shadow-md"
+                  title={`View all ${detail.stats.actsCount} Bare Acts`}
+                >
+                  <div className="text-[#c9a84c] font-bold text-lg font-serif flex items-center justify-center gap-1 group-hover:scale-105 transition-transform">
+                    <span>{detail.stats.actsCount}</span>
+                    <ChevronRight size={14} className="text-[#c9a84c]" />
                   </div>
-                  <div className="text-gray-400 text-[11px] uppercase tracking-wider font-medium">
-                    Bare Acts Included
+                  <div className="text-white group-hover:text-[#c9a84c] text-[11px] uppercase tracking-wider font-extrabold transition-colors">
+                    Explore Bare Acts →
                   </div>
-                </div>
+                </Link>
 
-                <div className="bg-white/5 backdrop-blur-md rounded-xl p-3 border border-white/10 text-center">
-                  <div className="text-[#c9a84c] font-bold text-lg font-serif">
-                    {detail.stats.sectionsCount}
+                <Link
+                  href={`/laws/${slug}/sections`}
+                  className="bg-white/10 hover:bg-[#c9a84c]/20 backdrop-blur-md rounded-xl p-3 border border-[#c9a84c]/40 hover:border-[#c9a84c] text-center transition-all group shadow-md"
+                  title={`View all key articles & sections for ${detail.name}`}
+                >
+                  <div className="text-[#c9a84c] font-bold text-lg font-serif flex items-center justify-center gap-1 group-hover:scale-105 transition-transform">
+                    <span>{detail.stats.sectionsCount}</span>
+                    <ChevronRight size={14} className="text-[#c9a84c]" />
                   </div>
-                  <div className="text-gray-400 text-[11px] uppercase tracking-wider font-medium">
-                    Key Sections
+                  <div className="text-white group-hover:text-[#c9a84c] text-[11px] uppercase tracking-wider font-extrabold transition-colors">
+                    Explore Sections →
                   </div>
-                </div>
+                </Link>
 
-                <div className="bg-white/5 backdrop-blur-md rounded-xl p-3 border border-white/10 text-center">
-                  <div className="text-[#c9a84c] font-bold text-lg font-serif">
-                    {detail.stats.precedentsCount}
+                <Link
+                  href={`/laws/${slug}/precedents`}
+                  className="bg-white/10 hover:bg-[#c9a84c]/20 backdrop-blur-md rounded-xl p-3 border border-[#c9a84c]/40 hover:border-[#c9a84c] text-center transition-all group shadow-md"
+                  title={`View landmark precedents from 1950 to present for ${detail.name}`}
+                >
+                  <div className="text-[#c9a84c] font-bold text-lg font-serif flex items-center justify-center gap-1 group-hover:scale-105 transition-transform">
+                    <span>{detail.stats.precedentsCount}</span>
+                    <ChevronRight size={14} className="text-[#c9a84c]" />
                   </div>
-                  <div className="text-gray-400 text-[11px] uppercase tracking-wider font-medium">
-                    Apex Precedents
+                  <div className="text-white group-hover:text-[#c9a84c] text-[11px] uppercase tracking-wider font-extrabold transition-colors">
+                    Apex Precedents →
                   </div>
-                </div>
-
-                <div className="bg-white/5 backdrop-blur-md rounded-xl p-3 border border-white/10 text-center">
-                  <div className="text-[#c9a84c] font-bold text-lg font-serif">
-                    {detail.stats.successRate}
-                  </div>
-                  <div className="text-gray-400 text-[11px] uppercase tracking-wider font-medium">
-                    Supreme Court Practice
-                  </div>
-                </div>
+                </Link>
               </div>
             </div>
 

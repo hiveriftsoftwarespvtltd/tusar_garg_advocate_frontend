@@ -35,7 +35,9 @@ function FacebookSVG() {
 
 const quickLinks = [
   { name: "About", href: "/about" },
-  { name: "Courts", href: "/courts" },
+  { name: "All Courts", href: "/all-courts" },
+  { name: "High Courts", href: "/high-courts" },
+  { name: "District Courts", href: "/district-courts" },
   { name: "Judgments", href: "/judgments" },
   { name: "Laws", href: "/laws" },
   { name: "Tribunals", href: "/tribunals" },

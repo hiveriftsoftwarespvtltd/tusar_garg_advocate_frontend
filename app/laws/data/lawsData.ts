@@ -108,7 +108,9 @@ export const LAWS_CATEGORY_DATA: Record<string, LawCategoryDetail> = {
           { number: "Article 21", title: "Protection of Life & Personal Liberty", summary: "No person shall be deprived of life or personal liberty except according to procedure established by law." },
           { number: "Article 32", title: "Remedies for Enforcement of Rights", summary: "Right to move Supreme Court by appropriate proceedings for enforcement of Fundamental Rights." },
           { number: "Article 136", title: "Special Leave to Appeal", summary: "Discretionary power of Supreme Court to grant special leave to appeal from any judgment or order." },
-          { number: "Article 226", title: "Power of High Courts to Issue Writs", summary: "High Courts empowered to issue writs for enforcement of rights and any other purpose." }
+          { number: "Article 226", title: "Power of High Courts to Issue Writs", summary: "High Courts empowered to issue writs for enforcement of rights and any other purpose." },
+          { number: "Article 300A", title: "Right to Property", summary: "No person shall be deprived of his property save by authority of law." },
+          { number: "Article 368", title: "Power of Parliament to Amend Constitution", summary: "Procedure and power of Parliament to amend Constitution subject to Basic Structure." }
         ]
       },
       {
@@ -117,7 +119,147 @@ export const LAWS_CATEGORY_DATA: Record<string, LawCategoryDetail> = {
         description: "Statutory framework governing practice, procedure, filing timelines, and registry compliance before the Apex Court.",
         sections: [
           { number: "Order XV", title: "Petitions for Special Leave", summary: "Procedure and essential requirements for filing Special Leave Petitions under Art 136." },
-          { number: "Order XXXVIII", title: "Writ Petitions under Article 32", summary: "Detailed guidelines for drafting, serving, and listing Article 32 Petitions." }
+          { number: "Order XXXVIII", title: "Writ Petitions under Article 32", summary: "Detailed guidelines for drafting, serving, and listing Article 32 Petitions." },
+          { number: "Order IV", title: "Advocates and Advocates-on-Record", summary: "Qualifications and rules governing Advocate-on-Record (AOR) filings in the Supreme Court." }
+        ]
+      },
+      {
+        title: "The Representation of the People Act",
+        year: "1951",
+        description: "Provides for the conduct of elections of the Houses of Parliament and State Legislatures, qualifications, and corrupt practices.",
+        sections: [
+          { number: "Section 8", title: "Disqualification on Conviction", summary: "Automatic disqualification of legislators upon conviction for specified offenses." },
+          { number: "Section 123", title: "Corrupt Practices", summary: "Defines corrupt practices including bribery, undue influence, and appealing to religion or caste." }
+        ]
+      },
+      {
+        title: "The Representation of the People Act",
+        year: "1950",
+        description: "Statute providing for the allocation of seats in and the delimitation of constituencies for elections to Parliament and State Legislatures.",
+        sections: [
+          { number: "Section 13", title: "Chief Electoral Officer", summary: "Appointment and statutory duties of the Chief Electoral Officer in each State." },
+          { number: "Section 20", title: "Ordinary Resident Defined", summary: "Legal criteria for determining ordinary residence for voter registration eligibility." }
+        ]
+      },
+      {
+        title: "The Citizenship Act",
+        year: "1955",
+        description: "Provides for the acquisition and termination of Indian citizenship post-Constitution enforcement.",
+        sections: [
+          { number: "Section 3", title: "Citizenship by Birth", summary: "Determines conditions under which a person born in India acquires citizenship." },
+          { number: "Section 9", title: "Termination of Citizenship", summary: "Automatic termination of Indian citizenship upon voluntarily acquiring foreign citizenship." }
+        ]
+      },
+      {
+        title: "The Contempt of Courts Act",
+        year: "1971",
+        description: "Defines and limits the powers of certain courts in punishing contempts of courts and regulates their procedure.",
+        sections: [
+          { number: "Section 2", title: "Civil & Criminal Contempt Defined", summary: "Distinguishes willful disobedience of orders (civil) from scandalizing or lowering court authority (criminal)." },
+          { number: "Section 12", title: "Punishment for Contempt", summary: "Penalties for contempt of court including simple imprisonment up to 6 months or fine." }
+        ]
+      },
+      {
+        title: "The Administrative Tribunals Act",
+        year: "1985",
+        description: "Adjudication of disputes regarding recruitment and conditions of service of central government & PSU employees.",
+        sections: [
+          { number: "Section 14", title: "Jurisdiction of Central Administrative Tribunal", summary: "Transfers service matter jurisdiction of all civil courts to CAT." },
+          { number: "Section 19", title: "Applications to Tribunals", summary: "Procedure for government servants to file Original Applications (OAs) before CAT Benches." }
+        ]
+      },
+      {
+        title: "The Right to Information (RTI) Act",
+        year: "2005",
+        description: "Enforces the constitutional right of citizens to secure access to information under control of public authorities under Art 19(1)(a).",
+        sections: [
+          { number: "Section 3", title: "Right to Information", summary: "Subject to provisions of the Act, all citizens shall have the right to information." },
+          { number: "Section 6", title: "Request for Obtaining Information", summary: "Procedure for submitting RTI application to Public Information Officers (PIOs)." },
+          { number: "Section 8", title: "Exemption from Disclosure", summary: "Categories of information exempted from public disclosure on national security & privacy grounds." }
+        ]
+      },
+      {
+        title: "The Protection of Human Rights Act",
+        year: "1993",
+        description: "Provides for the constitution of a National Human Rights Commission (NHRC) and State Human Rights Commissions (SHRC).",
+        sections: [
+          { number: "Section 12", title: "Functions of NHRC", summary: "Empowers Commission to inquire suo motu or on petition into violation of human rights by public servants." },
+          { number: "Section 21", title: "Constitution of SHRC", summary: "State Human Rights Commission framework for state-level human rights enforcement." }
+        ]
+      },
+      {
+        title: "The National Green Tribunal Act",
+        year: "2010",
+        description: "Effective and expeditious disposal of cases relating to environmental protection and conservation of forests under Art 21.",
+        sections: [
+          { number: "Section 14", title: "Tribunal Jurisdiction over Environmental Matters", summary: "NGT jurisdiction over all civil cases involving substantial questions relating to environment." },
+          { number: "Section 22", title: "Appeal to Supreme Court", summary: "Direct statutory appeal from NGT final decision to Supreme Court of India within 90 days." }
+        ]
+      },
+      {
+        title: "The Official Languages Act",
+        year: "1963",
+        description: "Provides for languages which may be used for official purposes of Union, transaction of business in Parliament, and in Courts.",
+        sections: [
+          { number: "Section 7", title: "Optional use of Hindi in High Court judgments", summary: "Authorizes Governor with Presidential consent to authorize use of Hindi in High Court proceedings." }
+        ]
+      },
+      {
+        title: "The States Reorganisation Act",
+        year: "1956",
+        description: "Major reform of the boundaries of India's states and territories, organizing them along linguistic lines under Art 3.",
+        sections: [
+          { number: "Section 49", title: "High Courts for Reorganised States", summary: "Establishes territorial jurisdiction of High Courts post-state boundary reorganization." }
+        ]
+      },
+      {
+        title: "The Delimitation Act",
+        year: "2002",
+        description: "Provides for the readjustment of the allocation of seats in the House of the People and State Legislative Assemblies.",
+        sections: [
+          { number: "Section 9", title: "Delimitation of Constituencies", summary: "Duties of Delimitation Commission to adjust boundaries based on latest census numbers." }
+        ]
+      },
+      {
+        title: "The Comptroller & Auditor-General's (Duties, Powers and Conditions of Service) Act",
+        year: "1971",
+        description: "Determines statutory duties and powers of CAG regarding Union and State public finance audit under Art 148-151.",
+        sections: [
+          { number: "Section 10", title: "CAG to compile accounts of Union & States", summary: "Duty of CAG to compile accounts of Union and of each State from returns submitted." }
+        ]
+      },
+      {
+        title: "The Armed Forces (Special Powers) Act (AFSPA)",
+        year: "1958",
+        description: "Grants special powers to the Indian Armed Forces in disturbed areas designated under constitutional provisions.",
+        sections: [
+          { number: "Section 3", title: "Power to Declare Areas Disturbed", summary: "Empowers Governor or Central Government to declare state or district as disturbed area." },
+          { number: "Section 6", title: "Protection to Persons Acting under Act", summary: "Mandates prior sanction of Central Government for prosecution of armed personnel." }
+        ]
+      },
+      {
+        title: "The Special Marriage Act",
+        year: "1954",
+        description: "Provides a special form of civil marriage for the people of India and all Indian nationals in foreign countries.",
+        sections: [
+          { number: "Section 4", title: "Conditions relating to Solemnization of Special Marriages", summary: "Secular statutory conditions for valid civil marriage irrespective of religion." },
+          { number: "Section 27", title: "Divorce Grounds under Special Marriage Act", summary: "Statutory grounds for dissolution of civil marriage by decree of divorce." }
+        ]
+      },
+      {
+        title: "The High Court Judges (Salaries & Conditions of Service) Act",
+        year: "1954",
+        description: "Regulates salaries, pensions, leave, and service conditions of High Court Judges under Art 221.",
+        sections: [
+          { number: "Section 14", title: "Pension Payable to Judges", summary: "Statutory pension entitlements for High Court Judges to preserve judicial independence." }
+        ]
+      },
+      {
+        title: "The Supreme Court Judges (Salaries & Conditions of Service) Act",
+        year: "1958",
+        description: "Regulates salaries, pensions, residences, and service conditions of Supreme Court Judges under Art 125.",
+        sections: [
+          { number: "Section 16.5", title: "Rent-free Residence & Allowances", summary: "Guarantees statutory privileges and security of tenure for Apex Court Justices." }
         ]
       }
     ],

@@ -20,7 +20,8 @@ import {
   Sparkles,
   ExternalLink,
   Copy,
-  Check
+  Check,
+  Layers
 } from "lucide-react";
 import { LawCategoryDetail, BareAct, FAQ, Precedent } from "../data/lawsData";
 
@@ -99,29 +100,32 @@ export default function LawCategoryInteractiveView({ detail }: Props) {
               <span>Overview & Practice</span>
             </button>
 
-            <button
-              onClick={() => setActiveTab("bare-acts")}
-              className={`flex items-center gap-2 px-4 py-2 rounded-xl text-[12.5px] font-bold transition-all whitespace-nowrap ${
-                activeTab === "bare-acts"
-                  ? "bg-[#0d1b3e] text-[#c9a84c] shadow-sm"
-                  : "text-gray-600 hover:bg-gray-100 hover:text-[#0d1b3e]"
-              }`}
+            <Link
+              href={`/laws/${detail.slug}/acts`}
+              className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-[12.5px] font-bold bg-[#c9a84c] text-[#0d1b3e] hover:bg-[#b5953d] transition-all whitespace-nowrap shadow-sm border border-[#c9a84c]"
+              title={`Open dedicated page with all ${detail.stats.actsCount}`}
             >
               <FileText size={15} />
-              <span>Bare Acts & Sections ({detail.bareActs.length})</span>
-            </button>
+              <span>Full {detail.stats.actsCount} Directory →</span>
+            </Link>
 
-            <button
-              onClick={() => setActiveTab("precedents")}
-              className={`flex items-center gap-2 px-4 py-2 rounded-xl text-[12.5px] font-bold transition-all whitespace-nowrap ${
-                activeTab === "precedents"
-                  ? "bg-[#0d1b3e] text-[#c9a84c] shadow-sm"
-                  : "text-gray-600 hover:bg-gray-100 hover:text-[#0d1b3e]"
-              }`}
+            <Link
+              href={`/laws/${detail.slug}/sections`}
+              className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-[12.5px] font-bold bg-[#0d1b3e] text-[#c9a84c] hover:bg-[#142654] transition-all whitespace-nowrap shadow-sm border border-[#c9a84c]/40"
+              title={`Open dedicated page with ${detail.stats.sectionsCount}`}
+            >
+              <Layers size={15} />
+              <span>{detail.stats.sectionsCount} Directory →</span>
+            </Link>
+
+            <Link
+              href={`/laws/${detail.slug}/precedents`}
+              className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-[12.5px] font-bold bg-[#c9a84c] text-[#0d1b3e] hover:bg-[#b5953d] transition-all whitespace-nowrap shadow-sm border border-[#c9a84c]"
+              title={`Open dedicated page with ${detail.stats.precedentsCount} from 1950 to Present`}
             >
               <Gavel size={15} />
-              <span>Landmark Precedents</span>
-            </button>
+              <span>Full Apex Precedents (1950–2026) →</span>
+            </Link>
 
             <button
               onClick={() => setActiveTab("procedure")}

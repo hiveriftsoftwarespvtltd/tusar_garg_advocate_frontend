@@ -162,9 +162,9 @@ export default function Header() {
 
                       {/* Footer Link */}
                       <div className="pt-3 border-t border-white/10 mt-3 flex items-center justify-between text-xs">
-                        <span className="text-white/50 text-[11px]">Explore High Courts & District Courts</span>
-                        <Link href="/courts" className="text-[#c9a84c] font-bold hover:underline flex items-center gap-1 group/link">
-                          All India Directory
+                        <span className="text-white/50 text-[11px]">Explore Supreme Court, High Courts & District Courts</span>
+                        <Link href="/all-courts" className="text-[#c9a84c] font-bold hover:underline flex items-center gap-1 group/link">
+                          All India Courts Page
                           <ArrowRight size={13} className="transform group-hover/link:translate-x-1 transition-transform" />
                         </Link>
                       </div>
