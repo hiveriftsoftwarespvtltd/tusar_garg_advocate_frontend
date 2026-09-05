@@ -60,7 +60,7 @@ export default function HighCourtsPage() {
         title="25 CONSTITUTIONAL HIGH COURTS OF INDIA"
         subtitle={
           <>
-            Complete directory of all 25 High Courts in India, their official jurisdictions (मुख्य क्षेत्र), and verified e-Courts portals.<br />
+            Complete directory of all 25 High Courts in India, their official jurisdictions, and verified e-Courts portals.<br />
             Click any official portal link to open the official High Court website.
           </>
         }
@@ -149,7 +149,7 @@ export default function HighCourtsPage() {
                   <tr className="bg-[#0d1b3e] text-white text-xs font-bold uppercase tracking-wider">
                     <th className="py-4 px-6 w-16 text-center border-b border-[#1a2b5a]">#</th>
                     <th className="py-4 px-6 border-b border-[#1a2b5a]">High Court Name</th>
-                    <th className="py-4 px-6 border-b border-[#1a2b5a]">Jurisdiction / मुख्य क्षेत्र</th>
+                    <th className="py-4 px-6 border-b border-[#1a2b5a]">Territorial Jurisdiction</th>
                     <th className="py-4 px-6 border-b border-[#1a2b5a] text-right">Official Website</th>
                   </tr>
                 </thead>
