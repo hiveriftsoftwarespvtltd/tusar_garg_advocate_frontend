@@ -21,6 +21,7 @@ import {
   Filter
 } from "lucide-react";
 import { LawCategoryDetail } from "../../data/lawsData";
+import TabScroller from "@/app/components/TabScroller";
 
 interface Props {
   detail: LawCategoryDetail;
@@ -498,20 +499,22 @@ export default function PrecedentsViewClient({ detail }: Props) {
         </div>
 
         {/* Decade Filter Pills */}
-        <div className="flex items-center gap-2 overflow-x-auto scrollbar-none pt-4 border-t border-gray-100 mt-4">
-          {decadeOptions.map((opt) => (
-            <button
-              key={opt.id}
-              onClick={() => setSelectedDecade(opt.id)}
-              className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap border shrink-0 ${
-                selectedDecade === opt.id
-                  ? "bg-[#0d1b3e] text-[#c9a84c] border-[#c9a84c] shadow-sm"
-                  : "bg-gray-50 text-gray-700 border-gray-200 hover:bg-gray-100 hover:text-[#0d1b3e]"
-              }`}
-            >
-              {opt.label}
-            </button>
-          ))}
+        <div className="pt-4 border-t border-gray-100 mt-4">
+          <TabScroller>
+            {decadeOptions.map((opt) => (
+              <button
+                key={opt.id}
+                onClick={() => setSelectedDecade(opt.id)}
+                className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap border shrink-0 cursor-pointer ${
+                  selectedDecade === opt.id
+                    ? "bg-[#0d1b3e] text-[#c9a84c] border-[#c9a84c] shadow-sm"
+                    : "bg-gray-50 text-gray-700 border-gray-200 hover:bg-gray-100 hover:text-[#0d1b3e]"
+                }`}
+              >
+                {opt.label}
+              </button>
+            ))}
+          </TabScroller>
         </div>
       </div>
 

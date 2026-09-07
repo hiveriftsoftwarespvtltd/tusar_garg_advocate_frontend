@@ -1,4 +1,5 @@
 import { Search, ChevronDown, RefreshCw } from "lucide-react";
+import TabScroller from "@/app/components/TabScroller";
 
 export default function JudgmentsSearch() {
   const tabs = [
@@ -20,19 +21,21 @@ export default function JudgmentsSearch() {
       <div className="bg-[#0d1b3e] rounded-xl border border-[#c9a84c]/20 shadow-xl overflow-hidden">
         
         {/* Tabs */}
-        <div className="flex items-center overflow-x-auto border-b border-white/10 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-          {tabs.map((tab, idx) => (
-            <button 
-              key={idx}
-              className={`flex items-center justify-center px-6 md:px-8 py-4 md:py-5 text-[11px] md:text-[12px] font-bold tracking-wider uppercase whitespace-nowrap transition-colors ${
-                tab.active 
-                  ? "text-[#c9a84c] border-b-2 border-[#c9a84c] bg-white/5" 
-                  : "text-white/80 hover:bg-white/5 hover:text-white"
-              }`}
-            >
-              {tab.label}
-            </button>
-          ))}
+        <div className="border-b border-white/10">
+          <TabScroller>
+            {tabs.map((tab, idx) => (
+              <button 
+                key={idx}
+                className={`flex items-center justify-center px-6 md:px-8 py-4 md:py-5 text-[11px] md:text-[12px] font-bold tracking-wider uppercase whitespace-nowrap transition-colors cursor-pointer shrink-0 ${
+                  tab.active 
+                    ? "text-[#c9a84c] border-b-2 border-[#c9a84c] bg-white/5" 
+                    : "text-white/80 hover:bg-white/5 hover:text-white"
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </TabScroller>
         </div>
 
         <div className="p-4 md:p-6 lg:p-8">

@@ -7,37 +7,37 @@ export default function PopularServices() {
       icon: <Landmark size={32} strokeWidth={1.5} />, 
       title: "Civil Judge / Judicial Services",
       desc: "Entry level judicial officer exams",
-      link: "/jobs?search=Judicial+Services"
+      link: "/judiciary/civil-judge"
     },
     { 
       icon: <Scale size={32} strokeWidth={1.5} />, 
       title: "District Judge / Higher Judicial Service",
       desc: "Senior level judicial officer exams",
-      link: "/jobs?search=Higher+Judicial+Services"
+      link: "/judiciary/higher-judicial-services"
     },
     { 
       icon: <ClipboardList size={32} strokeWidth={1.5} />, 
       title: "Preliminary Syllabus",
       desc: "Prelims exam pattern & syllabus",
-      link: "/resources?category=Syllabus"
+      link: "/judiciary/preliminary-syllabus"
     },
     { 
       icon: <BookOpen size={32} strokeWidth={1.5} />, 
       title: "Mains Syllabus",
       desc: "Mains exam pattern & syllabus",
-      link: "/resources?category=Syllabus"
+      link: "/judiciary/mains-syllabus"
     },
     { 
       icon: <Users size={32} strokeWidth={1.5} />, 
       title: "Interview Guidance",
       desc: "Personality test preparation",
-      link: "/resources?category=Interview+Guidance"
+      link: "/judiciary/interview-guidance"
     },
     { 
       icon: <FileText size={32} strokeWidth={1.5} />, 
       title: "Previous Papers",
       desc: "Previous year question papers",
-      link: "/resources?category=Previous+Papers"
+      link: "/judiciary/previous-papers"
     },
   ];
 

@@ -24,6 +24,7 @@ import {
   Layers
 } from "lucide-react";
 import { LawCategoryDetail, BareAct, FAQ, Precedent } from "../data/lawsData";
+import TabScroller from "@/app/components/TabScroller";
 
 interface Props {
   detail: LawCategoryDetail;
@@ -76,13 +77,13 @@ export default function LawCategoryInteractiveView({ detail }: Props) {
 
       {/* SEARCH BAR & NAVIGATION TABS */}
       <div className="bg-white rounded-2xl p-4 shadow-sm border border-gray-200 mb-8 sticky top-20 z-20 backdrop-blur-md bg-white/95">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="flex flex-col xl:flex-row items-stretch xl:items-center justify-between gap-3.5">
           
-          {/* Navigation Tabs */}
-          <div className="flex items-center gap-1.5 overflow-x-auto w-full md:w-auto scrollbar-none pb-2 md:pb-0">
+          {/* Navigation Tabs Container */}
+          <TabScroller containerClassName="flex-1 min-w-0 max-w-full" className="gap-1.5 pb-2 xl:pb-0">
             <Link
               href="/laws"
-              className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-[12.5px] font-bold text-[#0d1b3e] bg-gray-100 hover:bg-[#0d1b3e] hover:text-[#c9a84c] transition-all whitespace-nowrap border border-gray-200 shadow-sm shrink-0 mr-1"
+              className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-[12.5px] font-bold text-[#0d1b3e] bg-gray-100 hover:bg-[#0d1b3e] hover:text-[#c9a84c] transition-all border border-gray-200 shadow-sm shrink-0 whitespace-nowrap mr-1"
             >
               <ArrowLeft size={15} />
               <span>Back to Laws</span>
@@ -90,7 +91,7 @@ export default function LawCategoryInteractiveView({ detail }: Props) {
 
             <button
               onClick={() => setActiveTab("overview")}
-              className={`flex items-center gap-2 px-4 py-2 rounded-xl text-[12.5px] font-bold transition-all whitespace-nowrap ${
+              className={`flex items-center gap-2 px-4 py-2 rounded-xl text-[12.5px] font-bold transition-all shrink-0 whitespace-nowrap cursor-pointer ${
                 activeTab === "overview"
                   ? "bg-[#0d1b3e] text-[#c9a84c] shadow-sm"
                   : "text-gray-600 hover:bg-gray-100 hover:text-[#0d1b3e]"
@@ -102,7 +103,7 @@ export default function LawCategoryInteractiveView({ detail }: Props) {
 
             <Link
               href={`/laws/${detail.slug}/acts`}
-              className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-[12.5px] font-bold bg-[#c9a84c] text-[#0d1b3e] hover:bg-[#b5953d] transition-all whitespace-nowrap shadow-sm border border-[#c9a84c]"
+              className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-[12.5px] font-bold bg-[#c9a84c] text-[#0d1b3e] hover:bg-[#b5953d] transition-all shadow-sm border border-[#c9a84c] shrink-0 whitespace-nowrap"
               title={`Open dedicated page with all ${detail.stats.actsCount}`}
             >
               <FileText size={15} />
@@ -111,7 +112,7 @@ export default function LawCategoryInteractiveView({ detail }: Props) {
 
             <Link
               href={`/laws/${detail.slug}/sections`}
-              className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-[12.5px] font-bold bg-[#0d1b3e] text-[#c9a84c] hover:bg-[#142654] transition-all whitespace-nowrap shadow-sm border border-[#c9a84c]/40"
+              className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-[12.5px] font-bold bg-[#0d1b3e] text-[#c9a84c] hover:bg-[#142654] transition-all shadow-sm border border-[#c9a84c]/40 shrink-0 whitespace-nowrap"
               title={`Open dedicated page with ${detail.stats.sectionsCount}`}
             >
               <Layers size={15} />
@@ -120,7 +121,7 @@ export default function LawCategoryInteractiveView({ detail }: Props) {
 
             <Link
               href={`/laws/${detail.slug}/precedents`}
-              className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-[12.5px] font-bold bg-[#c9a84c] text-[#0d1b3e] hover:bg-[#b5953d] transition-all whitespace-nowrap shadow-sm border border-[#c9a84c]"
+              className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-[12.5px] font-bold bg-[#c9a84c] text-[#0d1b3e] hover:bg-[#b5953d] transition-all shadow-sm border border-[#c9a84c] shrink-0 whitespace-nowrap"
               title={`Open dedicated page with ${detail.stats.precedentsCount} from 1950 to Present`}
             >
               <Gavel size={15} />
@@ -129,7 +130,7 @@ export default function LawCategoryInteractiveView({ detail }: Props) {
 
             <button
               onClick={() => setActiveTab("procedure")}
-              className={`flex items-center gap-2 px-4 py-2 rounded-xl text-[12.5px] font-bold transition-all whitespace-nowrap ${
+              className={`flex items-center gap-2 px-4 py-2 rounded-xl text-[12.5px] font-bold transition-all shrink-0 whitespace-nowrap cursor-pointer ${
                 activeTab === "procedure"
                   ? "bg-[#0d1b3e] text-[#c9a84c] shadow-sm"
                   : "text-gray-600 hover:bg-gray-100 hover:text-[#0d1b3e]"
@@ -141,7 +142,7 @@ export default function LawCategoryInteractiveView({ detail }: Props) {
 
             <button
               onClick={() => setActiveTab("faqs")}
-              className={`flex items-center gap-2 px-4 py-2 rounded-xl text-[12.5px] font-bold transition-all whitespace-nowrap ${
+              className={`flex items-center gap-2 px-4 py-2 rounded-xl text-[12.5px] font-bold transition-all shrink-0 whitespace-nowrap cursor-pointer ${
                 activeTab === "faqs"
                   ? "bg-[#0d1b3e] text-[#c9a84c] shadow-sm"
                   : "text-gray-600 hover:bg-gray-100 hover:text-[#0d1b3e]"
@@ -150,10 +151,10 @@ export default function LawCategoryInteractiveView({ detail }: Props) {
               <HelpCircle size={15} />
               <span>FAQs</span>
             </button>
-          </div>
+          </TabScroller>
 
           {/* Quick Search */}
-          <div className="relative w-full md:w-72">
+          <div className="relative w-full xl:w-72 shrink-0">
             <Search size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400" />
             <input
               type="text"
@@ -181,7 +182,7 @@ export default function LawCategoryInteractiveView({ detail }: Props) {
           {/* Detailed Overview Banner */}
           <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-gray-200">
             <div className="flex items-center gap-2 text-[#c9a84c] font-bold text-[11px] uppercase tracking-widest mb-3">
-              <Sparkles size={14} />
+              <Scale size={14} />
               <span>PRACTICE OVERVIEW</span>
             </div>
             <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#0d1b3e] mb-4">
@@ -204,29 +205,43 @@ export default function LawCategoryInteractiveView({ detail }: Props) {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {detail.keyAreas.map((area, idx) => (
-                <div
-                  key={idx}
-                  className="bg-white rounded-2xl p-6 border border-gray-200 hover:border-[#c9a84c] transition-all hover:shadow-md flex flex-col justify-between group"
-                >
-                  <div>
-                    <div className="inline-block bg-[#0d1b3e]/5 border border-[#c9a84c]/30 text-[#0d1b3e] text-[10px] font-bold px-2.5 py-1 rounded-md uppercase tracking-wider mb-4">
-                      {area.tag}
-                    </div>
-                    <h4 className="font-serif font-bold text-lg text-[#0d1b3e] mb-2 group-hover:text-[#c9a84c] transition-colors">
-                      {area.title}
-                    </h4>
-                    <p className="text-gray-600 text-[12.5px] leading-relaxed">
-                      {area.description}
-                    </p>
-                  </div>
+              {detail.keyAreas.map((area, idx) => {
+                const computedAreaSlug = area.slug || area.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+                const targetHref = area.link || `/laws/${detail.slug}/practice/${computedAreaSlug}`;
 
-                  <div className="mt-5 pt-4 border-t border-gray-100 flex items-center justify-between text-xs font-bold text-[#0d1b3e] group-hover:text-[#c9a84c]">
-                    <span>Learn Procedure</span>
-                    <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </div>
-              ))}
+                const getLinkLabel = () => {
+                  if (targetHref === "/writ-petitions") return "Explore Writ Petitions →";
+                  if (targetHref === "/slp") return "Explore SLP Guide →";
+                  return "Explore Specialization →";
+                };
+
+                return (
+                  <Link
+                    key={idx}
+                    href={targetHref}
+                    className="bg-white rounded-2xl p-6 border border-gray-200 hover:border-[#c9a84c] transition-all hover:shadow-xl hover:-translate-y-1 block group cursor-pointer"
+                  >
+                    <div className="h-full flex flex-col justify-between">
+                      <div>
+                        <div className="inline-block bg-[#0d1b3e]/5 border border-[#c9a84c]/30 text-[#0d1b3e] text-[10px] font-bold px-2.5 py-1 rounded-md uppercase tracking-wider mb-4">
+                          {area.tag}
+                        </div>
+                        <h4 className="font-serif font-bold text-lg text-[#0d1b3e] mb-2 group-hover:text-[#c9a84c] transition-colors">
+                          {area.title}
+                        </h4>
+                        <p className="text-gray-600 text-[12.5px] leading-relaxed">
+                          {area.description}
+                        </p>
+                      </div>
+
+                      <div className="mt-5 pt-4 border-t border-gray-100 flex items-center justify-between text-xs font-bold text-[#0d1b3e] group-hover:text-[#c9a84c]">
+                        <span>{getLinkLabel()}</span>
+                        <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform text-[#c9a84c]" />
+                      </div>
+                    </div>
+                  </Link>
+                );
+              })}
             </div>
           </div>
 
@@ -543,7 +558,7 @@ export default function LawCategoryInteractiveView({ detail }: Props) {
               href="/contact"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-white/10 hover:bg-white/20 text-white font-semibold py-3.5 px-6 rounded-xl border border-white/30 transition-colors text-sm"
             >
-              <span>Schedule Consultation</span>
+              <span>Legal Awareness</span>
               <ArrowRight size={16} />
             </Link>
           </div>

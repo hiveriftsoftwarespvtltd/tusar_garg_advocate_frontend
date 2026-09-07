@@ -39,9 +39,6 @@ export default function LatestNotifications() {
             LATEST NOTIFICATIONS
           </h2>
         </div>
-        <a href="#" className="text-[11px] font-bold text-[#6b7280] hover:text-[#c9a84c] transition-colors">
-          View All
-        </a>
       </div>
 
       {/* List */}
@@ -76,12 +73,6 @@ export default function LatestNotifications() {
         ))}
       </div>
 
-      {/* Button */}
-      <div className="mt-8 flex justify-center border-t border-[#e8ebf2] pt-6 -mx-6">
-        <button className="border border-[#c9a84c] text-[#0d1b3e] px-12 py-2.5 rounded-md font-bold text-[11px] uppercase tracking-[0.1em] hover:bg-[#c9a84c] hover:text-white transition-all">
-          VIEW ALL NOTIFICATIONS
-        </button>
-      </div>
     </section>
   );
 }

@@ -34,15 +34,17 @@ const defaultHeaderCategories = [
 const navItems = [
   { label: "HOME", href: "/" },
   { label: "ABOUT", href: "/about" },
+ 
   { label: "COURTS", href: "/courts", hasDropdown: true },
   { label: "JUDGMENTS", href: "/judgments", hasDropdown: true },
   { label: "PRACTICE AREAS", href: "/laws", hasDropdown: true },
   { label: "TRIBUNALS", href: "/tribunals" },
-  { label: "JUDICIARY", href: "/judiciary" },
+  { label: "Judiciary examination", href: "/judiciary" },
+   { label: "AOR", href: "/aor" },
   { label: "JOBS", href: "/jobs" },
   { label: "COLLEGES", href: "/colleges" },
   { label: "ARTICLES", href: "/articles" },
-  { label: "RESOURCES", href: "/resources", hasDropdown: true },
+  // { label: "RESOURCES", href: "/resources", hasDropdown: true },
   { label: "CONTACT", href: "/contact" },
 ];
 

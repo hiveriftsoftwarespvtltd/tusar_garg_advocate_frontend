@@ -22,6 +22,7 @@ import {
   CheckCircle2
 } from "lucide-react";
 import { LawCategoryDetail } from "../../data/lawsData";
+import TabScroller from "@/app/components/TabScroller";
 
 interface Props {
   detail: LawCategoryDetail;
@@ -521,7 +522,7 @@ export default function SectionsViewClient({ detail }: Props) {
 
           {/* Quick Counter */}
           <div className="flex items-center gap-2 shrink-0 bg-[#0d1b3e] text-[#c9a84c] px-4 py-2.5 rounded-xl border border-[#c9a84c]/30 text-xs font-bold shadow-sm">
-            <Sparkles size={14} className="text-[#c9a84c]" />
+            <Scale size={14} className="text-[#c9a84c]" />
             <span>
               Showing {filteredArticles.length} of {allItems.length} {isConstitutional ? "Articles" : "Sections"}
             </span>
@@ -529,20 +530,22 @@ export default function SectionsViewClient({ detail }: Props) {
         </div>
 
         {/* Filter Tabs Pills */}
-        <div className="flex items-center gap-2 overflow-x-auto scrollbar-none pt-4 border-t border-gray-100 mt-4">
-          {filterOptions.map((opt) => (
-            <button
-              key={opt.id}
-              onClick={() => setSelectedFilter(opt.id)}
-              className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap border shrink-0 ${
-                selectedFilter === opt.id
-                  ? "bg-[#0d1b3e] text-[#c9a84c] border-[#c9a84c] shadow-sm"
-                  : "bg-gray-50 text-gray-700 border-gray-200 hover:bg-gray-100 hover:text-[#0d1b3e]"
-              }`}
-            >
-              {opt.label}
-            </button>
-          ))}
+        <div className="pt-4 border-t border-gray-100 mt-4">
+          <TabScroller>
+            {filterOptions.map((opt) => (
+              <button
+                key={opt.id}
+                onClick={() => setSelectedFilter(opt.id)}
+                className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap border shrink-0 cursor-pointer ${
+                  selectedFilter === opt.id
+                    ? "bg-[#0d1b3e] text-[#c9a84c] border-[#c9a84c] shadow-sm"
+                    : "bg-gray-50 text-gray-700 border-gray-200 hover:bg-gray-100 hover:text-[#0d1b3e]"
+                }`}
+              >
+                {opt.label}
+              </button>
+            ))}
+          </TabScroller>
         </div>
       </div>
 

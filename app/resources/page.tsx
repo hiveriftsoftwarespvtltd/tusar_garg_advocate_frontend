@@ -4,6 +4,7 @@ import { useState, useMemo, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import ResourcesHero from "./components/ResourcesHero";
 import ResourcesFilterBar from "./components/ResourcesFilterBar";
+import ResourceTypeNav from "./components/ResourceTypeNav";
 import ResourceSection from "./components/ResourceSection";
 import ResourcesSidebar from "./components/ResourcesSidebar";
 import ResourcesBanner from "./components/ResourcesBanner";
@@ -248,6 +249,9 @@ function ResourcesContent() {
         setActiveCategory={setActiveCategory}
         totalCount={filteredData.length}
       />
+
+      {/* Dedicated Resource Types Navigation */}
+      <ResourceTypeNav />
 
       {/* Main Grid Content */}
       <div className="max-w-[1280px] mx-auto px-4 mb-12">

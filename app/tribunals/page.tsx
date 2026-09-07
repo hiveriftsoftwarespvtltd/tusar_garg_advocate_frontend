@@ -1,6 +1,6 @@
 import TribunalsHero from "./components/TribunalsHero";
 import TribunalsDirectory from "./components/TribunalsDirectory";
-import AboutAndUpdates from "./components/AboutAndUpdates";
+// import AboutAndUpdates from "./components/AboutAndUpdates";
 import InfoBanner from "./components/InfoBanner";
 
 export default function TribunalsPage() {
@@ -12,8 +12,8 @@ export default function TribunalsPage() {
       {/* 2. Tribunals Directory Grid */}
       <TribunalsDirectory />
 
-      {/* 3. About & Latest Updates */}
-      <AboutAndUpdates />
+      {/* 3. About & Latest Updates (Removed as requested) */}
+      {/* <AboutAndUpdates /> */}
 
       {/* 4. Bottom Info Banner */}
       <InfoBanner />

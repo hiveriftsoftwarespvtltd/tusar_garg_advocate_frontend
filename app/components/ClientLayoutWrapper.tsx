@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import Header from "./Header";
 import Footer from "./Footer";
 import ProductionPopup from "./ProductionPopup";
+import WhatsAppFloatingButton from "./WhatsAppFloatingButton";
 
 export default function ClientLayoutWrapper({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -19,6 +20,7 @@ export default function ClientLayoutWrapper({ children }: { children: React.Reac
       </div>
       
       {!isAdmin && <Footer />}
+      {!isAdmin && <WhatsAppFloatingButton />}
     </>
   );
 }

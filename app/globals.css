@@ -82,6 +82,7 @@ html {
 /* Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
   background: #f1f1f1;
@@ -90,6 +91,33 @@ html {
   background: #1a2b5e;
   border-radius: 3px;
 }
+
+/* Custom Horizontal Scroller Styling */
+.tab-custom-scroller {
+  scroll-behavior: smooth;
+  -ms-overflow-style: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #c9a84c #f0f2f5;
+}
+
+.tab-custom-scroller::-webkit-scrollbar {
+  height: 5px;
+}
+
+.tab-custom-scroller::-webkit-scrollbar-track {
+  background: #f0f2f5;
+  border-radius: 4px;
+}
+
+.tab-custom-scroller::-webkit-scrollbar-thumb {
+  background: #c9a84c;
+  border-radius: 4px;
+}
+
+.tab-custom-scroller::-webkit-scrollbar-thumb:hover {
+  background: #0d1b3e;
+}
+
 
 /* Dropdown arrow */
 select {

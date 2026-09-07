@@ -201,21 +201,40 @@ export default function DistrictCourtsRegion({ states, courts = [] }: DistrictCo
                   key={state._id || state.slug}
                   className="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-200/80 overflow-hidden flex flex-col hover:-translate-y-1"
                 >
-                  {/* Card Banner Image Header */}
+                  {/* Card Banner Image Header - image commented out from frontend, icon displayed instead */}
                   <Link href={`/courts/${state.slug}`} className="relative h-[150px] p-5 flex flex-col justify-between overflow-hidden bg-[#0d1b3e] block">
+                    {/* Background image commented out from frontend
                     <div
                       className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-85"
                       style={state.image ? { backgroundImage: `url(${state.image})` } : {}}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0d1b3e] via-[#0d1b3e]/40 to-transparent" />
+                    */}
+
+                    {/* Court icon displayed in place of image */}
+                    <div className="absolute right-3 top-1/2 -translate-y-1/2 w-24 h-24 opacity-20 group-hover:opacity-35 transition-opacity duration-300 pointer-events-none">
+                      <img 
+                        src="/home/district court.svg" 
+                        alt="Court Icon" 
+                        className="w-full h-full object-contain" 
+                      />
+                    </div>
+
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0d1b3e] via-[#0d1b3e]/40 to-transparent pointer-events-none" />
 
                     {/* Top Badges */}
                     <div className="relative z-10 flex items-center justify-between">
-                      {state.code ? (
-                        <span className="px-3 py-1 bg-[#c9a84c] text-[#0d1b3e] text-[11px] font-black tracking-widest uppercase rounded-full shadow-md">
-                          {state.code}
-                        </span>
-                      ) : <span />}
+                      <div className="flex items-center gap-2">
+                        <img 
+                          src="/home/district court.svg" 
+                          alt="Court Icon" 
+                          className="w-6 h-6 rounded-full shadow-md object-contain border border-white/20" 
+                        />
+                        {state.code ? (
+                          <span className="px-3 py-1 bg-[#c9a84c] text-[#0d1b3e] text-[11px] font-black tracking-widest uppercase rounded-full shadow-md">
+                            {state.code}
+                          </span>
+                        ) : null}
+                      </div>
                       <span className="px-2.5 py-1 bg-black/50 backdrop-blur-md text-white text-[11px] font-medium rounded-full border border-white/20 flex items-center gap-1">
                         <Building2 size={12} className="text-[#c9a84c]" />
                         {courtCount > 0 ? `${courtCount} District Courts` : 'High Court'}

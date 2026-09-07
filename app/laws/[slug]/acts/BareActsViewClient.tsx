@@ -289,7 +289,7 @@ export default function BareActsViewClient({ detail }: Props) {
           href="/contact"
           className="shrink-0 bg-[#c9a84c] hover:bg-[#b5953d] text-[#071126] px-6 py-3 rounded-xl font-bold text-xs uppercase tracking-wider transition-all shadow-lg hover:-translate-y-0.5"
         >
-          Book Consultation →
+          Legal Awareness →
         </Link>
       </div>
     </div>

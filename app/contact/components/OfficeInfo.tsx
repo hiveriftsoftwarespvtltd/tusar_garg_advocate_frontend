@@ -19,8 +19,8 @@ export default function OfficeInfo() {
     },
     {
       icon: <Phone size={18} />,
-      title: "Phone & Landline",
-      desc: "+91-7206810681\n011-40817553"
+      title: "Phone Number",
+      desc: "+91-7206810681"
     },
     {
       icon: <Mail size={18} />,

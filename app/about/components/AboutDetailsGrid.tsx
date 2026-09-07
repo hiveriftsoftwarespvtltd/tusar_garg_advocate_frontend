@@ -106,9 +106,8 @@ export default function AboutDetailsGrid() {
                   <Phone size={24} strokeWidth={1.5} />
                 </div>
                 <div>
-                  <p className="text-[13px] text-[#6b7280] font-medium mb-1">Phone & Landline</p>
-                  <p className="text-[16px] font-bold text-[#0d1b3e] mb-1">+91 72068 10681</p>
-                  <p className="text-[16px] font-bold text-[#0d1b3e]">011-40817553</p>
+                  <p className="text-[13px] text-[#6b7280] font-medium mb-1">Phone Number</p>
+                  <p className="text-[16px] font-bold text-[#0d1b3e]">+91 72068 10681</p>
                 </div>
               </div>
 

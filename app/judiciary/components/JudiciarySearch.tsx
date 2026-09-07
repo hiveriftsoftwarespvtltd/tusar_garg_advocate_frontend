@@ -1,4 +1,5 @@
 import { Search, ChevronDown, RefreshCw } from "lucide-react";
+import TabScroller from "@/app/components/TabScroller";
 
 export default function JudiciarySearch() {
   const filters = [
@@ -13,20 +14,22 @@ export default function JudiciarySearch() {
     <section className="relative z-20 max-w-[1280px] mx-auto px-4 mt-8 mb-12">
       <div className="bg-[#0d1b3e] rounded-xl border border-[#c9a84c]/20 shadow-xl overflow-hidden shadow-[#000000]/10">
         
-        {/* Top Tabs (Optional, matching image: Search Judiciary, State-wise Exams, Advanced Search) */}
-        <div className="flex items-center overflow-x-auto border-b border-white/10 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-          <button className="flex items-center justify-center gap-2 px-6 md:px-8 py-4 md:py-5 text-[11px] md:text-[12px] font-bold tracking-wider uppercase whitespace-nowrap transition-colors flex-1 text-[#c9a84c] border-b-[3px] border-[#c9a84c] bg-white/5">
-            <Search size={16} />
-            Search Judiciary
-          </button>
-          <button className="flex items-center justify-center gap-2 px-6 md:px-8 py-4 md:py-5 text-[11px] md:text-[12px] font-bold tracking-wider uppercase whitespace-nowrap transition-colors flex-1 text-white/80 hover:bg-white/5 hover:text-white">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            State-wise Exams
-          </button>
-          <button className="flex items-center justify-center gap-2 px-6 md:px-8 py-4 md:py-5 text-[11px] md:text-[12px] font-bold tracking-wider uppercase whitespace-nowrap transition-colors flex-1 text-white/80 hover:bg-white/5 hover:text-white">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 21v-7"/><path d="M4 10V3"/><path d="M12 21v-9"/><path d="M12 8V3"/><path d="M20 21v-5"/><path d="M20 12V3"/><path d="M1 14h6"/><path d="M9 8h6"/><path d="M17 16h6"/></svg>
-            Advanced Search
-          </button>
+        {/* Top Tabs */}
+        <div className="border-b border-white/10">
+          <TabScroller>
+            <button className="flex items-center justify-center gap-2 px-6 md:px-8 py-4 md:py-5 text-[11px] md:text-[12px] font-bold tracking-wider uppercase whitespace-nowrap transition-colors flex-1 text-[#c9a84c] border-b-[3px] border-[#c9a84c] bg-white/5 shrink-0 cursor-pointer">
+              <Search size={16} />
+              Search Judiciary
+            </button>
+            <button className="flex items-center justify-center gap-2 px-6 md:px-8 py-4 md:py-5 text-[11px] md:text-[12px] font-bold tracking-wider uppercase whitespace-nowrap transition-colors flex-1 text-white/80 hover:bg-white/5 hover:text-white shrink-0 cursor-pointer">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              State-wise Exams
+            </button>
+            <button className="flex items-center justify-center gap-2 px-6 md:px-8 py-4 md:py-5 text-[11px] md:text-[12px] font-bold tracking-wider uppercase whitespace-nowrap transition-colors flex-1 text-white/80 hover:bg-white/5 hover:text-white shrink-0 cursor-pointer">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 21v-7"/><path d="M4 10V3"/><path d="M12 21v-9"/><path d="M12 8V3"/><path d="M20 21v-5"/><path d="M20 12V3"/><path d="M1 14h6"/><path d="M9 8h6"/><path d="M17 16h6"/></svg>
+              Advanced Search
+            </button>
+          </TabScroller>
         </div>
 
         <div className="p-4 md:p-6 lg:p-8">

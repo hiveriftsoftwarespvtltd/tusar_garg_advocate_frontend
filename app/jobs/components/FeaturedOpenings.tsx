@@ -172,13 +172,6 @@ export default function FeaturedOpenings() {
           ))}
         </div>
       )}
-
-      {/* View All Button */}
-      <div className="mt-8 flex justify-center border-t border-[#e8ebf2] pt-6 -mx-6">
-        <button className="border border-[#c9a84c] text-[#0d1b3e] px-12 py-2.5 rounded-md font-bold text-[11px] uppercase tracking-[0.1em] hover:bg-[#c9a84c] hover:text-white transition-all">
-          VIEW ALL JOBS
-        </button>
-      </div>
     </section>
   );
 }

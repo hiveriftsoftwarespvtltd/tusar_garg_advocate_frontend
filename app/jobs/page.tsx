@@ -15,13 +15,13 @@ export default function JobsPage() {
       <JobsCategoryGrid />
 
       {/* 3. Featured Openings & Latest Notifications */}
-      <div className="max-w-[1280px] mx-auto px-4 py-12 flex flex-col lg:flex-row gap-8">
-        <div className="lg:w-[60%] xl:w-[65%]">
+      <div className="max-w-[1280px] mx-auto px-4 py-12">
+        <div className="w-full">
           <FeaturedOpenings />
         </div>
-        <div className="lg:w-[40%] xl:w-[35%]">
+        {/* <div className="lg:w-[40%] xl:w-[35%]">
           <LatestNotifications />
-        </div>
+        </div> */}
       </div>
 
       {/* 4. Job Detail Highlights */}

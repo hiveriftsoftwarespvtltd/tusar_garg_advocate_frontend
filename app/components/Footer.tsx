@@ -148,10 +148,6 @@ export default function Footer() {
                 <Phone size={13} strokeWidth={1.5} className="text-[#c9a84c] flex-shrink-0" />
                 +91 72068 10681
               </a>
-              <a href="tel:01140817553" className="flex items-center gap-2.5 text-white/50 text-[12px] hover:text-[#c9a84c] transition-colors">
-                <Phone size={13} strokeWidth={1.5} className="text-[#c9a84c] flex-shrink-0" />
-                011-40817553
-              </a>
               <a href="mailto:tushargarg0681@gmail.com" className="flex items-center gap-2.5 text-white/50 text-[12px] hover:text-[#c9a84c] transition-colors">
                 <Mail size={13} strokeWidth={1.5} className="text-[#c9a84c] flex-shrink-0" />
                 tushargarg0681@gmail.com

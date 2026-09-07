@@ -378,9 +378,10 @@ export default function AdminCourts() {
                   return (
                     <tr key={court._id} className="hover:bg-gray-50/80 transition-colors">
                       
-                      {/* Image Thumbnail */}
+                      {/* Image Thumbnail - photo commented out from frontend, icon displayed instead */}
                       <td className="p-4">
                         <div className="w-12 h-12 rounded-lg overflow-hidden bg-gray-100 border border-gray-200 shrink-0 flex items-center justify-center relative">
+                          {/* Photo image commented out purely on frontend
                           {imgUrl ? (
                             <img 
                               key={imgUrl.slice(0, 30)}
@@ -390,7 +391,12 @@ export default function AdminCourts() {
                             />
                           ) : (
                             <Building2 size={18} className="text-gray-400" />
-                          )}
+                          )} */}
+                          <img 
+                            src="/home/district court.svg" 
+                            alt={court.name} 
+                            className="w-full h-full object-cover" 
+                          />
                         </div>
                       </td>
 

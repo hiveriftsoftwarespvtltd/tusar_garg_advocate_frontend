@@ -1,6 +1,7 @@
 "use client";
 
 import { Search, RotateCcw, ChevronDown, Layers, BookA, Scale, FileText, BookOpen, X } from "lucide-react";
+import TabScroller from "@/app/components/TabScroller";
 
 interface ResourcesFilterBarProps {
   searchTerm: string;
@@ -65,24 +66,26 @@ export default function ResourcesFilterBar({
           </div>
 
           {/* Types Tabs */}
-          <div className="flex items-center gap-2 w-full lg:w-1/2 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-            {resourceTabs.map((tab) => {
-              const isActive = activeTab.toLowerCase() === tab.label.toLowerCase();
-              return (
-                <button 
-                  key={tab.label}
-                  type="button"
-                  onClick={() => setActiveTab(tab.label)}
-                  className={`flex items-center gap-2 text-[11.5px] px-4 md:px-5 py-2.5 rounded-xl transition-all whitespace-nowrap border cursor-pointer ${
-                    isActive 
-                      ? "bg-[#c9a84c] border-[#c9a84c] text-[#071126] font-bold shadow-md" 
-                      : "border-white/20 text-white/80 hover:bg-white/10 hover:border-white/40 hover:text-white"
-                  }`}
-                >
-                  {tab.icon} {tab.name}
-                </button>
-              );
-            })}
+          <div className="w-full lg:w-1/2 min-w-0">
+            <TabScroller>
+              {resourceTabs.map((tab) => {
+                const isActive = activeTab.toLowerCase() === tab.label.toLowerCase();
+                return (
+                  <button 
+                    key={tab.label}
+                    type="button"
+                    onClick={() => setActiveTab(tab.label)}
+                    className={`flex items-center gap-2 text-[11.5px] px-4 md:px-5 py-2.5 rounded-xl transition-all whitespace-nowrap border cursor-pointer shrink-0 ${
+                      isActive 
+                        ? "bg-[#c9a84c] border-[#c9a84c] text-[#071126] font-bold shadow-md" 
+                        : "border-white/20 text-white/80 hover:bg-white/10 hover:border-white/40 hover:text-white"
+                    }`}
+                  >
+                    {tab.icon} {tab.name}
+                  </button>
+                );
+              })}
+            </TabScroller>
           </div>
         </div>
 

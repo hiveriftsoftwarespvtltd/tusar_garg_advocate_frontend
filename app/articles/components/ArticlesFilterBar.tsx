@@ -1,6 +1,7 @@
 "use client";
 
 import { Search, RotateCcw, ChevronDown, Flame } from "lucide-react";
+import TabScroller from "@/app/components/TabScroller";
 
 interface ArticlesFilterBarProps {
   searchQuery: string;
@@ -45,18 +46,18 @@ export default function ArticlesFilterBar({
           </div>
 
           {/* Popular Topics Buttons */}
-          <div className="flex items-center gap-3 w-full lg:w-[55%] overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+          <div className="flex items-center gap-3 w-full lg:w-[55%] min-w-0">
             <div className="flex items-center gap-2 text-white font-bold text-[11px] md:text-[12px] tracking-wider uppercase whitespace-nowrap flex-shrink-0">
               <Flame size={16} className="text-[#c9a84c]" /> POPULAR TOPICS
             </div>
-            <div className="flex items-center gap-2 ml-2">
+            <TabScroller containerClassName="flex-1 min-w-0">
               {popularTopics.map((topic, idx) => {
                 const isSelected = selectedCategory.toLowerCase() === topic.toLowerCase();
                 return (
                   <button 
                     key={idx} 
                     onClick={() => setSelectedCategory(topic)}
-                    className={`border text-[10px] md:text-[11px] px-3 md:px-4 py-1.5 rounded-md transition-all whitespace-nowrap ${
+                    className={`border text-[10px] md:text-[11px] px-3 md:px-4 py-1.5 rounded-md transition-all whitespace-nowrap shrink-0 cursor-pointer ${
                       isSelected 
                         ? "bg-[#c9a84c] text-[#071126] font-bold border-[#c9a84c]" 
                         : "border-white/20 text-white hover:bg-white/10 hover:border-white/40"
@@ -66,7 +67,7 @@ export default function ArticlesFilterBar({
                   </button>
                 );
               })}
-            </div>
+            </TabScroller>
           </div>
         </div>
 

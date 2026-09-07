@@ -29,6 +29,8 @@ export interface KeyArea {
   title: string;
   description: string;
   tag: string;
+  link?: string;
+  slug?: string;
 }
 
 export interface CourtStep {
@@ -79,12 +81,14 @@ export const LAWS_CATEGORY_DATA: Record<string, LawCategoryDetail> = {
       {
         title: "Writ Petitions (Art 32 & 226)",
         description: "Enforcement of Fundamental Rights against State action, arbitrary executive orders, or unlawful detentions.",
-        tag: "Writs Jurisdiction"
+        tag: "Writs Jurisdiction",
+        link: "/writ-petitions"
       },
       {
         title: "Special Leave Petitions (SLP)",
         description: "Appellate litigation before Supreme Court under Article 136 challenging High Court final & interlocutory orders.",
-        tag: "Supreme Court SLP"
+        tag: "Supreme Court SLP",
+        link: "/slp"
       },
       {
         title: "Constitutional Validity Challenges",
@@ -287,13 +291,44 @@ export const LAWS_CATEGORY_DATA: Record<string, LawCategoryDetail> = {
       }
     ],
     courtProcedure: [
-      { step: "Step 1", title: "Grounding & Case Assessment", description: "In-depth review of administrative orders, constitutional grounds, and fundamental right infringement." },
-      { step: "Step 2", title: "Drafting & Registry Filing", description: "Drafting immaculate petition with Synopsis, List of Dates, Question of Law, and filing in Supreme Court / High Court Registry." },
-      { step: "Step 3", title: "Registry Defect Removal", description: "Clearing procedural registry defects within statutory timelines for quick listing." },
-      { step: "Step 4", title: "Motion Hearing & Stay Arguments", description: "Arguing prima facie case before Bench for immediate interim stay, status quo, or issuance of notice." }
+      {
+        step: "Stage 01",
+        title: "Constitutional Scrutiny & Legal Demand Notice (Pre-Filing Stage)",
+        description: "Comprehensive constitutional evaluation of impugned administrative orders, statutory rules, or executive action. Verifying locus standi, standing, and direct violation of Part III Fundamental Rights (Articles 14, 19, 21) or statutory ultra vires. Serving a formal Statutory Representation or Legal Demand Notice upon the public authority (a mandatory prerequisite for seeking a Writ of Mandamus)."
+      },
+      {
+        step: "Stage 02",
+        title: "Drafting Synopsis, List of Dates & Interlocutory Applications",
+        description: "Formulating an exhaustive Writ Petition incorporating: Chronological List of Dates, Question of Law of public importance, precise Grounds of Appeal/Writ (Habeas Corpus, Mandamus, Certiorari, Prohibition, Quo Warranto), and specific Prayer clauses. Drafting Interlocutory Applications (IAs) for ex-parte interim stay, status quo, exemption from producing certified copies, or urgent interim bail, supported by a verified Affidavit per Supreme Court Rules 2013 / High Court Writ Rules."
+      },
+      {
+        step: "Stage 03",
+        title: "E-Filing & Supreme Court / High Court Registry Scrutiny",
+        description: "Electronic submission of the complete Writ paper-book on the Supreme Court of India AOR E-Filing Portal or High Court Registry portal. Indexing all true/certified annexures, paying statutory court fees, and securing an official Registry Diary Number & e-Filing Verification Ack."
+      },
+      {
+        step: "Stage 04",
+        title: "Curative Registry Defect Removal & Urgent Listing Motion",
+        description: "Inspecting and curing procedural Registry objections (pagination, court-fee deficit, font/margin compliance, or document translation) within prescribed statutory timelines (7-28 days). Submitting an Urgent Listing Memo before the Registrar / Hon'ble Chief Justice Bench for early item allocation on Motion Day (Mondays & Fridays in the Apex Court)."
+      },
+      {
+        step: "Stage 05",
+        title: "Motion Bench Hearing & Interim Stay Oral Advocacy",
+        description: "Oral arguments by Advocate-on-Record / Senior Counsel before the Motion Bench (Division Bench / Constitution Bench) during Admission Stage. Establishing a strong prima facie case, irreparable injury, and balance of convenience to secure Ex-Parte Stay, Interim Injunction, Status Quo orders, or issuance of Notice of Motion to Respondents with a returnable date."
+      },
+      {
+        step: "Stage 06",
+        title: "Notice Service, Counter-Affidavit & Rejoinder Pleadings",
+        description: "Serving formal Court Notice upon State / Central Government Respondents via Process Serving Branch, Speed Post, or E-mail per court directives. Filing Affidavit of Service. Upon receipt of Respondent's Counter-Affidavit/Reply, drafting and filing Petitioner's Rejoinder Affidavit to rebut factual allegations, cite binding Article 141 Apex Benches, and complete pleadings."
+      },
+      {
+        step: "Stage 07",
+        title: "Final Hearing, Apex Oral Arguments & Writ Order Enforcement",
+        description: "Comprehensive final oral arguments before the Bench utilizing detailed Written Submissions & Compendium of Landmark Precedents. Concluding in final judgment: quashing illegal orders via Certiorari, directing mandatory public duty via Mandamus, or granting constitutional relief. Overseeing execution & compliance of court directives by State authorities."
+      }
     ],
     advocateRole: {
-      title: "Why Choose Advocate Tushar Garg for Constitutional Litigation?",
+      title: "Strategic Representation & Excellence in Constitutional Litigation",
       points: [
         "Advocate-on-Record (AOR) designation ensuring direct filing eligibility before Supreme Court of India.",
         "Proven track record in securing urgent stay orders and interim relief against executive actions.",
@@ -404,7 +439,7 @@ export const LAWS_CATEGORY_DATA: Record<string, LawCategoryDetail> = {
       { step: "Step 4", title: "Bail Bond Compliance & Release", description: "Furnishing bail bonds, surety verification in trial court, and securing release order." }
     ],
     advocateRole: {
-      title: "Criminal Defense Expertise of Advocate Tushar Garg",
+      title: "Strategic Defense Capabilities & Criminal Advocacy",
       points: [
         "Proactive 24/7 legal response for arrest apprehension and emergency anticipatory bail filings.",
         "Mastery over forensic evidence cross-examination, electronic evidence under BSA Sec 63, and charge-sheet scrutiny.",
@@ -1333,7 +1368,7 @@ export const LAWS_CATEGORY_DATA: Record<string, LawCategoryDetail> = {
  */
 export function getCategoryDetail(slug: string, backendCat?: any): LawCategoryDetail {
   const normalizedSlug = slug.toLowerCase().replace("-and-", "-").trim();
-  
+
   let baseDetail = LAWS_CATEGORY_DATA[normalizedSlug];
 
   if (!baseDetail) {
@@ -1411,7 +1446,7 @@ export function getCategoryDetail(slug: string, backendCat?: any): LawCategoryDe
         { step: "Step 4", title: "Trial & Decree", description: "Conducting trial, presenting evidence, and securing favorable judgment." }
       ],
       advocateRole: {
-        title: `Advocate Tushar Garg's Practice in ${categoryTitle}`,
+        title: `Strategic Representation & Excellence in ${categoryTitle}`,
         points: [
           "Advocate-on-Record (AOR) designation for direct Supreme Court of India litigation.",
           "Deep expertise in drafting high-stakes petitions and urgent stay applications.",

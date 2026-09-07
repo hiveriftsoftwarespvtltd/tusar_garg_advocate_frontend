@@ -149,7 +149,7 @@ export default async function CategoryPrecedentsPage({ params }: PageProps) {
                     className="w-full flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-medium py-2.5 px-4 rounded-xl border border-white/20 transition-colors text-[12.5px]"
                   >
                     <MessageSquare size={14} />
-                    <span>Book Legal Consultation</span>
+                    <span>Legal Awareness</span>
                   </Link>
                 </div>
               </div>

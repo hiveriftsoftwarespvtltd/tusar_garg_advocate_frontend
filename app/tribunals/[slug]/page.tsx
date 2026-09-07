@@ -260,7 +260,7 @@ export default function TribunalDetailPage({ params }: { params: Promise<{ slug:
                 href="/contact" 
                 className="block bg-[#c9a84c] hover:bg-[#d4b975] text-[#071126] font-bold text-xs uppercase tracking-wider py-3 rounded-xl transition-all shadow-md"
               >
-                Schedule Legal Consultation
+                Legal Awareness
               </Link>
             </div>
 
