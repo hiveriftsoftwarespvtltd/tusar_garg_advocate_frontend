@@ -80,6 +80,7 @@ export default function AdminDashboardLayout({ children }: { children: React.Rea
     { name: "Manage Articles", href: "/admin/dashboard/articles", icon: FileText },
     { name: "Manage Testimonials", href: "/admin/dashboard/testimonials", icon: MessageSquareQuote },
     { name: "Manage Tribunals", href: "/admin/dashboard/tribunals", icon: Landmark },
+    { name: "Manage Visited Forums", href: "/admin/dashboard/visited-courts", icon: Landmark },
     { name: "Manage Jobs", href: "/admin/dashboard/jobs", icon: Briefcase },
     { name: "Manage Colleges", href: "/admin/dashboard/colleges", icon: GraduationCap },
     { name: "Manage Judiciary", href: "/admin/dashboard/judiciary", icon: GraduationCap },

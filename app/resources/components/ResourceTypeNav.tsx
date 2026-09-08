@@ -7,7 +7,7 @@ export default function ResourceTypeNav() {
     { title: "Legal Maxims", subtitle: "Key Latin Maxims", icon: <Scale size={28} strokeWidth={1.2} />, href: "/resources/maxims" },
     { title: "Court Procedures", subtitle: "Rules & Processes", icon: <FileText size={28} strokeWidth={1.2} />, href: "/resources/procedures" },
     { title: "Legal Drafts", subtitle: "Notices & Formats", icon: <FileCheck size={28} strokeWidth={1.2} />, href: "/resources/legal-drafts" },
-    { title: "Bare Acts", subtitle: "Statutory Codes", icon: <Book size={28} strokeWidth={1.2} />, href: "/laws" },
+    { title: "Bare Acts", subtitle: "Statutory Codes", icon: <Book size={28} strokeWidth={1.2} />, href: "/bare-acts" },
     { title: "Legal FAQs", subtitle: "Quick Answers", icon: <HelpCircle size={28} strokeWidth={1.2} />, href: "/resources/faqs" },
   ];
 

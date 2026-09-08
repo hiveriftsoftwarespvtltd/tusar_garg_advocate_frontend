@@ -4,7 +4,13 @@ import {
   getJudicialServiceBySlug,
   getAllJudicialServices
 } from "../data/judicialServicesData";
+import { 
+  getStateJudiciaryBySlug,
+  stateJudiciaryDataMap,
+  ALL_28_STATES 
+} from "../data/stateJudiciaryExamData";
 import JudicialServiceDetailClient from "../components/JudicialServiceDetailClient";
+import StateJudiciaryDetailClient from "../components/StateJudiciaryDetailClient";
 
 interface PageProps {
   params: Promise<{
@@ -13,14 +19,20 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  const services = getAllJudicialServices();
   const paths: { slug: string }[] = [];
 
+  // 1. General services
+  const services = getAllJudicialServices();
   for (const s of services) {
     paths.push({ slug: s.slug });
-    for (const alias of s.aliases) {
+    for (const alias of s.aliases || []) {
       paths.push({ slug: alias });
     }
+  }
+
+  // 2. All 28 States + Delhi
+  for (const state of ALL_28_STATES) {
+    paths.push({ slug: state.slug });
   }
 
   return paths;
@@ -29,34 +41,60 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const resolvedParams = await params;
   const slug = resolvedParams.slug;
-  const service = getJudicialServiceBySlug(slug);
 
-  if (!service) {
+  // Check state first
+  const stateData = getStateJudiciaryBySlug(slug);
+  if (stateData) {
     return {
-      title: "Judicial Service Guide Not Found | Advocate Tushar Garg",
-      description: "Comprehensive judicial services, syllabus, and examination preparation guide."
+      title: `${stateData.stateName} Judiciary Examination - Syllabus, PYQs & Official Links | Advocate Tushar Garg`,
+      description: `Complete guide for ${stateData.examName} (${stateData.shortCode}). Download previous year question papers, official syllabus, and access direct recruitment portals.`,
+      openGraph: {
+        title: `${stateData.stateName} Judiciary Examination (${stateData.shortCode})`,
+        description: `Official question papers, syllabus, and examination guidance for ${stateData.examName}.`,
+        type: "website"
+      }
+    };
+  }
+
+  // Check general service
+  const service = getJudicialServiceBySlug(slug);
+  if (service) {
+    return {
+      title: `${service.title} - Complete Exam Guide, Syllabus & Strategy | Advocate Tushar Garg`,
+      description: `${service.tagline}. ${service.desc}`,
+      openGraph: {
+        title: `${service.title} | Judicial Services Portal`,
+        description: service.desc,
+        type: "website"
+      }
     };
   }
 
   return {
-    title: `${service.title} - Complete Exam Guide, Syllabus & Strategy | Advocate Tushar Garg`,
-    description: `${service.tagline}. ${service.desc}`,
-    openGraph: {
-      title: `${service.title} | Judicial Services Portal`,
-      description: service.desc,
-      type: "website"
-    }
+    title: "Judicial Service Guide Not Found | Advocate Tushar Garg",
+    description: "Comprehensive judicial services, syllabus, and examination preparation guide."
   };
 }
 
 export default async function JudicialServicePage({ params }: PageProps) {
   const resolvedParams = await params;
   const slug = resolvedParams.slug;
-  const service = getJudicialServiceBySlug(slug);
 
-  if (!service) {
-    notFound();
+  // Check if it's one of the 28 states
+  const stateMatch = ALL_28_STATES.find(s => s.slug === slug);
+  if (stateMatch || stateJudiciaryDataMap[slug]) {
+    const stateData = getStateJudiciaryBySlug(slug);
+    if (stateData) {
+      return <StateJudiciaryDetailClient state={stateData} />;
+    }
   }
 
-  return <JudicialServiceDetailClient service={service} />;
+  // Fallback to general judicial service
+  const service = getJudicialServiceBySlug(slug);
+  if (service) {
+    return <JudicialServiceDetailClient service={service} />;
+  }
+
+  // If matches neither, throw 404
+  notFound();
 }

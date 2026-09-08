@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import { Calendar, User, Clock, ArrowRight, X, RotateCcw, RefreshCw } from "lucide-react";
 import ArticlesHero from "./components/ArticlesHero";
@@ -111,28 +112,126 @@ The Supreme Court Constitutional Bench in Hardeep Singh vs State of Punjab held 
   }
 ];
 
-export default function ArticlesPage() {
+function slugifyTitle(text: string): string {
+  if (!text) return "";
+  return text
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, "")
+    .replace(/[\s_-]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+function matchesArticle(art: any, articleId?: string | null, articleTitle?: string | null): boolean {
+  if (articleId && (String(art._id) === articleId || String(art.id) === articleId)) {
+    return true;
+  }
+  if (articleTitle) {
+    const decodedParam = decodeURIComponent(articleTitle).toLowerCase().trim();
+    const rawTitle = (art.title || "").toLowerCase().trim();
+    const slugQuery = slugifyTitle(decodedParam);
+    const slugArticle = slugifyTitle(rawTitle);
+
+    return (
+      rawTitle === decodedParam ||
+      slugArticle === slugQuery ||
+      slugArticle.startsWith(slugQuery) ||
+      slugQuery.startsWith(slugArticle) ||
+      rawTitle.includes(decodedParam)
+    );
+  }
+  return false;
+}
+
+function ArticlesContent() {
+  const searchParams = useSearchParams();
   const [articles, setArticles] = useState<any[]>(defaultArticlesList);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedArticle, setSelectedArticle] = useState<any | null>(null);
 
+  // Fetch articles list from backend
   useEffect(() => {
+    let isMounted = true;
     async function loadArticles() {
       try {
         const data = await fetchApi('/articles');
-        if (data && Array.isArray(data) && data.length > 0) {
+        if (isMounted && data && Array.isArray(data) && data.length > 0) {
           setArticles(data);
         }
       } catch (err) {
         console.error("Failed to load articles from API", err);
       } finally {
-        setLoading(false);
+        if (isMounted) setLoading(false);
       }
     }
     loadArticles();
+    return () => {
+      isMounted = false;
+    };
   }, []);
+
+  // Synchronize modal state with searchParams (handles initial URL & browser Back / Forward)
+  useEffect(() => {
+    const articleId = searchParams.get("id");
+    const articleTitle = searchParams.get("title");
+
+    if (articleId || articleTitle) {
+      const found = articles.find((a: any) => matchesArticle(a, articleId, articleTitle));
+      if (found) {
+        setSelectedArticle(found);
+      }
+    } else {
+      // When URL query has no article parameters (e.g. user pressed Back button), close modal!
+      setSelectedArticle(null);
+    }
+  }, [searchParams, articles]);
+
+  // Listen directly for browser back / forward navigation (popstate)
+  useEffect(() => {
+    const onPopState = () => {
+      if (typeof window !== "undefined") {
+        const params = new URLSearchParams(window.location.search);
+        const title = params.get("title");
+        const id = params.get("id");
+        if (!title && !id) {
+          setSelectedArticle(null);
+        } else {
+          const found = articles.find((a: any) => matchesArticle(a, id, title));
+          setSelectedArticle(found || null);
+        }
+      }
+    };
+
+    window.addEventListener("popstate", onPopState);
+    return () => window.removeEventListener("popstate", onPopState);
+  }, [articles]);
+
+  const handleOpenArticle = (art: any) => {
+    setSelectedArticle(art);
+    if (typeof window !== "undefined" && window.history) {
+      const slug = slugifyTitle(art.title) || (art._id || art.id);
+      const targetUrl = `/articles?title=${encodeURIComponent(slug)}`;
+      // Use pushState so pressing browser back goes back to the directory and closes the modal
+      window.history.pushState({ articleModal: true }, "", targetUrl);
+    }
+  };
+
+  const handleCloseModal = () => {
+    setSelectedArticle(null);
+    if (typeof window !== "undefined" && window.history) {
+      if (window.history.state?.articleModal) {
+        window.history.back();
+      } else {
+        const url = new URL(window.location.href);
+        url.searchParams.delete("title");
+        url.searchParams.delete("id");
+        const cleanPath = url.pathname + (url.search ? url.search : "");
+        window.history.replaceState(null, "", cleanPath);
+      }
+    }
+  };
 
   const resetFilters = () => {
     setSearchQuery("");
@@ -206,27 +305,28 @@ export default function ArticlesPage() {
             {filteredArticles.map((art) => (
               <div
                 key={art._id || art.id}
-                onClick={() => setSelectedArticle(art)}
+                onClick={() => handleOpenArticle(art)}
                 className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-gray-200 hover:border-[#c9a84c] transition-all duration-500 flex flex-col justify-between cursor-pointer hover:-translate-y-1.5"
               >
                 <div>
                   {/* Article Thumbnail */}
-                  <div className="relative h-[210px] w-full overflow-hidden bg-gray-100">
+                  <div className="relative aspect-square w-full overflow-hidden bg-gray-100">
                     <Image
                       src={art.image || "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=600&q=80"}
                       alt={art.title}
                       fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
-                    <div className="absolute top-3 left-3">
-                      <span className="bg-[#0d1b3e] text-[#c9a84c] border border-[#c9a84c]/40 font-bold text-[10px] uppercase tracking-widest px-2.5 py-1 rounded-md shadow-md">
-                        {art.category || "ARTICLE"}
-                      </span>
-                    </div>
                   </div>
 
                   {/* Card Body */}
                   <div className="p-5">
+                    <div className="mb-2">
+                      <span className="inline-block bg-[#0d1b3e] text-[#c9a84c] border border-[#c9a84c]/40 font-bold text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-md shadow-xs">
+                        {art.category || "ARTICLE"}
+                      </span>
+                    </div>
                     <h3 className="font-serif font-bold text-[#0d1b3e] text-[17px] leading-snug mb-2 group-hover:text-[#c9a84c] transition-colors line-clamp-2">
                       {art.title}
                     </h3>
@@ -256,8 +356,14 @@ export default function ArticlesPage() {
 
       {/* FULL ARTICLE READER MODAL DIALOG */}
       {selectedArticle && (
-        <div className="fixed inset-0 bg-black/70 backdrop-blur-md z-50 flex items-center justify-center p-4 overflow-y-auto">
-          <div className="bg-white w-full max-w-4xl rounded-2xl shadow-2xl border border-gray-200 overflow-hidden my-8 max-h-[90vh] flex flex-col">
+        <div 
+          className="fixed inset-0 bg-black/70 backdrop-blur-md z-50 flex items-center justify-center p-4 overflow-y-auto"
+          onClick={handleCloseModal}
+        >
+          <div 
+            className="bg-white w-full max-w-4xl rounded-2xl shadow-2xl border border-gray-200 overflow-hidden my-8 max-h-[90vh] flex flex-col"
+            onClick={(e) => e.stopPropagation()}
+          >
             
             {/* Modal Top Header */}
             <div className="bg-[#0d1b3e] text-white px-6 py-4 flex items-center justify-between border-b border-[#c9a84c]/30">
@@ -265,7 +371,7 @@ export default function ArticlesPage() {
                 {selectedArticle.category || "ARTICLE"}
               </span>
               <button 
-                onClick={() => setSelectedArticle(null)}
+                onClick={handleCloseModal}
                 className="text-gray-300 hover:text-white p-1.5 rounded-lg hover:bg-white/10 transition-colors"
                 aria-label="Close article"
               >
@@ -291,12 +397,11 @@ export default function ArticlesPage() {
 
               {/* Cover Image */}
               {selectedArticle.image && (
-                <div className="relative h-[300px] sm:h-[380px] w-full rounded-2xl overflow-hidden shadow-md">
-                  <Image 
+                <div className="relative max-h-[500px] w-full rounded-2xl overflow-hidden shadow-md flex items-center justify-center bg-gray-50">
+                  <img 
                     src={selectedArticle.image} 
                     alt={selectedArticle.title} 
-                    fill 
-                    className="object-cover" 
+                    className="w-full max-h-[500px] object-contain rounded-2xl" 
                   />
                 </div>
               )}
@@ -329,7 +434,7 @@ export default function ArticlesPage() {
                 </div>
 
                 <button 
-                  onClick={() => setSelectedArticle(null)}
+                  onClick={handleCloseModal}
                   className="bg-[#0d1b3e] hover:bg-[#1a2b5e] text-white px-6 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all shadow-md"
                 >
                   Close Article Reader
@@ -343,5 +448,22 @@ export default function ArticlesPage() {
       )}
 
     </main>
+  );
+}
+
+export default function ArticlesPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-[#fafafa] flex items-center justify-center">
+          <div className="text-center">
+            <div className="w-10 h-10 border-4 border-[#0d1b3e] border-t-[#c9a84c] rounded-full animate-spin mx-auto mb-3" />
+            <p className="text-gray-500 text-sm font-medium">Loading Articles...</p>
+          </div>
+        </div>
+      }
+    >
+      <ArticlesContent />
+    </Suspense>
   );
 }

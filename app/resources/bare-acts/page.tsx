@@ -44,10 +44,10 @@ export default function BareActsResourcePage() {
 
             <div className="pt-2">
               <Link
-                href="/laws"
+                href="/bare-acts"
                 className="inline-flex items-center gap-2 bg-[#c9a84c] hover:bg-[#d4a93a] text-[#0d1b3e] font-bold text-xs uppercase tracking-wider px-6 py-3 rounded-lg shadow-md transition-all hover:scale-[1.02]"
               >
-                <span>Open Interactive Bare Acts Portal</span>
+                <span>Browse & Download Official Bare Act PDFs</span>
                 <ArrowRight size={14} strokeWidth={2.5} />
               </Link>
             </div>

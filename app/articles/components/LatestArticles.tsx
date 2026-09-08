@@ -50,7 +50,7 @@ export default function LatestArticles() {
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
         {articles.map((article, idx) => (
           <div key={idx} className="group cursor-pointer">
-            <div className="w-full h-[180px] rounded-lg overflow-hidden relative mb-4">
+            <div className="w-full aspect-square rounded-lg overflow-hidden relative mb-4 bg-gray-100">
               <div 
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
                 style={{ backgroundImage: `url('${article.image}')` }}

@@ -1,29 +1,31 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ArrowRight, Calendar, Building2, ExternalLink } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, Calendar, Building2, Scale } from "lucide-react";
 import { fetchApi } from "../../lib/api/client";
 
 function SCBadge() {
   return (
-    <div className="w-10 h-10 rounded-full bg-[#dbeafe] border-2 border-[#93c5fd] flex items-center justify-center flex-shrink-0">
-      <Building2 size={18} strokeWidth={1.5} className="text-[#1d4ed8]" />
+    <div className="w-8 h-8 rounded-full bg-[#dbeafe] border border-[#93c5fd] flex items-center justify-center flex-shrink-0">
+      <Building2 size={16} strokeWidth={1.5} className="text-[#1d4ed8]" />
     </div>
   );
 }
 
 function HCBadge() {
   return (
-    <div className="w-10 h-10 rounded-full bg-[#dcfce7] border-2 border-[#86efac] flex items-center justify-center flex-shrink-0">
-      <Building2 size={18} strokeWidth={1.5} className="text-[#15803d]" />
+    <div className="w-8 h-8 rounded-full bg-[#dcfce7] border border-[#86efac] flex items-center justify-center flex-shrink-0">
+      <Building2 size={16} strokeWidth={1.5} className="text-[#15803d]" />
     </div>
   );
 }
 
 function DCBadge() {
   return (
-    <div className="w-10 h-10 rounded-full bg-[#f3e8ff] border-2 border-[#d8b4fe] flex items-center justify-center flex-shrink-0">
-      <Building2 size={18} strokeWidth={1.5} className="text-[#7e22ce]" />
+    <div className="w-8 h-8 rounded-full bg-[#f3e8ff] border border-[#d8b4fe] flex items-center justify-center flex-shrink-0">
+      <Building2 size={16} strokeWidth={1.5} className="text-[#7e22ce]" />
     </div>
   );
 }
@@ -40,6 +42,7 @@ const defaultJudgments = [
     bench: "Hon'ble Supreme Court Bench",
     shortDescription: "Landmark judgment on constitutional validity and statutory interpretation.",
     link: "/judgments",
+    image: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=600&q=80",
   },
   {
     _id: "hc-1",
@@ -52,6 +55,7 @@ const defaultJudgments = [
     bench: "High Court of Punjab & Haryana",
     shortDescription: "Appellate criminal law judgment regarding anticipatory bail.",
     link: "/judgments",
+    image: "https://images.unsplash.com/photo-1589391886645-d51941baf7fb?auto=format&fit=crop&w=600&q=80",
   },
   {
     _id: "dc-1",
@@ -64,6 +68,7 @@ const defaultJudgments = [
     bench: "District Court Delhi",
     shortDescription: "Civil property and land dispute settlement ruling.",
     link: "/judgments",
+    image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=600&q=80",
   },
 ];
 
@@ -90,6 +95,7 @@ export default function LatestJudgments() {
               bench: j.bench || j.courtId?.name || "Judicial Bench",
               shortDescription: j.shortDescription || j.title,
               link: j.link || "/judgments",
+              image: j.image || "",
             };
           });
           setJudgmentsList(mapped.slice(0, 3));
@@ -116,76 +122,100 @@ export default function LatestJudgments() {
             </h2>
             <div className="w-12 h-1 bg-[#c9a84c] mt-2 rounded-full" />
           </div>
-          <a
+          <Link
             href="/judgments"
-            target="_blank"
-            rel="noopener noreferrer"
             className="text-[12.5px] text-[#0d1b3e] font-bold hover:text-[#c9a84c] flex items-center gap-1.5 transition-colors bg-[#0d1b3e]/5 hover:bg-[#0d1b3e] hover:text-white px-4 py-2 rounded-xl"
           >
             <span>View All Judgments Page</span>
             <ArrowRight size={13} strokeWidth={2.5} />
-          </a>
+          </Link>
         </div>
 
         {/* 3-Column Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {judgmentsList.map((j) => {
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {judgmentsList.map((j, idx) => {
             const isHC = j.courtName.includes("HIGH");
             const isDC = j.courtName.includes("DISTRICT");
             const BadgeComponent = isHC ? HCBadge : isDC ? DCBadge : SCBadge;
 
+            // Fallback image based on index/court if none uploaded
+            const fallbackImg = idx === 0 
+              ? "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=600&q=80"
+              : idx === 1
+              ? "https://images.unsplash.com/photo-1589391886645-d51941baf7fb?auto=format&fit=crop&w=600&q=80"
+              : "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=600&q=80";
+
+            const displayImage = j.image || fallbackImg;
+
             return (
               <div
                 key={j._id}
-                className="bg-[#fafafa] border border-gray-200/80 rounded-2xl p-6 flex flex-col justify-between shadow-sm hover:shadow-xl hover:border-[#c9a84c]/50 hover:-translate-y-1 transition-all duration-300 group"
+                className="bg-white border border-gray-200 rounded-2xl overflow-hidden flex flex-col justify-between shadow-sm hover:shadow-xl hover:border-[#c9a84c]/50 hover:-translate-y-1 transition-all duration-300 group"
               >
                 <div>
-                  {/* Badge + Court Label */}
-                  <div className="flex items-center gap-3 mb-4">
-                    <BadgeComponent />
-                    <div>
-                      <span className={`text-[11px] font-black tracking-wider ${j.courtColor}`}>
+                  {/* Top Image Preview */}
+                  <div className="relative w-full aspect-[16/9] overflow-hidden bg-gray-100">
+                    <Image
+                      src={displayImage}
+                      alt={j.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      unoptimized
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                    
+                    {/* Badge on top of image */}
+                    <div className="absolute top-3 left-3 flex items-center gap-2 bg-[#0d1b3e]/90 border border-white/20 px-2.5 py-1 rounded-md shadow-md backdrop-blur-xs">
+                      <Scale size={13} className="text-[#c9a84c]" />
+                      <span className="text-white text-[10px] font-bold uppercase tracking-wider">
                         {j.courtName}
                       </span>
-                      <div className={`h-[2.5px] ${j.underlineColor} mt-0.5 w-10 rounded-full`} />
+                    </div>
+
+                    {/* Case Number on bottom of image */}
+                    <div className="absolute bottom-2.5 left-3 right-3 text-white/90 text-[11px] font-semibold truncate">
+                      {j.caseNumber}
                     </div>
                   </div>
 
-                  {/* Case Title */}
-                  <h3 className="text-[15px] font-bold text-[#0d1b3e] mb-2 leading-snug group-hover:text-[#c9a84c] transition-colors">
-                    {j.title}
-                  </h3>
-                  <p className="text-[12px] font-medium text-gray-500 mb-3">{j.caseNumber}</p>
+                  {/* Body Content */}
+                  <div className="p-5">
+                    {/* Case Title */}
+                    <h3 className="font-serif text-[16px] font-bold text-[#0d1b3e] mb-2 leading-snug group-hover:text-[#c9a84c] transition-colors line-clamp-2">
+                      {j.title}
+                    </h3>
 
-                  {/* Date & Bench */}
-                  <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 mb-3 text-[11.5px] text-gray-500 bg-white p-2.5 rounded-lg border border-gray-100">
-                    <span className="flex items-center gap-1.5">
-                      <Calendar size={13} className="text-[#c9a84c]" />
-                      {j.date}
-                    </span>
-                    <span className="flex items-center gap-1.5">
-                      <Building2 size={13} className="text-[#c9a84c]" />
-                      {j.bench}
-                    </span>
+                    {/* Date & Bench */}
+                    <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 mb-3 text-[11px] text-gray-500 bg-gray-50 p-2.5 rounded-lg border border-gray-100">
+                      <span className="flex items-center gap-1.5">
+                        <Calendar size={13} className="text-[#c9a84c]" />
+                        {j.date}
+                      </span>
+                      <span className="flex items-center gap-1.5 truncate">
+                        <Building2 size={13} className="text-[#c9a84c]" />
+                        <span className="truncate">{j.bench}</span>
+                      </span>
+                    </div>
+
+                    {j.shortDescription && (
+                      <p className="text-[12px] text-gray-600 mb-2 line-clamp-2 leading-relaxed">
+                        {j.shortDescription}
+                      </p>
+                    )}
                   </div>
-
-                  {j.shortDescription && (
-                    <p className="text-[12px] text-gray-600 mb-5 line-clamp-2">
-                      {j.shortDescription}
-                    </p>
-                  )}
                 </div>
 
-                {/* VIEW JUDGMENT Button (Opens target="_blank" in new page) */}
-                <a
-                  href={j.link || "/judgments"}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-2 bg-[#0d1b3e] hover:bg-[#c9a84c] text-white hover:text-[#0d1b3e] font-bold text-[11.5px] uppercase tracking-wider py-2.5 px-4 rounded-xl transition-all duration-300 shadow-sm"
-                >
-                  <span>VIEW JUDGMENT</span>
-                  <ExternalLink size={13} strokeWidth={2.5} />
-                </a>
+                {/* VIEW JUDGMENT Button - Target blank removed */}
+                <div className="p-5 pt-0">
+                  <Link
+                    href={j.link || "/judgments"}
+                    className="w-full inline-flex items-center justify-center gap-2 bg-[#0d1b3e] hover:bg-[#c9a84c] text-white hover:text-[#0d1b3e] font-bold text-[11.5px] uppercase tracking-wider py-2.5 px-4 rounded-xl transition-all duration-300 shadow-sm"
+                  >
+                    <span>VIEW JUDGMENT</span>
+                    <ArrowRight size={13} strokeWidth={2.5} />
+                  </Link>
+                </div>
               </div>
             );
           })}

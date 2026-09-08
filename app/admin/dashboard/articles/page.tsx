@@ -19,7 +19,10 @@ import {
   BookOpen,
   Calendar,
   User,
-  Clock
+  Clock,
+  Globe,
+  Tag,
+  Sparkles
 } from "lucide-react";
 import { fetchApi } from "../../../../lib/api/client";
 import Swal from 'sweetalert2';
@@ -46,7 +49,10 @@ export default function AdminArticles() {
     summary: "",
     content: "",
     image: "",
-    isFeatured: true
+    isFeatured: true,
+    metaTitle: "",
+    metaDescription: "",
+    metaKeywords: ""
   });
 
   const loadData = async () => {
@@ -76,7 +82,10 @@ export default function AdminArticles() {
       summary: "",
       content: "",
       image: "",
-      isFeatured: true
+      isFeatured: true,
+      metaTitle: "",
+      metaDescription: "",
+      metaKeywords: ""
     });
   };
 
@@ -91,9 +100,35 @@ export default function AdminArticles() {
       summary: art.summary || "",
       content: art.content || "",
       image: art.image || "",
-      isFeatured: !!art.isFeatured
+      isFeatured: !!art.isFeatured,
+      metaTitle: art.metaTitle || "",
+      metaDescription: art.metaDescription || "",
+      metaKeywords: art.metaKeywords || ""
     });
     setShowForm(true);
+  };
+
+  const handleAutoGenerateMeta = () => {
+    const suggestedTitle = formData.title 
+      ? `${formData.title} | Advocate Tushar Garg` 
+      : "";
+    const suggestedDesc = formData.summary 
+      ? (formData.summary.length > 160 ? formData.summary.slice(0, 157) + "..." : formData.summary) 
+      : "";
+    const suggestedKeywords = [
+      formData.category?.toLowerCase(),
+      "tushar garg",
+      "advocate on record",
+      "supreme court",
+      "legal analysis"
+    ].filter(Boolean).join(", ");
+
+    setFormData(prev => ({
+      ...prev,
+      metaTitle: prev.metaTitle || suggestedTitle,
+      metaDescription: prev.metaDescription || suggestedDesc,
+      metaKeywords: prev.metaKeywords || suggestedKeywords,
+    }));
   };
 
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -385,6 +420,110 @@ export default function AdminArticles() {
                 />
               </div>
 
+              {/* SEO & Meta Tags Section */}
+              <div className="border border-gray-200 rounded-xl p-4 bg-gray-50/70 space-y-3.5">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Globe size={18} className="text-[#c9a84c]" />
+                    <h3 className="text-xs font-bold text-[#0d1b3e] uppercase tracking-wider">
+                      SEO & Meta Tags (Search Engine Optimization)
+                    </h3>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={handleAutoGenerateMeta}
+                    className="inline-flex items-center gap-1.5 text-xs text-[#0d1b3e] font-semibold hover:text-[#c9a84c] bg-white border border-gray-200 hover:border-[#c9a84c] px-2.5 py-1 rounded-md shadow-2xs transition-all cursor-pointer"
+                  >
+                    <Sparkles size={13} className="text-[#c9a84c]" />
+                    <span>Auto-generate from Title</span>
+                  </button>
+                </div>
+
+                {/* Meta Title */}
+                <div>
+                  <div className="flex items-center justify-between mb-1">
+                    <label className="block text-xs font-bold text-gray-700 uppercase">
+                      Meta Title (SEO Title Tag)
+                    </label>
+                    <span className={`text-[10px] font-mono ${formData.metaTitle.length > 60 ? 'text-amber-600 font-bold' : 'text-gray-400'}`}>
+                      {formData.metaTitle.length} / 60 characters
+                    </span>
+                  </div>
+                  <input
+                    type="text"
+                    placeholder="e.g. Scope of Judicial Review in India | Advocate Tushar Garg"
+                    className="w-full p-2.5 bg-white border border-gray-300 rounded-lg text-sm text-black outline-none focus:border-[#c9a84c]"
+                    value={formData.metaTitle}
+                    onChange={e => setFormData({...formData, metaTitle: e.target.value})}
+                  />
+                  <p className="text-[11px] text-gray-500 mt-1">
+                    Optimal length: 50-60 characters. Appears as the headline in Google search results.
+                  </p>
+                </div>
+
+                {/* Meta Description */}
+                <div>
+                  <div className="flex items-center justify-between mb-1">
+                    <label className="block text-xs font-bold text-gray-700 uppercase">
+                      Meta Description (Search Snippet)
+                    </label>
+                    <span className={`text-[10px] font-mono ${formData.metaDescription.length > 160 ? 'text-amber-600 font-bold' : 'text-gray-400'}`}>
+                      {formData.metaDescription.length} / 160 characters
+                    </span>
+                  </div>
+                  <textarea
+                    rows={2}
+                    placeholder="e.g. In-depth analysis of landmark Supreme Court precedents and the expanding scope of writ jurisdiction under Article 32 & 226."
+                    className="w-full p-2.5 bg-white border border-gray-300 rounded-lg text-sm text-black outline-none focus:border-[#c9a84c]"
+                    value={formData.metaDescription}
+                    onChange={e => setFormData({...formData, metaDescription: e.target.value})}
+                  />
+                  <p className="text-[11px] text-gray-500 mt-1">
+                    Optimal length: 150-160 characters. Displayed as the descriptive snippet under the title on search engines.
+                  </p>
+                </div>
+
+                {/* Meta Keywords */}
+                <div>
+                  <div className="flex items-center justify-between mb-1">
+                    <label className="block text-xs font-bold text-gray-700 uppercase">
+                      Meta Keywords / Search Tags
+                    </label>
+                    <span className="text-[10px] text-gray-400">Comma-separated</span>
+                  </div>
+                  <input
+                    type="text"
+                    placeholder="e.g. supreme court, judicial review, writ petition, article 136, legal analysis"
+                    className="w-full p-2.5 bg-white border border-gray-300 rounded-lg text-sm text-black outline-none focus:border-[#c9a84c]"
+                    value={formData.metaKeywords}
+                    onChange={e => setFormData({...formData, metaKeywords: e.target.value})}
+                  />
+                  <p className="text-[11px] text-gray-500 mt-1">
+                    Keywords relevant to this article for indexing, search engine relevance, and internal tags.
+                  </p>
+                </div>
+
+                {/* Google Search Snippet Live Preview */}
+                {(formData.metaTitle || formData.title) && (
+                  <div className="pt-2 border-t border-gray-200">
+                    <span className="block text-[10.5px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">
+                      Search Result Preview
+                    </span>
+                    <div className="bg-white p-3 rounded-lg border border-gray-200 text-left">
+                      <div className="text-[11px] text-gray-500 truncate mb-0.5">
+                        https://advocateonrecordtushargarg.com &gt; articles &gt; {formData.category.toLowerCase().replace(/\s+/g, '-')}
+                      </div>
+                      <div className="text-[#1a0dab] hover:underline text-[15px] font-medium leading-snug line-clamp-1">
+                        {formData.metaTitle || `${formData.title} | Advocate Tushar Garg`}
+                      </div>
+                      <div className="text-[#4d5156] text-[12px] leading-relaxed line-clamp-2 mt-0.5">
+                        {formData.metaDescription || formData.summary || "Summary of this legal article and research paper..."}
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+
               <div className="flex items-center gap-2 pt-1">
                 <input 
                   type="checkbox" 
@@ -513,9 +652,20 @@ export default function AdminArticles() {
                     </td>
                     <td className="p-4 max-w-xs">
                       <p className="font-bold text-[#0d1b3e] text-sm line-clamp-1">{art.title}</p>
-                      <span className="inline-block text-[10px] font-extrabold text-[#c9a84c] bg-[#0d1b3e] px-2 py-0.5 rounded mt-0.5">
-                        {art.category || "General"}
-                      </span>
+                      <div className="flex items-center gap-1.5 mt-0.5 flex-wrap">
+                        <span className="inline-block text-[10px] font-extrabold text-[#c9a84c] bg-[#0d1b3e] px-2 py-0.5 rounded">
+                          {art.category || "General"}
+                        </span>
+                        {art.metaTitle || art.metaDescription ? (
+                          <span className="inline-flex items-center gap-1 text-[9.5px] font-bold text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded" title={`Meta: ${art.metaTitle || art.metaDescription}`}>
+                            <Globe size={10} /> SEO Ready
+                          </span>
+                        ) : (
+                          <span className="inline-flex items-center text-[9.5px] font-medium text-gray-400 bg-gray-50 border border-gray-200 px-1.5 py-0.5 rounded">
+                            No Meta
+                          </span>
+                        )}
+                      </div>
                     </td>
                     <td className="p-4 text-xs text-gray-600">
                       <p className="font-bold text-gray-800">{art.author || "Advocate Tushar Garg"}</p>

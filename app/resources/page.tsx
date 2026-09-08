@@ -154,7 +154,7 @@ const allResourcesData: ResourceData[] = [
       "Affidavit, Court Fees, Paper Book binding & e-Filing portal upload.",
       "Scrutiny defects cure within 28 days & Computer Registry listing."
     ],
-    officialLink: "https://main.sci.gov.in"
+    officialLink: "https://www.sci.gov.in/"
   },
   {
     id: "p-2",

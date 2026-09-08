@@ -48,7 +48,7 @@ const defaultJobs = [
     location: "New Delhi",
     qualification: "LLB",
     lastDate: "28 May 2025",
-    applyLink: "https://main.sci.gov.in"
+    applyLink: "https://www.sci.gov.in/"
   },
   {
     _id: "6",

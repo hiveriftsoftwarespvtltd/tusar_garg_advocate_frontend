@@ -5,7 +5,7 @@ const columns = [
   {
     title: "TOOLS & RESOURCES",
     items: [
-      { title: "Bare Acts", subtitle: "Complete database of Bare Acts", icon: <Book size={20} className="text-[#0d1b3e]" />, href: "/laws" },
+      { title: "Bare Acts", subtitle: "Complete database of Bare Acts", icon: <Book size={20} className="text-[#0d1b3e]" />, href: "/bare-acts" },
       { title: "Legal Drafts", subtitle: "Drafts, Templates & Formats", icon: <FileText size={20} className="text-[#0d1b3e]" />, href: "/resources/legal-drafts" },
       { title: "Judgments", subtitle: "Search & access judgments", icon: <Scale size={20} className="text-[#0d1b3e]" />, href: "/judgments" },
       { title: "Legal Articles", subtitle: "In-depth legal insights", icon: <Newspaper size={20} className="text-[#0d1b3e]" />, href: "/articles" },

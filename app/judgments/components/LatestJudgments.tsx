@@ -1,7 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ArrowRight, Calendar, FileText, Bookmark, Landmark, Scale, Briefcase, ExternalLink } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
+import { ArrowRight, Calendar, FileText, Bookmark, Landmark, Scale, Briefcase } from "lucide-react";
 import { fetchApi } from "../../../lib/api/client";
 
 export default function LatestJudgments() {
@@ -106,17 +108,15 @@ export default function LatestJudgments() {
                   </div>
                 </div>
 
-                {/* VIEW JUDGMENT Button (Opens in new tab/page) */}
+                {/* VIEW JUDGMENT Button */}
                 <div className="flex items-center justify-center sm:justify-end p-4 md:p-6 sm:pl-0 flex-shrink-0">
-                  <a
+                  <Link
                     href={j.link || "/judgments"}
-                    target="_blank"
-                    rel="noopener noreferrer"
                     className="flex items-center justify-center gap-2 bg-[#0d1b3e] text-white hover:bg-[#c9a84c] hover:text-[#0d1b3e] px-5 py-2.5 rounded-lg text-[11px] font-bold uppercase tracking-wider transition-all w-full sm:w-auto shadow-sm"
                   >
                     <span>VIEW JUDGMENT</span>
-                    <ExternalLink size={14} strokeWidth={2.5} />
-                  </a>
+                    <ArrowRight size={14} strokeWidth={2.5} />
+                  </Link>
                 </div>
               </div>
             ))}
@@ -125,14 +125,12 @@ export default function LatestJudgments() {
 
         {/* View All Button */}
         <div className="mt-10 flex justify-center">
-          <a
+          <Link
             href="/judgments"
-            target="_blank"
-            rel="noopener noreferrer"
             className="border border-[#0d1b3e] bg-white text-[#0d1b3e] px-8 py-3 rounded-xl font-bold text-[12px] uppercase tracking-wider hover:bg-[#0d1b3e] hover:text-white transition-all shadow-sm"
           >
             VIEW ALL JUDGMENTS
-          </a>
+          </Link>
         </div>
 
       </div>

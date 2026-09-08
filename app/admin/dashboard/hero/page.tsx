@@ -27,11 +27,11 @@ export default function AdminHeroPage() {
     advocatePhoto: "/home/tusar_garg_photo.jpeg",
     stats: [
       { label: "Years Practice", value: "10+" },
-      { label: "Cases Handled", value: "5000+" },
+      { label: "Handled by Tushar Team", value: "5000+" },
       { label: "States Covered", value: "28+" },
     ],
     consultationLink: "/contact",
-    consultationText: "Legal Awareness",
+    consultationText: "Legal Helpline",
   });
 
   const [loading, setLoading] = useState(true);

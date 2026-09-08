@@ -1,6 +1,6 @@
 import HeroSection from "@/app/components/HeroSection";
 import FeaturedCourts from "@/app/components/FeaturedCourts";
-import SearchBar from "@/app/components/SearchBar";
+import VisitedSectionsCarousel from "@/app/components/VisitedSectionsCarousel";
 import LatestJudgments from "@/app/components/LatestJudgments";
 import HomePracticeAreas from "@/app/components/HomePracticeAreas";
 import HomeResourcesServicesJobs from "@/app/components/HomeResourcesServicesJobs";
@@ -14,7 +14,7 @@ export default function Home() {
     <main className="min-h-screen">
       <HeroSection />
       <FeaturedCourts />
-      <SearchBar />
+      <VisitedSectionsCarousel />
       <LatestJudgments />
       
       {/* Redesigned Lower Section */}

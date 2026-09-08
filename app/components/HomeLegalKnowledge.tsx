@@ -41,6 +41,16 @@ const defaultArticles = [
   }
 ];
 
+function slugifyTitle(text: string): string {
+  if (!text) return "";
+  return text
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, "")
+    .replace(/[\s_-]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
 export default function HomeLegalKnowledge() {
   const [articles, setArticles] = useState<any[]>(defaultArticles);
   const [loading, setLoading] = useState(true);
@@ -97,30 +107,35 @@ export default function HomeLegalKnowledge() {
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {articles.map((article, idx) => (
-              <Link 
-                key={article._id || idx} 
-                href="/articles"
-                className="group bg-white border border-gray-200 hover:border-[#c9a84c] rounded-2xl overflow-hidden flex flex-col justify-between cursor-pointer hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
-              >
+            {articles.map((article, idx) => {
+              const slug = article.title ? slugifyTitle(article.title) : (article._id || '');
+              const articleHref = `/articles?title=${encodeURIComponent(slug)}`;
+
+              return (
+                <Link 
+                  key={article._id || idx} 
+                  href={articleHref}
+                  className="group bg-white border border-gray-200 hover:border-[#c9a84c] rounded-2xl overflow-hidden flex flex-col justify-between cursor-pointer hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                >
                 <div>
-                  {/* Image */}
-                  <div className="relative w-full h-[180px] overflow-hidden bg-gray-100">
+                  {/* Image Container - Full bleed edge-to-edge, zero padding on all 4 sides */}
+                  <div className="relative w-full aspect-square overflow-hidden bg-gray-100">
                     <Image
                       src={article.image || "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=600&q=80"}
                       alt={article.title}
                       fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute top-3 left-3">
-                      <span className="bg-[#0d1b3e] text-[#c9a84c] border border-[#c9a84c]/40 font-bold text-[9.5px] uppercase tracking-widest px-2.5 py-0.5 rounded-md shadow-md">
-                        {article.category || "ARTICLE"}
-                      </span>
-                    </div>
                   </div>
 
                   {/* Content */}
                   <div className="p-5">
+                    <div className="mb-2.5">
+                      <span className="inline-block bg-[#0d1b3e] text-[#c9a84c] border border-[#c9a84c]/40 font-bold text-[9.5px] uppercase tracking-widest px-2.5 py-0.5 rounded-md shadow-xs">
+                        {article.category || "ARTICLE"}
+                      </span>
+                    </div>
                     <h3 className="font-serif font-bold text-[#0d1b3e] text-[16px] leading-snug mb-3 group-hover:text-[#c9a84c] transition-colors line-clamp-2">
                       {article.title}
                     </h3>
@@ -138,7 +153,8 @@ export default function HomeLegalKnowledge() {
                   </span>
                 </div>
               </Link>
-            ))}
+            );
+          })}
           </div>
         )}
 

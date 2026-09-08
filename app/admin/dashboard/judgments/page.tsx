@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useMemo } from "react";
+import Image from "next/image";
 import { 
   Plus, 
   Trash2, 
@@ -17,9 +18,11 @@ import {
   ChevronRight, 
   ArrowUpDown, 
   ChevronUp, 
-  ChevronDown 
+  ChevronDown,
+  Upload,
+  Image as ImageIcon
 } from "lucide-react";
-import { fetchApi } from "../../../../lib/api/client";
+import { fetchApi, compressImage } from "../../../../lib/api/client";
 import Swal from 'sweetalert2';
 
 export default function AdminJudgments() {
@@ -44,6 +47,7 @@ export default function AdminJudgments() {
     bench: "",
     shortDescription: "",
     link: "",
+    image: "",
     isFeatured: true
   });
 
@@ -80,6 +84,7 @@ export default function AdminJudgments() {
       bench: "",
       shortDescription: "",
       link: "",
+      image: "",
       isFeatured: true
     });
   };
@@ -94,9 +99,22 @@ export default function AdminJudgments() {
       bench: j.bench || "",
       shortDescription: j.shortDescription || "",
       link: j.link || "",
+      image: j.image || "",
       isFeatured: !!j.isFeatured
     });
     setShowForm(true);
+  };
+
+  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      try {
+        const compressed = await compressImage(file);
+        setFormData(prev => ({ ...prev, image: compressed }));
+      } catch (err) {
+        console.error("Image compression failed", err);
+      }
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -351,6 +369,52 @@ export default function AdminJudgments() {
                 />
               </div>
 
+              {/* Cover Image Upload / URL */}
+              <div className="space-y-2">
+                <label className="block text-xs font-bold text-gray-700 uppercase">
+                  Judgment Cover / Court Image (Optional)
+                </label>
+                <div className="flex gap-2">
+                  <input
+                    type="text"
+                    placeholder="https://... or upload image"
+                    value={formData.image}
+                    onChange={(e) => setFormData({ ...formData, image: e.target.value })}
+                    className="flex-1 p-2.5 border border-gray-300 rounded-lg text-sm text-black outline-none focus:border-[#c9a84c]"
+                  />
+                  <label className="px-4 py-2.5 bg-[#0d1b3e] hover:bg-[#1a2b5e] text-white rounded-lg text-xs font-bold cursor-pointer flex items-center gap-1.5 transition-colors">
+                    <Upload size={14} />
+                    <span>Upload</span>
+                    <input
+                      type="file"
+                      accept="image/*"
+                      onChange={handleFileUpload}
+                      className="hidden"
+                    />
+                  </label>
+                </div>
+
+                {formData.image && (
+                  <div className="relative w-44 h-28 rounded-xl overflow-hidden border border-gray-200 bg-gray-50 mt-2">
+                    <Image
+                      src={formData.image}
+                      alt="Judgment Image Preview"
+                      fill
+                      className="object-cover"
+                      unoptimized
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setFormData({ ...formData, image: "" })}
+                      className="absolute top-1.5 right-1.5 bg-black/60 hover:bg-black/80 text-white p-1 rounded-full text-xs"
+                      title="Remove Image"
+                    >
+                      <X size={12} />
+                    </button>
+                  </div>
+                )}
+              </div>
+
               <div className="flex items-center gap-2 pt-1">
                 <input 
                   type="checkbox" 
@@ -444,6 +508,7 @@ export default function AdminJudgments() {
             <table className="w-full text-left border-collapse">
               <thead className="bg-gray-50 border-b border-gray-200">
                 <tr>
+                  <th className="p-4 font-bold text-xs uppercase tracking-wider text-[#0d1b3e] w-16 text-center">Image</th>
                   <th 
                     onClick={() => handleSort("title")}
                     className="p-4 font-bold text-xs uppercase tracking-wider text-[#0d1b3e] cursor-pointer hover:bg-gray-100 transition-colors"
@@ -479,6 +544,23 @@ export default function AdminJudgments() {
               <tbody className="divide-y divide-gray-100">
                 {paginatedJudgments.map((j) => (
                   <tr key={j._id} className="hover:bg-gray-50/80 transition-colors">
+                    <td className="p-4 text-center">
+                      <div className="relative w-12 h-10 rounded-lg overflow-hidden border border-gray-200 mx-auto bg-gray-50">
+                        {j.image ? (
+                          <Image
+                            src={j.image}
+                            alt={j.title}
+                            fill
+                            className="object-cover"
+                            unoptimized
+                          />
+                        ) : (
+                          <div className="w-full h-full flex items-center justify-center text-gray-400">
+                            <Scale size={16} />
+                          </div>
+                        )}
+                      </div>
+                    </td>
                     <td className="p-4 max-w-xs">
                       <p className="font-bold text-[#0d1b3e] text-sm line-clamp-1">{j.title}</p>
                       <span className="text-[11px] font-semibold text-gray-500">{j.caseNumber || "N/A"}</span>

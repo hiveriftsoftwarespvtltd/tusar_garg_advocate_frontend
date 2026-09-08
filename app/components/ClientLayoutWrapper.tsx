@@ -5,6 +5,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import ProductionPopup from "./ProductionPopup";
 import WhatsAppFloatingButton from "./WhatsAppFloatingButton";
+import GlobalSocialSidebar from "./GlobalSocialSidebar";
 
 export default function ClientLayoutWrapper({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -21,6 +22,7 @@ export default function ClientLayoutWrapper({ children }: { children: React.Reac
       
       {!isAdmin && <Footer />}
       {!isAdmin && <WhatsAppFloatingButton />}
+      {!isAdmin && <GlobalSocialSidebar />}
     </>
   );
 }

@@ -48,7 +48,7 @@ export default function TribunalDetailPage({ params }: { params: Promise<{ slug:
     statute: "Relevant Central/State Enactment",
     ministry: "Government of India / State Government",
     jurisdiction: "Pan-India / Regional Jurisdiction",
-    website: "https://main.sci.gov.in",
+    website: "https://www.sci.gov.in/",
     logoUrl: `/home/trubinals_&_forum/${slug}.svg`,
     description: `Detailed information and official record for ${slug.toUpperCase()} tribunal. This quasi-judicial forum handles specialized litigation, appeals, and statutory remedies under Indian federal laws.`,
   };

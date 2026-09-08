@@ -99,8 +99,8 @@ export default function AllCourtsPage() {
       category: "Supreme Court",
       state: "Delhi",
       district: "New Delhi",
-      website: "https://main.sci.gov.in",
-      displayUrl: "main.sci.gov.in",
+      website: "https://www.sci.gov.in/",
+      displayUrl: "sci.gov.in",
       badge: "APEX COURT",
       badgeColor: "bg-[#c9a84c] text-[#0d1b3e]",
       benchOrInfo: "Tilak Marg, New Delhi — Article 124 of Constitution"

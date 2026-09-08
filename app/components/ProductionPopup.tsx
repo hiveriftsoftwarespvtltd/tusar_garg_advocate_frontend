@@ -1,65 +1,86 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Hammer, X } from "lucide-react";
+import { Scale, X, Check } from "lucide-react";
 
 export default function ProductionPopup() {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    // Check if the user has already seen this popup in the current session
-    const hasSeenPopup = sessionStorage.getItem("hasSeenProductionPopup");
-    
-    if (!hasSeenPopup) {
-      // Delay for 6 seconds after website load
-      const timer = setTimeout(() => {
-        setIsOpen(true);
-      }, 6000);
-      return () => clearTimeout(timer);
+    // Check if the user has already accepted the legal disclaimer
+    if (typeof window !== "undefined") {
+      const hasAccepted = localStorage.getItem("hasAcceptedLegalDisclaimer");
+      if (!hasAccepted) {
+        // Smooth entrance delay
+        const timer = setTimeout(() => {
+          setIsOpen(true);
+        }, 700);
+        return () => clearTimeout(timer);
+      }
     }
   }, []);
 
-  const handleClose = () => {
+  const handleAccept = () => {
     setIsOpen(false);
-    sessionStorage.setItem("hasSeenProductionPopup", "true");
+    if (typeof window !== "undefined") {
+      localStorage.setItem("hasAcceptedLegalDisclaimer", "true");
+    }
   };
 
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-in fade-in duration-300">
       <div 
-        className="relative w-full max-w-md bg-white rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] p-8 text-center animate-in fade-in zoom-in duration-300 transform"
+        className="relative w-full max-w-lg bg-white rounded-2xl shadow-2xl border border-gray-100 p-6 sm:p-8 text-center animate-in zoom-in-95 duration-300 transform overflow-hidden"
       >
+        {/* Top Gold Accent Bar */}
+        <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#0d1b3e] via-[#c9a84c] to-[#0d1b3e]" />
+
+        {/* Close button */}
         <button 
-          onClick={handleClose}
-          className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
+          onClick={handleAccept}
+          aria-label="Close disclaimer"
+          className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors p-1 rounded-full hover:bg-gray-100 cursor-pointer"
         >
-          <X size={24} />
+          <X size={20} />
         </button>
         
-        <div className="mx-auto w-16 h-16 bg-[#0d1b3e]/10 rounded-full flex items-center justify-center mb-6 border border-[#c9a84c]/30">
-          <Hammer size={32} className="text-[#c9a84c]" />
+        {/* Icon Header */}
+        <div className="mx-auto w-14 h-14 bg-[#0d1b3e]/5 rounded-full flex items-center justify-center mb-4 border border-[#c9a84c]/30 shadow-inner">
+          <Scale size={28} className="text-[#c9a84c]" />
         </div>
         
-        <h2 className="font-serif text-[22px] text-[#0d1b3e] uppercase tracking-wide mb-3"
-         
-        >
-          Website Under Production
+        {/* Title */}
+        <h2 className="font-serif text-[20px] sm:text-[22px] text-[#0d1b3e] font-bold uppercase tracking-wider mb-1">
+          Disclaimer
         </h2>
-        
-        <div className="w-12 h-[3px] bg-[#c9a84c] mx-auto mb-5" />
-        
-        <p className="text-[#374151] text-[15px] leading-relaxed mb-8">
-          Welcome! We are currently working hard to bring you a premium experience. Some features and content may still be under construction.
+        <p className="text-[11px] font-semibold text-[#c9a84c] uppercase tracking-widest mb-3">
+          Bar Council of India Compliance
         </p>
         
-        <button 
-          onClick={handleClose}
-          className="w-full bg-[#0d1b3e] text-white font-semibold py-3 px-6 rounded-lg hover:bg-[#1a2b5a] transition-all duration-300 shadow-md hover:shadow-lg uppercase tracking-wider text-[14px]"
-        >
-          Continue
-        </button>
+        <div className="w-12 h-[2px] bg-[#c9a84c] mx-auto mb-4 rounded-full" />
+        
+        {/* Short Legal Disclaimer Body */}
+        <div className="text-gray-600 text-[13px] leading-relaxed mb-6 space-y-2.5 text-left bg-[#fafafa] p-4 rounded-xl border border-gray-100">
+          <p>
+            As per the rules of the <strong>Bar Council of India</strong>, advocates are not permitted to solicit work or advertise in any form.
+          </p>
+          <p>
+            By clicking <strong>&quot;I Accept&quot;</strong>, you acknowledge that you are visiting this website voluntarily for informational purposes regarding <strong>Advocate Tushar Garg</strong> and there has been no solicitation, advertisement, or personal inducement. The content provided herein does not constitute legal advice or create a lawyer-client relationship.
+          </p>
+        </div>
+        
+        {/* Single Action Button */}
+        <div>
+          <button 
+            onClick={handleAccept}
+            className="w-full inline-flex items-center justify-center gap-2 bg-[#c9a84c] hover:bg-[#d4a93a] text-[#071126] font-bold py-3.5 px-6 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg uppercase tracking-wider text-[13.5px] cursor-pointer"
+          >
+            <Check size={18} strokeWidth={2.5} />
+            <span>I Accept</span>
+          </button>
+        </div>
       </div>
     </div>
   );
