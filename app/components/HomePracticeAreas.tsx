@@ -238,11 +238,11 @@ export default function HomePracticeAreas() {
         <div className="text-center mt-6 sm:mt-10 px-3">
           <Link 
             href="/laws" 
-            className="inline-flex items-center justify-center gap-2 sm:gap-2.5 bg-[#0d1b3e] hover:bg-[#1a2b5e] text-white px-4 sm:px-8 py-2.5 sm:py-3.5 text-[10.5px] sm:text-[12px] font-bold tracking-wider sm:tracking-widest uppercase rounded-xl transition-all duration-300 border border-[#c9a84c]/40 shadow-xl hover:shadow-[#0d1b3e]/30 hover:-translate-y-0.5 active:scale-[0.98] max-w-full"
+            className="btn-shine-effect btn-glow-gold inline-flex items-center justify-center gap-2.5 sm:gap-3 bg-gradient-to-r from-[#0d1b3e] via-[#122452] to-[#0d1b3e] hover:from-[#c9a84c] hover:via-[#d4a93a] hover:to-[#c9a84c] text-[#f7e6a6] hover:text-[#0d1b3e] px-6 sm:px-10 py-3 sm:py-4 text-[11px] sm:text-[12.5px] font-bold tracking-wider sm:tracking-widest uppercase rounded-xl transition-all duration-300 border border-[#c9a84c]/60 shadow-xl active:scale-[0.98] group max-w-full"
           >
-            <ShieldCheck size={15} className="text-[#c9a84c] shrink-0" />
+            <ShieldCheck size={16} className="text-[#c9a84c] group-hover:text-[#0d1b3e] shrink-0" />
             <span className="whitespace-nowrap">EXPLORE ALL PRACTICE AREAS & LAWS</span>
-            <ArrowRight size={13} className="text-[#c9a84c] shrink-0" />
+            <ArrowRight size={14} className="text-[#c9a84c] group-hover:text-[#0d1b3e] shrink-0 transition-transform group-hover:translate-x-1" />
           </Link>
         </div>
 

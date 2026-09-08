@@ -63,10 +63,12 @@ function CourtColumn({
       {/* View All Footer Link */}
       <a
         href={href}
-        className="flex items-center justify-between text-[12px] text-[#0d1b3e] font-bold hover:text-[#c9a84c] transition-colors pt-3 border-t border-gray-100 group/link"
+        className="flex items-center justify-between text-[11.5px] text-[#0d1b3e] font-bold hover:text-white bg-[#0d1b3e]/5 hover:bg-[#0d1b3e] transition-all px-3.5 py-2.5 rounded-xl group/link mt-3 border border-transparent hover:border-[#c9a84c]/30 shadow-xs"
       >
         <span>Explore All District Courts</span>
-        <ArrowRight size={13} strokeWidth={2.5} className="text-[#c9a84c] transition-transform duration-300 group-hover/link:translate-x-1" />
+        <span className="w-5 h-5 rounded-full bg-[#c9a84c]/20 group-hover/link:bg-[#c9a84c] flex items-center justify-center transition-colors">
+          <ArrowRight size={11} strokeWidth={2.5} className="text-[#c9a84c] group-hover/link:text-[#0d1b3e] transition-transform duration-300 group-hover/link:translate-x-0.5" />
+        </span>
       </a>
     </div>
   );
@@ -172,10 +174,10 @@ export default async function FeaturedCourts() {
             </div>
 
             <div
-              className="relative z-10 w-full flex items-center justify-center gap-1.5 bg-[#0d1b3e] group-hover:bg-[#c9a84c] text-white group-hover:text-[#0d1b3e] text-[11px] font-bold py-2.5 px-3 rounded-xl transition-all duration-300 shadow-sm"
+              className="btn-shine-effect relative z-10 w-full flex items-center justify-center gap-1.5 bg-[#0d1b3e] group-hover:bg-[#c9a84c] text-[#c9a84c] group-hover:text-[#0d1b3e] text-[11px] font-bold py-2.5 px-3 rounded-xl transition-all duration-300 shadow-md group-hover:shadow-[0_4px_16px_rgba(201,168,76,0.4)] border border-[#c9a84c]/30"
             >
               <span>Explore Now</span>
-              <ArrowRight size={12} strokeWidth={2.5} />
+              <ArrowRight size={12} strokeWidth={2.5} className="transition-transform group-hover:translate-x-0.5" />
             </div>
           </Link>
 
@@ -185,11 +187,13 @@ export default async function FeaturedCourts() {
         <div className="flex justify-center pt-2">
           <Link
             href="/all-courts"
-            className="inline-flex items-center gap-2.5 bg-[#0d1b3e] hover:bg-[#1a2b5e] text-white px-8 py-3.5 text-[12px] font-bold uppercase tracking-widest rounded-xl transition-all duration-300 border border-[#c9a84c]/40 shadow-xl hover:shadow-[#0d1b3e]/30 hover:-translate-y-0.5 active:scale-[0.98]"
+            className="btn-shine-effect btn-glow-gold inline-flex items-center gap-3 bg-gradient-to-r from-[#0d1b3e] via-[#122452] to-[#0d1b3e] hover:from-[#c9a84c] hover:via-[#d4a93a] hover:to-[#c9a84c] text-[#f7e6a6] hover:text-[#0d1b3e] px-8 py-3.5 text-[12px] font-bold uppercase tracking-widest rounded-xl transition-all duration-300 border border-[#c9a84c]/60 shadow-xl active:scale-[0.98] group"
           >
-            <Landmark size={16} className="text-[#c9a84c]" />
+            <span className="p-1 rounded-md bg-[#c9a84c]/20 group-hover:bg-[#0d1b3e]/20 transition-colors">
+              <Landmark size={16} className="text-[#c9a84c] group-hover:text-[#0d1b3e]" />
+            </span>
             <span>EXPLORE ALL COURTS IN INDIA</span>
-            <ArrowRight size={14} className="text-[#c9a84c]" />
+            <ArrowRight size={14} strokeWidth={2.5} className="text-[#c9a84c] group-hover:text-[#0d1b3e] transition-transform group-hover:translate-x-1" />
           </Link>
         </div>
 

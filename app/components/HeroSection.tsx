@@ -121,22 +121,24 @@ export default function HeroSection() {
             </div>
 
             {/* Action Cards Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 w-full max-w-[560px] mb-6 lg:mb-0">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 w-full max-w-[580px] mb-6 lg:mb-0">
               {data.ctaButtons.map((btn, idx) => {
                 const IconComponent = iconMap[btn.icon] || Scale;
                 return (
                   <Link
                     key={idx}
                     href={btn.href}
-                    className="group flex flex-col items-center sm:items-start justify-between p-2.5 bg-white/5 hover:bg-[#c9a84c] border border-white/15 hover:border-[#c9a84c] rounded-lg transition-all duration-300 hover:-translate-y-0.5"
+                    className="hero-cta-highlight group flex flex-col items-center sm:items-start justify-between p-3 rounded-xl transition-all duration-300 active:scale-[0.98]"
                   >
-                    <div className="flex items-center justify-between w-full mb-1">
-                      <span className="p-1 bg-white/10 rounded-md group-hover:bg-[#071126] transition-colors">
-                        <IconComponent size={18} className="text-[#c9a84c] group-hover:text-[#c9a84c] transition-colors" />
+                    <div className="flex items-center justify-between w-full mb-1.5">
+                      <span className="p-1.5 bg-[#c9a84c]/15 border border-[#c9a84c]/30 rounded-lg group-hover:bg-[#071126] group-hover:border-[#071126] transition-all shadow-sm">
+                        <IconComponent size={18} className="text-[#f7e6a6] group-hover:text-[#c9a84c] transition-colors" />
                       </span>
-                      <ArrowRight size={12} className="text-white/40 group-hover:text-[#071126] transition-transform group-hover:translate-x-0.5 hidden sm:block" />
+                      <span className="w-5 h-5 rounded-full bg-white/10 group-hover:bg-[#071126]/20 flex items-center justify-center transition-colors hidden sm:flex">
+                        <ArrowRight size={11} className="text-[#c9a84c] group-hover:text-[#071126] transition-transform group-hover:translate-x-0.5" />
+                      </span>
                     </div>
-                    <span className="block text-[9.5px] sm:text-[10px] font-bold tracking-wider text-white group-hover:text-[#071126] uppercase leading-tight text-center sm:text-left mt-1">
+                    <span className="block text-[10px] sm:text-[10.5px] font-bold tracking-wider text-white group-hover:text-[#071126] uppercase leading-tight text-center sm:text-left mt-1.5 transition-colors drop-shadow-sm">
                       {btn.line1}<br />{btn.line2}
                     </span>
                   </Link>
@@ -181,13 +183,13 @@ export default function HeroSection() {
                 ))}
               </div>
 
-              {/* Consultation Button */}
+              {/* Consultation Button - Highlighted with Golden Gradient & Shine */}
               <Link
                 href={data.consultationLink || "/contact"}
-                className="mt-2.5 w-full flex items-center justify-center gap-1.5 bg-[#c9a84c] hover:bg-[#d4a93a] text-[#071126] font-bold text-[10.5px] uppercase tracking-wider py-2 px-3 rounded-lg transition-all shadow-md"
+                className="btn-shine-effect btn-glow-gold mt-3 w-full flex items-center justify-center gap-2 bg-gradient-to-r from-[#e5be58] via-[#f7e6a6] to-[#c9a84c] text-[#071126] font-bold text-[11px] uppercase tracking-wider py-2.5 px-4 rounded-xl transition-all duration-300 border border-[#fff2b2]/50 shadow-lg active:scale-[0.98]"
               >
                 <span>{data.consultationText}</span>
-                <ArrowRight size={12} />
+                <ArrowRight size={13} strokeWidth={2.5} className="transition-transform group-hover:translate-x-1" />
               </Link>
 
               {/* Mobile Only: Social Media Connect Card */}

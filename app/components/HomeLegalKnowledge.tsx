@@ -93,10 +93,10 @@ export default function HomeLegalKnowledge() {
 
           <Link 
             href="/articles" 
-            className="inline-flex items-center gap-2 text-[#0d1b3e] hover:text-[#c9a84c] text-[12.5px] font-bold tracking-wider uppercase transition-colors"
+            className="btn-shine-effect inline-flex items-center gap-2 text-[12px] font-bold text-[#0d1b3e] hover:text-white bg-[#c9a84c]/15 hover:bg-[#0d1b3e] border border-[#c9a84c]/40 hover:border-[#c9a84c] px-4 py-2.5 rounded-xl transition-all duration-300 shadow-sm hover:shadow-md active:scale-[0.98] group"
           >
             <span>EXPLORE ALL ARTICLES</span>
-            <ArrowRight size={14} className="text-[#c9a84c]" />
+            <ArrowRight size={13} strokeWidth={2.5} className="text-[#c9a84c] group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
 
@@ -143,13 +143,13 @@ export default function HomeLegalKnowledge() {
                 </div>
 
                 {/* Footer */}
-                <div className="px-5 pb-5 pt-3 border-t border-gray-100 flex items-center justify-between text-[11px] text-gray-500 font-medium">
+                <div className="px-5 pb-4 pt-3 border-t border-gray-100 flex items-center justify-between text-[11px] text-gray-500 font-medium">
                   <span className="flex items-center gap-1">
                     <Calendar size={12} className="text-[#c9a84c]" /> {article.date || "May 2025"}
                   </span>
-                  <span className="text-[#c9a84c] font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                  <span className="inline-flex items-center gap-1 text-[11px] font-bold text-[#0d1b3e] bg-[#c9a84c]/20 group-hover:bg-[#c9a84c] px-2.5 py-1 rounded-md transition-colors">
                     <span>Read Article</span>
-                    <ArrowRight size={12} strokeWidth={2.5} />
+                    <ArrowRight size={11} strokeWidth={2.5} className="transition-transform group-hover:translate-x-0.5" />
                   </span>
                 </div>
               </Link>

@@ -124,10 +124,10 @@ export default function LatestJudgments() {
           </div>
           <Link
             href="/judgments"
-            className="text-[12.5px] text-[#0d1b3e] font-bold hover:text-[#c9a84c] flex items-center gap-1.5 transition-colors bg-[#0d1b3e]/5 hover:bg-[#0d1b3e] hover:text-white px-4 py-2 rounded-xl"
+            className="btn-shine-effect inline-flex items-center gap-2 text-[12px] font-bold text-[#0d1b3e] hover:text-white bg-[#c9a84c]/15 hover:bg-[#0d1b3e] border border-[#c9a84c]/40 hover:border-[#c9a84c] px-4 py-2.5 rounded-xl transition-all duration-300 shadow-sm hover:shadow-md active:scale-[0.98] group"
           >
-            <span>View All Judgments Page</span>
-            <ArrowRight size={13} strokeWidth={2.5} />
+            <span>View All Judgments</span>
+            <ArrowRight size={13} strokeWidth={2.5} className="text-[#c9a84c] group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
 
@@ -206,14 +206,14 @@ export default function LatestJudgments() {
                   </div>
                 </div>
 
-                {/* VIEW JUDGMENT Button - Target blank removed */}
+                {/* VIEW JUDGMENT Button - Highlighted */}
                 <div className="p-5 pt-0">
                   <Link
                     href={j.link || "/judgments"}
-                    className="w-full inline-flex items-center justify-center gap-2 bg-[#0d1b3e] hover:bg-[#c9a84c] text-white hover:text-[#0d1b3e] font-bold text-[11.5px] uppercase tracking-wider py-2.5 px-4 rounded-xl transition-all duration-300 shadow-sm"
+                    className="btn-shine-effect w-full inline-flex items-center justify-center gap-2 bg-[#071126] hover:bg-[#c9a84c] text-[#f7e6a6] hover:text-[#071126] border border-[#c9a84c]/40 font-bold text-[11.5px] uppercase tracking-wider py-2.5 px-4 rounded-xl transition-all duration-300 shadow-md hover:shadow-[0_4px_16px_rgba(201,168,76,0.35)] group/btn"
                   >
                     <span>VIEW JUDGMENT</span>
-                    <ArrowRight size={13} strokeWidth={2.5} />
+                    <ArrowRight size={13} strokeWidth={2.5} className="transition-transform group-hover/btn:translate-x-1" />
                   </Link>
                 </div>
               </div>

@@ -77,12 +77,15 @@ export default function HomeResourcesServicesJobs() {
                 ))}
               </div>
 
-              <Link 
-                href={col.buttonHref}
-                className="w-full inline-flex items-center justify-center bg-[#0d1b3e] text-white px-6 py-3.5 text-[11px] font-bold tracking-widest hover:bg-[#1a2e63] transition-colors"
-              >
-                {col.buttonText} <span className="ml-2 font-normal text-[#c9a84c]">→</span>
-              </Link>
+              <div className="p-4 bg-gray-50/80 border-t border-gray-100">
+                <Link 
+                  href={col.buttonHref}
+                  className="btn-shine-effect w-full inline-flex items-center justify-center gap-2 bg-[#0d1b3e] hover:bg-[#c9a84c] text-white hover:text-[#0d1b3e] px-6 py-3.5 text-[11px] font-bold tracking-widest uppercase rounded-xl transition-all duration-300 shadow-md hover:shadow-[0_4px_16px_rgba(201,168,76,0.35)] border border-[#c9a84c]/30 group/colbtn"
+                >
+                  <span>{col.buttonText}</span>
+                  <span className="font-bold text-[#c9a84c] group-hover/colbtn:text-[#0d1b3e] transition-transform group-hover/colbtn:translate-x-1">→</span>
+                </Link>
+              </div>
             </div>
           ))}
         </div>
