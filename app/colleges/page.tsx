@@ -1,9 +1,28 @@
+import type { Metadata } from "next";
 import CollegesHero from "./components/CollegesHero";
 import TopCollegesList from "./components/TopCollegesList";
 import PopularCourses from "./components/PopularCourses";
 import AboutLegalEd from "./components/AboutLegalEd";
 import UsefulResources from "./components/UsefulResources";
 import BottomBanner from "./components/BottomBanner";
+
+export const metadata: Metadata = {
+  title: "Top Law Colleges & Universities in India | NIRF Rankings & Admissions",
+  description: "Discover premier law colleges and National Law Universities (NLUs) in India. Detailed guide on CLAT, AILET, courses (BA LLB, LLM), NIRF rankings, and legal education.",
+  keywords: [
+    "Top Law Colleges India",
+    "National Law Universities",
+    "NLUs India",
+    "CLAT Exam",
+    "AILET Law Admissions",
+    "BA LLB Colleges",
+    "LLM Admissions India",
+    "NIRF Law Rankings"
+  ],
+  alternates: {
+    canonical: "/colleges",
+  },
+};
 
 export default function CollegesPage() {
   return (

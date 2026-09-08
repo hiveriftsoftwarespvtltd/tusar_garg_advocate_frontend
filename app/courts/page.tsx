@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import PageHero from "../components/PageHero";
 import CtaBanner from "../components/CtaBanner";
 import BrowseByCourtType from "./components/BrowseByCourtType";
@@ -7,6 +8,24 @@ import CourtResources from "./components/CourtResources";
 import { fetchApi } from "../../lib/api/client";
 import { getPublishedStates } from "../../lib/api/states";
 import { Building2, Landmark, Search, ShieldCheck } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "All India Courts Directory | Supreme Court, High Courts & District Courts",
+  description: "Comprehensive directory of Supreme Court, 25 High Courts, and 700+ District Courts across all Indian States & Union Territories. E-Courts links, cause lists, and legal information.",
+  keywords: [
+    "All India Courts Directory",
+    "High Courts India",
+    "District Courts India",
+    "eCourts Services",
+    "Supreme Court of India",
+    "State Judiciary",
+    "Indian Court System",
+    "Advocate Tushar Garg"
+  ],
+  alternates: {
+    canonical: "/courts",
+  },
+};
 
 export const revalidate = 30;
 

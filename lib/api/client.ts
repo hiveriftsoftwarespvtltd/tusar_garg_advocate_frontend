@@ -9,10 +9,17 @@ export const apiClient = axios.create({
   timeout: 60000,
 });
 
-// Automatically attach Authorization Bearer token from localStorage
+// Automatically attach Authorization Bearer token from localStorage or cookie
 apiClient.interceptors.request.use((config) => {
   if (typeof window !== 'undefined') {
-    const token = localStorage.getItem('adminToken');
+    let token = localStorage.getItem('adminToken');
+    if (!token) {
+      const match = document.cookie.match(/(?:^|;\s*)adminToken=([^;]+)/);
+      if (match) {
+        token = match[1];
+        localStorage.setItem('adminToken', token);
+      }
+    }
     if (token && config.headers) {
       config.headers.Authorization = `Bearer ${token}`;
     }

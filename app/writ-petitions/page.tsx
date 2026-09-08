@@ -1,7 +1,9 @@
 import { Metadata } from "next";
 import WritPetitionsClientView from "./WritPetitionsClient";
 
-export const metadata: Metadata = {
+import { getSeoByRoute } from "@/lib/api/seo";
+
+const fallbackMetadata: Metadata = {
   title: "Writ Petitions (Article 32 & Article 226) | Supreme Court & High Court Advocacy - Advocate Tushar Garg",
   description: "Comprehensive legal guide on Constitutional Writ Petitions under Article 32 (Supreme Court) and Article 226 (High Courts) of the Constitution of India. Understand Habeas Corpus, Mandamus, Certiorari, Prohibition, Quo Warranto, filing procedure, comparison matrix & landmark SC precedents.",
   keywords: [
@@ -16,12 +18,19 @@ export const metadata: Metadata = {
     "Constitutional Law Advocate Delhi",
     "Tushar Garg Advocate"
   ],
+  alternates: {
+    canonical: "/writ-petitions",
+  },
   openGraph: {
     title: "Constitutional Writ Petitions (Art 32 & 226) | Advocate Tushar Garg",
     description: "Enforcing Fundamental Rights and challenging unconstitutional state actions through Writ Petitions before the Supreme Court of India & High Courts.",
     images: ["https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=1200&q=80"]
   }
 };
+
+export async function generateMetadata(): Promise<Metadata> {
+  return getSeoByRoute("/writ-petitions", fallbackMetadata);
+}
 
 export default function WritPetitionsPage() {
   return <WritPetitionsClientView />;

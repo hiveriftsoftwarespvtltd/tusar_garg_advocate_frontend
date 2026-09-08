@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Lock, Mail, ArrowRight, AlertCircle, Eye, EyeOff } from "lucide-react";
 import Image from "next/image";
@@ -14,6 +14,21 @@ export default function AdminLogin() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
+  // Auto redirect to dashboard if already logged in (never log out unless explicitly clicked)
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const localToken = localStorage.getItem("adminToken");
+      const cookieMatch = document.cookie.match(/(?:^|;\s*)adminToken=([^;]+)/);
+      const token = localToken || (cookieMatch ? cookieMatch[1] : null);
+      if (token) {
+        if (!localToken && cookieMatch) {
+          localStorage.setItem("adminToken", cookieMatch[1]);
+        }
+        router.replace("/admin/dashboard");
+      }
+    }
+  }, [router]);
+
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
@@ -25,9 +40,13 @@ export default function AdminLogin() {
         body: JSON.stringify({ email, password }),
       });
       
-      // Store token securely (using localStorage for simplicity in this demo, though httpOnly cookies are better)
+      // Store token permanently in localStorage and persistent cookie (10 years / 315360000s)
       localStorage.setItem("adminToken", data.accessToken);
       localStorage.setItem("adminData", JSON.stringify(data.admin));
+
+      // Set long-lived persistent cookie so token survives browser restarts and storage purges
+      document.cookie = `adminToken=${data.accessToken}; path=/; max-age=315360000; SameSite=Lax`;
+      document.cookie = `adminData=${encodeURIComponent(JSON.stringify(data.admin))}; path=/; max-age=315360000; SameSite=Lax`;
 
       router.push("/admin/dashboard");
     } catch (err: any) {

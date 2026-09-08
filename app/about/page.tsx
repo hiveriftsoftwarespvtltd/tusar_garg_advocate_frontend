@@ -1,7 +1,32 @@
+import type { Metadata } from "next";
 import PageHero from "../components/PageHero";
 import ProfessionalProfile from "./components/ProfessionalProfile";
 import AboutDetailsList from "./components/AboutDetailsList";
 import AboutCTA from "./components/AboutCTA";
+
+import { getSeoByRoute } from "../../lib/api/seo";
+
+const fallbackMetadata: Metadata = {
+  title: "About Advocate Tushar Garg | Advocate-on-Record, Supreme Court of India",
+  description: "Learn about Advocate Tushar Garg (B.A. LL.B., LL.M.), Advocate-on-Record at the Supreme Court of India with extensive litigation experience in SLPs, writ petitions, civil, and criminal law.",
+  keywords: [
+    "About Advocate Tushar Garg",
+    "Advocate on Record Supreme Court",
+    "AOR Supreme Court of India",
+    "Tushar Garg Advocate",
+    "Supreme Court Lawyer Delhi",
+    "Legal Profile Tushar Garg",
+    "SLP Lawyer Supreme Court",
+    "Top Advocate in Supreme Court"
+  ],
+  alternates: {
+    canonical: "/about",
+  },
+};
+
+export async function generateMetadata(): Promise<Metadata> {
+  return getSeoByRoute("/about", fallbackMetadata);
+}
 
 export default function AboutPage() {
   return (

@@ -36,6 +36,19 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `Complete ${detail.stats.actsCount} Bare Acts Directory | ${detail.name} - Advocate Tushar Garg`,
     description: `Explore all ${detail.stats.actsCount} Bare Acts, Articles, Sections, and statutory provisions under ${detail.name}. Supreme Court Advocate-on-Record Legal Directory.`,
+    keywords: [
+      `${detail.name} Bare Acts`,
+      `Central Acts ${detail.name}`,
+      "Indian Legislation",
+      "Statutory Provisions",
+      "Supreme Court of India",
+      "Advocate Tushar Garg",
+      "Bare Acts PDF Download",
+      "Legal Clauses and Amendments"
+    ],
+    alternates: {
+      canonical: `/laws/${slug}/acts`,
+    },
     openGraph: {
       title: `All ${detail.stats.actsCount} Bare Acts - ${detail.name}`,
       description: detail.subtitle || detail.overview.slice(0, 160),

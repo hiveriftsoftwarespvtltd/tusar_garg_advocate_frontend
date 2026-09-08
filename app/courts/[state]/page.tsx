@@ -27,8 +27,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return {
-    title: `${stateData.name} Courts | Tushar Garg Advocate`,
-    description: `Explore the courts located in ${stateData.name}`,
+    title: `${stateData.name} Courts & Judicial Directory | District & High Courts`,
+    description: `Directory of High Court, District Courts, and Subordinate Judiciary in ${stateData.name}. Access official e-Courts portals, case status, and cause lists.`,
+    keywords: [
+      `${stateData.name} Courts`,
+      `${stateData.name} District Courts`,
+      `${stateData.name} High Court`,
+      `${stateData.name} Judiciary`,
+      "eCourts India",
+      "District Court Case Status",
+      "Advocate Tushar Garg",
+      "Supreme Court of India"
+    ],
+    alternates: {
+      canonical: `/courts/${state}`,
+    },
   };
 }
 

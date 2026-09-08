@@ -37,6 +37,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `${detail.name} | Bare Acts, Precedents & Legal Guidance - Advocate Tushar Garg`,
     description: detail.subtitle || detail.overview.slice(0, 160),
+    keywords: [
+      detail.name,
+      `${detail.name} Bare Acts`,
+      `${detail.name} Precedents`,
+      `${detail.name} Landmark Judgments`,
+      "Supreme Court of India",
+      "Advocate Tushar Garg",
+      "Advocate on Record",
+      "Legal Practice India",
+      "Indian Law Directory"
+    ],
+    alternates: {
+      canonical: `/laws/${slug}`,
+    },
     openGraph: {
       title: `${detail.name} - Bare Acts & Legal Practice`,
       description: detail.overview.slice(0, 160),

@@ -6,6 +6,18 @@ import { LAWS_CATEGORY_DATA } from "@/app/laws/data/lawsData";
 export const metadata: Metadata = {
   title: "Bare Acts Database & Legal Codes | Advocate Tushar Garg",
   description: "Complete repository of central Bare Acts including Bharatiya Nyaya Sanhita (BNS), BNSS, BSA, CPC, Constitution, and commercial statutes.",
+  keywords: [
+    "Bare Acts Database",
+    "Central Acts India",
+    "Bharatiya Nyaya Sanhita",
+    "BNSS",
+    "BSA",
+    "Civil Procedure Code",
+    "Advocate Tushar Garg"
+  ],
+  alternates: {
+    canonical: "/resources/bare-acts",
+  },
   openGraph: {
     title: "Bare Acts Database | Advocate Tushar Garg",
     description: "Complete repository of central Bare Acts with sections, summaries, and precedents.",

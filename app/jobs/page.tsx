@@ -1,9 +1,28 @@
+import type { Metadata } from "next";
 import JobsHero from "./components/JobsHero";
 import JobsCategoryGrid from "./components/JobsCategoryGrid";
 import FeaturedOpenings from "./components/FeaturedOpenings";
 import LatestNotifications from "./components/LatestNotifications";
 import JobHighlights from "./components/JobHighlights";
 import InfoBanner from "./components/InfoBanner";
+
+export const metadata: Metadata = {
+  title: "Legal Jobs, Judicial Clerkships & Law Internships | Advocate Tushar Garg",
+  description: "Explore legal career opportunities including Judicial Clerkships, Supreme Court Internships, Public Prosecutor roles, Law Officer vacancies, and Corporate Counsel positions in India.",
+  keywords: [
+    "Legal Jobs India",
+    "Judicial Clerkship Supreme Court",
+    "Law Internships Delhi",
+    "Supreme Court Internship",
+    "Law Officer Vacancy",
+    "Corporate Counsel Jobs",
+    "Legal Careers India",
+    "Advocate Tushar Garg"
+  ],
+  alternates: {
+    canonical: "/jobs",
+  },
+};
 
 export default function JobsPage() {
   return (

@@ -48,6 +48,18 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return {
       title: `${stateData.stateName} Judiciary Examination - Syllabus, PYQs & Official Links | Advocate Tushar Garg`,
       description: `Complete guide for ${stateData.examName} (${stateData.shortCode}). Download previous year question papers, official syllabus, and access direct recruitment portals.`,
+      keywords: [
+        `${stateData.stateName} Judiciary`,
+        `${stateData.shortCode} Exam`,
+        `${stateData.stateName} Civil Judge Syllabus`,
+        `${stateData.stateName} Judicial Services PYQ`,
+        `${stateData.stateName} High Court Recruitment`,
+        "Judiciary Question Papers PDF",
+        "Judicial Services Exam Pattern"
+      ],
+      alternates: {
+        canonical: `/judiciary/${slug}`,
+      },
       openGraph: {
         title: `${stateData.stateName} Judiciary Examination (${stateData.shortCode})`,
         description: `Official question papers, syllabus, and examination guidance for ${stateData.examName}.`,
@@ -62,6 +74,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return {
       title: `${service.title} - Complete Exam Guide, Syllabus & Strategy | Advocate Tushar Garg`,
       description: `${service.tagline}. ${service.desc}`,
+      keywords: [
+        service.title,
+        service.shortTitle,
+        "Judiciary Preparation Strategy",
+        "Judicial Services Syllabus",
+        "Law Exams India"
+      ],
+      alternates: {
+        canonical: `/judiciary/${slug}`,
+      },
       openGraph: {
         title: `${service.title} | Judicial Services Portal`,
         description: service.desc,
@@ -72,7 +94,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: "Judicial Service Guide Not Found | Advocate Tushar Garg",
-    description: "Comprehensive judicial services, syllabus, and examination preparation guide."
+    description: "Comprehensive judicial services, syllabus, and examination preparation guide.",
+    alternates: {
+      canonical: `/judiciary/${slug}`,
+    }
   };
 }
 

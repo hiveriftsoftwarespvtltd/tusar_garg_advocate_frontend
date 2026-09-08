@@ -29,6 +29,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `Landmark Supreme Court Precedents (1950–Present) | ${detail.name} - Advocate Tushar Garg`,
     description: `Comprehensive repository of ${detail.stats.precedentsCount} landmark Supreme Court & High Court judgments from 1950 to present day under ${detail.name}. Ratio decidendi, legal citations, and AOR litigation principles.`,
+    keywords: [
+      `${detail.name} Landmark Judgments`,
+      `${detail.name} Precedents`,
+      "Supreme Court Case Laws",
+      "Apex Court Judgments",
+      "Ratio Decidendi",
+      "Case Citations",
+      "Advocate Tushar Garg",
+      "Advocate on Record",
+      "Legal Precedents India"
+    ],
+    alternates: {
+      canonical: `/laws/${slug}/precedents`,
+    },
     openGraph: {
       title: `${detail.name} — Apex Court Precedents (1950–Present)`,
       description: detail.subtitle || detail.overview.slice(0, 160),

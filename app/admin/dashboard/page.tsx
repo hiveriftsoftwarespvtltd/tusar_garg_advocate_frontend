@@ -22,7 +22,8 @@ import {
   Eye, 
   Activity,
   ChevronRight,
-  UserCheck
+  UserCheck,
+  Globe
 } from "lucide-react";
 import Link from "next/link";
 import { fetchApi } from "../../../lib/api/client";
@@ -393,6 +394,17 @@ export default function AdminDashboard() {
                 <div className="flex items-center gap-2.5">
                   <Landmark size={16} className="text-[#c9a84c]" />
                   <span>Add Court / State Listing</span>
+                </div>
+                <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+
+              <Link
+                href="/admin/dashboard/seo"
+                className="w-full flex items-center justify-between p-3 rounded-xl bg-[#c9a84c]/10 hover:bg-[#0d1b3e] text-[#0d1b3e] hover:text-white border border-[#c9a84c]/30 transition-all font-bold text-xs group"
+              >
+                <div className="flex items-center gap-2.5">
+                  <Globe size={16} className="text-[#c9a84c]" />
+                  <span>Manage SEO & Meta Tags</span>
                 </div>
                 <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
               </Link>

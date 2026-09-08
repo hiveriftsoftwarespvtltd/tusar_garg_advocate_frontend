@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import JudiciaryHero from "./components/JudiciaryHero";
 import StateGrid from "./components/StateGrid";
 import PopularServices from "./components/PopularServices";
@@ -6,6 +7,33 @@ import PreparationResources from "./components/PreparationResources";
 import ExamStages from "./components/ExamStages";
 import WhyUsePortal from "./components/WhyUsePortal";
 import { GraduationCap, BookCopy } from "lucide-react";
+
+import { getSeoByRoute } from "@/lib/api/seo";
+
+const fallbackMetadata: Metadata = {
+  title: "Indian Judiciary Examinations - 28 States Syllabus & PYQs | Advocate Tushar Garg",
+  description:
+    "Comprehensive judicial services examination repository covering all 28 States of India. Access state-wise syllabus, previous year question papers, patterns, and official recruitment links.",
+  keywords: [
+    "Judiciary Examination India",
+    "Judicial Services Exam",
+    "Civil Judge Junior Division",
+    "PCS J Examination",
+    "UP PCS J",
+    "RJS Rajasthan Judiciary",
+    "Delhi Judicial Service DJS",
+    "Bihar Judicial Services BPSC J",
+    "Judiciary Previous Papers PDF",
+    "Judiciary Syllabus 28 States"
+  ],
+  alternates: {
+    canonical: "/judiciary",
+  },
+};
+
+export async function generateMetadata(): Promise<Metadata> {
+  return getSeoByRoute("/judiciary", fallbackMetadata);
+}
 
 export default function JudiciaryPage() {
   return (

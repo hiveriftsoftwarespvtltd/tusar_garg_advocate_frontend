@@ -18,44 +18,57 @@ import {
   LogOut, 
   Menu,
   X,
-  Mail
+  Mail,
+  Globe
 } from "lucide-react";
+
+function getPersistentAdminUser() {
+  if (typeof window === "undefined") return null;
+  let token = localStorage.getItem("adminToken");
+  let dataStr = localStorage.getItem("adminData");
+
+  if (!token) {
+    const tokenMatch = document.cookie.match(/(?:^|;\s*)adminToken=([^;]+)/);
+    if (tokenMatch) {
+      token = tokenMatch[1];
+      localStorage.setItem("adminToken", token);
+    }
+  }
+
+  if (!dataStr) {
+    const dataMatch = document.cookie.match(/(?:^|;\s*)adminData=([^;]+)/);
+    if (dataMatch) {
+      try {
+        dataStr = decodeURIComponent(dataMatch[1]);
+        localStorage.setItem("adminData", dataStr);
+      } catch (e) {}
+    }
+  }
+
+  if (token) {
+    if (dataStr) {
+      try {
+        return JSON.parse(dataStr);
+      } catch (e) {}
+    }
+    return { name: "System Admin", email: "admin@example.com", role: "ADMIN" };
+  }
+  return null;
+}
 
 export default function AdminDashboardLayout({ children }: { children: React.ReactNode }) {
   const router = useRouter();
   const pathname = usePathname();
   const [isSidebarOpen, setSidebarOpen] = useState(true);
-  const [adminUser, setAdminUser] = useState<any>(() => {
-    if (typeof window !== "undefined") {
-      const data = localStorage.getItem("adminData");
-      if (data) {
-        try {
-          return JSON.parse(data);
-        } catch (e) {}
-      }
-      const token = localStorage.getItem("adminToken");
-      if (token) {
-        return { name: "Admin", email: "admin@example.com", role: "ADMIN" };
-      }
-    }
-    return null;
-  });
+  const [adminUser, setAdminUser] = useState<any>(() => getPersistentAdminUser());
 
   useEffect(() => {
-    // Basic auth check
-    const token = localStorage.getItem("adminToken");
-    const adminData = localStorage.getItem("adminData");
-    
-    if (!token) {
+    // Only redirect to /admin if NO token exists in either localStorage or persistent cookie
+    const user = getPersistentAdminUser();
+    if (!user) {
       router.push("/admin");
-    } else if (adminData) {
-      try {
-        setAdminUser(JSON.parse(adminData));
-      } catch (e) {
-        setAdminUser({ name: "Admin", email: "admin@example.com", role: "ADMIN" });
-      }
     } else {
-      setAdminUser({ name: "Admin", email: "admin@example.com", role: "ADMIN" });
+      setAdminUser(user);
     }
   }, [router]);
 
@@ -87,11 +100,15 @@ export default function AdminDashboardLayout({ children }: { children: React.Rea
     { name: "Manage Resources", href: "/admin/dashboard/resources", icon: BookOpen },
     { name: "Manage States", href: "/admin/dashboard/states", icon: Map },
     { name: "Manage Courts", href: "/admin/dashboard/courts", icon: Scale },
+    { name: "Manage SEO & Meta Tags", href: "/admin/dashboard/seo", icon: Globe },
   ];
 
+  // Only logout when user explicitly clicks this button
   const handleLogout = () => {
     localStorage.removeItem("adminToken");
     localStorage.removeItem("adminData");
+    document.cookie = "adminToken=; path=/; max-age=0; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    document.cookie = "adminData=; path=/; max-age=0; expires=Thu, 01 Jan 1970 00:00:00 GMT";
     router.push("/admin");
   };
 

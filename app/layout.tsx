@@ -19,11 +19,68 @@ const robotoSerif = Roboto_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "Tushar Garg - Advocate-on-Record, Supreme Court of India",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://advocateonrecordtushargarg.com"),
+  title: {
+    default: "Tushar Garg - Advocate-on-Record, Supreme Court of India",
+    template: "%s | Tushar Garg (AOR), Supreme Court of India",
+  },
   description:
-    "Tushar Garg is an Advocate-on-Record at the Supreme Court of India with vast experience in Constitutional, Civil, Criminal, Commercial and Arbitration matters.",
-  keywords:
-    "Tushar Garg, Advocate-on-Record, Supreme Court of India, Legal Services, Indian Judiciary, Judgments, Laws, Courts",
+    "Tushar Garg is an Advocate-on-Record (AOR) at the Supreme Court of India. Professional legal counsel in Constitutional Law, Civil, Criminal, Commercial, Arbitration, Special Leave Petitions (SLP), and comprehensive Indian legal repository.",
+  keywords: [
+    "Tushar Garg",
+    "Advocate on Record",
+    "AOR Supreme Court of India",
+    "Supreme Court Lawyer Delhi",
+    "Special Leave Petition SLP",
+    "Writ Petitions Article 32 Article 226",
+    "Indian Bare Acts Library",
+    "New Criminal Laws 2023 BNS BNSS BSA",
+    "Judicial Services Examination",
+    "State Judiciary Syllabus",
+    "Supreme Court Judgments",
+    "Legal Articles India",
+    "Indian Law Precedents",
+    "High Court of Delhi Lawyer",
+    "Legal Consultation Supreme Court"
+  ],
+  alternates: {
+    canonical: "https://advocateonrecordtushargarg.com",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    url: "https://advocateonrecordtushargarg.com",
+    siteName: "Advocate Tushar Garg (AOR)",
+    title: "Tushar Garg - Advocate-on-Record, Supreme Court of India",
+    description:
+      "Supreme Court litigation, Indian Bare Acts, Judicial Services examination guides, and landmark legal precedents.",
+    images: [
+      {
+        url: "/home/tusar_garg_photo.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "Advocate Tushar Garg - Advocate-on-Record, Supreme Court of India",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Tushar Garg - Advocate-on-Record, Supreme Court of India",
+    description:
+      "Supreme Court litigation, Indian Bare Acts, Judicial Services examination repository, and legal counsel.",
+    images: ["/home/tusar_garg_photo.jpeg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   icons: {
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml" },
