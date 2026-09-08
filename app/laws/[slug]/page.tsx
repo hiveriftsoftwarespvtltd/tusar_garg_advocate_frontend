@@ -174,7 +174,7 @@ export default async function LawCategoryPage({ params }: PageProps) {
 
                 <div className="space-y-3">
                   <a
-                    href="tel:+919818000000"
+                    href="tel:+917206810681"
                     className="w-full flex items-center justify-center gap-2 bg-[#c9a84c] hover:bg-[#b5953d] text-[#071126] font-bold py-2.5 px-4 rounded-xl transition-colors text-[13px] uppercase tracking-wider shadow-lg"
                   >
                     <Phone size={15} />

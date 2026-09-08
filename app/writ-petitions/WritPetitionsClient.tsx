@@ -362,7 +362,7 @@ export default function WritPetitionsClientView() {
 
                 <div className="space-y-3">
                   <a
-                    href="tel:+919818000000"
+                    href="tel:+917206810681"
                     className="w-full flex items-center justify-center gap-2 bg-[#c9a84c] hover:bg-[#b5953d] text-[#071126] font-bold py-2.5 px-4 rounded-xl transition-colors text-[13px] uppercase tracking-wider shadow-lg"
                   >
                     <Phone size={15} />
@@ -798,7 +798,7 @@ export default function WritPetitionsClientView() {
 
             <div className="flex flex-col sm:flex-row items-center gap-4 pt-4">
               <a
-                href="tel:+919818000000"
+                href="tel:+917206810681"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#c9a84c] hover:bg-[#b5953d] text-[#071126] font-bold py-3.5 px-8 rounded-xl transition-all text-xs uppercase tracking-wider shadow-xl hover:scale-105"
               >
                 <Phone size={16} />

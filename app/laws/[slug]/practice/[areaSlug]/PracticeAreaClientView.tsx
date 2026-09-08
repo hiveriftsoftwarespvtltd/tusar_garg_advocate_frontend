@@ -186,7 +186,7 @@ export default function PracticeAreaClientView({
 
                 <div className="space-y-3">
                   <a
-                    href="tel:+919818000000"
+                    href="tel:+917206810681"
                     className="w-full flex items-center justify-center gap-2 bg-[#c9a84c] hover:bg-[#b5953d] text-[#071126] font-bold py-2.5 px-4 rounded-xl transition-colors text-[13px] uppercase tracking-wider shadow-lg"
                   >
                     <Phone size={15} />
@@ -544,7 +544,7 @@ export default function PracticeAreaClientView({
 
             <div className="flex flex-col sm:flex-row items-center gap-4 shrink-0 w-full sm:w-auto">
               <a
-                href="tel:+919818000000"
+                href="tel:+917206810681"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-[#c9a84c] hover:bg-[#b5953d] text-[#071126] font-bold py-3.5 px-6 rounded-xl transition-colors text-sm uppercase tracking-wider shadow-xl"
               >
                 <Phone size={16} />
