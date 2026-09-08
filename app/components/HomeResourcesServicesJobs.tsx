@@ -23,7 +23,7 @@ const columns = [
       { title: "Case Strategy", subtitle: "Plan your case with experts", icon: <Target size={20} className="text-[#0d1b3e]" />, href: "/contact" },
       { title: "Document Review", subtitle: "Get your documents reviewed", icon: <Search size={20} className="text-[#0d1b3e]" />, href: "/contact" },
     ],
-    buttonText: "EXPLORE SERVICES",
+    buttonText: "LEGAL AWARENESS",
     buttonHref: "/contact"
   },
   {

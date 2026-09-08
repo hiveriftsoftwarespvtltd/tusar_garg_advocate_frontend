@@ -52,7 +52,7 @@ const importantLinks = [
   { name: "Privacy Policy", href: "#" },
   { name: "Disclaimer", href: "#" },
   { name: "Sitemap", href: "#" },
-  { name: "Contact", href: "/contact" }
+  { name: "Legal Awareness", href: "/contact" }
 ];
 
 export default function Footer() {

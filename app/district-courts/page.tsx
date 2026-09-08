@@ -249,7 +249,7 @@ export default function DistrictCourtsPage() {
       <CtaBanner
         title="NEED DISTRICT COURT LEGAL REPRESENTATION?"
         subtitle="Access professional legal advocacy across District Courts, Sessions Courts & Tribunals."
-        buttonText="CONTACT ADVOCATE NOW"
+        buttonText="Legal Awareness"
         href="/contact"
       />
     </main>

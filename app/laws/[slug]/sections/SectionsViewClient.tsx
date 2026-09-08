@@ -668,7 +668,7 @@ export default function SectionsViewClient({ detail }: Props) {
                   className="inline-flex items-center justify-center gap-1.5 bg-[#0d1b3e] hover:bg-[#c9a84c] text-white hover:text-[#071126] font-bold px-3.5 py-2 rounded-xl transition-all shadow-sm shrink-0"
                 >
                   <MessageSquare size={13} />
-                  <span>Consult Chamber on {item.number}</span>
+                  <span>Legal Awareness</span>
                 </Link>
               </div>
             </div>
@@ -707,7 +707,7 @@ export default function SectionsViewClient({ detail }: Props) {
               href="/contact"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-white/10 hover:bg-white/20 text-white font-semibold py-3.5 px-6 rounded-xl border border-white/30 transition-colors text-sm"
             >
-              <span>Book Appointment</span>
+              <span>Legal Awareness</span>
               <ChevronRight size={16} />
             </Link>
           </div>

@@ -45,7 +45,7 @@ const navItems = [
   { label: "COLLEGES", href: "/colleges" },
   { label: "ARTICLES", href: "/articles" },
   // { label: "RESOURCES", href: "/resources", hasDropdown: true },
-  { label: "CONTACT", href: "/contact" },
+  { label: "Legal Awareness", href: "/contact" },
 ];
 
 export default function Header() {

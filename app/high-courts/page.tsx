@@ -242,7 +242,7 @@ export default function HighCourtsPage() {
       <CtaBanner
         title="NEED HIGH COURT LITIGATION & WRIT PETITION COUNSEL?"
         subtitle="Consult Advocate Tushar Garg for representation across Supreme Court & High Courts in India."
-        buttonText="CONTACT ADVOCATE NOW"
+        buttonText="Legal Awareness"
         href="/contact"
       />
     </main>

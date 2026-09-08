@@ -94,7 +94,7 @@ export default async function CourtsPage() {
       <CtaBanner
         title="NEED LEGAL RESEARCH ASSISTANCE?"
         subtitle="Access structured court information, judgments and judiciary resources through a trusted legal platform."
-        buttonText="CONTACT NOW"
+        buttonText="Legal Awareness"
         href="/contact"
       />
     </main>

@@ -528,7 +528,7 @@ export default function AllCourtsPage() {
       <CtaBanner
         title="NEED LEGAL ASSISTANCE IN ANY INDIAN COURT?"
         subtitle="Consult with experienced Advocates for Supreme Court, High Courts, District Courts, and NCLT/NGT Tribunal representation."
-        buttonText="CONTACT ADVOCATE NOW"
+        buttonText="Legal Awareness"
         href="/contact"
       />
     </main>

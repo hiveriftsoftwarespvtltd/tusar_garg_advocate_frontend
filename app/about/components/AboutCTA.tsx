@@ -38,7 +38,7 @@ export default function AboutCTA() {
               href="/contact"
               className="inline-flex items-center justify-center bg-[#0d1b3e] text-white px-7 py-3.5 rounded font-bold text-[13px] tracking-wide hover:bg-[#1a2e63] transition-colors group"
             >
-              GET IN TOUCH <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
+              LEGAL AWARENESS <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
           

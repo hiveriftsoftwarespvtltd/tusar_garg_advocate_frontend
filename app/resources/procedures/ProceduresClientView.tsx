@@ -83,7 +83,7 @@ export default function ProceduresClientView() {
                   href="/contact"
                   className="inline-flex items-center gap-2 bg-[#c9a84c] hover:bg-[#d4a93a] text-[#0d1b3e] font-bold text-xs uppercase tracking-wider px-6 py-3 rounded-lg shadow-md transition-all hover:scale-[1.02]"
                 >
-                  <span>Chambers Filing Assistance</span>
+                  <span>Legal Awareness</span>
                   <ArrowRight size={14} strokeWidth={2.5} />
                 </Link>
 
