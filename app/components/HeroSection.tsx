@@ -37,7 +37,7 @@ const defaultHeroData: HeroData = {
     { label: "States Covered", value: "28+" },
   ],
   consultationLink: "/contact",
-  consultationText: "Legal Helpline",
+  consultationText: "Legal Awareness Helpline",
 };
 
 export default function HeroSection() {
@@ -188,7 +188,7 @@ export default function HeroSection() {
                 href={data.consultationLink || "/contact"}
                 className="btn-shine-effect btn-glow-gold mt-3 w-full flex items-center justify-center gap-2 bg-gradient-to-r from-[#e5be58] via-[#f7e6a6] to-[#c9a84c] text-[#071126] font-bold text-[11px] uppercase tracking-wider py-2.5 px-4 rounded-xl transition-all duration-300 border border-[#fff2b2]/50 shadow-lg active:scale-[0.98]"
               >
-                <span>{data.consultationText}</span>
+                <span>{data.consultationText === "Legal Helpline" ? "Legal Awareness Helpline" : (data.consultationText || "Legal Awareness Helpline")}</span>
                 <ArrowRight size={13} strokeWidth={2.5} className="transition-transform group-hover:translate-x-1" />
               </Link>
 
@@ -201,7 +201,7 @@ export default function HeroSection() {
                 <div className="flex items-center gap-2">
                   {/* Instagram */}
                   <a
-                    href="https://www.instagram.com/"
+                    href="https://www.instagram.com/advocateonrecordtushargarg"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Instagram"
@@ -214,7 +214,7 @@ export default function HeroSection() {
 
                   {/* Facebook */}
                   <a
-                    href="https://www.facebook.com/"
+                    href="https://www.facebook.com/advocateonrecordtushargarg"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Facebook"
@@ -227,7 +227,7 @@ export default function HeroSection() {
 
                   {/* LinkedIn */}
                   <a
-                    href="https://www.linkedin.com/in/tushar-garg-advocate"
+                    href="https://www.linkedin.com/company/advocate-on-record-tushar-garg/about/?viewAsMember=true"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="LinkedIn"
@@ -240,7 +240,7 @@ export default function HeroSection() {
 
                   {/* YouTube */}
                   <a
-                    href="https://www.youtube.com/"
+                    href="https://www.youtube.com/@tushargarg2467"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="YouTube"

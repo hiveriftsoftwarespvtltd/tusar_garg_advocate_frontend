@@ -28,7 +28,7 @@ export default function GlobalSocialSidebar() {
     },
     {
       name: "LinkedIn",
-      href: "https://www.linkedin.com/in/tushar-garg-advocate",
+      href: "https://www.linkedin.com/company/advocate-on-record-tushar-garg/about/?viewAsMember=true",
       bg: "bg-[#0A66C2]",
       hoverBg: "hover:bg-[#084e96]",
       icon: (
@@ -39,7 +39,7 @@ export default function GlobalSocialSidebar() {
     },
     {
       name: "Instagram",
-      href: "https://www.instagram.com/",
+      href: "https://www.instagram.com/advocateonrecordtushargarg",
       bg: "bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888]",
       hoverBg: "hover:opacity-90",
       icon: (
@@ -50,7 +50,7 @@ export default function GlobalSocialSidebar() {
     },
     {
       name: "Facebook",
-      href: "https://www.facebook.com/",
+      href: "https://www.facebook.com/advocateonrecordtushargarg",
       bg: "bg-[#1877F2]",
       hoverBg: "hover:bg-[#0e5fc4]",
       icon: (
@@ -60,19 +60,8 @@ export default function GlobalSocialSidebar() {
       ),
     },
     {
-      name: "X (Twitter)",
-      href: "https://twitter.com/",
-      bg: "bg-[#000000]",
-      hoverBg: "hover:bg-[#222222]",
-      icon: (
-        <svg className="w-5 h-5 fill-white" viewBox="0 0 24 24">
-          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-        </svg>
-      ),
-    },
-    {
       name: "YouTube",
-      href: "https://www.youtube.com/",
+      href: "https://www.youtube.com/@tushargarg2467",
       bg: "bg-[#FF0000]",
       hoverBg: "hover:bg-[#d60000]",
       icon: (

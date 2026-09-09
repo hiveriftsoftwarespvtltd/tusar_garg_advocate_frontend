@@ -36,7 +36,7 @@ export default function CtaBanner({ title, subtitle, buttonText, href }: CtaBann
           href={href}
           className="inline-flex items-center gap-2 bg-[#c9a84c] text-white px-8 py-3.5 text-[12px] font-bold uppercase tracking-widest rounded-md transition-all duration-300 hover:bg-[#d4a93a] hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#c9a84c]/30 active:scale-[0.98] flex-shrink-0"
         >
-          {href === "/contact" ? "Legal Helpline" : buttonText} <ArrowRight size={14} strokeWidth={2.5} />
+          {href === "/contact" ? "Legal Awareness Helpline" : buttonText} <ArrowRight size={14} strokeWidth={2.5} />
         </a>
       </div>
     </section>

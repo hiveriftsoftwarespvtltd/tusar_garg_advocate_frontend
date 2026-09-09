@@ -25,8 +25,8 @@ function WhatsAppIcon({ className = "w-6 h-6" }: { className?: string }) {
 
 export default function WhatsAppFloatingButton({
   phoneNumber = "917206810681",
-  message = "Hello Advocate Tushar Garg, I need legal consultation regarding a court matter.",
-  accountName = "Advocate Tushar Garg (AOR)",
+  message = "Hello, I need legal assistance through the Legal Awareness Helpline.",
+  accountName = "Legal Awareness Helpline",
 }: WhatsAppFloatingButtonProps) {
   const [showTooltip, setShowTooltip] = useState(true);
 
@@ -41,7 +41,7 @@ export default function WhatsAppFloatingButton({
           onClick={() => {
             window.open(whatsappUrl, "_blank", "noopener,noreferrer");
           }}
-          className="mb-3 bg-white text-gray-900 border border-[#25D366]/40 hover:border-[#25D366] rounded-2xl p-3.5 shadow-2xl hover:shadow-[0_8px_30px_rgba(37,211,102,0.2)] max-w-[280px] animate-in fade-in slide-in-from-bottom-3 duration-300 relative group/tooltip cursor-pointer transition-all"
+          className="mb-3 bg-white text-gray-900 border border-[#25D366]/40 hover:border-[#25D366] rounded-2xl p-3.5 shadow-2xl hover:shadow-[0_8px_30px_rgba(37,211,102,0.2)] min-w-[220px] max-w-[270px] animate-in fade-in slide-in-from-bottom-3 duration-300 relative group/tooltip cursor-pointer transition-all"
         >
           <button
             onClick={(e) => {
@@ -49,26 +49,17 @@ export default function WhatsAppFloatingButton({
               e.preventDefault();
               setShowTooltip(false);
             }}
-            aria-label="Close WhatsApp notification"
-            className="absolute top-2 right-2 text-gray-400 hover:text-gray-600 transition-colors p-1 rounded-full hover:bg-gray-100 z-10"
+            aria-label="Close notification"
+            className="absolute top-2.5 right-2.5 text-gray-400 hover:text-gray-600 transition-colors p-1 rounded-full hover:bg-gray-100 z-10"
           >
             <X size={14} />
           </button>
 
-          <div className="flex items-center gap-2 mb-1.5 pr-4">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#25D366] animate-pulse" />
-            <span className="text-[11px] font-bold uppercase tracking-wider text-[#25D366]">
-              Online • Legal Chamber
-            </span>
+          <div className="pr-6 mb-3">
+            <h4 className="font-extrabold text-[13.5px] text-[#0d1b3e] leading-snug">
+              Legal Awareness Helpline
+            </h4>
           </div>
-
-          <h4 className="font-serif font-bold text-xs text-[#0d1b3e] mb-1 group-hover/tooltip:text-[#25D366] transition-colors">
-            {accountName}
-          </h4>
-
-          <p className="text-[11.5px] text-gray-600 leading-snug mb-2.5">
-            Need urgent legal advice or Supreme Court AOR assistance? Chat directly on WhatsApp.
-          </p>
 
           <div
             className="inline-flex items-center gap-2 bg-[#25D366] group-hover/tooltip:bg-[#20ba5a] text-white font-bold text-[11.5px] px-3 py-2 rounded-xl transition-all shadow-md group-hover/tooltip:shadow-lg w-full justify-center"
@@ -87,7 +78,7 @@ export default function WhatsAppFloatingButton({
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Chat with Advocate Tushar Garg on WhatsApp"
+        aria-label="Contact Legal Awareness Helpline on WhatsApp"
         className="relative group flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] text-white shadow-2xl hover:bg-[#20ba5a] hover:scale-110 transition-all duration-300 cursor-pointer"
       >
         {/* Pulsing ring animation */}
@@ -98,9 +89,10 @@ export default function WhatsAppFloatingButton({
 
         {/* Hover Label for Desktop */}
         <span className="absolute right-16 bg-[#0d1b3e] text-white text-xs font-bold px-3 py-1.5 rounded-xl shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none border border-[#c9a84c]/30">
-          WhatsApp Chamber
+          Legal Awareness Helpline
         </span>
       </a>
     </div>
   );
 }
+

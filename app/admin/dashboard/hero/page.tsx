@@ -31,7 +31,7 @@ export default function AdminHeroPage() {
       { label: "States Covered", value: "28+" },
     ],
     consultationLink: "/contact",
-    consultationText: "Legal Helpline",
+    consultationText: "Legal Awareness Helpline",
   });
 
   const [loading, setLoading] = useState(true);
