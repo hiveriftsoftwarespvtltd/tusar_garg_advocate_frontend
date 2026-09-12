@@ -145,13 +145,24 @@ function matchesArticle(art: any, articleId?: string | null, articleTitle?: stri
 
 function ArticlesContent() {
   const searchParams = useSearchParams();
-  const [articles, setArticles] = useState<any[]>(defaultArticlesList);
-  const [loading, setLoading] = useState(true);
+  const [articles, setArticles] = useState<any[]>(() => {
+    if (typeof window !== "undefined") {
+      try {
+        const cached = localStorage.getItem("cached_public_articles");
+        if (cached) {
+          const parsed = JSON.parse(cached);
+          if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+        }
+      } catch (e) {}
+    }
+    return defaultArticlesList;
+  });
+  const [loading, setLoading] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedArticle, setSelectedArticle] = useState<any | null>(null);
 
-  // Fetch articles list from backend
+  // Fetch articles list from backend in background (SWR pattern)
   useEffect(() => {
     let isMounted = true;
     async function loadArticles() {
@@ -159,6 +170,9 @@ function ArticlesContent() {
         const data = await fetchApi('/articles');
         if (isMounted && data && Array.isArray(data) && data.length > 0) {
           setArticles(data);
+          try {
+            localStorage.setItem("cached_public_articles", JSON.stringify(data));
+          } catch (e) {}
         }
       } catch (err) {
         console.error("Failed to load articles from API", err);

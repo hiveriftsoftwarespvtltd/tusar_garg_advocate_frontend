@@ -25,11 +25,32 @@ import {
   Sparkles
 } from "lucide-react";
 import { fetchApi } from "../../../../lib/api/client";
+import { uploadImageFile } from "../../../../lib/api/upload";
 import Swal from 'sweetalert2';
 
 export default function AdminArticles() {
-  const [articles, setArticles] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [articles, setArticles] = useState<any[]>(() => {
+    if (typeof window !== "undefined") {
+      try {
+        const cached = localStorage.getItem("cached_admin_articles");
+        if (cached) {
+          const parsed = JSON.parse(cached);
+          if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+        }
+      } catch (e) {}
+    }
+    return [];
+  });
+  const [loading, setLoading] = useState<boolean>(() => {
+    if (typeof window !== "undefined") {
+      try {
+        const cached = localStorage.getItem("cached_admin_articles");
+        if (cached && JSON.parse(cached).length > 0) return false;
+      } catch (e) {}
+    }
+    return true;
+  });
+  const [uploadingImage, setUploadingImage] = useState(false);
   const [showForm, setShowForm] = useState(false);
   const [editId, setEditId] = useState<string | null>(null);
 
@@ -58,7 +79,12 @@ export default function AdminArticles() {
   const loadData = async () => {
     try {
       const data = await fetchApi('/articles');
-      setArticles(data || []);
+      if (data && Array.isArray(data)) {
+        setArticles(data);
+        try {
+          localStorage.setItem("cached_admin_articles", JSON.stringify(data));
+        } catch (e) {}
+      }
     } catch (err) {
       console.error("Failed to load articles", err);
     } finally {
@@ -87,6 +113,33 @@ export default function AdminArticles() {
       metaDescription: "",
       metaKeywords: ""
     });
+  };
+
+  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    try {
+      setUploadingImage(true);
+      const url = await uploadImageFile(file, 'tushar_advocate/articles');
+      setFormData(prev => ({ ...prev, image: url }));
+      Swal.fire({
+        title: 'Uploaded!',
+        text: 'Image uploaded to Cloudinary successfully.',
+        icon: 'success',
+        timer: 1500,
+        showConfirmButton: false,
+      });
+    } catch (err: any) {
+      Swal.fire({
+        title: 'Upload Failed',
+        text: err.message || 'Could not upload image.',
+        icon: 'error',
+        confirmButtonColor: '#0d1b3e',
+      });
+    } finally {
+      setUploadingImage(false);
+    }
   };
 
   const handleEdit = (art: any) => {
@@ -129,17 +182,6 @@ export default function AdminArticles() {
       metaDescription: prev.metaDescription || suggestedDesc,
       metaKeywords: prev.metaKeywords || suggestedKeywords,
     }));
-  };
-
-  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setFormData(prev => ({ ...prev, image: reader.result as string }));
-      };
-      reader.readAsDataURL(file);
-    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
