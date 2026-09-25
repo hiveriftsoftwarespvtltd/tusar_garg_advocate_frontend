@@ -13,12 +13,14 @@
   --color-muted-light: #9ca3af;
   --color-text-primary: #1a2b5e;
   --color-body: #374151;
-  --font-sans: var(--font-roboto), "Roboto", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-roboto-serif), "Roboto Serif", ui-serif, Georgia, serif;
-  --font-case: var(--font-roboto-serif), "Roboto Serif", ui-serif, Georgia, serif;
+  --font-sans: var(--font-roboto, "Roboto", ui-sans-serif, system-ui, sans-serif);
+  --font-serif: var(--font-roboto-serif, "Roboto Serif", ui-serif, Georgia, serif);
+  --font-case: var(--font-roboto-serif, "Roboto Serif", ui-serif, Georgia, serif);
 }
 
 :root {
+  --font-roboto: 'Roboto', ui-sans-serif, system-ui, sans-serif;
+  --font-roboto-serif: 'Roboto Serif', ui-serif, Georgia, serif;
   --background: #ffffff;
   --foreground: #1a2b5e;
 }
