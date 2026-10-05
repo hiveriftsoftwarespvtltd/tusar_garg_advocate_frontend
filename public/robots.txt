@@ -1,0 +1,102 @@
+User-agent: *
+Allow: /
+
+# =========================
+# Admin / user areas
+# =========================
+Disallow: /admin/
+Disallow: /login
+Disallow: /register
+Disallow: /dashboard/
+Disallow: /profile/
+Disallow: /settings/
+Disallow: /account/
+Disallow: /user/
+Disallow: /config/
+Disallow: /tools/
+Disallow: /submit_enquiry11
+Disallow: /contactmail
+Disallow: /thank-you
+Disallow: /thankyou
+Disallow: /phonepay
+Disallow: /success
+Disallow: /get-quote/callback
+Disallow: /get-quote/success
+Disallow: /get-quote/1successok
+Disallow: /get-quote/download-invoice
+Disallow: /get-quote/save-order
+Disallow: /get-quote/save-order-ok
+Disallow: /get-quote/save-quotation
+
+# =========================
+# Cart / order flow
+# =========================
+Disallow: /cart/
+Disallow: /checkout/
+Disallow: /orders/
+Disallow: /billing/
+
+# =========================
+# Search & filter parameters
+# =========================
+Disallow: /search
+Disallow: /*?q=
+Disallow: /*?search=
+Disallow: /*?filter=
+Disallow: /*?sort=
+Disallow: /*?type=
+Disallow: /*?ref=
+Disallow: /*?session=
+
+# =========================
+# Fake / spam / junk URLs
+# =========================
+Disallow: /*?j=
+Disallow: /*&j=
+Disallow: /*.shtml
+Disallow: /*.php?
+Disallow: /*.asp
+Disallow: /*.aspx
+Disallow: /*.xml?
+Disallow: /*.txt?
+Disallow: /*.json?
+
+# =========================
+# System / private folders
+# =========================
+Disallow: /tmp/
+Disallow: /private/
+Disallow: /server/
+Disallow: /backup/
+Disallow: /api-docs/
+
+# =========================
+# Specific AI Bots Allow
+# =========================
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Gemini
+Allow: /
+
+# =========================
+# Sitemap
+# =========================
+# Correct Sitemap (No WWW and Correct Path)
+Sitemap: https://advocateonrecordtushargarg.com/sitemap.xml
