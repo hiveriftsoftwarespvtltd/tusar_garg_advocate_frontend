@@ -87,6 +87,19 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <meta name="google-site-verification" content="Y8IxFpQssO7d7xXlxyp0pd4bZSaK7q3m2GTYHCtthUE" />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-VSQM1BYP8Z" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', 'G-VSQM1BYP8Z');
+            `,
+          }}
+        />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/favicon.svg" />
@@ -149,19 +162,6 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen bg-white antialiased flex flex-col overflow-x-hidden font-sans" suppressHydrationWarning>
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-VSQM1BYP8Z"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'G-VSQM1BYP8Z');
-          `}
-        </Script>
         <ClientLayoutWrapper>
           {children}
         </ClientLayoutWrapper>
