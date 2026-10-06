@@ -5,6 +5,9 @@ import Script from "next/script";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://advocateonrecordtushargarg.com"),
+  verification: {
+    google: "Y8IxFpQssO7d7xXlxyp0pd4bZSaK7q3m2GTYHCtthUE",
+  },
   title: {
     default: "Tushar Garg - Advocate-on-Record, Supreme Court of India",
     template: "%s | Tushar Garg (AOR), Supreme Court of India",
@@ -147,7 +150,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen bg-white antialiased flex flex-col overflow-x-hidden font-sans" suppressHydrationWarning>
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-Z5LZBEGBNM"
+          src="https://www.googletagmanager.com/gtag/js?id=G-VSQM1BYP8Z"
           strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
@@ -156,7 +159,7 @@ export default function RootLayout({
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
 
-            gtag('config', 'G-Z5LZBEGBNM');
+            gtag('config', 'G-VSQM1BYP8Z');
           `}
         </Script>
         <ClientLayoutWrapper>
