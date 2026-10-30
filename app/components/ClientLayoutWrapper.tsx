@@ -1,0 +1,28 @@
+"use client";
+
+import { usePathname } from "next/navigation";
+import Header from "./Header";
+import Footer from "./Footer";
+import ProductionPopup from "./ProductionPopup";
+import WhatsAppFloatingButton from "./WhatsAppFloatingButton";
+import AiChatbot from "./AiChatbot";
+
+export default function ClientLayoutWrapper({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
+  const isAdmin = pathname?.startsWith("/admin");
+
+  return (
+    <>
+      {!isAdmin && <ProductionPopup />}
+      {!isAdmin && <Header />}
+      
+      <div className="flex-1" suppressHydrationWarning>
+        {children}
+      </div>
+      
+      {!isAdmin && <Footer />}
+      {!isAdmin && <WhatsAppFloatingButton />}
+      {!isAdmin && <AiChatbot />}
+    </>
+  );
+}

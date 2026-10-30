@@ -1,0 +1,141 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { Lock, Mail, ArrowRight, AlertCircle, Eye, EyeOff } from "lucide-react";
+import Image from "next/image";
+import { fetchApi } from "../../lib/api/client";
+
+export default function AdminLogin() {
+  const router = useRouter();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  // Auto redirect to dashboard if already logged in (never log out unless explicitly clicked)
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const localToken = localStorage.getItem("adminToken");
+      const cookieMatch = document.cookie.match(/(?:^|;\s*)adminToken=([^;]+)/);
+      const token = localToken || (cookieMatch ? cookieMatch[1] : null);
+      if (token) {
+        if (!localToken && cookieMatch) {
+          localStorage.setItem("adminToken", cookieMatch[1]);
+        }
+        router.replace("/admin/dashboard");
+      }
+    }
+  }, [router]);
+
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError("");
+    setLoading(true);
+
+    try {
+      const data = await fetchApi("/auth/admin/login", {
+        method: "POST",
+        body: JSON.stringify({ email, password }),
+      });
+      
+      // Store token permanently in localStorage and persistent cookie (10 years / 315360000s)
+      localStorage.setItem("adminToken", data.accessToken);
+      localStorage.setItem("adminData", JSON.stringify(data.admin));
+
+      // Set long-lived persistent cookie so token survives browser restarts and storage purges
+      document.cookie = `adminToken=${data.accessToken}; path=/; max-age=315360000; SameSite=Lax`;
+      document.cookie = `adminData=${encodeURIComponent(JSON.stringify(data.admin))}; path=/; max-age=315360000; SameSite=Lax`;
+
+      router.push("/admin/dashboard");
+    } catch (err: any) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-[#0d1b3e] flex items-center justify-center p-4">
+      <div className="w-full max-w-md bg-white rounded-2xl shadow-2xl overflow-hidden">
+        <div className="bg-[#f8f9fa] p-8 text-center border-b border-gray-100">
+          <div className="flex justify-center mb-4">
+            <Link href="/" className="inline-block hover:opacity-90 transition-opacity">
+              <img
+                src="/TusharLogo.png"
+                alt="Tushar Garg Advocate"
+                className="h-16 w-auto object-contain"
+              />
+            </Link>
+          </div>
+          <h1 className="text-xl font-bold text-[#0d1b3e] mb-1 uppercase tracking-wide font-serif">Admin Portal</h1>
+          <p className="text-xs text-gray-500">Sign in to manage the Tushar Garg Advocate directory system.</p>
+        </div>
+        
+        <form onSubmit={handleLogin} className="p-8 space-y-6">
+          {error && (
+            <div className="bg-red-50 text-red-600 p-4 rounded-lg flex items-start gap-3 text-sm">
+              <AlertCircle size={18} className="mt-0.5 flex-shrink-0" />
+              <span>{error}</span>
+            </div>
+          )}
+
+          <div className="space-y-4">
+            <div>
+              <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">Email Address</label>
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <Mail size={18} className="text-gray-400" />
+                </div>
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#c9a84c] focus:border-[#c9a84c] text-sm text-black outline-none transition-all"
+                  placeholder="admin@example.com"
+                  required
+                />
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">Password</label>
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <Lock size={18} className="text-gray-400" />
+                </div>
+                <input
+                  type={showPassword ? "text" : "password"}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="block w-full pl-10 pr-10 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#c9a84c] focus:border-[#c9a84c] text-sm text-black outline-none transition-all"
+                  placeholder="••••••••"
+                  required
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600 focus:outline-none"
+                  title={showPassword ? "Hide password" : "Show password"}
+                >
+                  {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            disabled={loading}
+            className="w-full flex items-center justify-center gap-2 bg-[#c9a84c] hover:bg-[#d4a93a] text-[#0d1b3e] font-bold py-3.5 px-4 rounded-lg transition-all shadow-md hover:shadow-lg disabled:opacity-70 disabled:cursor-not-allowed"
+          >
+            {loading ? "AUTHENTICATING..." : "SIGN IN TO DASHBOARD"}
+            {!loading && <ArrowRight size={18} />}
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+}
