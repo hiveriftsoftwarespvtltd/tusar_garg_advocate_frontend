@@ -85,7 +85,7 @@ export default function Home() {
       {/* 8. Judiciary, Legal Education & Careers (Prompt Section 12) */}
       <HomeResourcesServicesJobs />
 
-      {/* 9. Chambers Contact Information (Prompt Section 13) */}
+      {/* 9. Legal Awareness Information (Prompt Section 13) */}
       <HomeContactSection />
     </main>
   );

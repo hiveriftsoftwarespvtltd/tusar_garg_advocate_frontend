@@ -3,21 +3,21 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { 
-  ChevronDown, 
-  Menu, 
-  X, 
-  Search, 
-  Phone, 
-  Mail, 
-  Clock, 
-  MapPin, 
-  Landmark, 
-  Scale, 
-  FileText, 
-  BookOpen, 
-  GraduationCap, 
-  Shield, 
+import {
+  ChevronDown,
+  Menu,
+  X,
+  Search,
+  Phone,
+  Mail,
+  Clock,
+  MapPin,
+  Landmark,
+  Scale,
+  FileText,
+  BookOpen,
+  GraduationCap,
+  Shield,
   ArrowRight,
   Gavel,
   Briefcase,
@@ -106,7 +106,7 @@ export default function Header() {
   return (
     <>
       <header className="sticky top-0 z-50 shadow-lg bg-[#101D35] border-b border-[#E7E4DC]/15 backdrop-blur-md">
-        
+
         {/* ── 1. Top Utility Ribbon (Mobile & Tablet) ── */}
         <div className="lg:hidden bg-[#070D18] text-[#F8F7F3]/85 border-b border-white/5 text-[10px] sm:text-[11px] font-medium py-1 px-3">
           <div className="max-w-[1560px] mx-auto flex items-center justify-between gap-2">
@@ -115,8 +115,8 @@ export default function Header() {
               <span className="truncate">AOR Supreme Court of India • Reg. 4215</span>
             </span>
             <div className="flex items-center gap-3 flex-shrink-0">
-              <a 
-                href="tel:+917206810681" 
+              <a
+                href="tel:+917206810681"
                 className="flex items-center gap-1 text-[#B69A63] hover:text-[#CBB484] transition-colors font-semibold"
               >
                 <Phone size={10} />
@@ -129,7 +129,7 @@ export default function Header() {
         {/* ── 2. Top Utility Bar (Laptop & Large Screens) ── */}
         <div className="hidden lg:block bg-[#070D18] text-[#F8F7F3]/80 border-b border-white/5 text-[11px] xl:text-[11.5px] font-medium tracking-wide">
           <div className="max-w-[1560px] mx-auto px-4 sm:px-6 lg:px-8 py-1.5 flex items-center justify-between gap-4">
-            
+
             {/* Left: Official Standing & AOR Credential */}
             <div className="flex items-center gap-3 xl:gap-4 min-w-0">
               <span className="flex items-center gap-1.5 text-[#B69A63] font-semibold uppercase tracking-wider whitespace-nowrap">
@@ -150,16 +150,16 @@ export default function Header() {
                 Mon – Sat: 10:00 AM – 7:30 PM
               </span>
               <span className="text-white/20 hidden 2xl:inline">|</span>
-              <a 
-                href="mailto:advocate.tushargarg@gmail.com" 
+              <a
+                href="mailto:advocate.tushargarg@gmail.com"
                 className="hover:text-[#B69A63] transition-colors flex items-center gap-1.5 whitespace-nowrap"
               >
                 <Mail size={11} className="text-[#B69A63]" />
                 <span>advocate.tushargarg@gmail.com</span>
               </a>
               <span className="text-white/20">|</span>
-              <a 
-                href="tel:+917206810681" 
+              <a
+                href="tel:+917206810681"
                 className="font-semibold text-[#B69A63] hover:text-[#CBB484] transition-colors flex items-center gap-1.5 whitespace-nowrap"
               >
                 <Phone size={11} className="text-[#B69A63]" />
@@ -173,11 +173,11 @@ export default function Header() {
         {/* ── 3. Main Navigation Bar ── */}
         <div className="max-w-[1560px] mx-auto px-3 sm:px-4 md:px-6 lg:px-6 xl:px-6 2xl:px-8">
           <div className="flex items-center justify-between h-[62px] sm:h-[68px] xl:h-[72px] gap-2 lg:gap-3">
-            
+
             {/* Brand Logo */}
-            <Link 
-              href="/" 
-              className="flex items-center group py-1 flex-shrink-0" 
+            <Link
+              href="/"
+              className="flex items-center group py-1 flex-shrink-0"
               aria-label="Advocate Tushar Garg Home"
             >
               <div className="relative h-8 sm:h-9 md:h-10 xl:h-10 2xl:h-11 w-auto flex-shrink-0">
@@ -191,13 +191,12 @@ export default function Header() {
 
             {/* Desktop Navigation Links (Scaled gracefully for laptops and desktops) */}
             <nav className="hidden xl:flex items-center gap-0.5 xl:gap-0.5 2xl:gap-1.5 min-w-0">
-              
+
               {/* 1. Home */}
-              <Link 
-                href="/" 
-                className={`px-1.5 xl:px-2 2xl:px-2.5 py-1.5 text-[11px] xl:text-[11.5px] 2xl:text-[13px] font-medium tracking-normal 2xl:tracking-wide rounded-md transition-colors whitespace-nowrap ${
-                  pathname === "/" ? "text-[#B69A63] font-semibold" : "text-white/85 hover:text-white hover:bg-white/5"
-                }`}
+              <Link
+                href="/"
+                className={`px-1.5 xl:px-2 2xl:px-2.5 py-1.5 text-[11px] xl:text-[11.5px] 2xl:text-[13px] font-medium tracking-normal 2xl:tracking-wide rounded-md transition-colors whitespace-nowrap ${pathname === "/" ? "text-[#B69A63] font-semibold" : "text-white/85 hover:text-white hover:bg-white/5"
+                  }`}
               >
                 Home
               </Link>
@@ -206,9 +205,8 @@ export default function Header() {
               <div className="relative group py-2">
                 <Link
                   href="/about"
-                  className={`flex items-center gap-0.5 xl:gap-1 px-1.5 xl:px-2 2xl:px-2.5 py-1.5 text-[11px] xl:text-[11.5px] 2xl:text-[13px] font-medium tracking-normal 2xl:tracking-wide rounded-md transition-colors whitespace-nowrap ${
-                    pathname?.startsWith("/about") ? "text-[#B69A63] font-semibold" : "text-white/85 hover:text-white hover:bg-white/5"
-                  }`}
+                  className={`flex items-center gap-0.5 xl:gap-1 px-1.5 xl:px-2 2xl:px-2.5 py-1.5 text-[11px] xl:text-[11.5px] 2xl:text-[13px] font-medium tracking-normal 2xl:tracking-wide rounded-md transition-colors whitespace-nowrap ${pathname?.startsWith("/about") ? "text-[#B69A63] font-semibold" : "text-white/85 hover:text-white hover:bg-white/5"
+                    }`}
                 >
                   <span>About</span>
                   <ChevronDown size={11} className="opacity-70 group-hover:rotate-180 transition-transform duration-200 flex-shrink-0" />
@@ -234,9 +232,8 @@ export default function Header() {
               <div className="relative group py-2">
                 <Link
                   href="/laws"
-                  className={`flex items-center gap-0.5 xl:gap-1 px-1.5 xl:px-2 2xl:px-2.5 py-1.5 text-[11px] xl:text-[11.5px] 2xl:text-[13px] font-medium tracking-normal 2xl:tracking-wide rounded-md transition-colors whitespace-nowrap ${
-                    pathname?.startsWith("/laws") ? "text-[#B69A63] font-semibold" : "text-white/85 hover:text-white hover:bg-white/5"
-                  }`}
+                  className={`flex items-center gap-0.5 xl:gap-1 px-1.5 xl:px-2 2xl:px-2.5 py-1.5 text-[11px] xl:text-[11.5px] 2xl:text-[13px] font-medium tracking-normal 2xl:tracking-wide rounded-md transition-colors whitespace-nowrap ${pathname?.startsWith("/laws") ? "text-[#B69A63] font-semibold" : "text-white/85 hover:text-white hover:bg-white/5"
+                    }`}
                 >
                   <span>Practice Areas</span>
                   <ChevronDown size={11} className="opacity-70 group-hover:rotate-180 transition-transform duration-200 flex-shrink-0" />
@@ -276,9 +273,8 @@ export default function Header() {
               <div className="relative group py-2">
                 <Link
                   href="/courts"
-                  className={`flex items-center gap-0.5 xl:gap-1 px-1.5 xl:px-2 2xl:px-2.5 py-1.5 text-[11px] xl:text-[11.5px] 2xl:text-[13px] font-medium tracking-normal 2xl:tracking-wide rounded-md transition-colors whitespace-nowrap ${
-                    pathname?.startsWith("/courts") || pathname === "/all-courts" || pathname === "/high-courts" ? "text-[#B69A63] font-semibold" : "text-white/85 hover:text-white hover:bg-white/5"
-                  }`}
+                  className={`flex items-center gap-0.5 xl:gap-1 px-1.5 xl:px-2 2xl:px-2.5 py-1.5 text-[11px] xl:text-[11.5px] 2xl:text-[13px] font-medium tracking-normal 2xl:tracking-wide rounded-md transition-colors whitespace-nowrap ${pathname?.startsWith("/courts") || pathname === "/all-courts" || pathname === "/high-courts" ? "text-[#B69A63] font-semibold" : "text-white/85 hover:text-white hover:bg-white/5"
+                    }`}
                 >
                   <span>Courts</span>
                   <ChevronDown size={11} className="opacity-70 group-hover:rotate-180 transition-transform duration-200 flex-shrink-0" />
@@ -314,9 +310,8 @@ export default function Header() {
               <div className="relative group py-2">
                 <Link
                   href="/judgments"
-                  className={`flex items-center gap-0.5 xl:gap-1 px-1.5 xl:px-2 2xl:px-2.5 py-1.5 text-[11px] xl:text-[11.5px] 2xl:text-[13px] font-medium tracking-normal 2xl:tracking-wide rounded-md transition-colors whitespace-nowrap ${
-                    pathname?.startsWith("/judgments") ? "text-[#B69A63] font-semibold" : "text-white/85 hover:text-white hover:bg-white/5"
-                  }`}
+                  className={`flex items-center gap-0.5 xl:gap-1 px-1.5 xl:px-2 2xl:px-2.5 py-1.5 text-[11px] xl:text-[11.5px] 2xl:text-[13px] font-medium tracking-normal 2xl:tracking-wide rounded-md transition-colors whitespace-nowrap ${pathname?.startsWith("/judgments") ? "text-[#B69A63] font-semibold" : "text-white/85 hover:text-white hover:bg-white/5"
+                    }`}
                 >
                   <span>Judgments</span>
                   <ChevronDown size={11} className="opacity-70 group-hover:rotate-180 transition-transform duration-200 flex-shrink-0" />
@@ -346,9 +341,8 @@ export default function Header() {
               <div className="relative group py-2">
                 <Link
                   href="/bare-acts"
-                  className={`flex items-center gap-0.5 xl:gap-1 px-1.5 xl:px-2 2xl:px-2.5 py-1.5 text-[11px] xl:text-[11.5px] 2xl:text-[13px] font-medium tracking-normal 2xl:tracking-wide rounded-md transition-colors whitespace-nowrap ${
-                    pathname?.startsWith("/bare-acts") || pathname?.startsWith("/articles") ? "text-[#B69A63] font-semibold" : "text-white/85 hover:text-white hover:bg-white/5"
-                  }`}
+                  className={`flex items-center gap-0.5 xl:gap-1 px-1.5 xl:px-2 2xl:px-2.5 py-1.5 text-[11px] xl:text-[11.5px] 2xl:text-[13px] font-medium tracking-normal 2xl:tracking-wide rounded-md transition-colors whitespace-nowrap ${pathname?.startsWith("/bare-acts") || pathname?.startsWith("/articles") ? "text-[#B69A63] font-semibold" : "text-white/85 hover:text-white hover:bg-white/5"
+                    }`}
                 >
                   <span>Legal Research</span>
                   <ChevronDown size={11} className="opacity-70 group-hover:rotate-180 transition-transform duration-200 flex-shrink-0" />
@@ -389,9 +383,8 @@ export default function Header() {
               <div className="relative group py-2">
                 <Link
                   href="/judiciary"
-                  className={`flex items-center gap-0.5 xl:gap-1 px-1.5 xl:px-2 2xl:px-2.5 py-1.5 text-[11px] xl:text-[11.5px] 2xl:text-[13px] font-medium tracking-normal 2xl:tracking-wide rounded-md transition-colors whitespace-nowrap ${
-                    pathname?.startsWith("/judiciary") || pathname?.startsWith("/jobs") ? "text-[#B69A63] font-semibold" : "text-white/85 hover:text-white hover:bg-white/5"
-                  }`}
+                  className={`flex items-center gap-0.5 xl:gap-1 px-1.5 xl:px-2 2xl:px-2.5 py-1.5 text-[11px] xl:text-[11.5px] 2xl:text-[13px] font-medium tracking-normal 2xl:tracking-wide rounded-md transition-colors whitespace-nowrap ${pathname?.startsWith("/judiciary") || pathname?.startsWith("/jobs") ? "text-[#B69A63] font-semibold" : "text-white/85 hover:text-white hover:bg-white/5"
+                    }`}
                 >
                   <span>Judiciary & Careers</span>
                   <ChevronDown size={11} className="opacity-70 group-hover:rotate-180 transition-transform duration-200 flex-shrink-0" />
@@ -427,11 +420,10 @@ export default function Header() {
               {/* 8. Podcast (Distinctive Highlight) */}
               <Link
                 href="/podcast"
-                className={`relative inline-flex items-center gap-1 px-1.5 xl:px-2 2xl:px-2.5 py-1 text-[11px] xl:text-[11.5px] 2xl:text-[12px] font-bold tracking-wide rounded-lg transition-all border whitespace-nowrap ${
-                  pathname === "/podcast"
+                className={`relative inline-flex items-center gap-1 px-1.5 xl:px-2 2xl:px-2.5 py-1 text-[11px] xl:text-[11.5px] 2xl:text-[12px] font-bold tracking-wide rounded-lg transition-all border whitespace-nowrap ${pathname === "/podcast"
                     ? "bg-[#B69A63] text-[#101D35] border-[#B69A63] shadow-md shadow-[#B69A63]/25"
                     : "bg-[#B69A63]/10 hover:bg-[#B69A63]/20 text-[#B69A63] border-[#B69A63]/50 hover:border-[#B69A63]"
-                }`}
+                  }`}
                 title="Watch Legal Podcasts & Case Discussions"
               >
                 <Radio size={12} className="text-red-400 animate-pulse flex-shrink-0" />
@@ -444,9 +436,9 @@ export default function Header() {
 
             </nav>
 
-            {/* Right Actions: Search Icon, Chambers Contact CTA, & Mobile Hamburger */}
+            {/* Right Actions: Search Icon, Legal Awareness CTA, & Mobile Hamburger */}
             <div className="flex items-center gap-2 xl:gap-2.5 2xl:gap-3 flex-shrink-0">
-              
+
               {/* Search Trigger */}
               <button
                 onClick={() => setSearchOpen(true)}
@@ -461,12 +453,12 @@ export default function Header() {
                 </kbd>
               </button>
 
-              {/* Chambers Contact CTA (Prominent, restrained, single button) */}
+              {/* Legal Awareness CTA (Prominent, restrained, single button) */}
               <Link
                 href="/contact"
                 className="hidden sm:inline-flex items-center gap-1.5 px-2.5 xl:px-3 2xl:px-4 py-1.5 xl:py-2 rounded-lg border border-[#B69A63]/70 bg-[#B69A63]/10 hover:bg-[#B69A63] text-[#B69A63] hover:text-[#101D35] font-semibold text-[10.5px] xl:text-[11px] 2xl:text-xs uppercase tracking-wider transition-all duration-200 whitespace-nowrap shadow-sm"
               >
-                <span>Chambers Contact</span>
+                <span>Legal Awareness</span>
                 <ArrowRight size={12} className="hidden xl:inline" />
               </Link>
 
@@ -498,7 +490,7 @@ export default function Header() {
         {mobileOpen && (
           <div className="xl:hidden fixed inset-x-0 top-[calc(100%)] max-h-[85vh] overflow-y-auto bg-[#0A1222] border-t border-white/10 shadow-2xl z-50 animate-in slide-in-from-top-2 duration-200">
             <div className="px-4 py-4 space-y-4">
-              
+
               {/* Chambers Credential Card */}
               <div className="p-3 rounded-xl bg-gradient-to-r from-white/5 to-white/[0.02] border border-white/10 flex items-center justify-between">
                 <div>
@@ -540,13 +532,12 @@ export default function Header() {
 
               {/* Accordion Navigation Items */}
               <div className="space-y-1 text-sm font-medium">
-                
+
                 {/* Home */}
-                <Link 
-                  href="/" 
-                  className={`block px-3 py-2.5 rounded-lg transition-colors ${
-                    pathname === "/" ? "bg-[#B69A63]/15 text-[#B69A63] font-semibold" : "text-white/90 hover:bg-white/5 hover:text-[#B69A63]"
-                  }`}
+                <Link
+                  href="/"
+                  className={`block px-3 py-2.5 rounded-lg transition-colors ${pathname === "/" ? "bg-[#B69A63]/15 text-[#B69A63] font-semibold" : "text-white/90 hover:bg-white/5 hover:text-[#B69A63]"
+                    }`}
                 >
                   Home
                 </Link>
@@ -723,8 +714,8 @@ export default function Header() {
                 </div>
 
                 {/* Highlighted Podcast Link */}
-                <Link 
-                  href="/podcast" 
+                <Link
+                  href="/podcast"
                   className="flex items-center justify-between px-3 py-2.5 rounded-xl bg-gradient-to-r from-[#B69A63]/20 via-red-950/20 to-[#101D35] border border-[#B69A63]/40 text-white hover:border-[#B69A63] transition-colors shadow-sm my-1"
                 >
                   <div className="flex items-center gap-2">
@@ -737,11 +728,10 @@ export default function Header() {
                 </Link>
 
                 {/* Direct Contact */}
-                <Link 
-                  href="/contact" 
-                  className={`block px-3 py-2.5 rounded-lg transition-colors ${
-                    pathname === "/contact" ? "bg-[#B69A63]/15 text-[#B69A63] font-semibold" : "text-white/90 hover:bg-white/5 hover:text-[#B69A63]"
-                  }`}
+                <Link
+                  href="/contact"
+                  className={`block px-3 py-2.5 rounded-lg transition-colors ${pathname === "/contact" ? "bg-[#B69A63]/15 text-[#B69A63] font-semibold" : "text-white/90 hover:bg-white/5 hover:text-[#B69A63]"
+                    }`}
                 >
                   Contact Chambers
                 </Link>
@@ -757,7 +747,7 @@ export default function Header() {
                   <Phone size={14} />
                   <span>Call Chambers: +91 72068 10681</span>
                 </a>
-                
+
                 <a
                   href="https://wa.me/917206810681?text=Hello%20Advocate%20Tushar%20Garg,%20I%20am%20contacting%20the%20Legal%20Awareness%20Helpline%20regarding%20legal%20information%20and%20consultation."
                   target="_blank"
@@ -794,11 +784,11 @@ export default function Header() {
 
       {/* ── 5. Global Interactive Search Modal (⌘K / Ctrl+K) ── */}
       {searchOpen && (
-        <div 
+        <div
           className="fixed inset-0 z-50 flex items-start justify-center pt-16 sm:pt-20 px-3 sm:px-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200"
           onClick={() => setSearchOpen(false)}
         >
-          <div 
+          <div
             className="w-full max-w-2xl bg-[#101D35] border border-[#B69A63]/50 rounded-2xl shadow-2xl p-4 sm:p-6 text-white"
             onClick={(e) => e.stopPropagation()}
           >
@@ -807,7 +797,7 @@ export default function Header() {
                 <Search size={15} />
                 <span>Search Legal Research Repository &amp; Judgments</span>
               </div>
-              <button 
+              <button
                 onClick={() => setSearchOpen(false)}
                 className="text-white/40 hover:text-white p-1 rounded-md"
               >

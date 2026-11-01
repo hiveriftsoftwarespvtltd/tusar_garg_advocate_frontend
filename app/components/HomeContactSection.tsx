@@ -2,13 +2,13 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { 
-  Phone, 
-  Mail, 
-  MapPin, 
-  Clock, 
-  ShieldCheck, 
-  Send, 
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+  ShieldCheck,
+  Send,
   ArrowRight,
   Building,
   CheckCircle2
@@ -32,7 +32,7 @@ export default function HomeContactSection() {
   return (
     <section className="bg-white py-16 sm:py-20 border-b border-[#E7E4DC]">
       <div className="max-w-[1440px] 2xl:max-w-[1560px] mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="inline-flex items-center gap-2 bg-[#101D35]/5 border border-[#B69A63]/30 px-3.5 py-1 rounded-full mb-3">
@@ -42,7 +42,7 @@ export default function HomeContactSection() {
             </span>
           </div>
           <h2 className="font-serif text-[28px] sm:text-[36px] font-bold text-[#101D35] uppercase tracking-tight">
-            CHAMBERS CONTACT INFORMATION
+            Legal Awareness INFORMATION
           </h2>
           <div className="w-14 h-0.5 bg-[#B69A63] mx-auto mt-3 mb-4" />
           <p className="text-[#4A5568] text-[14px] sm:text-[15.5px] leading-relaxed">
@@ -51,10 +51,10 @@ export default function HomeContactSection() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
-          
+
           {/* Left Column: Official Chambers Particulars (5 cols) */}
           <div className="lg:col-span-5 space-y-6">
-            
+
             <div className="bg-[#F8F7F3] border border-[#E7E4DC] p-5 sm:p-7 rounded-2xl shadow-sm">
               <h3 className="font-serif text-xl font-bold text-[#101D35] mb-1">
                 Advocate Tushar Garg
@@ -64,7 +64,7 @@ export default function HomeContactSection() {
               </p>
 
               <div className="space-y-4 text-xs sm:text-[13px] text-[#4A5568]">
-                
+
                 {/* Telephone */}
                 <div className="flex items-start gap-3">
                   <div className="w-8 h-8 rounded-lg bg-white border border-[#E7E4DC] flex items-center justify-center shrink-0 mt-0.5">

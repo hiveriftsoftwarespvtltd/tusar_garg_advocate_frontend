@@ -1,16 +1,16 @@
 "use client";
 
 import Link from "next/link";
-import { 
-  Shield, 
-  MapPin, 
-  Phone, 
-  Mail, 
-  Clock, 
-  Scale, 
-  ArrowRight, 
-  Landmark, 
-  BookOpen, 
+import {
+  Shield,
+  MapPin,
+  Phone,
+  Mail,
+  Clock,
+  Scale,
+  ArrowRight,
+  Landmark,
+  BookOpen,
   Building,
   FileCheck2
 } from "lucide-react";
@@ -18,12 +18,12 @@ import {
 export default function Footer() {
   return (
     <footer className="bg-[#101D35] text-white border-t border-[#E7E4DC]/20">
-      
+
       {/* ── Top Restrained Credential Strip ── */}
       <div className="border-b border-white/10 bg-[#0A1222]">
         <div className="max-w-[1440px] 2xl:max-w-[1560px] mx-auto px-4 sm:px-6 lg:px-8 py-5">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-            
+
             <div className="flex items-center justify-center gap-2.5 p-2 rounded-xl bg-white/5 border border-white/5">
               <Shield size={17} className="text-[#B69A63] shrink-0" />
               <div className="text-left">
@@ -63,7 +63,7 @@ export default function Footer() {
       {/* ── Main Multi-Column Links Section (Prompt Section 14) ── */}
       <div className="max-w-[1440px] 2xl:max-w-[1560px] mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 items-start">
-          
+
           {/* Column 1: Advocate Profile (3 cols) */}
           <div className="lg:col-span-3 space-y-4">
             <Link href="/" className="inline-block group">
@@ -138,15 +138,15 @@ export default function Footer() {
           {/* Column 5: Contact Information (3 cols) */}
           <div className="lg:col-span-3 space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-wider text-[#B69A63]">
-              Chambers Contact
+              Legal Awareness
             </h4>
-            
+
             <div className="space-y-2.5 text-xs text-[#F8F7F3]/80">
               <p className="flex items-start gap-2">
                 <Phone size={13} className="text-[#B69A63] shrink-0 mt-0.5" />
                 <a href="tel:+917206810681" className="hover:text-[#B69A63] font-semibold transition-colors">+91 72068 10681</a>
               </p>
-              
+
               <p className="flex items-start gap-2">
                 <Mail size={13} className="text-[#B69A63] shrink-0 mt-0.5" />
                 <a href="mailto:advocate.tushargarg@gmail.com" className="hover:text-[#B69A63] transition-colors">advocate.tushargarg@gmail.com</a>
@@ -181,7 +181,7 @@ export default function Footer() {
       {/* ── Bottom Footer: Legal Disclaimer & BCI Rule 36 Compliance (Prompt Section 14) ── */}
       <div className="border-t border-white/10 bg-[#0A1222]">
         <div className="max-w-[1440px] 2xl:max-w-[1560px] mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-4">
-          
+
           {/* Statutory Disclaimer Paragraph */}
           <div className="text-[11px] text-[#F8F7F3]/60 leading-relaxed border-b border-white/5 pb-4">
             <p>
