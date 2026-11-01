@@ -133,12 +133,12 @@ export default function HomeContactSection() {
               {/* Direct WhatsApp & Map Link Action */}
               <div className="pt-6 border-t border-[#E7E4DC] mt-6 flex flex-wrap items-center gap-3">
                 <a
-                  href="https://wa.me/917206810681?text=Hello%20Advocate%20Tushar%20Garg,%20I%20would%20like%20to%20inquire%20regarding%20chambers%20communication."
+                  href="https://wa.me/917206810681?text=Hello%20Advocate%20Tushar%20Garg,%20I%20am%20contacting%20the%20Legal%20Awareness%20Helpline%20regarding%20legal%20information%20and%20consultation."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-[#25D366]/10 text-[#128C7E] hover:bg-[#25D366] hover:text-white font-semibold text-xs transition-colors"
                 >
-                  <span>Chambers WhatsApp Line</span>
+                  <span>Legal Awareness Helpline (WhatsApp)</span>
                 </a>
                 <a
                   href="https://maps.google.com/?q=Kalindi+Colony+New+Delhi"

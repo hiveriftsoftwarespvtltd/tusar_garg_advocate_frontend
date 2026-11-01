@@ -16,8 +16,8 @@ export default function GlobalSocialSidebar() {
 
   const socialLinks: SocialLink[] = [
     {
-      name: "WhatsApp Quick Connect",
-      href: "https://wa.me/917206810681?text=Hello%20Advocate%20Tushar%20Garg,%20I%20need%20legal%20consultation",
+      name: "WhatsApp Legal Awareness Helpline",
+      href: "https://wa.me/917206810681?text=Hello%20Advocate%20Tushar%20Garg,%20I%20am%20contacting%20the%20Legal%20Awareness%20Helpline.",
       bg: "bg-[#25D366]",
       hoverBg: "hover:bg-[#20ba59]",
       icon: (

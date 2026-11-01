@@ -759,13 +759,13 @@ export default function Header() {
                 </a>
                 
                 <a
-                  href="https://wa.me/917206810681?text=Hello%20Advocate%20Tushar%20Garg,%20I%20would%20like%20to%20inquire%20about%20legal%20counsel%20at%20the%20Supreme%20Court%20of%20India."
+                  href="https://wa.me/917206810681?text=Hello%20Advocate%20Tushar%20Garg,%20I%20am%20contacting%20the%20Legal%20Awareness%20Helpline%20regarding%20legal%20information%20and%20consultation."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-[#25D366]/20 border border-[#25D366]/40 text-[#25D366] hover:bg-[#25D366]/30 font-semibold text-xs tracking-wide transition-colors"
                 >
                   <MessageCircle size={14} />
-                  <span>WhatsApp Legal Inquiry</span>
+                  <span>Legal Awareness Helpline (WhatsApp)</span>
                 </a>
 
                 <a

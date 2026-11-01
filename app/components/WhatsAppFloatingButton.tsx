@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { X, MessageSquare } from "lucide-react";
+import { X, MessageSquare, ShieldCheck } from "lucide-react";
 
 interface WhatsAppFloatingButtonProps {
   phoneNumber?: string;
@@ -25,7 +25,7 @@ function WhatsAppIcon({ className = "w-6 h-6" }: { className?: string }) {
 
 export default function WhatsAppFloatingButton({
   phoneNumber = "917206810681",
-  message = "Hello Advocate Tushar Garg, I need legal consultation regarding an appellate matter.",
+  message = "Hello Advocate Tushar Garg, I am contacting the Legal Awareness Helpline regarding legal information and consultation.",
 }: WhatsAppFloatingButtonProps) {
   const [showTooltip, setShowTooltip] = useState(false);
 
@@ -40,7 +40,7 @@ export default function WhatsAppFloatingButton({
           onClick={() => {
             window.open(whatsappUrl, "_blank", "noopener,noreferrer");
           }}
-          className="mb-3 bg-[#071126]/95 backdrop-blur-md text-white border border-[#25D366]/40 hover:border-[#25D366] rounded-2xl p-4 shadow-2xl min-w-[240px] max-w-[280px] animate-in fade-in slide-in-from-bottom-2 duration-200 relative cursor-pointer transition-all"
+          className="mb-3 bg-[#071126]/95 backdrop-blur-md text-white border border-[#25D366]/40 hover:border-[#25D366] rounded-2xl p-4 shadow-2xl min-w-[260px] max-w-[300px] animate-in fade-in slide-in-from-bottom-2 duration-200 relative cursor-pointer transition-all"
         >
           <button
             onClick={(e) => {
@@ -55,38 +55,60 @@ export default function WhatsAppFloatingButton({
           </button>
 
           <div className="pr-6 mb-3">
+            <div className="flex items-center gap-1.5 mb-1">
+              <span className="w-2 h-2 rounded-full bg-[#25D366] animate-pulse"></span>
+              <span className="text-[10px] font-bold uppercase tracking-wider text-[#25D366]">
+                WhatsApp Helpline
+              </span>
+            </div>
             <h4 className="font-bold text-[13px] text-[#c9a84c] leading-snug">
-              Chambers Helpline
+              Legal Awareness Helpline
             </h4>
-            <p className="text-[11px] text-slate-300 mt-0.5">Direct Advocate-on-Record desk</p>
+            <p className="text-[11px] text-slate-300 mt-0.5">
+              Direct Chambers of Advocate Tushar Garg (AOR)
+            </p>
           </div>
 
           <div
             className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold text-[12px] px-3.5 py-2 rounded-xl transition-all shadow-md w-full justify-center"
           >
             <WhatsAppIcon className="w-4 h-4 fill-white" />
-            <span>Connect on WhatsApp</span>
+            <span>Chat on Legal Awareness Helpline</span>
           </div>
         </div>
       )}
 
-      {/* Floating WhatsApp Action Button */}
+      {/* Floating WhatsApp Action Pill / Button */}
       <a
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Contact Advocate Tushar Garg on WhatsApp"
-        className="relative group flex items-center justify-center w-13 h-13 sm:w-14 sm:h-14 rounded-full bg-[#25D366] text-white shadow-[0_10px_25px_rgba(37,211,102,0.35)] hover:shadow-[0_12px_30px_rgba(37,211,102,0.5)] hover:bg-[#20ba5a] hover:scale-105 transition-all duration-300 cursor-pointer"
+        aria-label="Legal Awareness Helpline on WhatsApp"
+        className="group relative flex items-center gap-2.5 pl-3.5 pr-2 py-2 sm:py-2 rounded-full bg-[#071126]/95 hover:bg-[#0A1832] text-white shadow-[0_10px_30px_rgba(37,211,102,0.35)] hover:shadow-[0_14px_35px_rgba(37,211,102,0.5)] border border-[#25D366]/50 hover:border-[#25D366] hover:scale-105 transition-all duration-300 cursor-pointer"
       >
-        {/* Subtle Pulse Animation */}
-        <span className="absolute inset-0 rounded-full bg-[#25D366] opacity-30 animate-ping pointer-events-none" />
+        {/* Visible Text Content on Tablet & Desktop */}
+        <div className="text-right hidden sm:block select-none pl-1">
+          <div className="text-[10px] font-bold text-[#25D366] leading-none uppercase tracking-wider flex items-center gap-1.5 justify-end">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#25D366] animate-pulse"></span>
+            <span>Legal Awareness Helpline</span>
+          </div>
+          <div className="text-[11px] font-semibold text-white/90 leading-tight mt-0.5">
+            Chambers of Tushar Garg (AOR)
+          </div>
+        </div>
 
-        {/* Real Official WhatsApp SVG Icon */}
-        <WhatsAppIcon className="w-7 h-7 fill-white relative z-10 drop-shadow-sm" />
+        {/* WhatsApp Icon Circle */}
+        <div className="relative flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#25D366] text-white shadow-md flex-shrink-0">
+          {/* Subtle Pulse Animation */}
+          <span className="absolute inset-0 rounded-full bg-[#25D366] opacity-35 animate-ping pointer-events-none" />
 
-        {/* Hover Pill Badge for Desktop */}
-        <span className="absolute right-16 bg-[#071126] text-white text-xs font-semibold px-3 py-1.5 rounded-lg shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none border border-[#c9a84c]/30">
-          WhatsApp Chambers Helpline
+          {/* Official WhatsApp SVG Icon */}
+          <WhatsAppIcon className="w-5 h-5 sm:w-6 sm:h-6 fill-white relative z-10 drop-shadow-sm" />
+        </div>
+
+        {/* Hover Pill Badge for Small Screens / Tooltip */}
+        <span className="sm:hidden absolute right-14 bg-[#071126] text-white text-[11px] font-semibold px-2.5 py-1 rounded-lg shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none border border-[#25D366]/40">
+          Legal Awareness Helpline
         </span>
       </a>
     </div>
